@@ -267,7 +267,7 @@ export function DiagnosticWizard({ sectors, pains }: { sectors: string[]; pains:
             </label>
             <label className="block text-sm font-semibold text-ink">
               WhatsApp
-              <input name="whatsapp" required type="tel" inputMode="tel" autoComplete="tel" pattern="[\d\s\(\)\+\-]{10,20}" className={inputCls} placeholder="(83) 99999-9999" />
+              <input name="whatsapp" required type="tel" inputMode="tel" autoComplete="tel" pattern="[\d\s\(\)\+\-]{10,20}" className={inputCls} placeholder="(11) 99999-9999" />
             </label>
             <label className="block text-sm font-semibold text-ink">
               E-mail <span className="font-normal text-slate">(opcional)</span>

@@ -79,6 +79,16 @@ cat ~/.ssh/deploy_github   # copie tudo, de -----BEGIN a -----END, para o secret
 
 A partir daí, cada merge no `main` envia o código, reconstrói o contêiner e confere se o site voltou a responder. O `.env` da VPS (chaves e webhooks) é preservado. Sem os secrets, a execução mostra um aviso em vez de falhar.
 
+## Leads por e-mail
+
+Cada formulário vira um e-mail para o contato do site (ou `LEAD_EMAIL_TO`), com todos os campos e o link para responder no WhatsApp. Com Gmail:
+
+1. Ative a verificação em duas etapas da conta Google.
+2. Crie uma senha de app em myaccount.google.com/apppasswords (nome: "Site Sinal") e copie os 16 caracteres, sem espaços.
+3. Na VPS: `cd /opt/agencia && SMTP_USER=seu@gmail.com SMTP_PASS=senhadeapp bash scripts/deploy-vps.sh` (os valores ficam no `.env`).
+
+Se o envio falhar, o formulário oferece o WhatsApp ao visitante e o erro aparece em `docker logs agencia-site`.
+
 ## Chat de IA
 
 Com `ANTHROPIC_API_KEY` no `.env` da VPS (ou `ANTHROPIC_API_KEY=... bash scripts/deploy-vps.sh`), o balão "Pergunte à IA" aparece no site. `CHAT_MODEL` e `CHAT_DAILY_LIMIT` são opcionais. Acompanhe o consumo em console.anthropic.com.
