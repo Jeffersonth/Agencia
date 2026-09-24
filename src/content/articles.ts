@@ -493,6 +493,297 @@ export const guides: Article[] = [
       "/solucoes/ia-corporativa/ia-privada/",
     ],
   },
+  {
+    slug: "ia-para-imobiliarias",
+    kind: "guia",
+    title: "IA para imobiliárias: atendimento de leads, visitas e CRM",
+    metaTitle: "IA para Imobiliárias: Leads dos Portais, Visitas e Follow-up no WhatsApp",
+    description:
+      "Como imobiliárias usam IA para responder leads dos portais em segundos, qualificar o perfil do interessado, agendar visitas e manter o follow-up, com CRM e LGPD.",
+    answer:
+      "Imobiliárias usam IA principalmente para responder em segundos a quem chama pelos anúncios, tirar dúvidas sobre cada imóvel com dados do catálogo, qualificar o perfil do interessado e agendar a visita com o corretor. O agente cuida do primeiro atendimento e do follow-up; o corretor conduz visita e negociação. Tudo fica registrado no CRM, com mensagens ativas só para quem consentiu.",
+    updatedAt: UPDATED,
+    readingMinutes: 7,
+    sections: [
+      {
+        id: "onde-ajuda",
+        heading: "Onde a IA ajuda uma imobiliária",
+        blocks: [
+          { type: "ul", items: [
+            "Primeira resposta imediata aos leads dos portais, do site e das redes sociais.",
+            "Dúvidas sobre valor, condomínio, IPTU, metragem e disponibilidade, com dados do catálogo.",
+            "Qualificação do perfil: região, faixa de preço, quartos, financiamento e prazo.",
+            "Sugestão de imóveis parecidos quando o anunciado não serve.",
+            "Agendamento da visita na agenda do corretor responsável, com lembrete.",
+            "Follow-up depois da visita e reativação quando entra um imóvel com o perfil do cliente.",
+          ] },
+          { type: "p", text: "O ganho mais rápido costuma estar na velocidade da primeira resposta: quem pesquisa imóveis chama várias imobiliárias ao mesmo tempo, e a primeira a responder bem tende a levar a visita." },
+        ],
+      },
+      {
+        id: "corretor",
+        heading: "O papel do corretor continua central",
+        blocks: [
+          { type: "p", text: "O agente não negocia nem fecha contrato. Ele organiza a fila: responde o básico, entende o que o cliente procura e entrega ao corretor um lead qualificado, com o resumo da conversa. O corretor passa a dedicar tempo a quem tem perfil e intenção." },
+          { type: "callout", title: "Regra prática", text: "Pergunta com resposta no catálogo, o agente responde. Negociação, proposta e condição especial, o corretor assume." },
+        ],
+      },
+      {
+        id: "regras",
+        heading: "LGPD e regras do mercado imobiliário",
+        blocks: [
+          { type: "ol", items: [
+            "Atender quem procurou a imobiliária; mensagens ativas só para quem consentiu, com opção de sair.",
+            "Informar valores e condições a partir do anúncio oficial, sem promessas fora dele.",
+            "Manter a identificação da imobiliária e do registro no CRECI na comunicação.",
+            "Usar a API oficial do WhatsApp, com a conta em nome da imobiliária.",
+            "Guardar o histórico no CRM, com acesso controlado por corretor.",
+          ] },
+          { type: "callout", text: "Este guia é informativo e não substitui a orientação do CRECI da sua região nem a análise jurídica da imobiliária." },
+        ],
+      },
+      {
+        id: "medir",
+        heading: "Como medir o resultado",
+        blocks: [
+          { type: "table", head: ["Indicador", "Como medir"], rows: [
+            ["Tempo até a primeira resposta", "Minutos entre a chegada do lead e a primeira mensagem"],
+            ["Visitas agendadas", "Visitas marcadas ÷ leads recebidos, antes e depois"],
+            ["Leads qualificados por corretor", "Leads dentro do perfil entregues a cada corretor"],
+            ["Atendimentos fora do horário", "Conversas iniciadas à noite e no fim de semana"],
+          ] },
+        ],
+      },
+    ],
+    faq: [
+      { q: "O agente sabe responder sobre cada imóvel?", a: "Sim, quando está conectado ao catálogo da imobiliária (site, CRM imobiliário ou planilha). Pergunta que foge do catálogo vai para o corretor." },
+      { q: "Funciona com os leads dos portais?", a: "Sim, desde que o portal ou o CRM permitam encaminhar os leads por integração. Isso é avaliado no Diagnóstico." },
+      { q: "Quanto custa?", a: "Agente de IA para WhatsApp a partir de R$ 7.500, SDR com IA a partir de R$ 15.000 e CRM e pipeline a partir de R$ 5.000." },
+    ],
+    related: [
+      "/setores/imobiliarias/",
+      "/solucoes/atendimento-inteligente/agente-ia-whatsapp/",
+      "/solucoes/vendas-e-receita/sdr-com-ia/",
+      "/solucoes/vendas-e-receita/crm-e-pipeline/",
+    ],
+  },
+  {
+    slug: "ia-para-contabilidade",
+    kind: "guia",
+    title: "IA para contabilidade: documentos, obrigações e atendimento",
+    metaTitle: "IA para Contabilidade: Leitura de Documentos, Cobrança e Atendimento",
+    description:
+      "Como escritórios de contabilidade usam IA para ler notas e documentos, cobrar o que falta dos clientes, responder dúvidas repetidas e organizar o conhecimento da equipe, com sigilo e LGPD.",
+    answer:
+      "Escritórios de contabilidade usam IA para ler notas, extratos e guias e lançar os dados no sistema, cobrar dos clientes os documentos que faltam antes dos prazos, responder dúvidas repetidas pelo WhatsApp e dar à equipe acesso rápido aos procedimentos internos. Exceções vão para revisão humana, e dados fiscais pedem provedores sem retenção ou IA privada.",
+    updatedAt: UPDATED,
+    readingMinutes: 7,
+    sections: [
+      {
+        id: "onde-ajuda",
+        heading: "Onde a IA ajuda um escritório contábil",
+        blocks: [
+          { type: "ul", items: [
+            "Leitura de notas fiscais, extratos, guias e recibos, com extração dos campos e lançamento no sistema.",
+            "Cobrança automática dos documentos pendentes de cada cliente, com lembretes antes do prazo.",
+            "Atendimento no WhatsApp para segunda via, prazos, status e envio de documentos.",
+            "Agente de conhecimento interno: procedimentos, obrigações e particularidades de cada cliente, com a fonte citada.",
+            "Relatórios periódicos para os clientes montados automaticamente.",
+          ] },
+          { type: "p", text: "O ganho mais rápido costuma estar na coleta de documentos: é o gargalo que atrasa todo o resto do fechamento." },
+        ],
+      },
+      {
+        id: "revisao",
+        heading: "Automação com revisão, não no escuro",
+        blocks: [
+          { type: "p", text: "A extração de dados de documentos é validada por regras (CNPJ, valores, datas, totais). O que não fecha vai para uma fila de revisão da equipe, e nada incerto é lançado automaticamente. Assim, o escritório ganha velocidade sem abrir mão do controle." },
+          { type: "callout", title: "Em uma frase", text: "A IA digita e confere; o contador decide e orienta." },
+        ],
+      },
+      {
+        id: "sigilo",
+        heading: "Sigilo profissional e LGPD",
+        blocks: [
+          { type: "p", text: "O escritório lida com dados fiscais, financeiros e de funcionários dos clientes. Colar esses dados em ferramentas públicas de IA expõe o escritório. O caminho seguro inclui:" },
+          { type: "ol", items: [
+            "Provedores de IA com contrato de não retenção de dados, ou IA privada.",
+            "Controle de acesso por carteira de clientes.",
+            "Registro de quem consultou o quê.",
+            "Contas e automações em nome do escritório, com cláusula de saída.",
+          ] },
+        ],
+      },
+      {
+        id: "comecar",
+        heading: "Por onde começar",
+        blocks: [
+          { type: "ol", items: [
+            "Cobrança de documentos: reduz a correria antes de cada prazo.",
+            "Leitura de documentos: devolve horas de digitação à equipe.",
+            "Agente de conhecimento: acelera a integração de colaboradores novos.",
+          ] },
+        ],
+      },
+    ],
+    faq: [
+      { q: "A IA substitui o sistema contábil?", a: "Não. Ela trabalha em volta do sistema que o escritório já usa, por integração ou importação de arquivos." },
+      { q: "O agente pode responder dúvidas tributárias dos clientes?", a: "Ele responde sobre prazos, documentos e status. Orientação tributária é papel do contador, e o agente transfere a conversa." },
+      { q: "Quanto custa?", a: "Automação de documentos a partir de R$ 12.000, agente de conhecimento a partir de R$ 10.000 e automação de processos a partir de R$ 4.000." },
+    ],
+    related: [
+      "/setores/contabilidade/",
+      "/solucoes/operacoes/automacao-de-documentos/",
+      "/solucoes/operacoes/agente-de-conhecimento/",
+      "/conteudo/glossario/ocr/",
+    ],
+  },
+  {
+    slug: "ia-para-e-commerce",
+    kind: "guia",
+    title: "IA para e-commerce: vendas no WhatsApp, carrinho e pós-venda",
+    metaTitle: "IA para E-commerce: Vendas no WhatsApp, Carrinho Abandonado e Pós-venda",
+    description:
+      "Como lojas on-line usam IA para responder dúvidas de produto, recuperar carrinhos, informar o status dos pedidos e integrar loja, estoque e ERP, dentro do CDC e da LGPD.",
+    answer:
+      "Lojas on-line usam IA para responder dúvidas de produto, frete e troca em segundos, informar o status dos pedidos, recuperar carrinhos abandonados de quem consentiu em receber mensagens e sincronizar loja, marketplaces, estoque e ERP. O agente envia o link de compra e o pagamento acontece no checkout; trocas e reclamações seguem para a equipe dentro dos prazos do CDC.",
+    updatedAt: UPDATED,
+    readingMinutes: 7,
+    sections: [
+      {
+        id: "onde-ajuda",
+        heading: "Onde a IA ajuda uma loja on-line",
+        blocks: [
+          { type: "ul", items: [
+            "Dúvidas antes da compra: tamanho, especificações, estoque, prazo e frete.",
+            "Status do pedido e rastreio, consultados direto na plataforma.",
+            "Recuperação de carrinho e pós-venda para quem consentiu em receber mensagens.",
+            "Atendimento em picos sazonais sem ampliar a equipe na mesma proporção.",
+            "Integração entre loja, marketplaces, estoque, ERP e emissão de nota.",
+          ] },
+          { type: "p", text: "O ganho mais rápido costuma estar nas perguntas de status de pedido, que ocupam boa parte do atendimento e têm resposta no próprio sistema." },
+        ],
+      },
+      {
+        id: "venda",
+        heading: "O que o agente faz e o que fica com a equipe",
+        blocks: [
+          { type: "table", head: ["O agente de IA", "A equipe"], rows: [
+            ["Responde dúvidas com dados da loja", "Casos fora da política"],
+            ["Confere estoque e frete", "Negociações especiais e B2B"],
+            ["Envia o link de compra", "Trocas, devoluções e reclamações"],
+            ["Informa status e rastreio", "Problemas de entrega e extravio"],
+          ] },
+        ],
+      },
+      {
+        id: "regras",
+        heading: "CDC, comércio eletrônico e LGPD",
+        blocks: [
+          { type: "ol", items: [
+            "Mensagens ativas, como carrinho abandonado, só com consentimento e opção de sair.",
+            "Preço, prazo e condições informados a partir da loja, iguais aos do site.",
+            "Trocas, arrependimento e reclamações respeitando os prazos do Código de Defesa do Consumidor.",
+            "API oficial do WhatsApp, sem disparos em massa para listas compradas.",
+            "Dados de clientes e pedidos em nome da loja, com acesso controlado.",
+          ] },
+          { type: "callout", text: "Este guia é informativo e não substitui a análise jurídica da sua operação." },
+        ],
+      },
+      {
+        id: "medir",
+        heading: "Como medir o resultado",
+        blocks: [
+          { type: "table", head: ["Indicador", "Como medir"], rows: [
+            ["Conversas que viram pedido", "Pedidos com origem no WhatsApp ÷ conversas de pré-venda"],
+            ["Carrinhos recuperados", "Carrinhos retomados após a mensagem ÷ carrinhos contatados"],
+            ["Tempo de resposta", "Minutos até a primeira resposta, inclusive em datas de pico"],
+            ["Atendimentos resolvidos sem humano", "Conversas encerradas pelo agente ÷ total"],
+          ] },
+        ],
+      },
+    ],
+    faq: [
+      { q: "Funciona com a minha plataforma?", a: "Integramos com plataformas que oferecem API, como Shopify, WooCommerce, Nuvemshop e VTEX. Confirmamos a sua no Diagnóstico." },
+      { q: "Posso mandar mensagem de carrinho abandonado para todos?", a: "Não. Só para quem consentiu em receber mensagens, sempre com opção de sair." },
+      { q: "Quanto custa?", a: "Agente de IA para WhatsApp a partir de R$ 7.500, funis automatizados a partir de R$ 4.000 e integração de sistemas a partir de R$ 4.000." },
+    ],
+    related: [
+      "/setores/e-commerce/",
+      "/solucoes/atendimento-inteligente/agente-ia-whatsapp/",
+      "/solucoes/vendas-e-receita/funis-automatizados/",
+      "/solucoes/operacoes/integracao-de-sistemas/",
+    ],
+  },
+  {
+    slug: "ia-para-escolas",
+    kind: "guia",
+    title: "IA para escolas: matrículas, secretaria e cobrança com LGPD",
+    metaTitle: "IA para Escolas: Matrículas no WhatsApp, Secretaria e Cobrança com LGPD",
+    description:
+      "Como escolas e cursos usam IA para atender interessados em matrícula, desafogar a secretaria e fazer cobrança respeitosa, com as regras da LGPD para dados de alunos e menores.",
+    answer:
+      "Escolas e cursos usam IA para atender famílias interessadas em matrícula a qualquer hora, agendar visitas, responder às dúvidas da secretaria (calendário, documentos, boletos) e fazer uma cobrança regular e respeitosa pelo WhatsApp. Como a LGPD protege de forma especial os dados de crianças e adolescentes, o projeto trata essas informações no melhor interesse do aluno, com consentimento dos responsáveis quando exigido.",
+    updatedAt: UPDATED,
+    readingMinutes: 7,
+    sections: [
+      {
+        id: "onde-ajuda",
+        heading: "Onde a IA ajuda uma escola",
+        blocks: [
+          { type: "ul", items: [
+            "Atendimento de interessados em matrícula, inclusive à noite e no fim de semana.",
+            "Agendamento de visitas e entrevistas com a coordenação.",
+            "Secretaria no WhatsApp: calendário, horários, documentos, declarações e segunda via.",
+            "Régua de cobrança amigável, com lembretes antes do vencimento e negociação dentro de regras aprovadas.",
+            "Rematrícula com coleta de documentos e contratos automatizada.",
+          ] },
+          { type: "p", text: "O ganho mais rápido costuma estar no período de matrículas: as famílias pesquisam várias escolas ao mesmo tempo e a velocidade da resposta pesa na escolha da visita." },
+        ],
+      },
+      {
+        id: "limites",
+        heading: "O que fica sempre com a equipe",
+        blocks: [
+          { type: "p", text: "Temas pedagógicos, disciplinares, de saúde ou de inclusão não são tratados pelo agente. Nessas situações, ele transfere a conversa para a coordenação ou a secretaria, com o histórico, para que a família não precise repetir tudo." },
+          { type: "callout", title: "Regra de ouro", text: "A IA organiza a informação e a agenda. Tudo o que envolve o desenvolvimento e o bem-estar do aluno é conversa entre pessoas." },
+        ],
+      },
+      {
+        id: "lgpd",
+        heading: "LGPD para dados de alunos e menores",
+        blocks: [
+          { type: "p", text: "A LGPD (Lei nº 13.709/2018) exige que dados de crianças e adolescentes sejam tratados no melhor interesse deles e, no caso de crianças, com consentimento específico de pelo menos um dos pais ou responsável quando o consentimento for a base legal. Na prática:" },
+          { type: "ol", items: [
+            "O agente conversa com os responsáveis, não com crianças.",
+            "Base legal definida para cada uso dos dados, com consentimento quando exigido.",
+            "Coleta só do necessário para cada finalidade.",
+            "Controle de acesso por função e registro de uso.",
+            "Provedores de IA com contrato de não retenção de dados.",
+          ] },
+          { type: "callout", text: "Este guia é informativo e não substitui a análise jurídica da instituição." },
+        ],
+      },
+      {
+        id: "cobranca",
+        heading: "Cobrança sem constrangimento",
+        blocks: [
+          { type: "p", text: "O Código de Defesa do Consumidor proíbe expor ao ridículo ou constranger quem está em atraso. Uma régua automática ajuda justamente nisso: mensagens regulares, respeitosas e privadas, com segunda via e opções de negociação aprovadas pela escola. Casos delicados vão para a secretaria." },
+        ],
+      },
+    ],
+    faq: [
+      { q: "O agente conversa com os alunos?", a: "Na educação básica, com pais e responsáveis. Em cursos livres e no ensino superior, pode atender o próprio aluno maior de idade." },
+      { q: "Funciona com o sistema de gestão escolar?", a: "Se o sistema tem API, a integração é direta. Se não tem, dá para começar pelo atendimento de matrículas e pela cobrança com base em planilha." },
+      { q: "Quanto custa?", a: "Agente de IA para WhatsApp a partir de R$ 7.500, agendamento inteligente a partir de R$ 3.500 e automação de processos a partir de R$ 4.000." },
+    ],
+    related: [
+      "/setores/educacao/",
+      "/solucoes/atendimento-inteligente/agente-ia-whatsapp/",
+      "/solucoes/operacoes/automacao-de-processos/",
+      "/conteudo/guias/ia-e-lgpd/",
+    ],
+  },
 ];
 
 export const comparisons: Article[] = [

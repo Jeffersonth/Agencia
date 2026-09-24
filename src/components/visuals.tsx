@@ -159,7 +159,7 @@ export function WhatsAppMock({ className, actions = true }: { className?: string
 
 /* ───────────────────────────── Agenda ───────────────────────────── */
 
-export function CalendarMock() {
+export function CalendarMock({ title = "Agenda · Dra. Paula" }: { title?: string }) {
   const days = ["Seg", "Ter", "Qua", "Qui", "Sex"];
   const slots: { d: number; h: number; name: string; tone: "ok" | "wait" | "fill" }[] = [
     { d: 0, h: 0, name: "Carlos M.", tone: "ok" },
@@ -184,7 +184,7 @@ export function CalendarMock() {
       <Floating className="-right-6 -top-5">
         <OkDot /> Lembrete enviado · 8 confirmações
       </Floating>
-      <Frame title="Agenda · Dra. Paula" label="Ilustração: agenda semanal com consultas confirmadas pelo agente, uma aguardando confirmação e um encaixe da lista de espera.">
+      <Frame title={title} label="Ilustração: agenda semanal com consultas confirmadas pelo agente, uma aguardando confirmação e um encaixe da lista de espera.">
         <div className="p-4">
           <div className="grid grid-cols-[3.2rem_repeat(5,1fr)] gap-1.5 text-[0.7rem]">
             <span />
@@ -664,12 +664,12 @@ export function CoreDiagram() {
   );
 }
 
-export function Visual({ name }: { name: VisualName }) {
+export function Visual({ name, title }: { name: VisualName; title?: string }) {
   switch (name) {
     case "whatsapp":
       return <WhatsAppMock />;
     case "calendar":
-      return <CalendarMock />;
+      return <CalendarMock title={title} />;
     case "inbox":
       return <InboxMock />;
     case "sitechat":

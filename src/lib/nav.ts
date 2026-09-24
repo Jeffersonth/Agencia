@@ -32,7 +32,8 @@ export const mainNav: NavGroup[] = [
   {
     label: "Setores",
     href: "/setores/",
-    items: sectors.map((s) => ({ label: s.menuName, href: `/setores/${s.slug}/`, description: s.h1, icon: s.icon })),
+    wide: true,
+    items: sectors.map((s) => ({ label: s.menuName, href: `/setores/${s.slug}/`, description: s.cardText, icon: s.icon })),
   },
   { label: "Cases", href: "/cases/" },
   { label: "Conteúdo", href: "/conteudo/" },
