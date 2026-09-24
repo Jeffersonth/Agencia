@@ -33,5 +33,6 @@ jobs:
           install -m 600 /dev/null ~/key && printf '%s\n' "$SSH_KEY" > ~/key
           SSH="ssh -i ~/key -o StrictHostKeyChecking=accept-new"
           $SSH "$USER@$HOST" "mkdir -p '$DIR'"
+          $SSH "$USER@$HOST" "command -v rsync >/dev/null || (apt-get update -y && apt-get install -y rsync)"
           rsync -az --delete --exclude .git --exclude node_modules --exclude .next --exclude .env -e "$SSH" ./ "$USER@$HOST:$DIR/"
-          $SSH "$USER@$HOST" "cd '$DIR' && docker compose up -d --build && docker image prune -f"
+          $SSH "$USER@$HOST" "SKIP_GIT=1 APP_DIR='$DIR' bash '$DIR/scripts/deploy-vps.sh'"

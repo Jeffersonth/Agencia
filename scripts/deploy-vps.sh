@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Instala/atualiza o site em https://agencia.inovalabs.io na VPS, atrás do Traefik existente.
 # Uso (na VPS, como root):  bash deploy-vps.sh
-# Variáveis opcionais: GITHUB_TOKEN, APP_DIR, BRANCH, LEAD_WEBHOOK_URL, NEXT_PUBLIC_GA_ID, INDEXNOW_KEY
+# Variáveis opcionais: GITHUB_TOKEN, APP_DIR, BRANCH, SKIP_GIT, LEAD_WEBHOOK_URL, NEXT_PUBLIC_GA_ID, INDEXNOW_KEY
+# SKIP_GIT=1: usa o código já presente em APP_DIR (deploy pelo GitHub Actions via rsync).
 set -euo pipefail
 
 REPO="Jeffersonth/Agencia"
@@ -49,9 +50,13 @@ RESOLVER=$(grep -oE 'certificatesresolvers\.[A-Za-z0-9_-]+\.' <<<"$ARGS" | head 
 echo "Rede: $NETWORK · entrypoint HTTPS: $ENTRYPOINT · certresolver: $RESOLVER"
 
 # 3. Código
-log "Baixando o código ($REPO@$BRANCH) em $APP_DIR"
-command -v git >/dev/null 2>&1 || (apt-get update -y && apt-get install -y git)
-if [ -d "$APP_DIR/.git" ]; then
+log "Preparando o código em $APP_DIR"
+if [ "${SKIP_GIT:-}" = 1 ]; then
+  [ -f "$APP_DIR/docker-compose.yml" ] || die "SKIP_GIT=1, mas não há código em $APP_DIR."
+  echo "Usando o código já enviado para $APP_DIR"
+elif ! command -v git >/dev/null 2>&1 && ! (apt-get update -y && apt-get install -y git); then
+  die "Não foi possível instalar o git."
+elif [ -d "$APP_DIR/.git" ]; then
   git -C "$APP_DIR" fetch --depth 1 origin "$BRANCH"
   git -C "$APP_DIR" reset --hard "origin/$BRANCH"
 else
