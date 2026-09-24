@@ -78,7 +78,7 @@ export function VisibilityTest() {
 
   return (
     <div>
-      <form onSubmit={onSubmit} className="flex max-w-3xl flex-col gap-3 rounded-[var(--radius-card)] border border-line bg-white p-4 shadow-[var(--shadow-lift)] sm:flex-row">
+      <form onSubmit={onSubmit} className="flex max-w-3xl flex-col gap-3 rounded-[var(--radius-card)] bg-white ring-1 ring-line/60 p-4 shadow-[var(--shadow-lift)] sm:flex-row">
         <label htmlFor="site-url" className="sr-only">
           Endereço do site
         </label>
@@ -101,7 +101,7 @@ export function VisibilityTest() {
           {loading ? "Analisando…" : "Analisar meu site"}
         </button>
       </form>
-      <p className="mt-3 text-sm text-slate">Sem cadastro. Analisamos apenas páginas públicas do site informado.</p>
+      <p className="mt-3 text-sm text-white/60">Sem cadastro. Analisamos apenas páginas públicas do site informado.</p>
 
       {error && (
         <p role="alert" className="mt-6 rounded-xl bg-amber-50 p-4 text-amber-900">
@@ -120,7 +120,7 @@ export function VisibilityTest() {
                 Este é um retrato técnico. Presença real nas respostas das IAs é medida na Auditoria, com perguntas do seu mercado.
               </p>
             </div>
-            <div className="rounded-[var(--radius-card)] border border-line bg-white p-6">
+            <div className="rounded-[var(--radius-card)] bg-white ring-1 ring-line/60 p-6">
               <h3 className="font-semibold">Robôs no robots.txt</h3>
               <ul className="mt-4 divide-y divide-line text-sm">
                 {report.bots.map((b) => (
@@ -145,7 +145,7 @@ export function VisibilityTest() {
             </div>
           </div>
           <div className="space-y-6">
-            <ul className="divide-y divide-line rounded-[var(--radius-card)] border border-line bg-white">
+            <ul className="divide-y divide-line rounded-[var(--radius-card)] bg-white ring-1 ring-line/60">
               {report.checks.map((c) => (
                 <li key={c.id} className="flex gap-4 p-5">
                   {statusIcon[c.status]}

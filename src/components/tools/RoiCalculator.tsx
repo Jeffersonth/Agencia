@@ -73,7 +73,7 @@ export function RoiCalculator() {
 
   return (
     <div className="grid items-start gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
-      <div onChange={onInteract} className="rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-card)] md:p-8">
+      <div onChange={onInteract} className="rounded-[var(--radius-card)] bg-white ring-1 ring-line/60 p-6 shadow-[var(--shadow-card)] md:p-8">
         <h2 className="text-xl font-semibold">Seus números</h2>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           <Field label="Contatos (leads) por mês">

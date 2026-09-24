@@ -41,7 +41,7 @@ function Frame({
 }) {
   return (
     <figure role="img" aria-label={label} className={cx("relative", className)}>
-      <div className="overflow-hidden rounded-[1.4rem] border border-line bg-white shadow-[var(--shadow-float)]">
+      <div className="overflow-hidden rounded-[1.4rem] bg-white shadow-[var(--shadow-float)] ring-1 ring-black/5">
         {title && (
           <div className="flex items-center gap-2 border-b border-line bg-mist/70 px-4 py-3">
             <span className="flex gap-1.5" aria-hidden>
@@ -54,7 +54,7 @@ function Frame({
         )}
         {children}
       </div>
-      {caption && <figcaption className="mt-3 text-center text-xs text-slate/80">{caption}</figcaption>}
+      {caption && <figcaption className="mt-3 text-center text-xs opacity-60">{caption}</figcaption>}
     </figure>
   );
 }
@@ -64,7 +64,7 @@ function Floating({ children, className }: { children: ReactNode; className?: st
     <div
       aria-hidden
       className={cx(
-        "absolute z-10 hidden items-center gap-2.5 rounded-xl border border-line bg-white px-3.5 py-2.5 text-[0.8rem] font-medium shadow-[var(--shadow-lift)] sm:flex",
+        "absolute z-10 hidden items-center gap-2.5 rounded-xl bg-white ring-1 ring-line/60 px-3.5 py-2.5 text-[0.8rem] font-medium shadow-[var(--shadow-lift)] sm:flex",
         className,
       )}
     >
@@ -90,13 +90,13 @@ function Bubble({ from, children, time }: { from: "client" | "agent"; children: 
       <div
         className={cx(
           "max-w-[82%] rounded-2xl px-3.5 py-2 text-[0.84rem] leading-snug shadow-sm",
-          client ? "rounded-br-md bg-[#d9fdd3] text-ink" : "rounded-bl-md bg-white text-ink",
+          client ? "rounded-br-md bg-[#1f9e75] text-white" : "rounded-bl-md bg-white text-ink",
         )}
       >
         {children}
-        <span className="ml-2 inline-flex translate-y-0.5 items-center gap-0.5 text-[0.65rem] text-slate/80">
+        <span className={cx("ml-2 inline-flex translate-y-0.5 items-center gap-0.5 text-[0.65rem]", client ? "text-white/70" : "text-slate/80")}>
           {time}
-          {client && <CheckCheck className="size-3 text-signal" />}
+          {client && <CheckCheck className="size-3 text-mint" />}
         </span>
       </div>
     </div>
@@ -107,18 +107,18 @@ export function WhatsAppMock({ className, actions = true }: { className?: string
   return (
     <div className={cx("relative mx-auto w-full max-w-[25rem]", className)}>
       <Frame label="Ilustração: agente de IA no WhatsApp agendando uma consulta às 22h47, fora do horário comercial.">
-        <div className="flex items-center gap-3 bg-navy px-4 py-3.5 text-white">
+        <div className="flex items-center gap-3 bg-[#1b7a5c] px-4 py-3.5 text-white">
           <LogoMark dark className="size-9" />
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold">Clínica Demo</p>
             <p className="flex items-center gap-1.5 text-[0.72rem] text-white/70">
-              <span className="size-1.5 rounded-full bg-accent" /> Assistente virtual · online
+              <span className="size-1.5 rounded-full bg-mint" /> Assistente virtual · online
             </p>
           </div>
           <WhatsAppGlyph className="ml-auto size-5 text-white/70" />
         </div>
-        <div className="space-y-2.5 bg-[#efeae2] px-3.5 py-4">
-          <p className="mx-auto w-fit rounded-md bg-white/80 px-2 py-0.5 text-[0.68rem] font-medium text-slate">Hoje</p>
+        <div className="space-y-2.5 bg-[#0f2a22] px-3.5 py-4">
+          <p className="mx-auto w-fit rounded-md bg-white/10 px-2 py-0.5 text-[0.68rem] font-medium text-white/70">Hoje</p>
           <Bubble from="client" time="22:47">
             Oi! Vocês têm horário amanhã para limpeza?
           </Bubble>
@@ -147,7 +147,7 @@ export function WhatsAppMock({ className, actions = true }: { className?: string
             { icon: <Database className="size-3.5" />, t: "Lead registrado no CRM" },
             { icon: <Check className="size-3.5" />, t: "Lembrete programado" },
           ].map((a) => (
-            <li key={a.t} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 shadow-[var(--shadow-card)]">
+            <li key={a.t} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-ink shadow-[var(--shadow-card)]">
               <span className="text-accent-strong">{a.icon}</span> {a.t}
             </li>
           ))}
@@ -212,7 +212,7 @@ export function CalendarMock() {
               </div>
             ))}
           </div>
-          <div className="mt-4 flex items-center gap-3 rounded-xl border border-line bg-mist px-3.5 py-2.5 text-[0.78rem]">
+          <div className="mt-4 flex items-center gap-3 rounded-xl bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60 px-3.5 py-2.5 text-[0.78rem]">
             <CalendarCheck className="size-4 shrink-0 text-signal" />
             <span>
               <strong>Rafa T.</strong> desmarcou quarta 9h — vaga oferecida à lista de espera e preenchida.
@@ -291,7 +291,7 @@ export function SiteChatMock() {
             <div className="h-20 rounded-lg bg-mist" />
           </div>
         </div>
-        <div className="absolute bottom-4 right-4 w-[17rem] overflow-hidden rounded-2xl border border-line bg-white shadow-[var(--shadow-float)]">
+        <div className="absolute bottom-4 right-4 w-[17rem] overflow-hidden rounded-2xl bg-white ring-1 ring-line/60 shadow-[var(--shadow-float)]">
           <div className="flex items-center gap-2 bg-signal px-3.5 py-2.5 text-white">
             <Sparkles className="size-4" />
             <span className="text-[0.8rem] font-semibold">Assistente · responde na hora</span>
@@ -387,7 +387,7 @@ export function KanbanMock() {
             </p>
             <div className="space-y-2">
               {c.cards.map(([n, v]) => (
-                <div key={n} className="rounded-lg border border-line bg-white p-2.5 text-[0.74rem] shadow-sm">
+                <div key={n} className="rounded-lg bg-white ring-1 ring-line/60 p-2.5 text-[0.74rem] shadow-sm">
                   <p className="font-semibold">{n}</p>
                   <p className="text-slate">{v}</p>
                   {c.alert && (
@@ -425,7 +425,7 @@ export function SequenceMock() {
           {steps.map((s) => (
             <li key={s.day} className="flex gap-3">
               <span className="w-12 shrink-0 pt-2.5 text-[0.72rem] font-semibold tabular-nums text-slate">{s.day}</span>
-              <div className="flex-1 rounded-xl border border-line bg-white p-3 shadow-sm">
+              <div className="flex-1 rounded-xl bg-white ring-1 ring-line/60 p-3 shadow-sm">
                 <p className="flex items-center gap-2 text-[0.72rem] font-semibold text-slate">
                   {s.icon} {s.ch}
                 </p>
@@ -463,7 +463,7 @@ export function DocumentMock() {
     <div className="relative mx-auto w-full max-w-[34rem]">
       <Frame title="Automação de documentos · lote de hoje" label="Ilustração: IA lendo uma nota fiscal, extraindo campos, validando e enviando um campo para revisão humana.">
         <div className="grid gap-4 p-4 sm:grid-cols-[0.8fr_1.2fr]">
-          <div className="rounded-xl border border-line bg-mist p-3" aria-hidden>
+          <div className="rounded-xl bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60 p-3" aria-hidden>
             <div className="flex items-center gap-2 text-[0.72rem] font-semibold text-slate">
               <FileText className="size-4" /> NF-e_482119.pdf
             </div>
@@ -516,7 +516,7 @@ export function KnowledgeMock() {
             Qual o prazo para enviar a documentação de admissão ao escritório?
           </p>
         </div>
-        <div className="max-w-[92%] rounded-2xl rounded-bl-md border border-line bg-white p-4 shadow-sm">
+        <div className="max-w-[92%] rounded-2xl rounded-bl-md bg-white ring-1 ring-line/60 p-4 shadow-sm">
           <p>
             O prazo é de <strong>3 dias úteis</strong> após a assinatura do contrato. Documentos pendentes devem ser sinalizados ao setor pessoal no mesmo prazo.
           </p>
@@ -650,12 +650,12 @@ export function CoreDiagram() {
         <line x1="200" y1="210" x2="62" y2="330" stroke="rgb(143 180 255 / 0.5)" strokeDasharray="4 5" />
         <line x1="200" y1="210" x2="338" y2="330" stroke="rgb(143 180 255 / 0.5)" strokeDasharray="4 5" />
       </svg>
-      <div className="absolute left-1/2 top-[52.5%] flex size-40 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-signal text-center text-white shadow-[0_0_0_12px_rgb(11_95_255/0.15),0_0_80px_rgb(11_95_255/0.55)] md:size-48">
+      <div className="absolute left-1/2 top-[52.5%] flex size-40 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-brand text-center text-white shadow-[0_0_0_12px_rgb(124_77_255/0.18),0_0_80px_rgb(124_77_255/0.6)] md:size-48">
         <Sparkles aria-hidden className="size-6" />
         <span className="mt-2 px-4 text-sm font-semibold leading-tight md:text-base">IA, Agentes &amp; Automação</span>
       </div>
       {satellites.map((s) => (
-        <div key={s.t} className={cx("absolute w-40 rounded-2xl border border-white/15 bg-navy-700/90 p-3.5 text-center backdrop-blur md:w-48", s.pos)}>
+        <div key={s.t} className={cx("absolute w-40 rounded-2xl border border-white/15 bg-white/[0.07] p-3.5 text-center backdrop-blur md:w-48", s.pos)}>
           <p className="text-sm font-semibold text-white">{s.t}</p>
           <p className="mt-0.5 text-xs leading-snug text-white/65">{s.s}</p>
         </div>

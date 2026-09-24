@@ -63,7 +63,7 @@ gtag('js',new Date());gtag('config','${GA_ID}');`}
         <div
           role="dialog"
           aria-label="Preferências de cookies"
-          className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-xl rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-float)] sm:p-6"
+          className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-xl rounded-2xl bg-white ring-1 ring-line/60 p-5 shadow-[var(--shadow-float)] sm:p-6"
         >
           <p className="text-[0.95rem] text-ink">
             Usamos cookies de medição para entender como o site é usado e melhorá-lo. Você pode aceitar ou recusar.{" "}

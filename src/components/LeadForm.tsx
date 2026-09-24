@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { CircleCheck, LoaderCircle } from "lucide-react";
 import { site, whatsappLink } from "@/lib/site";
 import { WhatsAppGlyph } from "@/components/Icon";
@@ -10,7 +11,7 @@ import { track } from "@/lib/track";
 type Status = "idle" | "sending" | "ok" | "error";
 
 const inputCls =
-  "mt-1.5 block w-full rounded-xl border border-line-strong bg-white px-4 py-3 text-base text-ink placeholder:text-slate/60 transition-colors focus:border-signal focus:outline-none focus:ring-4 focus:ring-signal/15";
+  "mt-1.5 block w-full rounded-xl border border-line bg-[#f8f7fd] px-4 py-3 text-base text-ink placeholder:text-slate/60 transition-colors focus:border-violet-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-violet-400/15";
 
 export function LeadForm({
   origin,
@@ -23,6 +24,7 @@ export function LeadForm({
   options?: string[];
   defaultOption?: string;
 }) {
+  const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const [summary, setSummary] = useState("");
 
@@ -39,9 +41,13 @@ export function LeadForm({
         body: JSON.stringify({ ...data, origem: origin }),
       });
       if (!res.ok) throw new Error(String(res.status));
-      setStatus("ok");
       track("generate_lead", { origem: origin });
       form.reset();
+      try {
+        sessionStorage.setItem("lead-resumo", `Olá! Sou ${data.nome} (${data.empresa}). ${data.desafio}`);
+      } catch {}
+      router.push(`/obrigado/?origem=${encodeURIComponent(origin)}`);
+      setStatus("ok");
     } catch {
       setStatus("error");
     }
@@ -120,7 +126,7 @@ export function LeadForm({
       {/* Honeypot anti-spam */}
       <input type="text" name="site" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
       <label className="flex items-start gap-3 text-sm text-slate">
-        <input type="checkbox" name="consentimento" value="sim" required className="mt-1 size-4 shrink-0 accent-signal" />
+        <input type="checkbox" name="consentimento" value="sim" required className="mt-1 size-4 shrink-0 accent-violet-400" />
         <span>
           Concordo em ser contatado(a) pela {site.name} sobre este pedido, conforme a{" "}
           <Link href="/privacidade/" className="font-medium text-signal underline underline-offset-2">
@@ -132,7 +138,7 @@ export function LeadForm({
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3.5 text-base font-semibold text-white shadow-[0_8px_20px_-8px_rgb(11_95_255/0.6)] transition-all hover:bg-signal-600 disabled:opacity-70"
+        className="bg-brand inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-base font-semibold text-white shadow-[var(--shadow-glow)] transition-all hover:brightness-110 disabled:opacity-70"
       >
         {status === "sending" && <LoaderCircle aria-hidden className="size-4 animate-spin" />}
         {status === "sending" ? "Enviando…" : submitLabel}

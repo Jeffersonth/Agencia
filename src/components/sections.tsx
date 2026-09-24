@@ -1,13 +1,14 @@
 import Link from "next/link";
 import QRCode from "qrcode";
 import type { ReactNode } from "react";
-import { ArrowRight, Check, ChevronDown, ChevronRight, KeyRound, Lock, LogOut, ScrollText, ShieldCheck } from "lucide-react";
+import { ArrowRight, Check, ChevronRight, KeyRound, Lock, LogOut, Minus, Plus, ScrollText, ShieldCheck } from "lucide-react";
 import type { FAQ, ServicePage, SolutionHub, Step } from "@/content/types";
 import { serviceHref } from "@/content/solutions";
 import { brl, site, whatsappLink } from "@/lib/site";
 import { Badge, ButtonLink, Container, Eyebrow, Section, SectionHeading, TextLink, cx } from "@/components/ui";
 import { IconTile, WhatsAppGlyph } from "@/components/Icon";
 import { LogoMark } from "@/components/layout/Logo";
+import { Orb } from "@/components/Orb";
 
 /* ───────────────────────────── Breadcrumbs ───────────────────────────── */
 
@@ -50,6 +51,8 @@ export function PageHero({
   visual,
   aside,
   children,
+  centered,
+  orbs = true,
 }: {
   crumbs: { name: string; path: string }[];
   eyebrow?: ReactNode;
@@ -60,25 +63,35 @@ export function PageHero({
   visual?: ReactNode;
   aside?: ReactNode;
   children?: ReactNode;
+  centered?: boolean;
+  orbs?: boolean;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-line bg-mist">
-      <div aria-hidden className="grid-bg pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_top_right,black_20%,transparent_70%)]" />
+    <section className="bg-hero on-dark relative overflow-hidden text-white">
+      <div aria-hidden className="pointer-events-none absolute -bottom-40 left-1/2 h-80 w-[70rem] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(120,170,255,.28),transparent_70%)] blur-md" />
+      {orbs && !visual && (
+        <>
+          <Orb tone="blue" className="animate-float pointer-events-none absolute right-[9%] top-28 hidden size-32 lg:block" />
+          <Orb tone="cyan" wave={false} className="animate-float pointer-events-none absolute bottom-16 right-[22%] hidden size-12 [animation-delay:2s] lg:block" />
+        </>
+      )}
       <Container className="relative pb-16 pt-8 md:pb-24 md:pt-10">
-        <Breadcrumbs items={crumbs} />
-        <div className={cx("mt-10 grid items-center gap-12 md:mt-14", !!visual && "lg:grid-cols-[1.05fr_0.95fr] lg:gap-16")}>
-          <div>
+        <div className={cx(centered && !visual && "flex justify-center")}>
+          <Breadcrumbs items={crumbs} dark />
+        </div>
+        <div className={cx("mt-10 grid items-center gap-12 md:mt-12", !!visual && "lg:grid-cols-[1.05fr_0.95fr] lg:gap-16")}>
+          <div className={cx(centered && !visual && "mx-auto max-w-3xl text-center")}>
             {eyebrow && <Eyebrow className="mb-5">{eyebrow}</Eyebrow>}
-            <h1 className="text-[2.25rem] font-semibold leading-[1.08] md:text-[3.1rem] xl:text-[3.3rem]">{title}</h1>
+            <h1 className="text-[2.3rem] leading-[1.08] text-white md:text-[3rem] xl:text-[3.2rem]">{title}</h1>
             {answer && (
-              <p data-answer className="mt-6 max-w-2xl text-lg leading-relaxed text-slate md:text-xl">
+              <p data-answer className={cx("mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-[1.2rem]", centered && !visual && "mx-auto")}>
                 {answer}
               </p>
             )}
-            {actions && <div className="mt-8 flex flex-wrap items-center gap-3">{actions}</div>}
+            {actions && <div className={cx("mt-8 flex flex-wrap items-center gap-3", centered && !visual && "justify-center")}>{actions}</div>}
             {aside}
           </div>
-          {visual && <div className="animate-rise [animation-delay:120ms]">{visual}</div>}
+          {visual && <div className="animate-rise text-ink [animation-delay:120ms]">{visual}</div>}
         </div>
         {children}
       </Container>
@@ -89,11 +102,11 @@ export function PageHero({
 export function DiagnosticActions({ secondary }: { secondary?: { href: string; label: string } }) {
   return (
     <>
-      <ButtonLink href="/diagnostico/" size="lg" arrow>
-        Agendar Diagnóstico
+      <ButtonLink href="/diagnostico/" size="lg">
+        Agendar diagnóstico
       </ButtonLink>
       {secondary && (
-        <ButtonLink href={secondary.href} size="lg" variant="secondary">
+        <ButtonLink href={secondary.href} size="lg" variant="ghost-light">
           {secondary.label}
         </ButtonLink>
       )}
@@ -105,10 +118,9 @@ export function DiagnosticActions({ secondary }: { secondary?: { href: string; l
 
 export function DirectAnswer({ children, label = "Em resumo" }: { children: ReactNode; label?: string }) {
   return (
-    <div className="relative rounded-[var(--radius-card)] border border-line bg-white p-7 shadow-[var(--shadow-card)] md:p-10">
-      <span className="absolute left-0 top-8 h-12 w-1 rounded-r-full bg-signal md:top-10" aria-hidden />
-      <p className="eyebrow mb-4">{label}</p>
-      <p data-answer className="text-xl leading-relaxed text-ink md:text-[1.6rem] md:leading-[1.5]">
+    <div className="relative border-l-[3px] border-violet-400 pl-6 md:pl-8">
+      <p className="eyebrow mb-3">{label}</p>
+      <p data-answer className="font-[family-name:var(--font-display)] text-xl font-normal leading-relaxed tracking-[-0.01em] text-ink md:text-[1.6rem] md:leading-[1.55]">
         {children}
       </p>
     </div>
@@ -122,15 +134,10 @@ export function Checklist({ items, dark, className }: { items: ReactNode[]; dark
     <ul className={cx("space-y-3.5", className)}>
       {items.map((item, i) => (
         <li key={i} className="flex gap-3">
-          <span
-            className={cx(
-              "mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full",
-              dark ? "bg-accent/20 text-accent" : "bg-accent-50 text-accent-strong",
-            )}
-          >
-            <Check aria-hidden className="size-3.5" strokeWidth={2.5} />
+          <span className={cx("mt-1 inline-flex size-5 shrink-0 items-center justify-center", dark ? "text-mint" : "text-accent")}>
+            <Check aria-hidden className="size-[1.1rem]" strokeWidth={2.5} />
           </span>
-          <span className={dark ? "text-white/85" : "text-ink"}>{item}</span>
+          <span className={dark ? "text-white/80" : "text-ink/85"}>{item}</span>
         </li>
       ))}
     </ul>
@@ -143,12 +150,12 @@ export function StepsList({ steps, dark }: { steps: Step[]; dark?: boolean }) {
       {steps.map((s, i) => (
         <li key={s.title} className="relative flex gap-5 pb-8 last:pb-0">
           {i < steps.length - 1 && (
-            <span aria-hidden className={cx("absolute left-[1.15rem] top-11 bottom-1 w-px", dark ? "bg-white/15" : "bg-line-strong")} />
+            <span aria-hidden className={cx("absolute left-[1.15rem] top-11 bottom-1 w-0.5", dark ? "bg-white/15" : "bg-gradient-to-b from-violet-400 to-signal")} />
           )}
           <span
             className={cx(
               "relative z-10 inline-flex size-[2.35rem] shrink-0 items-center justify-center rounded-full text-sm font-semibold",
-              dark ? "bg-white text-navy" : "bg-navy text-white",
+              dark ? "bg-white text-ink" : "bg-navy-900 text-sky",
             )}
           >
             {i + 1}
@@ -171,7 +178,7 @@ export function Chips({ items, dark }: { items: string[]; dark?: boolean }) {
           key={i}
           className={cx(
             "rounded-full border px-4 py-2 text-[0.92rem] font-medium",
-            dark ? "border-white/15 bg-white/5 text-white/85" : "border-line bg-white text-ink shadow-[var(--shadow-card)]",
+            dark ? "border-white/15 bg-white/5 text-white/85" : "border-line/70 bg-white font-semibold text-ink shadow-[var(--shadow-card)]",
           )}
         >
           {i}
@@ -185,33 +192,38 @@ export function Chips({ items, dark }: { items: string[]; dark?: boolean }) {
 
 export function FAQList({ items }: { items: FAQ[] }) {
   return (
-    <div className="divide-y divide-line rounded-[var(--radius-card)] border border-line bg-white">
-      {items.map((f) => (
-        <details key={f.q} className="group px-6 md:px-8">
-          <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-lg font-semibold text-ink [&::-webkit-details-marker]:hidden">
-            <h3 className="text-lg font-semibold">{f.q}</h3>
-            <span className="mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-mist text-slate transition-transform group-open:rotate-180">
-              <ChevronDown aria-hidden className="size-4" />
+    <div className="space-y-3.5">
+      {items.map((f, i) => (
+        <details
+          key={f.q}
+          open={i === 0}
+          className="group rounded-2xl bg-white px-6 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-colors open:bg-[linear-gradient(135deg,#7c4dff,#4d7cff)] open:shadow-[var(--shadow-glow)] open:ring-0"
+        >
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 [&::-webkit-details-marker]:hidden">
+            <h3 className="font-[family-name:var(--font-display)] text-[1.02rem] font-semibold tracking-[-0.01em] group-open:text-white">{f.q}</h3>
+            <span className="shrink-0 text-signal group-open:text-white" aria-hidden>
+              <Plus className="size-5 group-open:hidden" />
+              <Minus className="hidden size-5 group-open:block" />
             </span>
           </summary>
-          <p className="-mt-2 pb-6 pr-10 text-slate">{f.a}</p>
+          <p className="-mt-1 pb-6 pr-8 text-[0.95rem] text-white/85">{f.a}</p>
         </details>
       ))}
     </div>
   );
 }
 
-export function FAQSection({ items, title = "Perguntas frequentes", tone = "white" }: { items: FAQ[]; title?: string; tone?: "white" | "mist" }) {
+export function FAQSection({ items, title = "Perguntas que todo mundo faz antes de começar", tone = "mist" }: { items: FAQ[]; title?: string; tone?: "white" | "mist" }) {
   return (
     <Section tone={tone} labelledBy="faq-titulo">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <SectionHeading
           id="faq-titulo"
-          eyebrow="FAQ"
+          eyebrow="Dúvidas"
           title={title}
           text={
             <>
-              Não achou sua dúvida? <Link href="/contato/" className="font-semibold text-signal hover:underline">Fale com a gente</Link>.
+              Não encontrou o que procura? <Link href="/contato/" className="font-semibold text-signal hover:underline">Fale com a gente</Link> ou tire no diagnóstico.
             </>
           }
         />
@@ -233,26 +245,28 @@ export function CTASection({
   showWhatsApp?: boolean;
 }) {
   return (
-    <section className="on-dark relative overflow-hidden bg-navy py-20 text-white md:py-28">
-      <div aria-hidden className="grid-bg-dark pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_10%,transparent_70%)]" />
-      <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 size-[34rem] rounded-full bg-signal/25 blur-3xl" />
-      <Container className="relative">
-        <div className={cx("grid items-center gap-12", showWhatsApp && "lg:grid-cols-[1.4fr_0.6fr]")}>
-          <div>
-            <Eyebrow className="mb-5">Diagnóstico de IA & Automação</Eyebrow>
-            <h2 className="max-w-3xl text-3xl font-semibold text-white md:text-5xl">{title}</h2>
-            <p className="mt-5 max-w-2xl text-lg text-white/75 md:text-xl">{text}</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <ButtonLink href="/diagnostico/" variant="light" size="lg" arrow>
-                Agendar Diagnóstico
-              </ButtonLink>
-              <ButtonLink href="/investimento/" variant="ghost-light" size="lg">
-                Ver investimento
-              </ButtonLink>
+    <section className="bg-mist py-16 md:py-24">
+      <Container>
+        <div className="bg-hero on-dark relative overflow-hidden rounded-[1.75rem] px-6 py-14 text-white shadow-[var(--shadow-float)] md:px-14 md:py-16">
+          <svg aria-hidden viewBox="0 0 800 100" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 bottom-6 h-24 w-full opacity-60">
+            <path d="M0 90 C 200 60, 420 50, 800 20" fill="none" stroke="#8ab4ff" strokeOpacity="0.5" strokeWidth="1.2" />
+          </svg>
+          <div className={cx("relative grid items-center gap-10", showWhatsApp && "lg:grid-cols-[1.45fr_0.55fr]")}>
+            <div className={cx(!showWhatsApp && "mx-auto max-w-3xl text-center")}>
+              <h2 className="text-[1.9rem] text-white md:text-[2.6rem]">{title}</h2>
+              <p className="mt-4 max-w-2xl text-lg text-white/70">{text}</p>
+              <div className={cx("mt-8 flex flex-wrap gap-3", !showWhatsApp && "justify-center")}>
+                <ButtonLink href="/diagnostico/" size="lg">
+                  Agendar diagnóstico
+                </ButtonLink>
+                <ButtonLink href="/investimento/" variant="ghost-light" size="lg">
+                  Ver investimento
+                </ButtonLink>
+              </div>
+              <p className="mt-5 text-sm text-white/50">Valor 100% creditado no projeto se você seguir em até 30 dias.</p>
             </div>
-            <p className="mt-6 text-sm text-white/55">Valor 100% creditado no projeto se você seguir em até 30 dias.</p>
+            {showWhatsApp && <WhatsAppCard />}
           </div>
-          {showWhatsApp && <WhatsAppCard />}
         </div>
       </Container>
     </section>
@@ -268,7 +282,7 @@ export async function WhatsAppCard({ light }: { light?: boolean }) {
     <div
       className={cx(
         "rounded-[var(--radius-card)] p-6 text-center",
-        light ? "border border-line bg-white shadow-[var(--shadow-lift)]" : "border border-white/15 bg-white/5 backdrop-blur",
+        light ? "bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60" : "glass",
       )}
     >
       <div className="mx-auto w-fit rounded-2xl bg-white p-3">
@@ -287,7 +301,7 @@ export async function WhatsAppCard({ light }: { light?: boolean }) {
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-navy-900 transition-colors hover:bg-[#32d583]"
+        className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#1f9e75] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#1b8a66]"
       >
         <WhatsAppGlyph className="size-4" /> Abrir no WhatsApp
       </a>
@@ -307,11 +321,11 @@ const securityPoints = [
 
 export function SecurityStrip({ text }: { text?: string }) {
   return (
-    <div className="rounded-[var(--radius-card)] border border-line bg-white p-7 shadow-[var(--shadow-card)] md:p-9">
+    <div className="rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60 md:p-9">
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="max-w-xl">
           <p className="eyebrow mb-3">Segurança</p>
-          <h3 className="text-2xl font-semibold">Seus dados continuam seus.</h3>
+          <h3 className="text-2xl font-bold">Seus dados continuam seus.</h3>
           {text && <p className="mt-3 text-slate">{text}</p>}
         </div>
         <TextLink href="/seguranca-e-lgpd/" className="shrink-0">
@@ -321,7 +335,7 @@ export function SecurityStrip({ text }: { text?: string }) {
       <ul className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {securityPoints.map(({ icon: I, label }) => (
           <li key={label} className="flex items-center gap-3 rounded-xl bg-mist px-4 py-3 text-[0.92rem] font-medium">
-            <I className="size-[1.1rem] shrink-0 text-signal" aria-hidden />
+            <I className="size-[1.1rem] shrink-0 text-violet-400" aria-hidden />
             {label}
           </li>
         ))}
@@ -345,7 +359,7 @@ export function IndicatorsBlock({
     <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
       <div>
         <Eyebrow className="mb-4">Prova</Eyebrow>
-        <h2 className="text-3xl font-semibold md:text-[2.5rem]">Resultado que dá para medir.</h2>
+        <h2 className="text-[1.9rem] font-bold md:text-[2.5rem]">Resultado que dá para medir.</h2>
         <p className="mt-5 text-lg text-slate">
           {note ??
             "No Diagnóstico registramos o “antes” da sua operação. Depois da implantação, acompanhamos os mesmos indicadores todo mês — é assim que o resultado vira número, e não promessa."}
@@ -361,13 +375,13 @@ export function IndicatorsBlock({
           </ButtonLink>
         </div>
       </div>
-      <div className="rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-card)] md:p-8">
+      <div className="rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60 md:p-8">
         <p className="text-sm font-semibold text-slate">Indicadores acompanhados</p>
         <ul className="mt-5 grid gap-3 sm:grid-cols-2">
           {indicators.map((ind, i) => (
-            <li key={ind} className="rounded-xl border border-line bg-mist p-5">
-              <span className="text-xs font-semibold tabular-nums text-accent-strong">0{i + 1}</span>
-              <p className="mt-2 font-semibold leading-snug text-ink">{ind}</p>
+            <li key={ind} className="rounded-xl bg-mist p-5">
+              <span className="text-xs font-semibold tabular-nums text-violet">0{i + 1}</span>
+              <p className="mt-2 font-[family-name:var(--font-display)] font-semibold leading-snug text-ink">{ind}</p>
             </li>
           ))}
         </ul>
@@ -381,16 +395,16 @@ export function IndicatorsBlock({
 export function PriceBlock({ service }: { service: Pick<ServicePage, "pricing" | "name"> }) {
   const p = service.pricing;
   return (
-    <div className="overflow-hidden rounded-[var(--radius-card)] border border-line bg-white shadow-[var(--shadow-lift)]">
-      <div className="bg-navy p-7 text-white md:p-9">
+    <div className="overflow-hidden rounded-[var(--radius-card)] bg-white shadow-[var(--shadow-lift)] ring-1 ring-line/60">
+      <div className="bg-hero p-7 text-white md:p-9">
         <p className="text-sm font-medium text-white/65">{p.prefix ?? "A partir de"}</p>
-        <p className="mt-1 text-4xl font-semibold tracking-tight md:text-5xl">
+        <p className="text-gradient mt-1 w-fit font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight md:text-5xl">
           {brl(p.from)}
           {p.suffix && <span className="ml-2 text-lg font-medium text-white/65">{p.suffix}</span>}
         </p>
         {p.timeline && (
           <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-medium">
-            <span className="size-1.5 rounded-full bg-accent" aria-hidden /> Entrega em {p.timeline}
+            <span className="size-1.5 rounded-full bg-mint" aria-hidden /> Entrega em {p.timeline}
           </p>
         )}
       </div>
@@ -426,14 +440,14 @@ export function ServiceCard({ service, showSolution }: { service: ServicePage; s
   return (
     <Link
       href={serviceHref(service)}
-      className="group relative flex h-full flex-col rounded-[var(--radius-card)] border border-line bg-white p-7 shadow-[var(--shadow-card)] transition-all duration-200 hover:-translate-y-0.5 hover:border-signal/40 hover:shadow-[var(--shadow-lift)]"
+      className="group relative flex h-full flex-col rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
     >
       <div className="flex items-start justify-between gap-4">
         <IconTile name={service.icon} />
-        {service.featured && <Badge tone="blue">Mais procurado</Badge>}
+        {service.featured && <Badge tone="violet">Mais procurado</Badge>}
       </div>
       {showSolution && <p className="mt-6 text-xs font-semibold uppercase tracking-[0.08em] text-slate">{showSolution}</p>}
-      <h3 className={cx("text-xl font-semibold", showSolution ? "mt-1.5" : "mt-6")}>{service.name}</h3>
+      <h3 className={cx("text-[1.2rem] font-bold", showSolution ? "mt-1.5" : "mt-6")}>{service.name}</h3>
       <p className="mt-2 flex-1 text-slate">{service.cardDescription}</p>
       <p className="mt-6 flex items-center justify-between border-t border-line pt-5 text-sm">
         <span className="text-slate">
@@ -453,7 +467,7 @@ export function HubCard({ hub, index, dark }: { hub: SolutionHub; index?: number
         "group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border p-7 transition-all duration-200 hover:-translate-y-0.5 md:p-8",
         dark
           ? "border-white/10 bg-white/[0.04] hover:border-white/30 hover:bg-white/[0.07]"
-          : "border-line bg-white shadow-[var(--shadow-card)] hover:border-signal/40 hover:shadow-[var(--shadow-lift)]",
+          : "border-transparent bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40",
       )}
     >
       <div className="flex items-center justify-between">
@@ -462,7 +476,7 @@ export function HubCard({ hub, index, dark }: { hub: SolutionHub; index?: number
           <span className={cx("text-sm font-semibold tabular-nums", dark ? "text-white/40" : "text-slate/70")}>0{index + 1}</span>
         )}
       </div>
-      <h3 className={cx("mt-8 text-2xl font-semibold", dark && "text-white")}>{hub.name}</h3>
+      <h3 className={cx("mt-7 text-[1.3rem] font-bold", dark && "text-white")}>{hub.name}</h3>
       <p className={cx("mt-3 flex-1", dark ? "text-white/70" : "text-slate")}>{hub.menuDescription}</p>
       <span className={cx("mt-7 inline-flex items-center gap-1.5 font-semibold", dark ? "text-white" : "text-signal")}>
         Conhecer a solução
@@ -476,10 +490,10 @@ export function LinkCard({ href, title, text, meta }: { href: string; title: str
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-2xl border border-line bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-signal/40 hover:shadow-[var(--shadow-lift)]"
+      className="group flex h-full flex-col rounded-2xl bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
     >
-      {meta && <span className="text-xs font-semibold uppercase tracking-[0.08em] text-slate">{meta}</span>}
-      <span className={cx("text-lg font-semibold text-ink", meta && "mt-2")}>{title}</span>
+      {meta && <span className="text-[0.7rem] font-bold uppercase tracking-[0.08em] text-violet">{meta}</span>}
+      <span className={cx("font-[family-name:var(--font-display)] text-[1.05rem] font-semibold tracking-[-0.01em] text-ink", meta && "mt-2")}>{title}</span>
       {text && <span className="mt-2 flex-1 text-[0.95rem] text-slate">{text}</span>}
       <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-signal">
         Ler mais <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
@@ -493,7 +507,7 @@ export function LinkCard({ href, title, text, meta }: { href: string; title: str
 export function Signature({ updatedAt }: { updatedAt: string }) {
   const date = new Date(`${updatedAt}T12:00:00`).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
   return (
-    <div className="border-t border-line bg-white">
+    <div className="border-t border-line bg-mist">
       <Container className="flex flex-col gap-4 py-8 text-sm text-slate sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <LogoMark className="size-9" />
@@ -502,7 +516,7 @@ export function Signature({ updatedAt }: { updatedAt: string }) {
             <Link href="/sobre/" className="font-semibold text-ink hover:text-signal">
               {site.founder.name}
             </Link>
-            , {site.founder.jobTitle.toLowerCase()} da {site.name}
+ · {site.founder.jobTitle.replace("·", "de").replace("Fundador", "fundador")} na {site.name}
           </p>
         </div>
         <p className="inline-flex items-center gap-2">

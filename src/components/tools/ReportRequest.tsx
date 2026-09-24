@@ -37,7 +37,7 @@ export function ReportRequest({ origin, summary, title }: { origin: string; summ
     );
 
   return (
-    <form onSubmit={onSubmit} className="rounded-2xl border border-line bg-mist p-6">
+    <form onSubmit={onSubmit} className="rounded-2xl bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60 p-6">
       <p className="font-semibold">{title}</p>
       <div className="mt-4 grid gap-3 sm:grid-cols-3">
         <label className="sr-only" htmlFor={`${origin}-nome`}>

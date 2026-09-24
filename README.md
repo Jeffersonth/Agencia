@@ -1,4 +1,4 @@
-# Site — Agência de IA
+# Sinal — site da agência de IA
 
 Site institucional da agência (estúdio de engenharia de IA), construído a partir da especificação
 “Estrutura Completa do Site — Agência de IA”. Next.js com geração estática: todas as páginas saem
@@ -26,15 +26,16 @@ Variáveis de ambiente (veja `.env.example`):
 ## Stack
 
 - **Next.js 16** (App Router, SSG) + **React 19** + **TypeScript**
-- **Tailwind CSS 4** com os tokens da marca em `src/app/globals.css` (Azul Sinal `#0B5FFF`, Navy `#0A1F44`, `#F7F8FA`, `#1A2233`, `#5B6472`, acento verde só para métricas)
-- **Inter** auto-hospedada (`@fontsource-variable/inter`), ícones em linha (`lucide-react`)
-- Sem imagens de banco nem clichês de IA: os visuais são interfaces ilustrativas feitas em HTML/CSS (`src/components/visuals.tsx`)
+- **Tailwind CSS 4** com o design system da Sinal em `src/app/globals.css`, extraído do Claude Design (`Home.dc.html`): índigo/violeta (`#251b60 → #181240`), botões em degradê `#7c4dff → #4d7cff`, fundo claro `#f4f3fa`, texto `#14122b`, acento menta para métricas
+- **Sora** (títulos) e **Inter** (texto), auto-hospedadas via `@fontsource-variable`; ícones em linha (`lucide-react`)
+- Orbes decorativos (`src/components/Orb.tsx`) e interfaces ilustrativas em HTML/CSS (`src/components/visuals.tsx`), sem imagens de banco
 
 ## Estrutura
 
 ```
 src/
-  app/                    rotas (uma pasta por URL, sempre com barra final)
+  app/(site)/             páginas com cabeçalho e rodapé completos (uma pasta por URL, com barra final)
+  app/(focus)/            páginas de conversão com cabeçalho enxuto: /diagnostico/ e /obrigado/
     solucoes/[solucao]/[servico]/   hubs e páginas-filhas do núcleo (molde padrão)
     servicos/ setores/ cases/ conteudo/ ferramentas/ …
     api/lead/             recebe formulários → LEAD_WEBHOOK_URL
@@ -82,11 +83,12 @@ Privacidade · Termos · `robots.txt` · `sitemap.xml` · `llms.txt`.
 
 A especificação pede para decidir **nome e domínio antes do lançamento**. Tudo está centralizado:
 
-- [ ] `src/lib/site.ts`: nome da empresa (`[Nome]`), razão social, CNPJ, domínio, WhatsApp, e-mail, redes sociais
-- [ ] `src/lib/site.ts`: nome, cargo e LinkedIn do fundador (`[Fundador]`); texto da trajetória e foto em `src/app/sobre/page.tsx`
-- [ ] Logotipo definitivo (`src/components/layout/Logo.tsx` e `src/app/icon.svg`)
+- [ ] `src/lib/site.ts`: nome **Sinal** e fundador **Jefferson Thales** vêm do design; confirmar domínio (`sinal.com.br` é suposição), razão social, CNPJ, WhatsApp, e-mail e redes sociais
+- [ ] LinkedIn do fundador, texto da trajetória e foto em `src/app/(site)/sobre/page.tsx`
+- [ ] Logotipo definitivo, se houver além do ícone de pulso do design (`src/components/layout/Logo.tsx` e `src/app/icon.svg`)
 - [ ] Cases reais: completar AcertoCLT e Prospector CNPJ com números reais e adicionar 6–8 sites e 2–3 apps/SaaS (`src/content/cases.ts`)
-- [ ] Depoimentos reais de clientes (não há nenhum inventado no site)
+- [ ] Depoimentos reais de clientes e demais pessoas do time: o design traz nomes, depoimentos e métricas de exemplo, que **não** foram publicados (regra ética da especificação)
+- [ ] Preços dos planos de sustentação: o design mostra R$ 1.200 e R$ 3.400/mês; o site mantém "sob proposta" até a validação
 - [ ] Validar preços e prazos com a planilha de margem. Os prazos das páginas-filhas que a especificação
       não detalhava (ex.: Central Multicanal, CRM, Integração) e os dos formatos de site e da Auditoria são **estimativas** a confirmar
 - [ ] Revisar Política de Privacidade e Termos com o jurídico/DPO

@@ -27,7 +27,7 @@ export function MobileNav() {
         aria-controls="menu-mobile"
         aria-label={open ? "Fechar menu" : "Abrir menu"}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex size-10 items-center justify-center rounded-full text-ink hover:bg-mist"
+        className="inline-flex size-10 items-center justify-center rounded-full text-white hover:bg-white/10"
       >
         {open ? <X className="size-5" /> : <Menu className="size-5" />}
       </button>
@@ -36,7 +36,7 @@ export function MobileNav() {
         createPortal(
         <div
           id="menu-mobile"
-          className="fixed inset-x-0 bottom-0 top-[4.25rem] z-40 overflow-y-auto border-t border-line bg-white"
+          className="fixed inset-x-0 bottom-0 top-[4.5rem] z-40 overflow-y-auto border-t border-line bg-white"
         >
           <nav
             aria-label="Navegação principal (celular)"
@@ -83,7 +83,7 @@ export function MobileNav() {
             <div className="mt-6 grid gap-3 pb-10">
               <Link
                 href="/diagnostico/"
-                className="inline-flex items-center justify-center rounded-full bg-signal px-5 py-3.5 font-semibold text-white"
+                className="bg-brand inline-flex items-center justify-center rounded-full px-5 py-3.5 font-semibold text-white"
               >
                 Agendar Diagnóstico
               </Link>

@@ -1,30 +1,46 @@
 @import "tailwindcss";
 
-/* Paleta da marca (ponto de partida — revisar após definir o nome). */
+/*
+ * Design system Sinal (Claude Design · Home.dc.html).
+ * Os nomes dos tokens foram mantidos (signal, navy, mist…) e os valores seguem o design.
+ */
 @theme {
-  --color-signal: #0b5fff;
-  --color-signal-600: #0a4fd6;
-  --color-signal-50: #eef4ff;
-  --color-signal-100: #dbe7ff;
-  --color-navy: #0a1f44;
-  --color-navy-900: #071633;
-  --color-navy-700: #173466;
-  --color-mist: #f7f8fa;
-  --color-ink: #1a2233;
-  --color-slate: #5b6472;
-  --color-line: #e4e7ec;
-  --color-line-strong: #cfd4dc;
-  /* Acento: só para métricas e sinais de sucesso. */
-  --color-accent: #12b76a;
-  --color-accent-strong: #067647;
-  --color-accent-50: #ecfdf3;
+  /* Ação e links */
+  --color-signal: #2b5cff;
+  --color-signal-600: #1f49e0;
+  --color-signal-50: #eef1ff;
+  --color-signal-100: #dfe5ff;
+  /* Violeta da marca (eyebrows, destaques) */
+  --color-violet: #6b3df0;
+  --color-violet-400: #7c4dff;
+  --color-violet-50: #f3edff;
+  --color-violet-100: #e7dcff;
+  /* Fundos escuros */
+  --color-navy: #181240;
+  --color-navy-900: #12102e;
+  --color-navy-700: #251b60;
+  /* Claros e texto */
+  --color-mist: #f4f3fa;
+  --color-ink: #14122b;
+  --color-slate: #6b6a85;
+  --color-line: #e2e0ee;
+  --color-line-strong: #cfcce0;
+  /* Acento (métricas e sinais de sucesso) */
+  --color-accent: #2bd0a8;
+  --color-accent-strong: #147a5f;
+  --color-accent-50: #e4fff6;
+  --color-mint: #8affd6;
+  --color-sky: #8ab4ff;
+  --color-lilac: #c9b6ff;
 
   --font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Sora Variable", "Sora", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
 
   --radius-card: 1.25rem;
-  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.06);
-  --shadow-lift: 0 12px 32px -12px rgb(10 31 68 / 0.18), 0 2px 6px rgb(10 31 68 / 0.06);
-  --shadow-float: 0 24px 60px -20px rgb(10 31 68 / 0.35);
+  --shadow-card: 0 16px 40px -30px rgb(30 20 70 / 0.4);
+  --shadow-lift: 0 24px 50px -28px rgb(30 20 70 / 0.45);
+  --shadow-float: 0 40px 120px -40px rgb(30 20 70 / 0.55);
+  --shadow-glow: 0 12px 30px -10px rgb(124 77 255 / 0.6);
 }
 
 @layer base {
@@ -35,10 +51,9 @@
   }
 
   body {
-    background: #ffffff;
+    background: var(--color-mist);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-feature-settings: "cv11", "ss01";
     font-size: 17px;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
@@ -55,10 +70,17 @@
   h2,
   h3,
   h4 {
+    font-family: var(--font-display);
     color: var(--color-ink);
-    letter-spacing: -0.022em;
-    line-height: 1.12;
+    letter-spacing: -0.02em;
+    line-height: 1.14;
     text-wrap: balance;
+  }
+
+  h1,
+  h2 {
+    letter-spacing: -0.03em;
+    font-weight: 700;
   }
 
   p {
@@ -66,14 +88,14 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-signal);
+    outline: 2px solid var(--color-violet-400);
     outline-offset: 3px;
     border-radius: 6px;
   }
 
   ::selection {
-    background: var(--color-signal-100);
-    color: var(--color-navy);
+    background: var(--color-violet-100);
+    color: var(--color-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -112,15 +134,50 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-signal);
+    color: var(--color-violet);
+  }
+  .on-dark .eyebrow {
+    color: var(--color-lilac);
   }
 
-  .on-dark .eyebrow {
-    color: #8fb4ff;
+  /* Fundo dos heróis e seções de impacto */
+  .bg-hero {
+    background:
+      radial-gradient(120% 90% at 78% -12%, #7a55e6 0%, transparent 46%),
+      linear-gradient(180deg, #221963 0, transparent 90px),
+      radial-gradient(90% 80% at 12% 0%, #3f2c9e 0%, transparent 52%),
+      linear-gradient(165deg, #251b60, #181240);
+  }
+  .bg-aurora {
+    background:
+      radial-gradient(40% 60% at 18% 20%, #3d5cff 0%, transparent 60%),
+      radial-gradient(35% 55% at 85% 10%, #b04dff 0%, transparent 60%),
+      radial-gradient(35% 50% at 70% 100%, #3fc6f5 0%, transparent 60%),
+      linear-gradient(165deg, #251b60, #181240);
+  }
+  .bg-brand {
+    background-image: linear-gradient(135deg, #7c4dff, #4d7cff);
+  }
+  .text-gradient {
+    background: linear-gradient(90deg, #8ab4ff, #c9b6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-mint {
+    background: linear-gradient(90deg, #8affd6, #8ab4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glass {
+    background: rgb(255 255 255 / 0.06);
+    border: 1px solid rgb(255 255 255 / 0.14);
+    backdrop-filter: blur(6px);
   }
 
   .prose-site > * + * {
@@ -140,7 +197,7 @@
     margin-top: 0.4em;
   }
   .prose-site li::marker {
-    color: var(--color-signal);
+    color: var(--color-violet-400);
   }
   .prose-site a {
     color: var(--color-signal);
@@ -150,14 +207,14 @@
 
   .grid-bg {
     background-image:
-      linear-gradient(to right, rgb(10 31 68 / 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(10 31 68 / 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgb(20 18 43 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(20 18 43 / 0.05) 1px, transparent 1px);
     background-size: 44px 44px;
   }
   .grid-bg-dark {
     background-image:
-      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
     background-size: 44px 44px;
   }
 }
@@ -172,7 +229,15 @@
     transform: translateY(0);
   }
 }
-
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
 @keyframes pulse-dot {
   0%,
   100% {
@@ -186,7 +251,9 @@
 .animate-rise {
   animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
-
+.animate-float {
+  animation: floatY 8s ease-in-out infinite;
+}
 .typing-dot {
   animation: pulse-dot 1.2s ease-in-out infinite;
 }

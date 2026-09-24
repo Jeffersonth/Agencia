@@ -8,15 +8,15 @@ import { MobileNav } from "./MobileNav";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-white/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/75">
+    <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-[#221963]">
       <a
         href="#conteudo"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-white"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-50 focus:rounded-lg focus:bg-white focus:text-ink focus:px-4 focus:py-2 focus:text-white"
       >
         Pular para o conteúdo
       </a>
-      <div className="container-site flex h-[4.25rem] items-center justify-between gap-6">
-        <Logo />
+      <div className="container-site flex h-[4.5rem] items-center justify-between gap-6">
+        <Logo dark />
 
         <nav aria-label="Navegação principal" className="hidden lg:block">
           <ul className="flex items-center gap-1">
@@ -24,11 +24,11 @@ export function Header() {
               <li key={group.label} className="group relative">
                 <Link
                   href={group.href}
-                  className="inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.94rem] font-medium text-ink/85 transition-colors hover:bg-mist hover:text-ink"
+                  className="inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.92rem] font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white"
                 >
                   {group.label}
                   {group.items && (
-                    <ChevronDown aria-hidden className="size-3.5 text-slate transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+                    <ChevronDown aria-hidden className="size-3.5 text-white/50 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
                   )}
                 </Link>
                 {group.items && (
@@ -41,7 +41,7 @@ export function Header() {
                   >
                     <ul
                       className={cx(
-                        "grid gap-1 rounded-2xl border border-line bg-white p-2.5 shadow-[var(--shadow-float)]",
+                        "grid gap-1 rounded-2xl bg-white p-2.5 shadow-[var(--shadow-float)] ring-1 ring-line",
                         group.wide && "grid-cols-2",
                       )}
                     >
@@ -52,7 +52,7 @@ export function Header() {
                             className="flex gap-3 rounded-xl p-3 transition-colors hover:bg-mist focus-visible:bg-mist"
                           >
                             {item.icon && (
-                              <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-signal-50 text-signal">
+                              <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-400">
                                 <Icon name={item.icon} className="size-[1.1rem]" />
                               </span>
                             )}

@@ -10,10 +10,10 @@ export function Container({ className, children }: { className?: string; childre
   return <div className={cx("container-site", className)}>{children}</div>;
 }
 
-type Tone = "white" | "mist" | "navy";
+type Tone = "white" | "mist" | "navy" | "aurora";
 
 export function Section({
-  tone = "white",
+  tone = "mist",
   className,
   id,
   children,
@@ -26,10 +26,16 @@ export function Section({
   labelledBy?: string;
 }) {
   const toneClass =
-    tone === "navy" ? "bg-navy text-white on-dark" : tone === "mist" ? "bg-mist" : "bg-white";
+    tone === "navy"
+      ? "bg-hero text-white on-dark"
+      : tone === "aurora"
+        ? "bg-aurora text-white on-dark"
+        : tone === "white"
+          ? "bg-white"
+          : "bg-mist";
   return (
-    <section id={id} aria-labelledby={labelledBy} className={cx("py-20 md:py-28", toneClass, className)}>
-      <Container>{children}</Container>
+    <section id={id} aria-labelledby={labelledBy} className={cx("relative overflow-hidden py-20 md:py-28", toneClass, className)}>
+      <Container className="relative">{children}</Container>
     </section>
   );
 }
@@ -58,11 +64,11 @@ export function SectionHeading({
   return (
     <div className={cx("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
-      <h2 id={id} className={cx("text-3xl font-semibold md:text-[2.75rem]", dark && "text-white")}>
+      <h2 id={id} className={cx("text-[1.9rem] font-bold md:text-[2.6rem]", dark && "text-white")}>
         {title}
       </h2>
       {text && (
-        <p className={cx("mt-5 text-lg md:text-xl", dark ? "text-white/75" : "text-slate")}>{text}</p>
+        <p className={cx("mt-4 text-lg", dark ? "text-white/70" : "text-slate")}>{text}</p>
       )}
     </div>
   );
@@ -74,10 +80,10 @@ const buttonBase =
   "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus-visible:outline-offset-4 whitespace-nowrap";
 
 const buttonVariants: Record<ButtonVariant, string> = {
-  primary: "bg-signal text-white shadow-[0_8px_20px_-8px_rgb(11_95_255/0.6)] hover:bg-signal-600 hover:-translate-y-px",
-  secondary: "border border-line-strong bg-white text-ink hover:border-ink",
-  light: "bg-white text-navy hover:bg-signal-50 hover:-translate-y-px",
-  "ghost-light": "border border-white/25 text-white hover:border-white/60 hover:bg-white/5",
+  primary: "bg-brand text-white shadow-[var(--shadow-glow)] hover:-translate-y-px hover:brightness-110",
+  secondary: "border border-line-strong bg-white text-signal hover:border-signal/50",
+  light: "bg-white text-ink hover:-translate-y-px hover:bg-violet-50",
+  "ghost-light": "border border-white/25 bg-white/[0.06] text-white hover:border-white/50 hover:bg-white/10",
   link: "text-signal hover:text-signal-600 !px-0 !py-0",
 };
 
@@ -142,20 +148,21 @@ export function Badge({
   className,
 }: {
   children: ReactNode;
-  tone?: "blue" | "green" | "gray" | "amber" | "dark";
+  tone?: "blue" | "violet" | "green" | "gray" | "amber" | "dark";
   className?: string;
 }) {
   const tones = {
     blue: "bg-signal-50 text-signal-600 ring-signal-100",
+    violet: "bg-violet-50 text-violet ring-violet-100",
     green: "bg-accent-50 text-accent-strong ring-accent/20",
-    gray: "bg-mist text-slate ring-line",
+    gray: "bg-white text-slate ring-line",
     amber: "bg-amber-50 text-amber-800 ring-amber-200",
     dark: "bg-white/10 text-white ring-white/15",
   };
   return (
     <span
       className={cx(
-        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset",
+        "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.72rem] font-semibold ring-1 ring-inset",
         tones[tone],
         className,
       )}
@@ -167,7 +174,7 @@ export function Badge({
 
 export function Card({ className, children }: { className?: string; children: ReactNode }) {
   return (
-    <div className={cx("rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-card)] md:p-8", className)}>
+    <div className={cx("rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60 md:p-8", className)}>
       {children}
     </div>
   );

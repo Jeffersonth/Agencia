@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/inter";
+import "@fontsource-variable/sora";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { Analytics } from "@/components/Analytics";
 import { graph, organizationSchema, websiteSchema } from "@/lib/seo";
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0A1F44",
+  themeColor: "#181240",
   width: "device-width",
   initialScale: 1,
 };
@@ -33,9 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="pt-BR">
       <body className="min-h-dvh overflow-x-clip">
         <JsonLd data={graph(organizationSchema(), websiteSchema())} />
-        <Header />
-        <main id="conteudo">{children}</main>
-        <Footer />
+        {children}
         <Analytics />
       </body>
     </html>
