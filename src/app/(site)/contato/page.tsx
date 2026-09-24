@@ -13,7 +13,7 @@ const path = "/contato/";
 export const metadata: Metadata = pageMetadata({
   title: `Fale com a ${site.name} | Atendemos empresas em todo o Brasil`,
   absoluteTitle: true,
-  description: `Fale com a ${site.name} pelo WhatsApp (atendido pelo nosso próprio agente de IA), e-mail ou formulário. Atendimento 100% digital, em todo o Brasil.`,
+  description: `Fale com a ${site.name} pelo WhatsApp, e-mail ou formulário. Atendimento 100% digital, em todo o Brasil.`,
   path,
 });
 
@@ -48,11 +48,11 @@ export default function ContatoPage() {
             <Breadcrumbs items={crumbs} dark />
             <h1 className="mt-10 text-[2.35rem] leading-[1.08] text-white md:text-[3.1rem]">Vamos conversar sobre a sua operação.</h1>
             <p data-answer className="mt-6 text-lg leading-relaxed text-white/75">
-              Atendemos empresas em todo o Brasil. Fale pelo WhatsApp (atendido pelo nosso próprio agente de IA — a melhor demonstração do que fazemos), por e-mail ou pelo formulário. Respondemos em horário comercial.
+              Atendemos empresas em todo o Brasil. Fale com a gente no WhatsApp, por e-mail ou pelo formulário. Respondemos em horário comercial.
             </p>
             <div className="mt-8 grid gap-3">
-              <ContactItem icon={<WhatsAppGlyph className="size-5" />} title="WhatsApp · atendido por IA" href={whatsappLink(`Olá! Vim pelo site da ${site.name}.`)}>
-                {site.contact.whatsappDisplay} — o agente responde 24/7 e chama uma pessoa quando precisa
+              <ContactItem icon={<WhatsAppGlyph className="size-5" />} title="Fale com a gente no WhatsApp" href={whatsappLink(`Olá! Vim pelo site da ${site.name}.`)}>
+                {site.contact.whatsappDisplay}
               </ContactItem>
               <ContactItem icon={<Mail aria-hidden className="size-5" />} title="E-mail" href={`mailto:${site.contact.email}`}>
                 {site.contact.email}

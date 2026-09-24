@@ -165,7 +165,7 @@ export default function DiagnosticoPage() {
           </div>
           <div className="lg:pt-20">
             <WhatsAppCard light />
-            <p className="mt-4 text-center text-sm text-slate">Prefere conversar antes? O agente da {site.name} responde na hora.</p>
+            <p className="mt-4 text-center text-sm text-slate">Prefere conversar antes? Fale com a gente no WhatsApp.</p>
           </div>
         </div>
       </Section>

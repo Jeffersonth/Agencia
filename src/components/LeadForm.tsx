@@ -58,7 +58,7 @@ export function LeadForm({
       <div role="status" className="rounded-[var(--radius-card)] border border-accent/30 bg-accent-50 p-8 text-center">
         <CircleCheck aria-hidden className="mx-auto size-10 text-accent-strong" />
         <h3 className="mt-4 text-2xl font-semibold">Recebemos seu pedido.</h3>
-        <p className="mt-2 text-slate">Entramos em contato em até 1 dia útil pelo WhatsApp informado. Se preferir, fale agora com o nosso agente:</p>
+        <p className="mt-2 text-slate">Entramos em contato em até 1 dia útil pelo WhatsApp informado. Se preferir, fale com a gente no WhatsApp:</p>
         <a
           href={whatsappLink(summary)}
           target="_blank"

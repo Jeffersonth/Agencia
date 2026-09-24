@@ -460,8 +460,13 @@ export const cases: CaseStudy[] = [
 
 export const getCase = (slug: string) => cases.find((c) => c.slug === slug);
 
-export const liveDemos = [
-  { name: "Clínica Demo", text: "Peça um horário, pergunte sobre convênios e remarque uma consulta.", message: "Quero testar a Clínica Demo" },
-  { name: "Escritório Demo", text: "Veja como funciona uma triagem inicial dentro das regras da OAB.", message: "Quero testar o Escritório Demo" },
-  { name: "Imobiliária Demo", text: "Pergunte sobre um imóvel, informe seu perfil e agende uma visita.", message: "Quero testar a Imobiliária Demo" },
-];
+/**
+ * Demonstrações ao vivo no WhatsApp. Ficam vazias até existir um número próprio de
+ * demonstração (não use o WhatsApp principal); a seção some da página de Cases.
+ */
+export const liveDemos: { name: string; text: string; message: string }[] = [];
+
+// Para reativar, preencha liveDemos com um número próprio de demonstração, por exemplo:
+// { name: "Clínica Demo", text: "Peça um horário, pergunte sobre convênios e remarque uma consulta.", message: "Quero testar a Clínica Demo" },
+// { name: "Escritório Demo", text: "Veja como funciona uma triagem inicial dentro das regras da OAB.", message: "Quero testar o Escritório Demo" },
+// { name: "Imobiliária Demo", text: "Pergunte sobre um imóvel, informe seu perfil e agende uma visita.", message: "Quero testar a Imobiliária Demo" },
