@@ -87,7 +87,12 @@ fi
 log "Gravando $APP_DIR/.env"
 ENV_FILE="$APP_DIR/.env"
 touch "$ENV_FILE"; chmod 600 "$ENV_FILE"
-set_env() { local k=$1 v=$2; if grep -q "^$k=" "$ENV_FILE"; then [ -n "$v" ] && sed -i "s|^$k=.*|$k=$v|" "$ENV_FILE"; else echo "$k=$v" >> "$ENV_FILE"; fi; }
+set_env() {
+  local k=$1 v=$2
+  if ! grep -q "^$k=" "$ENV_FILE"; then echo "$k=$v" >> "$ENV_FILE"
+  elif [ -n "$v" ]; then sed -i "s|^$k=.*|$k=$v|" "$ENV_FILE"
+  fi
+}
 set_env TRAEFIK_NETWORK "$NETWORK"
 set_env TRAEFIK_ENTRYPOINT "$ENTRYPOINT"
 set_env TRAEFIK_CERTRESOLVER "$RESOLVER"
