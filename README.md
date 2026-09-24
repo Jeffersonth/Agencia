@@ -64,7 +64,7 @@ src/
 Home · Soluções (hub + 4 hubs + 14 páginas-filhas) · Serviços (Sites, SEO/GEO + Auditoria, Sistemas,
 Aplicativos) · Setores (Advocacia, Saúde, Imobiliárias, Contabilidade, E-commerce, Educação) ·
 Diagnóstico · Investimento · Cases (índice + 16 páginas demonstrativas) · Método · Sobre · Segurança
-e LGPD · Conteúdo (10 guias, 4 comparativos, glossário com 17 termos) · Ferramentas (Calculadora de ROI, Teste de Visibilidade em IA) · Contato ·
+e LGPD · Conteúdo (11 guias, 6 comparativos, glossário com 40 termos) · Ferramentas (Calculadora de ROI, Teste de Visibilidade em IA) · Contato ·
 Privacidade · Termos · `robots.txt` · `sitemap.xml` · `llms.txt`.
 
 ## SEO, GEO e LLM SEO (o que já está implementado)

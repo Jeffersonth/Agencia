@@ -193,6 +193,259 @@ export const glossary: Term[] = [
     ],
     related: ["/conteudo/guias/ia-e-lgpd/", "/seguranca-e-lgpd/", "/solucoes/ia-corporativa/ia-privada/"],
   },
+  {
+    slug: "llm",
+    term: "LLM (modelo de linguagem)",
+    definition:
+      "Modelo de inteligência artificial treinado com grandes volumes de texto para entender e gerar linguagem natural. É o “motor” por trás de assistentes e agentes de IA.",
+    body: [
+      "LLM é a sigla de Large Language Model. Exemplos conhecidos são os modelos das famílias GPT, Claude, Gemini e Llama. Eles preveem a continuação mais provável de um texto, o que permite conversar, resumir, classificar e extrair informações.",
+      "Sozinho, um LLM só conhece o que aprendeu no treinamento. Para responder sobre a sua empresa e agir em sistemas, ele precisa de uma base de conhecimento e de integrações, e é isso que forma um agente.",
+    ],
+    related: ["/conteudo/glossario/agente-de-ia/", "/conteudo/glossario/rag/", "/conteudo/guias/agentes-de-ia-para-empresas/"],
+  },
+  {
+    slug: "prompt",
+    term: "Prompt",
+    definition:
+      "Instrução em linguagem natural dada a um modelo de IA para orientar o que ele deve fazer, com que tom e dentro de quais regras.",
+    body: [
+      "Em um agente de empresa, o prompt principal descreve o papel do agente, as regras de negócio, o que ele pode e não pode responder e quando transferir para uma pessoa.",
+      "Prompts são testados com cenários reais e ajustados ao longo do tempo. Mudanças pequenas podem alterar bastante o comportamento, por isso fazem parte da sustentação.",
+    ],
+    related: ["/conteudo/glossario/llm/", "/conteudo/glossario/guardrails/"],
+  },
+  {
+    slug: "tokens",
+    term: "Tokens",
+    definition:
+      "Pedaços de texto (partes de palavras, palavras ou sinais) em que os modelos de IA dividem o que leem e escrevem. O uso de IA costuma ser cobrado por tokens.",
+    body: [
+      "Em português, uma palavra costuma virar um ou mais tokens. Tanto a mensagem enviada ao modelo quanto a resposta gerada contam.",
+      "Bases de conhecimento bem organizadas e respostas objetivas reduzem o consumo de tokens e, portanto, o custo de uso.",
+    ],
+    related: ["/conteudo/glossario/janela-de-contexto/", "/conteudo/guias/quanto-custa-um-agente-de-ia/"],
+  },
+  {
+    slug: "janela-de-contexto",
+    term: "Janela de contexto",
+    definition:
+      "Quantidade máxima de texto, medida em tokens, que um modelo de IA consegue considerar de uma só vez: instruções, histórico da conversa e documentos consultados.",
+    body: [
+      "Janelas maiores permitem analisar documentos longos e conversas extensas, mas aumentam o custo e nem sempre melhoram a resposta.",
+      "Por isso, em vez de enviar todos os documentos ao modelo, agentes bem construídos buscam apenas os trechos relevantes para cada pergunta (RAG).",
+    ],
+    related: ["/conteudo/glossario/tokens/", "/conteudo/glossario/rag/"],
+  },
+  {
+    slug: "embeddings",
+    term: "Embeddings",
+    definition:
+      "Representações numéricas de textos que capturam o significado, permitindo encontrar trechos parecidos mesmo quando as palavras são diferentes.",
+    body: [
+      "Com embeddings, a pergunta “como troco minha senha?” encontra o trecho do manual que fala em “redefinição de acesso”, mesmo sem palavras em comum.",
+      "Eles são a base da busca semântica usada em agentes de conhecimento e em técnicas de RAG.",
+    ],
+    related: ["/conteudo/glossario/banco-vetorial/", "/conteudo/glossario/rag/"],
+  },
+  {
+    slug: "banco-vetorial",
+    term: "Banco de dados vetorial",
+    definition:
+      "Banco de dados que armazena embeddings e encontra rapidamente os trechos mais parecidos com uma pergunta.",
+    body: [
+      "É o índice que um agente consulta antes de responder: a pergunta vira um embedding e o banco devolve os trechos de documentos mais relevantes.",
+      "Pode rodar em serviços de nuvem ou em servidor próprio, o que importa para projetos de IA privada.",
+    ],
+    related: ["/conteudo/glossario/embeddings/", "/conteudo/glossario/rag/", "/solucoes/operacoes/agente-de-conhecimento/"],
+  },
+  {
+    slug: "fine-tuning",
+    term: "Fine-tuning (ajuste fino)",
+    definition:
+      "Treinamento adicional de um modelo de IA com exemplos próprios, para ajustar estilo, formato ou comportamento em uma tarefa específica.",
+    body: [
+      "O fine-tuning muda o modelo; o RAG muda a informação que o modelo recebe. Para responder sobre dados da empresa que mudam com frequência, o RAG costuma ser mais barato e fácil de manter.",
+      "O ajuste fino faz sentido em tarefas muito repetitivas e padronizadas, quando há muitos exemplos de qualidade.",
+    ],
+    related: ["/conteudo/glossario/rag/", "/conteudo/glossario/llm/"],
+  },
+  {
+    slug: "chatbot",
+    term: "Chatbot",
+    definition:
+      "Programa que conversa com usuários por texto. Os tradicionais seguem menus e roteiros fixos; os baseados em IA entendem linguagem natural.",
+    body: [
+      "Chatbots de menu funcionam bem para opções simples e previsíveis, mas travam quando o cliente escreve algo fora do roteiro.",
+      "Um agente de IA vai além: entende pedidos livres, consulta sistemas e executa ações, dentro das regras da empresa.",
+    ],
+    related: ["/conteudo/comparativos/agente-de-ia-vs-chatbot/", "/conteudo/glossario/agente-de-ia/"],
+  },
+  {
+    slug: "guardrails",
+    term: "Guardrails (limites de segurança)",
+    definition:
+      "Regras e verificações que mantêm um agente de IA dentro do escopo: o que ele pode responder, que dados pode usar e quando deve parar e chamar uma pessoa.",
+    body: [
+      "Incluem instruções no prompt, filtros de conteúdo, validação de dados antes de ações, limites de acesso a sistemas e regras de transbordo.",
+      "Em setores regulados, os guardrails também traduzem regras da profissão, como não dar parecer jurídico ou orientação clínica.",
+    ],
+    related: ["/conteudo/glossario/human-in-the-loop/", "/conteudo/glossario/transbordo/", "/solucoes/ia-corporativa/governanca-ia-lgpd/"],
+  },
+  {
+    slug: "human-in-the-loop",
+    term: "Human-in-the-loop (revisão humana)",
+    definition:
+      "Desenho de processo em que uma pessoa revisa ou aprova as decisões da IA em pontos definidos, antes que algo seja enviado ou lançado.",
+    body: [
+      "Exemplos: um analista aprova campos extraídos de uma nota fiscal quando a validação falha, ou um advogado revisa o rascunho de uma peça antes do envio.",
+      "A revisão humana permite automatizar processos críticos com segurança, concentrando as pessoas nos casos de exceção.",
+    ],
+    related: ["/conteudo/glossario/guardrails/", "/conteudo/glossario/alucinacao/", "/solucoes/operacoes/automacao-de-documentos/"],
+  },
+  {
+    slug: "rpa",
+    term: "RPA (automação robótica de processos)",
+    definition:
+      "Tecnologia que automatiza tarefas repetitivas imitando as ações de uma pessoa na tela: clicar, copiar, colar e preencher campos.",
+    body: [
+      "O RPA é útil para sistemas antigos sem API, mas quebra quando a tela muda e não lida bem com informação não estruturada.",
+      "Agentes de IA e integrações por API complementam o RPA: entendem textos e documentos e se conectam aos sistemas de forma mais estável.",
+    ],
+    related: ["/solucoes/operacoes/automacao-de-processos/", "/conteudo/glossario/api/"],
+  },
+  {
+    slug: "n8n",
+    term: "n8n",
+    definition:
+      "Ferramenta de automação de fluxos que conecta sistemas e agentes de IA, podendo ser hospedada pela própria empresa.",
+    body: [
+      "Com o n8n, um fluxo pode receber um lead, consultar o CRM, chamar um modelo de IA e enviar uma mensagem no WhatsApp, tudo registrado e auditável.",
+      "Por permitir hospedagem própria, dá controle sobre os dados e custo previsível em alto volume.",
+    ],
+    related: ["/conteudo/comparativos/n8n-vs-make-vs-zapier/", "/solucoes/operacoes/automacao-de-processos/"],
+  },
+  {
+    slug: "webhook",
+    term: "Webhook",
+    definition:
+      "Aviso automático que um sistema envia a outro, por meio de um endereço na internet, quando algo acontece: um lead novo, um pagamento, uma mensagem recebida.",
+    body: [
+      "Em vez de consultar um sistema a cada minuto, a automação é acionada no momento do evento, o que deixa as respostas mais rápidas.",
+      "Os formulários de um site, por exemplo, podem enviar cada lead por webhook para um fluxo que registra no CRM e avisa a equipe no WhatsApp.",
+    ],
+    related: ["/conteudo/glossario/api/", "/solucoes/operacoes/integracao-de-sistemas/"],
+  },
+  {
+    slug: "api",
+    term: "API",
+    definition:
+      "Interface que permite que dois sistemas troquem informações e comandos de forma padronizada, sem intervenção humana.",
+    body: [
+      "Quando um agente de IA consulta a agenda ou registra um lead no CRM, ele usa a API desses sistemas.",
+      "Sistemas com API bem documentada são mais rápidos e baratos de integrar. Sem API, a integração pode exigir importação de arquivos ou RPA.",
+    ],
+    related: ["/solucoes/operacoes/integracao-de-sistemas/", "/conteudo/glossario/webhook/", "/conteudo/glossario/api-oficial-do-whatsapp/"],
+  },
+  {
+    slug: "crm",
+    term: "CRM",
+    definition:
+      "Sistema que organiza os contatos, as oportunidades e o histórico de relacionamento com clientes, geralmente com um funil de vendas.",
+    body: [
+      "Sigla de Customer Relationship Management. Mostra em que etapa está cada negociação, quem é o responsável e qual é o próximo passo.",
+      "Integrado a agentes de IA, o CRM recebe os leads já qualificados, com o resumo da conversa, e dispara alertas quando alguém precisa agir.",
+    ],
+    related: ["/solucoes/vendas-e-receita/crm-e-pipeline/", "/conteudo/glossario/pipeline/"],
+  },
+  {
+    slug: "lead-qualificado",
+    term: "Lead qualificado",
+    definition:
+      "Contato que demonstrou interesse e atende aos critérios de perfil da empresa, como necessidade, orçamento, prazo e poder de decisão.",
+    body: [
+      "Muitas empresas separam o lead qualificado pelo marketing (MQL), que tem perfil e interesse, do lead qualificado para vendas (SQL), pronto para uma conversa comercial.",
+      "Um SDR com IA faz as perguntas de qualificação e entrega ao vendedor só os contatos com perfil, com a pontuação e o resumo no CRM.",
+    ],
+    related: ["/conteudo/glossario/sdr-com-ia/", "/solucoes/vendas-e-receita/sdr-com-ia/"],
+  },
+  {
+    slug: "opt-in",
+    term: "Opt-in",
+    definition:
+      "Consentimento dado pelo contato para receber mensagens de uma empresa, como promoções, lembretes ou novidades no WhatsApp e por e-mail.",
+    body: [
+      "No WhatsApp, as regras da Meta exigem opt-in para mensagens iniciadas pela empresa. Na LGPD, o consentimento é uma das bases legais possíveis para comunicação de marketing.",
+      "Um bom opt-in é claro sobre o que a pessoa vai receber e sempre oferece uma forma simples de sair (opt-out).",
+    ],
+    related: ["/conteudo/glossario/mensagem-de-modelo/", "/solucoes/vendas-e-receita/funis-automatizados/", "/conteudo/guias/ia-e-lgpd/"],
+  },
+  {
+    slug: "mensagem-de-modelo",
+    term: "Mensagem de modelo (WhatsApp)",
+    definition:
+      "Mensagem pré-aprovada pela Meta que a empresa usa para iniciar conversas no WhatsApp fora da janela de 24 horas, como lembretes, avisos e ofertas.",
+    body: [
+      "Os modelos são classificados em categorias (como utilidade, autenticação e marketing) e cobrados pela Meta conforme a categoria e o país.",
+      "Lembretes de consulta e avisos de pedido costumam ser de utilidade; ofertas e reativação, de marketing, e exigem opt-in.",
+    ],
+    related: ["/conteudo/glossario/janela-de-atendimento-24-horas/", "/conteudo/glossario/opt-in/", "/conteudo/guias/ia-no-whatsapp/"],
+  },
+  {
+    slug: "dpo",
+    term: "Encarregado de dados (DPO)",
+    definition:
+      "Pessoa ou empresa indicada para atuar como canal de comunicação entre a organização, os titulares dos dados e a ANPD, conforme a LGPD.",
+    body: [
+      "O encarregado orienta a equipe sobre boas práticas, recebe pedidos e reclamações dos titulares e responde à autoridade.",
+      "Em projetos de IA, participa da definição das bases legais, da política de uso de IA e da avaliação de riscos.",
+    ],
+    related: ["/conteudo/guias/ia-e-lgpd/", "/solucoes/ia-corporativa/governanca-ia-lgpd/", "/conteudo/glossario/base-legal/"],
+  },
+  {
+    slug: "base-legal",
+    term: "Base legal (LGPD)",
+    definition:
+      "Hipótese prevista na LGPD que autoriza o tratamento de dados pessoais, como consentimento, execução de contrato, obrigação legal ou legítimo interesse.",
+    body: [
+      "Todo uso de dados pessoais precisa de uma base legal definida. Dados sensíveis, como os de saúde, têm um conjunto mais restrito de bases possíveis.",
+      "Em um projeto de IA, cada finalidade (atender, agendar, enviar lembretes, fazer marketing) deve ter a sua base legal registrada.",
+    ],
+    related: ["/conteudo/guias/ia-e-lgpd/", "/conteudo/glossario/dado-pessoal-sensivel/", "/conteudo/glossario/dpo/"],
+  },
+  {
+    slug: "roi",
+    term: "ROI (retorno sobre o investimento)",
+    definition:
+      "Indicador que compara o ganho obtido com um investimento ao valor investido, mostrando se e em quanto tempo ele se paga.",
+    body: [
+      "Em projetos de IA, o ganho costuma vir de horas liberadas da equipe, vendas recuperadas fora do horário e erros evitados.",
+      "O prazo de retorno (payback) é o tempo até que o ganho acumulado cubra o investimento inicial.",
+    ],
+    related: ["/ferramentas/calculadora-roi-atendimento/", "/conteudo/guias/quanto-custa-um-agente-de-ia/", "/diagnostico/"],
+  },
+  {
+    slug: "taxa-de-faltas",
+    term: "Taxa de faltas (no-show)",
+    definition:
+      "Percentual de agendamentos em que o cliente ou paciente não comparece nem avisa com antecedência.",
+    body: [
+      "Calcula-se dividindo o número de faltas pelo número de agendamentos no período. Cada falta é um horário que não gera receita.",
+      "Confirmação ativa, lembretes na véspera e oferta rápida da vaga para a lista de espera estão entre as formas mais simples de reduzir as faltas.",
+    ],
+    related: ["/solucoes/atendimento-inteligente/agendamento-inteligente/", "/conteudo/guias/ia-para-clinicas/"],
+  },
+  {
+    slug: "ai-overviews",
+    term: "AI Overviews e AI Mode",
+    definition:
+      "Recursos do Google que mostram respostas geradas por IA no topo ou no lugar dos resultados tradicionais, citando os sites usados como fonte.",
+    body: [
+      "Com eles, parte das buscas é resolvida sem clique. Ser uma das fontes citadas passa a ser tão importante quanto aparecer na lista de links.",
+      "Conteúdo com respostas diretas, dados estruturados e autoridade da marca aumenta a chance de citação, que é o foco do GEO.",
+    ],
+    related: ["/conteudo/glossario/geo/", "/conteudo/guias/geo-como-aparecer-nas-ias/", "/servicos/seo-e-geo/"],
+  },
 ];
 
 export const getTerm = (slug: string) => glossary.find((t) => t.slug === slug);
