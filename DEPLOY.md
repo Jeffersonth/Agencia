@@ -69,7 +69,34 @@ No GitHub → Settings → Secrets and variables → Actions, crie:
 | `VPS_SSH_KEY` | chave privada SSH cuja pública está em `~/.ssh/authorized_keys` na VPS |
 | `VPS_DIR` | opcional, padrão `/opt/agencia` |
 
-A partir daí, cada merge no `main` envia o código e reconstrói o contêiner. O `.env` da VPS é preservado.
+Para criar a chave, na VPS:
+
+```bash
+ssh-keygen -t ed25519 -N "" -f ~/.ssh/deploy_github -C deploy-github
+cat ~/.ssh/deploy_github.pub >> ~/.ssh/authorized_keys
+cat ~/.ssh/deploy_github   # copie tudo, de -----BEGIN a -----END, para o secret VPS_SSH_KEY
+```
+
+A partir daí, cada merge no `main` envia o código, reconstrói o contêiner e confere se o site voltou a responder. O `.env` da VPS (chaves e webhooks) é preservado. Sem os secrets, a execução mostra um aviso em vez de falhar.
+
+## Leads por e-mail
+
+Cada formulário vira um e-mail para o contato do site (ou `LEAD_EMAIL_TO`), com todos os campos e o link para responder no WhatsApp. Com Gmail:
+
+1. Ative a verificação em duas etapas da conta Google.
+2. Crie uma senha de app em myaccount.google.com/apppasswords (nome: "Site Sinal") e copie os 16 caracteres, sem espaços.
+3. Na VPS: `cd /opt/agencia && SMTP_USER=seu@gmail.com SMTP_PASS=senhadeapp bash scripts/deploy-vps.sh` (os valores ficam no `.env`).
+
+Se o envio falhar, o formulário oferece o WhatsApp ao visitante e o erro aparece em `docker logs agencia-site`.
+
+## Chat de IA
+
+Com `ANTHROPIC_API_KEY` no `.env` da VPS (ou `ANTHROPIC_API_KEY=... bash scripts/deploy-vps.sh`), o balão "Pergunte à IA" aparece no site. `CHAT_MODEL` e `CHAT_DAILY_LIMIT` são opcionais. Acompanhe o consumo em console.anthropic.com.
+
+## Verificações automáticas
+
+- **CI** (`.github/workflows/ci.yml`): em cada PR e no `main`, além de typecheck e build, sobe o site e roda `npm run check`, que percorre todas as páginas e falha com link interno quebrado, título ou descrição ausentes ou repetidos, canonical errado, H1 ausente ou duplicado, JSON-LD inválido, URL do sitemap fora do ar ou 404 com status errado.
+- **Monitor** (`.github/workflows/monitor.yml`): a cada 15 minutos, testa páginas principais, `sitemap.xml`, `robots.txt`, `llms.txt`, `/api/chat/` e a validade do certificado HTTPS. Se algo falhar, abre a issue "Site fora do ar" (o GitHub avisa por e-mail) e a fecha quando o site volta. Para rodar na hora: Actions → Monitor → Run workflow.
 
 ## Depois do primeiro deploy
 

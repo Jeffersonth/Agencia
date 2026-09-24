@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Verificar configuração
         if: env.HAS_SECRETS != 'true'
-        run: echo "Secrets de deploy não configurados; nada a fazer."
+        run: echo "::warning title=Deploy não executado::Configure os secrets VPS_HOST, VPS_USER e VPS_SSH_KEY em Settings > Secrets and variables > Actions (veja DEPLOY.md)."
       - uses: actions/checkout@v4
         if: env.HAS_SECRETS == 'true'
       - name: Enviar código e reconstruir o contêiner
@@ -36,3 +36,13 @@ jobs:
           $SSH "$USER@$HOST" "command -v rsync >/dev/null || (apt-get update -y && apt-get install -y rsync)"
           rsync -az --delete --exclude .git --exclude node_modules --exclude .next --exclude .env -e "$SSH" ./ "$USER@$HOST:$DIR/"
           $SSH "$USER@$HOST" "SKIP_GIT=1 APP_DIR='$DIR' bash '$DIR/scripts/deploy-vps.sh'"
+      - name: Conferir o site no ar
+        if: env.HAS_SECRETS == 'true'
+        run: |
+          for i in $(seq 1 20); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 https://agencia.inovalabs.io/robots.txt || true)
+            [ "$code" = 200 ] && { echo "Site respondendo."; exit 0; }
+            sleep 6
+          done
+          echo "::error::O site não respondeu depois do deploy (último status: $code)."
+          exit 1

@@ -38,7 +38,7 @@ export default function PrivacidadePage() {
       </p>
       <h2>4. Compartilhamento</h2>
       <p>
-        Compartilhamos dados apenas com fornecedores necessários à operação (hospedagem, ferramentas de CRM, mensuração, WhatsApp Business Platform e
+        Compartilhamos dados apenas com fornecedores necessários à operação (hospedagem, e-mail, ferramentas de CRM, mensuração, WhatsApp Business Platform e
         provedores de IA com contrato de não retenção), sempre com obrigações de confidencialidade e segurança. Não vendemos dados pessoais.
       </p>
       <h2>5. Agente de IA no WhatsApp</h2>

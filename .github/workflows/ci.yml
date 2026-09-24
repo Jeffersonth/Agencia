@@ -18,3 +18,13 @@ jobs:
       - run: npx next typegen
       - run: npm run typecheck
       - run: npm run build
+      - name: Verificar páginas, links, SEO e sitemap
+        run: |
+          cp -r .next/static .next/standalone/.next/static
+          [ -d public ] && cp -r public .next/standalone/public
+          PORT=3000 node .next/standalone/server.js > server.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf -o /dev/null http://localhost:3000/robots.txt && break; sleep 1; done
+          npm run check
+      - name: Log do servidor (se falhar)
+        if: failure()
+        run: cat server.log || true

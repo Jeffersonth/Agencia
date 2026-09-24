@@ -19,7 +19,8 @@ Variáveis de ambiente (veja `.env.example`):
 | Variável | Uso |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Domínio público. Usado em canonicals, sitemap, Schema.org, robots.txt e llms.txt. |
-| `LEAD_WEBHOOK_URL` | Opcional. Recebe os leads dos formulários (n8n, Make, CRM). Sem ele, os leads vão para o log do servidor. |
+| `SMTP_USER` / `SMTP_PASS` | Leads por e-mail (Gmail: seu endereço + senha de app). Destino: `LEAD_EMAIL_TO` ou o e-mail de contato do site. Opcionais: `SMTP_HOST`, `SMTP_PORT`, `SMTP_FROM`. |
+| `LEAD_WEBHOOK_URL` | Opcional. Também envia os leads para um webhook (n8n, Make, CRM). Sem e-mail nem webhook, os leads vão só para o log do servidor. |
 | `NEXT_PUBLIC_GA_ID` | Opcional. GA4 com banner de consentimento (Consent Mode). Sem ele, nada é carregado. |
 | `INDEXNOW_KEY` | Opcional. Publica `/indexnow-key.txt`; depois do deploy, rode `npm run indexnow` para enviar o sitemap ao IndexNow. |
 | `ANTHROPIC_API_KEY` | Opcional. Liga o chat "Pergunte à IA" (Claude). Sem ela, o chat não aparece. |

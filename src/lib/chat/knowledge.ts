@@ -16,7 +16,7 @@ function knowledge() {
 
   push(
     `# ${site.name}`,
-    `${site.name} é um estúdio de engenharia de IA que cria agentes de IA, automações e sistemas sob medida para empresas atenderem, venderem e operarem melhor. Atende empresas em todo o Brasil; base em ${site.contact.city}, ${site.contact.state}. Fundador: ${site.founder.name} (${site.founder.jobTitle}).`,
+    `${site.name} é um estúdio de engenharia de IA que cria agentes de IA, automações e sistemas sob medida para empresas atenderem, venderem e operarem melhor. Atendimento 100% digital, para empresas de todo o Brasil (sem escritório físico para visitas). Fundador: ${site.founder.name} (${site.founder.jobTitle}).`,
     `Contato: WhatsApp ${site.contact.whatsappDisplay} (${whatsappLink()}), e-mail ${site.contact.email}, ${site.contact.hours}.`,
     "Princípios: contas, números e dados sempre em nome do cliente; API oficial do WhatsApp; opção de IA privada; adequação à LGPD; código e automações com cláusula de saída; consumo de WhatsApp e IA pago direto aos provedores.",
   );

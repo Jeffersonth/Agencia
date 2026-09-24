@@ -2,7 +2,8 @@
 # Instala/atualiza o site em https://agencia.inovalabs.io na VPS, atrás do Traefik existente.
 # Uso (na VPS, como root):  bash deploy-vps.sh
 # Variáveis opcionais: GITHUB_TOKEN, APP_DIR, BRANCH, SKIP_GIT, LEAD_WEBHOOK_URL, NEXT_PUBLIC_GA_ID, INDEXNOW_KEY,
-#   ANTHROPIC_API_KEY (liga o chat de IA), CHAT_MODEL, CHAT_DAILY_LIMIT
+#   ANTHROPIC_API_KEY (liga o chat de IA), CHAT_MODEL, CHAT_DAILY_LIMIT,
+#   SMTP_USER + SMTP_PASS (leads por e-mail; Gmail com senha de app), LEAD_EMAIL_TO
 # SKIP_GIT=1: usa o código já presente em APP_DIR (deploy pelo GitHub Actions via rsync).
 set -euo pipefail
 
@@ -98,6 +99,9 @@ set_env TRAEFIK_NETWORK "$NETWORK"
 set_env TRAEFIK_ENTRYPOINT "$ENTRYPOINT"
 set_env TRAEFIK_CERTRESOLVER "$RESOLVER"
 set_env LEAD_WEBHOOK_URL "${LEAD_WEBHOOK_URL:-}"
+set_env SMTP_USER "${SMTP_USER:-}"
+set_env SMTP_PASS "${SMTP_PASS:-}"
+set_env LEAD_EMAIL_TO "${LEAD_EMAIL_TO:-}"
 set_env NEXT_PUBLIC_GA_ID "${NEXT_PUBLIC_GA_ID:-}"
 set_env INDEXNOW_KEY "${INDEXNOW_KEY:-}"
 set_env ANTHROPIC_API_KEY "${ANTHROPIC_API_KEY:-}"

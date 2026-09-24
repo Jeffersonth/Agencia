@@ -13,7 +13,7 @@ const path = "/contato/";
 export const metadata: Metadata = pageMetadata({
   title: `Fale com a ${site.name} | Atendemos empresas em todo o Brasil`,
   absoluteTitle: true,
-  description: `Fale com a ${site.name} pelo WhatsApp (atendido pelo nosso próprio agente de IA), e-mail ou formulário. Base em ${site.contact.city}, ${site.contact.state}. Atendemos todo o Brasil.`,
+  description: `Fale com a ${site.name} pelo WhatsApp (atendido pelo nosso próprio agente de IA), e-mail ou formulário. Atendimento 100% digital, em todo o Brasil.`,
   path,
 });
 
@@ -58,7 +58,7 @@ export default function ContatoPage() {
                 {site.contact.email}
               </ContactItem>
               <ContactItem icon={<MapPin aria-hidden className="size-5" />} title="Atuação nacional">
-                Base em {site.contact.city}, {site.contact.state}
+                {site.contact.coverage}
               </ContactItem>
               <ContactItem icon={<Clock aria-hidden className="size-5" />} title="Horário">
                 {site.contact.hours}

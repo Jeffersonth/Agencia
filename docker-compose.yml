@@ -12,6 +12,13 @@ services:
     restart: unless-stopped
     environment:
       LEAD_WEBHOOK_URL: ${LEAD_WEBHOOK_URL:-}
+      # Leads por e-mail (Gmail: senha de app). Sem SMTP_USER/SMTP_PASS, não envia e-mail.
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-}
+      SMTP_FROM: ${SMTP_FROM:-}
+      LEAD_EMAIL_TO: ${LEAD_EMAIL_TO:-}
       INDEXNOW_KEY: ${INDEXNOW_KEY:-}
       # Chat de IA do site: fica desligado sem a chave.
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}

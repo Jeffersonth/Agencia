@@ -1,0 +1,76 @@
+name: Monitor
+
+# Verifica o site no ar a cada 15 minutos. Se algo falhar, abre (ou atualiza) uma issue
+# "Site fora do ar" — o GitHub avisa por e-mail — e a fecha sozinha quando tudo volta ao normal.
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
+env:
+  SITE: https://agencia.inovalabs.io
+  ISSUE_TITLE: "Site fora do ar"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verificar páginas, API e certificado
+        id: check
+        run: |
+          problems=""
+          for path in / /diagnostico/ /solucoes/ /sitemap.xml /robots.txt /llms.txt; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 --retry 2 --retry-delay 5 "$SITE$path" || true)
+            [ "$code" = 200 ] || problems="$problems\n- \`$path\` respondeu $code"
+          done
+          chat=$(curl -s --max-time 20 "$SITE/api/chat/" || true)
+          case "$chat" in '{"enabled":'*) ;; *) problems="$problems\n- \`/api/chat/\` não respondeu como esperado" ;; esac
+          expiry=$(echo | openssl s_client -connect agencia.inovalabs.io:443 -servername agencia.inovalabs.io 2>/dev/null | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
+          if [ -z "$expiry" ]; then
+            problems="$problems\n- não foi possível ler o certificado HTTPS"
+          else
+            days=$(( ($(date -d "$expiry" +%s) - $(date +%s)) / 86400 ))
+            echo "Certificado vence em $days dias ($expiry)"
+            [ "$days" -ge 14 ] || problems="$problems\n- o certificado HTTPS vence em $days dias"
+          fi
+          if [ -n "$problems" ]; then
+            printf "Problemas:$problems\n"
+            { echo "problems<<EOF"; printf "$problems\n"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo "Tudo no ar."
+
+      - name: Abrir ou atualizar a issue
+        if: failure() && steps.check.outputs.problems != ''
+        uses: actions/github-script@v7
+        env:
+          PROBLEMS: ${{ steps.check.outputs.problems }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const title = process.env.ISSUE_TITLE;
+            const body = `A verificação automática de ${process.env.SITE} encontrou problemas em ${new Date().toISOString()}:\n${process.env.PROBLEMS}\n\n[Execução](${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId})`;
+            const { data: open } = await github.rest.issues.listForRepo({ owner, repo, state: "open", labels: "monitor" });
+            const existing = open.find((i) => i.title === title);
+            if (existing) await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body });
+            else await github.rest.issues.create({ owner, repo, title, body, labels: ["monitor"] });
+
+      - name: Fechar a issue quando o site voltar
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const { data: open } = await github.rest.issues.listForRepo({ owner, repo, state: "open", labels: "monitor" });
+            for (const issue of open.filter((i) => i.title === process.env.ISSUE_TITLE)) {
+              await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body: `O site voltou a responder normalmente em ${new Date().toISOString()}.` });
+              await github.rest.issues.update({ owner, repo, issue_number: issue.number, state: "closed", state_reason: "completed" });
+            }

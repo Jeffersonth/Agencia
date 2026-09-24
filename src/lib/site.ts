@@ -32,12 +32,11 @@ export const site = {
     ],
   },
   contact: {
-    // Somente dígitos, com DDI e DDD (ex.: 5583999999999)
-    whatsapp: "5583900000000",
-    whatsappDisplay: "+55 (83) 90000-0000",
-    email: "contato@sinal.com.br",
-    city: "João Pessoa / Cabedelo",
-    state: "PB",
+    // Somente dígitos, com DDI e DDD (ex.: 5511999999999)
+    whatsapp: "5511924574553",
+    whatsappDisplay: "+55 (11) 92457-4553",
+    email: "jeff.thchaves@gmail.com",
+    coverage: "Atendimento 100% digital, em todo o Brasil",
     hours: "Segunda a sexta, das 9h às 18h",
   },
   social: {

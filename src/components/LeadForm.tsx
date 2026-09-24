@@ -94,7 +94,7 @@ export function LeadForm({
             autoComplete="tel"
             pattern="[\d\s\(\)\+\-]{10,20}"
             className={inputCls}
-            placeholder="(83) 99999-9999"
+            placeholder="(11) 99999-9999"
           />
         </label>
         {options ? (

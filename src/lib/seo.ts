@@ -53,12 +53,6 @@ export function organizationSchema(full = false) {
     areaServed: { "@type": "Country", name: "Brasil" },
     founder: { "@id": FOUNDER_ID },
     sameAs: [site.social.linkedin, site.social.instagram],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: site.contact.city,
-      addressRegion: site.contact.state,
-      addressCountry: "BR",
-    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
