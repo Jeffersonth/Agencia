@@ -6,7 +6,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { Card, Section, SectionHeading } from "@/components/ui";
 import { Checklist, FAQList, WhatsAppCard } from "@/components/sections";
 import { OfferCards } from "@/components/OfferCards";
-import { LeadForm } from "@/components/LeadForm";
+import { DiagnosticWizard, type WizardPain } from "@/components/DiagnosticWizard";
+import { sectors } from "@/content/sectors";
+import { getService, serviceHref } from "@/content/solutions";
 
 const path = "/diagnostico/";
 const answer =
@@ -18,6 +20,28 @@ export const metadata: Metadata = pageMetadata({
     "Mapeamos seus processos, apontamos onde a IA gera mais retorno e entregamos um plano com estimativa de ROI em 7 dias. A partir de R$ 2.500, 100% creditável no projeto.",
   path,
 });
+
+/** Cada gargalo aponta para as soluções que mais costumam resolvê-lo. */
+const painMap: { id: string; label: string; services: string[] }[] = [
+  { id: "atendimento", label: "Mensagens sem resposta, principalmente fora do horário", services: ["agente-ia-whatsapp", "assistente-ia-para-site"] },
+  { id: "agenda", label: "Agendamentos, confirmações e faltas", services: ["agendamento-inteligente", "agente-ia-whatsapp"] },
+  { id: "leads", label: "Leads que esfriam sem qualificação ou follow-up", services: ["sdr-com-ia", "crm-e-pipeline", "funis-automatizados"] },
+  { id: "canais", label: "Atendimento espalhado em vários canais e pessoas", services: ["central-multicanal", "crm-e-pipeline"] },
+  { id: "documentos", label: "Digitação e conferência de documentos", services: ["automacao-de-documentos"] },
+  { id: "processos", label: "Tarefas repetitivas e sistemas que não conversam", services: ["automacao-de-processos", "integracao-de-sistemas"] },
+  { id: "conhecimento", label: "Informação interna difícil de encontrar", services: ["agente-de-conhecimento"] },
+  { id: "dados", label: "Usar IA com dados sensíveis e dentro da LGPD", services: ["ia-privada", "governanca-ia-lgpd"] },
+];
+
+const pains: WizardPain[] = painMap.map(({ services, ...p }) => ({
+  ...p,
+  services: services.map((slug) => {
+    const s = getService(slug)!;
+    return { name: s.name, href: serviceHref(s) };
+  }),
+}));
+
+const sectorOptions = [...sectors.map((s) => s.menuName), "Outro setor"];
 
 const faq = [
   { q: "Por que o Diagnóstico é pago?", a: "Porque é uma análise séria, com gente sênior olhando para a sua operação — e não uma reunião de vendas disfarçada. Além disso, o valor é 100% creditado se você seguir com o projeto em até 30 dias." },
@@ -58,14 +82,10 @@ export default function DiagnosticoPage() {
           </div>
           <div id="formulario">
             <div className="rounded-[1.4rem] bg-white p-7 text-ink shadow-[var(--shadow-float)] md:p-9">
-              <h2 className="text-[1.45rem] font-bold">Agende seu diagnóstico</h2>
-              <p className="mt-1.5 text-[0.95rem] text-slate">Conte o principal desafio. Respondemos em até 1 dia útil.</p>
+              <h2 className="text-[1.45rem] font-bold">Monte seu diagnóstico</h2>
+              <p className="mt-1.5 text-[0.95rem] text-slate">Quatro perguntas rápidas e você vê na hora o caminho indicado.</p>
               <div className="mt-6">
-                <LeadForm
-                  origin="diagnostico"
-                  options={["Diagnóstico Essencial (a partir de R$ 2.500)", "Diagnóstico Completo (a partir de R$ 5.000)", "Ainda não sei — quero orientação"]}
-                  defaultOption="Ainda não sei — quero orientação"
-                />
+                <DiagnosticWizard sectors={sectorOptions} pains={pains} />
               </div>
               <p className="mt-4 text-center text-xs text-slate">Seus dados são tratados conforme a LGPD. Sem spam.</p>
             </div>

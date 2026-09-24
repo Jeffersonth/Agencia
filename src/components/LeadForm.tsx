@@ -92,7 +92,7 @@ export function LeadForm({
             type="tel"
             inputMode="tel"
             autoComplete="tel"
-            pattern="[\d\s()+\-]{10,20}"
+            pattern="[\d\s\(\)\+\-]{10,20}"
             className={inputCls}
             placeholder="(83) 99999-9999"
           />

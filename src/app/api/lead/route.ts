@@ -5,7 +5,22 @@ import { NextResponse } from "next/server";
  * Sem webhook configurado, o lead é registrado no log do servidor.
  */
 
-const FIELDS = ["nome", "empresa", "whatsapp", "email", "desafio", "interesse", "origem", "site_informado"] as const;
+const FIELDS = [
+  "nome",
+  "empresa",
+  "whatsapp",
+  "email",
+  "desafio",
+  "interesse",
+  "origem",
+  "site_informado",
+  // Diagnóstico em etapas
+  "setor",
+  "dores",
+  "volume",
+  "urgencia",
+  "recomendacao",
+] as const;
 
 function clean(value: unknown, max = 2000) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
