@@ -36,7 +36,11 @@ export type IconName =
   | "rocket"
   | "headset"
   | "calculator"
-  | "gauge";
+  | "gauge"
+  | "house"
+  | "receipt"
+  | "bag"
+  | "graduation";
 
 export type VisualName =
   | "whatsapp"

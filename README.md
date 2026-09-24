@@ -54,16 +54,17 @@ src/
   especificação (H1, resposta direta, para quem é, como funciona, incluso, integrações, prazo e
   investimento, segurança, prova, FAQ, CTA, assinatura). Adicionar um item ao array cria a página,
   a entrada no sitemap e no llms.txt.
-- **Setores:** `src/content/sectors.ts`
+- **Setores:** `src/content/sectors.ts` — cada setor gera a página, o card na home, o item do menu,
+  o link no rodapé e as entradas no sitemap e no llms.txt. O guia do setor fica em `articles.ts`.
 - **Cases:** `src/content/cases.ts` (ver regra ética abaixo)
 - **Guias e comparativos:** `src/content/articles.ts` · **Glossário:** `src/content/glossary.ts`
 
 ## Mapa de páginas
 
 Home · Soluções (hub + 4 hubs + 14 páginas-filhas) · Serviços (Sites, SEO/GEO + Auditoria, Sistemas,
-Aplicativos) · Setores (Advocacia, Saúde) · Diagnóstico · Investimento · Cases (índice + 15 páginas
-demonstrativas) · Método · Sobre · Segurança e LGPD · Conteúdo (4 guias, 4 comparativos, glossário
-com 11 termos) · Ferramentas (Calculadora de ROI, Teste de Visibilidade em IA) · Contato ·
+Aplicativos) · Setores (Advocacia, Saúde, Imobiliárias, Contabilidade, E-commerce, Educação) ·
+Diagnóstico · Investimento · Cases (índice + 16 páginas demonstrativas) · Método · Sobre · Segurança
+e LGPD · Conteúdo (10 guias, 4 comparativos, glossário com 17 termos) · Ferramentas (Calculadora de ROI, Teste de Visibilidade em IA) · Contato ·
 Privacidade · Termos · `robots.txt` · `sitemap.xml` · `llms.txt`.
 
 ## SEO, GEO e LLM SEO (o que já está implementado)

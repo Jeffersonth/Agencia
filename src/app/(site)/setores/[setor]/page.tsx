@@ -10,7 +10,7 @@ import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { IconTile, WhatsAppGlyph } from "@/components/Icon";
 import { CaseCard } from "@/components/CaseCard";
 import { Checklist, CTASection, DiagnosticActions, FAQSection, LinkCard, PageHero, Signature } from "@/components/sections";
-import { CalendarMock, LeadScoreMock } from "@/components/visuals";
+import { Visual } from "@/components/visuals";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -36,7 +36,6 @@ export default async function SetorPage({ params }: PageProps<"/setores/[setor]"
     { name: sector.name, path },
   ];
   const demoCases = sector.demoCases.map((s) => getCase(s)!).filter(Boolean);
-  const isLaw = sector.slug === "escritorios-de-advocacia";
 
   return (
     <>
@@ -46,12 +45,12 @@ export default async function SetorPage({ params }: PageProps<"/setores/[setor]"
         eyebrow={`Setor · ${sector.menuName}`}
         title={sector.h1}
         answer={sector.answer}
-        actions={<DiagnosticActions secondary={{ href: "#conformidade", label: isLaw ? "Como respeitamos a OAB" : "LGPD para dados de saúde" }} />}
-        visual={isLaw ? <LeadScoreMock /> : <CalendarMock />}
+        actions={<DiagnosticActions secondary={{ href: "#conformidade", label: sector.compliance.label }} />}
+        visual={<Visual name={sector.visual} title={sector.visualTitle} />}
       />
 
       <Section labelledBy="dores">
-        <SectionHeading id="dores" eyebrow="Dores do setor" title={isLaw ? "O tempo do advogado é caro demais para triagem." : "Horário vazio é receita que não volta."} />
+        <SectionHeading id="dores" eyebrow="Dores do setor" title={sector.painsTitle} />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {sector.pains.map((p) => (
             <div key={p.title} className="rounded-[var(--radius-card)] bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60 p-6">
@@ -101,11 +100,13 @@ export default async function SetorPage({ params }: PageProps<"/setores/[setor]"
             <CaseCard key={c.slug} item={c} />
           ))}
         </div>
-        <div className="mt-8">
-          <ButtonLink href={whatsappLink(isLaw ? "Quero testar o Escritório Demo" : "Quero testar a Clínica Demo")} variant="secondary">
-            <WhatsAppGlyph className="size-4 text-accent-strong" /> Testar {isLaw ? "o Escritório Demo" : "a Clínica Demo"} no WhatsApp
-          </ButtonLink>
-        </div>
+        {sector.liveDemo && (
+          <div className="mt-8">
+            <ButtonLink href={whatsappLink(sector.liveDemo.message)} variant="secondary">
+              <WhatsAppGlyph className="size-4 text-accent-strong" /> Testar {sector.liveDemo.label} no WhatsApp
+            </ButtonLink>
+          </div>
+        )}
       </Section>
 
       <FAQSection items={sector.faq} tone="mist" />
@@ -113,10 +114,10 @@ export default async function SetorPage({ params }: PageProps<"/setores/[setor]"
       <section className="bg-mist pb-4">
         <div className="container-site">
           <LinkCard
-            href={`/conteudo/guias/${isLaw ? "ia-para-escritorios-de-advocacia" : "ia-para-clinicas"}/`}
+            href={`/conteudo/guias/${sector.guide.slug}/`}
             meta="Guia do setor"
-            title={isLaw ? "IA para escritórios de advocacia: o que pode e o que não pode" : "IA para clínicas: agendamento, WhatsApp e LGPD"}
-            text="Usos, limites, regras do conselho e LGPD, explicados sem jargão."
+            title={sector.guide.title}
+            text="Usos, limites, regras do setor e LGPD, explicados sem jargão."
           />
         </div>
       </section>

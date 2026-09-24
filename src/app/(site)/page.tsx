@@ -269,8 +269,8 @@ export default function HomePage() {
 
       {/* 7 — Setores */}
       <Section labelledBy="setores" className="!pt-4">
-        <SectionHeading id="setores" eyebrow="Setores" title="Feito para quem não pode errar com dados." />
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <SectionHeading id="setores" eyebrow="Setores" title="IA desenhada para as regras do seu setor." />
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {sectors.map((s) => (
             <Link
               key={s.slug}
@@ -279,9 +279,7 @@ export default function HomePage() {
             >
               <IconTile name={s.icon} />
               <h3 className="mt-7 text-[1.4rem] font-bold">{s.menuName}</h3>
-              <p className="mt-2 text-slate">
-                {s.slug === "escritorios-de-advocacia" ? "Atendimento e triagem dentro das regras da OAB." : "Agendamento e comunicação com LGPD."}
-              </p>
+              <p className="mt-2 text-slate">{s.cardText}</p>
               <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-signal">
                 IA para {s.menuName.toLowerCase()} <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
               </span>

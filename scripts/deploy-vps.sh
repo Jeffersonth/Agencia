@@ -12,6 +12,7 @@ DOMAIN="agencia.inovalabs.io"
 
 log() { printf '\n\033[1;35m▸ %s\033[0m\n' "$*"; }
 die() { printf '\n\033[1;31m✗ %s\033[0m\n' "$*" >&2; exit 1; }
+trap 'printf "\n\033[1;31m✗ O script parou na linha %s: %s\033[0m\n" "$LINENO" "$BASH_COMMAND" >&2' ERR
 
 # 1. Docker
 log "Verificando Docker"
@@ -27,8 +28,15 @@ TRAEFIK=$(docker ps --format '{{.Names}} {{.Image}}' | awk 'tolower($2) ~ /traef
 [ -n "$TRAEFIK" ] || die "Nenhum contêiner Traefik em execução. Veja a seção 'Opção A' do DEPLOY.md (painel)."
 echo "Contêiner: $TRAEFIK"
 
-NETWORK=$(docker inspect -f '{{range $k, $v := .NetworkSettings.Networks}}{{println $k}}{{end}}' "$TRAEFIK" | grep -vE '^(bridge|host|none)?$' | head -1)
-[ -n "$NETWORK" ] || die "Não foi possível descobrir a rede do Traefik."
+networks_of() { docker inspect -f '{{range $k, $v := .NetworkSettings.Networks}}{{println $k}}{{end}}' "$@" 2>/dev/null | grep -vE '^(bridge|host|none)?$' || true; }
+NETWORK=${TRAEFIK_NETWORK:-$(networks_of "$TRAEFIK" | head -1)}
+if [ -z "$NETWORK" ]; then
+  # Traefik só na rede padrão ou em modo host (ex.: Docker Manager da Hostinger):
+  # usa a rede mais comum entre os contêineres que o Traefik já publica.
+  ROUTED=$(docker ps -q --filter label=traefik.enable=true | grep -v "$(docker inspect -f '{{.Id}}' "$TRAEFIK" | cut -c1-12)" || true)
+  [ -n "$ROUTED" ] && NETWORK=$(networks_of $ROUTED | sort | uniq -c | sort -rn | awk 'NR==1 {print $2}')
+fi
+[ -n "$NETWORK" ] || die "Não foi possível descobrir a rede do Traefik. Rode: docker inspect $TRAEFIK -f '{{json .NetworkSettings.Networks}}' e envie o resultado."
 
 ARGS=$(docker inspect -f '{{join .Config.Cmd " "}} {{join .Args " "}}' "$TRAEFIK" 2>/dev/null || true)
 # Configuração em arquivo (Dokploy e similares): lê o traefik.yml montado, se houver.

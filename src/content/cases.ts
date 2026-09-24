@@ -339,6 +339,30 @@ export const cases: CaseStudy[] = [
     service: "/solucoes/operacoes/automacao-de-processos/",
   },
   {
+    slug: "matriculas-escola",
+    status: "demo",
+    type: "ia",
+    title: "Atendimento de matrículas com IA para escola",
+    company: "Escola Demo (fictícia)",
+    sector: "Educação",
+    summary: "Agente que atende famílias interessadas a qualquer hora, apresenta a escola e agenda a visita com a coordenação.",
+    scenario:
+      "Escola particular com picos de procura no período de matrículas. As famílias escrevem à noite e no fim de semana, a secretaria responde no dia seguinte e parte dos interessados agenda visita em outra escola.",
+    solution:
+      "Agente de IA no WhatsApp conectado às informações aprovadas pela escola (proposta, turnos, valores, documentos) e à agenda da coordenação. Ele conversa com os responsáveis, entende a série e o turno de interesse e agenda a visita.",
+    how: [
+      "Responsável chama pelo site, Instagram ou anúncio.",
+      "O agente apresenta a escola com as informações aprovadas.",
+      "Entende série, turno e data de início desejados.",
+      "Agenda a visita na agenda da coordenação e envia lembrete.",
+      "Interessado registrado no CRM, com follow-up após a visita.",
+    ],
+    tech: ["WhatsApp Cloud API", "Google Agenda", "CRM", "LLM com base de conhecimento"],
+    indicators: ["Tempo até a primeira resposta", "Visitas agendadas", "Visitas que viram matrícula", "Conversas fora do horário"],
+    service: "/solucoes/atendimento-inteligente/agente-ia-whatsapp/",
+    alsoFor: ["vendas-e-receita"],
+  },
+  {
     slug: "ordem-de-servico-oficina",
     status: "demo",
     type: "automacao",
