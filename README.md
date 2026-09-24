@@ -111,5 +111,5 @@ case real, use `status: "real"` e preencha `results` com números de projeto.
 
 ## Deploy
 
-Qualquer plataforma que rode Next.js (Vercel recomendado). As páginas são estáticas; apenas
-`/api/lead` e `/api/visibilidade` executam no servidor.
+Produção: **https://agencia.inovalabs.io**, em contêiner Docker na VPS da Hostinger, atrás do Traefik.
+Passo a passo em [`DEPLOY.md`](DEPLOY.md).

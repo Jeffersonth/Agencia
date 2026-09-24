@@ -1,0 +1,30 @@
+# Deploy na VPS com o Traefik que já atende as portas 80/443.
+# Ajuste TRAEFIK_NETWORK e TRAEFIK_CERTRESOLVER no arquivo .env ao lado deste (veja DEPLOY.md).
+services:
+  site:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: https://agencia.inovalabs.io
+        NEXT_PUBLIC_GA_ID: ${NEXT_PUBLIC_GA_ID:-}
+    image: agencia-site:latest
+    container_name: agencia-site
+    restart: unless-stopped
+    environment:
+      LEAD_WEBHOOK_URL: ${LEAD_WEBHOOK_URL:-}
+      INDEXNOW_KEY: ${INDEXNOW_KEY:-}
+    networks:
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=${TRAEFIK_NETWORK:-traefik}
+      - traefik.http.routers.agencia.rule=Host(`agencia.inovalabs.io`)
+      - traefik.http.routers.agencia.entrypoints=${TRAEFIK_ENTRYPOINT:-websecure}
+      - traefik.http.routers.agencia.tls=true
+      - traefik.http.routers.agencia.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}
+      - traefik.http.services.agencia.loadbalancer.server.port=3000
+
+networks:
+  proxy:
+    name: ${TRAEFIK_NETWORK:-traefik}
+    external: true

@@ -9,7 +9,7 @@ export const site = {
   name: "Sinal",
   legalName: "[Razão Social da Sinal]",
   cnpj: "00.000.000/0000-00",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sinal.com.br").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://agencia.inovalabs.io").replace(/\/$/, ""),
   tagline: "Agentes de IA e Automação para Empresas",
   description:
     "Agentes de IA, automações e sistemas sob medida que fazem sua empresa atender, vender e operar 24/7. Diagnóstico com ROI. Atendemos todo o Brasil.",
