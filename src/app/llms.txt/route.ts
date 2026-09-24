@@ -10,7 +10,7 @@ export function GET() {
   const lines = [
     `# ${site.name}`,
     "",
-    `> ${site.name} é um estúdio de engenharia de IA que cria agentes e automações para empresas. Implantamos atendimento e vendas por IA no WhatsApp, automação de processos e sistemas sob medida, com foco em resultado e segurança de dados. Atendemos empresas em todo o Brasil, com experiência em setores regulados como jurídico e saúde. ${site.stats.years} anos de experiência e ${site.stats.projects} projetos entregues. Base em ${site.contact.city}, ${site.contact.state}.`,
+    `> ${site.name} é um estúdio de engenharia de IA que cria agentes e automações para empresas. Implantamos atendimento e vendas por IA no WhatsApp, automação de processos e sistemas sob medida, com foco em resultado e segurança de dados. Atende empresas de todo o Brasil, com experiência em setores regulados como jurídico e saúde. ${site.stats.years} anos de experiência e ${site.stats.projects} projetos entregues. Atendimento 100% digital, em todo o Brasil.`,
     "",
     "Todo projeto começa por um Diagnóstico pago e 100% creditável. Preços são publicados em faixas “a partir de”.",
     "",

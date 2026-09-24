@@ -36,8 +36,7 @@ export const site = {
     whatsapp: "5511924574553",
     whatsappDisplay: "+55 (11) 92457-4553",
     email: "jeff.thchaves@gmail.com",
-    city: "João Pessoa / Cabedelo",
-    state: "PB",
+    coverage: "Atendimento 100% digital, em todo o Brasil",
     hours: "Segunda a sexta, das 9h às 18h",
   },
   social: {

@@ -98,11 +98,7 @@ export function Footer() {
             </li>
             <li className="flex gap-2.5">
               <MapPin aria-hidden className="mt-1 size-4 shrink-0 text-lilac" />
-              <span>
-                {site.contact.city}, {site.contact.state}
-                <br />
-                <span className="text-white/45">Atendemos empresas em todo o Brasil.</span>
-              </span>
+              <span>{site.contact.coverage}</span>
             </li>
           </ul>
           <p className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-white/[0.07] px-3 py-1.5 text-xs font-medium text-white/75">

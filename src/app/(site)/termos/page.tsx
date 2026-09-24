@@ -42,7 +42,7 @@ export default function TermosPage() {
         O tratamento de dados pessoais segue a nossa <Link href="/privacidade/">Política de Privacidade</Link>.
       </p>
       <h2>6. Foro</h2>
-      <p>Fica eleito o foro da comarca de {site.contact.city.split("/")[0].trim()}, {site.contact.state}, para dirimir questões relativas a estes Termos.</p>
+      <p>Fica eleito o foro do domicílio do cliente para dirimir questões relativas a estes Termos, salvo disposição legal em contrário.</p>
     </LegalPage>
   );
 }
