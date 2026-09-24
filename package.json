@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "check": "node scripts/check-site.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",
