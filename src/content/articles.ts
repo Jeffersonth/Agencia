@@ -784,6 +784,87 @@ export const guides: Article[] = [
       "/conteudo/guias/ia-e-lgpd/",
     ],
   },
+  {
+    slug: "quanto-custa-um-agente-de-ia",
+    kind: "guia",
+    title: "Quanto custa um agente de IA para empresas",
+    metaTitle: "Quanto Custa um Agente de IA: Implantação, Mensalidade e Custos de Uso",
+    description:
+      "Do que é feito o custo de um agente de IA (implantação, sustentação mensal, consumo de IA e de WhatsApp), faixas de preço por tipo de projeto e como calcular se o investimento se paga.",
+    answer:
+      "O custo de um agente de IA tem três partes: a implantação, paga uma vez (na Sinal, a partir de R$ 7.500 para um agente de WhatsApp e a partir de R$ 15.000 para um SDR com IA); a sustentação mensal, que mantém o agente monitorado e atualizado; e o consumo, pago direto aos provedores (mensagens da Meta e uso do modelo de IA). O investimento se paga quando as horas liberadas e as vendas recuperadas superam esse total.",
+    updatedAt: UPDATED,
+    readingMinutes: 7,
+    sections: [
+      {
+        id: "composicao",
+        heading: "Do que é feito o custo",
+        blocks: [
+          { type: "table", head: ["Parte", "O que cobre", "Quando se paga"], rows: [
+            ["Implantação", "Mapeamento, base de conhecimento, integrações, testes e treinamento da equipe", "Uma vez, no início"],
+            ["Sustentação mensal", "Monitoramento, ajustes, atualização da base e evolução do agente", "Todo mês"],
+            ["Mensagens do WhatsApp", "Conversas cobradas pela Meta conforme a categoria da mensagem", "Pelo uso, direto à Meta"],
+            ["Uso do modelo de IA", "Processamento das mensagens pelo provedor de IA", "Pelo uso, direto ao provedor"],
+            ["Licenças de terceiros", "CRM, plataforma de atendimento ou ERP, quando necessários", "Direto ao fornecedor"],
+          ] },
+          { type: "p", text: "Contas, números e dados ficam em nome da empresa. Por isso os custos de uso são pagos diretamente aos provedores, sem intermediação nem margem escondida." },
+        ],
+      },
+      {
+        id: "faixas",
+        heading: "Faixas de implantação por tipo de agente",
+        blocks: [
+          { type: "table", head: ["Projeto", "Implantação a partir de", "Prazo típico"], rows: [
+            ["Assistente de IA para o site", "R$ 3.500", "1 a 2 semanas"],
+            ["Agendamento inteligente", "R$ 3.500", "1 a 2 semanas"],
+            ["Agente de IA para WhatsApp", "R$ 7.500", "2 a 3 semanas"],
+            ["Agente de conhecimento interno", "R$ 10.000", "3 a 5 semanas"],
+            ["Automação de documentos", "R$ 12.000", "3 a 6 semanas"],
+            ["SDR com IA", "R$ 15.000", "3 a 5 semanas"],
+            ["IA privada (nuvem privada)", "R$ 20.000", "Conforme o escopo"],
+          ] },
+          { type: "callout", text: "Valores de entrada da Sinal. O preço final depende do número de integrações, do volume de conversas e das regras de negócio, e é fechado depois do Diagnóstico." },
+        ],
+      },
+      {
+        id: "o-que-encarece",
+        heading: "O que aumenta ou reduz o custo",
+        blocks: [
+          { type: "ul", items: [
+            "Integrações: cada sistema conectado (agenda, CRM, ERP) acrescenta trabalho; sistemas sem API custam mais.",
+            "Base de conhecimento: informação organizada reduz o prazo; conteúdo espalhado exige curadoria.",
+            "Regras e exceções: quanto mais caminhos o atendimento tem, mais testes são necessários.",
+            "Dados sensíveis: saúde, jurídico e financeiro podem exigir IA privada e governança extra.",
+            "Volume: muitas conversas aumentam o consumo, mas também o retorno.",
+          ] },
+        ],
+      },
+      {
+        id: "retorno",
+        heading: "Como calcular se o investimento se paga",
+        blocks: [
+          { type: "ol", items: [
+            "Horas liberadas: tempo que a equipe gasta hoje com perguntas repetidas, confirmações e triagem, multiplicado pelo custo da hora.",
+            "Vendas recuperadas: contatos que hoje ficam sem resposta (à noite, no fim de semana, em picos) multiplicados pela taxa de conversão e pelo ticket médio.",
+            "Erros evitados: retrabalho, faltas e cobranças esquecidas que a automação reduz.",
+            "Compare a soma mensal com a sustentação e o consumo; divida a implantação pelo ganho líquido para achar o prazo de retorno.",
+          ] },
+          { type: "p", text: "A Calculadora de ROI do site faz essa conta com as suas premissas, sem cadastro." },
+        ],
+      },
+    ],
+    faq: [
+      { q: "Existe agente de IA com mensalidade fixa e sem implantação?", a: "Existem plataformas prontas com mensalidade, boas para casos simples. Quando o agente precisa agendar, consultar sistemas ou seguir regras próprias, o projeto sob medida costuma sair mais barato no custo total." },
+      { q: "Quanto custa o uso do WhatsApp e da IA por mês?", a: "Depende do volume e do tipo de conversa. No Diagnóstico estimamos o consumo a partir do seu volume atual, e esses valores são pagos direto à Meta e ao provedor de IA." },
+      { q: "O Diagnóstico é cobrado?", a: "Sim, a partir de R$ 2.500, e o valor é 100% creditado no projeto se você seguir em até 30 dias." },
+    ],
+    related: [
+      "/investimento/",
+      "/ferramentas/calculadora-roi-atendimento/",
+      "/solucoes/atendimento-inteligente/agente-ia-whatsapp/",
+      "/conteudo/comparativos/agente-de-ia-vs-contratar-atendente/",
+    ],
+  },
 ];
 
 export const comparisons: Article[] = [
@@ -953,6 +1034,109 @@ export const comparisons: Article[] = [
       { q: "Em nome de quem fica a conta?", a: "Sempre da sua empresa, com cláusula de saída." },
     ],
     related: ["/solucoes/operacoes/automacao-de-processos/", "/solucoes/operacoes/integracao-de-sistemas/", "/conteudo/guias/agentes-de-ia-para-empresas/"],
+  },
+  {
+    slug: "chatgpt-enterprise-vs-ia-privada",
+    kind: "comparativo",
+    title: "ChatGPT Enterprise vs IA privada",
+    metaTitle: "ChatGPT Enterprise vs IA Privada: Qual Escolher para Dados Sensíveis",
+    description:
+      "Diferenças entre assinar um assistente corporativo pronto (ChatGPT Enterprise, Claude, Gemini) e implantar IA privada: dados, integrações, custo e quando cada opção faz sentido.",
+    answer:
+      "Assistentes corporativos prontos, como ChatGPT Enterprise, Claude e Gemini para empresas, entregam IA para a equipe em dias, com contrato que exclui o uso dos dados para treinamento. A IA privada roda em ambiente controlado pela empresa e se conecta aos seus sistemas e documentos com regras próprias de acesso. Para uso geral da equipe, o assistente pronto costuma bastar; para dados sensíveis integrados a processos, a IA privada dá mais controle.",
+    updatedAt: UPDATED,
+    readingMinutes: 5,
+    sections: [
+      {
+        id: "tabela",
+        heading: "Comparativo lado a lado",
+        blocks: [
+          { type: "table", head: ["Critério", "Assistente corporativo pronto", "IA privada"], rows: [
+            ["Tempo para começar", "Dias", "Semanas, conforme o escopo"],
+            ["Custo", "Licença por usuário", "Implantação + sustentação + infraestrutura"],
+            ["Uso dos dados para treinamento", "Excluído nos planos empresariais, conforme o contrato", "Não se aplica: o ambiente é da empresa"],
+            ["Onde os dados ficam", "Na infraestrutura do fornecedor", "Em nuvem privada ou servidor dedicado da empresa"],
+            ["Integração com sistemas", "Conectores oferecidos pelo fornecedor", "Com qualquer sistema, inclusive legados"],
+            ["Controle de acesso por documento", "Limitado aos recursos da plataforma", "Definido pela empresa, por área e perfil"],
+            ["Automação de processos", "Uso principalmente conversacional", "Pode agir em sistemas, com regras e revisão humana"],
+          ] },
+          { type: "callout", text: "Recursos, planos e termos dos fornecedores mudam com frequência. Confira sempre o contrato e a documentação oficial antes de decidir." },
+        ],
+      },
+      {
+        id: "quando",
+        heading: "Como decidir",
+        blocks: [
+          { type: "ul", items: [
+            "Produtividade geral da equipe (textos, resumos, análises): assistente corporativo pronto.",
+            "Pesquisa em documentos sensíveis com controle de acesso por área: IA privada.",
+            "IA que executa etapas de processos em sistemas internos: IA privada ou agente sob medida.",
+            "Setores com sigilo profissional ou dados sensíveis (saúde, jurídico, contábil): avalie a IA privada.",
+          ] },
+          { type: "p", text: "As duas opções não se excluem: muitas empresas usam um assistente pronto para o dia a dia e IA privada para os processos com dados críticos." },
+        ],
+      },
+    ],
+    faq: [
+      { q: "Usar o ChatGPT gratuito na empresa é seguro?", a: "Para dados de clientes, não é recomendado. Planos gratuitos e individuais têm termos diferentes dos planos empresariais. Uma política de uso de IA define o que pode ser colado em cada ferramenta." },
+      { q: "Quanto custa a IA privada?", a: "Na Sinal, a partir de R$ 20.000 em nuvem privada e a partir de R$ 45.000 em infraestrutura dedicada, mais a infraestrutura quando necessária." },
+    ],
+    related: ["/solucoes/ia-corporativa/ia-privada/", "/solucoes/ia-corporativa/governanca-ia-lgpd/", "/conteudo/guias/ia-e-lgpd/", "/conteudo/glossario/ia-privada/"],
+  },
+  {
+    slug: "agente-de-ia-vs-contratar-atendente",
+    kind: "comparativo",
+    title: "Agente de IA vs contratar mais um atendente",
+    metaTitle: "Agente de IA ou Contratar Atendente? Custo, Horário e Quando Usar Cada Um",
+    description:
+      "Quando vale implantar um agente de IA e quando vale contratar mais uma pessoa para o atendimento: custo total, horário de cobertura, picos, qualidade e o modelo híbrido.",
+    answer:
+      "Um agente de IA atende 24 horas, responde vários clientes ao mesmo tempo e absorve picos sem custo proporcional, mas não substitui o julgamento humano em negociações, reclamações e casos sensíveis. Contratar mais um atendente amplia a capacidade para esses casos, com custo fixo de salário, encargos e treinamento. Na maioria das empresas, o melhor resultado vem do modelo híbrido: o agente resolve o repetitivo e a equipe cuida do que exige pessoas.",
+    updatedAt: UPDATED,
+    readingMinutes: 5,
+    sections: [
+      {
+        id: "tabela",
+        heading: "Comparativo lado a lado",
+        blocks: [
+          { type: "table", head: ["Critério", "Agente de IA", "Novo atendente"], rows: [
+            ["Horário", "24 horas, todos os dias", "Jornada de trabalho, com folgas e férias"],
+            ["Atendimentos simultâneos", "Muitos ao mesmo tempo", "Um ou poucos por vez"],
+            ["Picos de demanda", "Absorve sem custo proporcional", "Exige horas extras ou mais contratações"],
+            ["Custo", "Implantação + sustentação + consumo", "Salário, encargos, benefícios e treinamento"],
+            ["Casos sensíveis e negociação", "Transfere para uma pessoa", "Resolve com empatia e julgamento"],
+            ["Consistência das respostas", "Segue a base de conhecimento aprovada", "Varia com experiência e treinamento"],
+            ["Tempo até operar", "2 a 3 semanas de implantação", "Recrutamento e período de adaptação"],
+          ] },
+        ],
+      },
+      {
+        id: "conta",
+        heading: "Como comparar o custo de verdade",
+        blocks: [
+          { type: "ol", items: [
+            "Some o custo mensal completo do atendente: salário, encargos, benefícios e o tempo de gestão e treinamento.",
+            "Some o custo mensal do agente: sustentação e consumo (WhatsApp e IA), mais a implantação dividida pelos meses em que ele vai operar.",
+            "Considere o horário: cobrir noites e fins de semana com pessoas exige turnos adicionais.",
+            "Considere o que se perde hoje: contatos sem resposta fora do horário e em picos.",
+          ] },
+          { type: "p", text: "A Calculadora de ROI de Atendimento faz essa conta com os seus números." },
+        ],
+      },
+      {
+        id: "hibrido",
+        heading: "O modelo híbrido",
+        blocks: [
+          { type: "p", text: "O agente responde perguntas frequentes, agenda, confirma, qualifica e coleta dados. Quando o cliente pede, quando o tema é sensível ou quando surge uma oportunidade de venda, a conversa passa para a equipe com o histórico completo. A equipe atende menos casos repetitivos e mais casos que dependem dela." },
+          { type: "callout", title: "Em uma frase", text: "O agente não substitui a equipe: tira dela o trabalho que não precisa de uma pessoa." },
+        ],
+      },
+    ],
+    faq: [
+      { q: "O agente vai substituir minha equipe de atendimento?", a: "Em geral, não. Ele assume o volume repetitivo e o horário estendido; a equipe fica com negociações, reclamações e casos que exigem julgamento." },
+      { q: "Em quanto tempo o agente se paga?", a: "Depende do volume e do que se perde hoje. O Diagnóstico estima o retorno com os seus números antes de qualquer implantação." },
+    ],
+    related: ["/solucoes/atendimento-inteligente/agente-ia-whatsapp/", "/ferramentas/calculadora-roi-atendimento/", "/conteudo/guias/quanto-custa-um-agente-de-ia/", "/conteudo/glossario/transbordo/"],
   },
 ];
 
