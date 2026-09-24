@@ -20,6 +20,20 @@ Se a VPS usa um desses painéis (os templates da Hostinger costumam vir com eles
    - `INDEXNOW_KEY=` (opcional)
 5. Ative o deploy automático no push. Nesse caso o workflow `deploy.yml` não é necessário.
 
+## Opção rápida — script (Traefik já instalado)
+
+Com o código já no `main`, na VPS (como root):
+
+```bash
+curl -fsSL -H "Authorization: token SEU_TOKEN" \
+  https://raw.githubusercontent.com/Jeffersonth/Agencia/main/scripts/deploy-vps.sh -o deploy-vps.sh
+GITHUB_TOKEN=SEU_TOKEN bash deploy-vps.sh
+```
+
+O script instala o Docker se faltar, detecta a rede, o entrypoint HTTPS e o resolvedor de certificado
+do Traefik, baixa o código em `/opt/agencia`, grava o `.env`, constrói a imagem e confere se o site responde.
+Para atualizar depois, rode `bash deploy-vps.sh` de novo.
+
 ## Opção B — Docker Compose direto na VPS
 
 ```bash
