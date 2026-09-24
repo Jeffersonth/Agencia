@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/inter";
-import "@fontsource-variable/sora";
 import "./globals.css";
+import { inter, sora } from "./fonts";
 import { JsonLd } from "@/components/JsonLd";
 import { Analytics } from "@/components/Analytics";
 import { graph, organizationSchema, websiteSchema } from "@/lib/seo";
@@ -29,7 +28,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${inter.variable} ${sora.variable}`}>
       <body className="min-h-dvh overflow-x-clip">
         <JsonLd data={graph(organizationSchema(), websiteSchema())} />
         {children}

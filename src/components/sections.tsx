@@ -301,7 +301,7 @@ export async function WhatsAppCard({ light }: { light?: boolean }) {
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#1f9e75] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#1b8a66]"
+        className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#157a5a] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#116a4e]"
       >
         <WhatsAppGlyph className="size-4" /> Abrir no WhatsApp
       </a>

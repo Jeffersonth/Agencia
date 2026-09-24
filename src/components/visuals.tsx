@@ -40,7 +40,7 @@ function Frame({
   caption?: string;
 }) {
   return (
-    <figure role="img" aria-label={label} className={cx("relative", className)}>
+    <div role="img" aria-label={label} className={cx("relative", className)}>
       <div className="overflow-hidden rounded-[1.4rem] bg-white shadow-[var(--shadow-float)] ring-1 ring-black/5">
         {title && (
           <div className="flex items-center gap-2 border-b border-line bg-mist/70 px-4 py-3">
@@ -54,8 +54,8 @@ function Frame({
         )}
         {children}
       </div>
-      {caption && <figcaption className="mt-3 text-center text-xs opacity-60">{caption}</figcaption>}
-    </figure>
+      {caption && <p className="mt-3 text-center text-xs opacity-75">{caption}</p>}
+    </div>
   );
 }
 
@@ -90,11 +90,11 @@ function Bubble({ from, children, time }: { from: "client" | "agent"; children: 
       <div
         className={cx(
           "max-w-[82%] rounded-2xl px-3.5 py-2 text-[0.84rem] leading-snug shadow-sm",
-          client ? "rounded-br-md bg-[#1f9e75] text-white" : "rounded-bl-md bg-white text-ink",
+          client ? "rounded-br-md bg-[#157a5a] text-white" : "rounded-bl-md bg-white text-ink",
         )}
       >
         {children}
-        <span className={cx("ml-2 inline-flex translate-y-0.5 items-center gap-0.5 text-[0.65rem]", client ? "text-white/70" : "text-slate/80")}>
+        <span className={cx("ml-2 inline-flex translate-y-0.5 items-center gap-0.5 text-[0.65rem]", client ? "text-white" : "text-slate")}>
           {time}
           {client && <CheckCheck className="size-3 text-mint" />}
         </span>
@@ -107,11 +107,11 @@ export function WhatsAppMock({ className, actions = true }: { className?: string
   return (
     <div className={cx("relative mx-auto w-full max-w-[25rem]", className)}>
       <Frame label="Ilustração: agente de IA no WhatsApp agendando uma consulta às 22h47, fora do horário comercial.">
-        <div className="flex items-center gap-3 bg-[#1b7a5c] px-4 py-3.5 text-white">
+        <div className="flex items-center gap-3 bg-[#135c45] px-4 py-3.5 text-white">
           <LogoMark dark className="size-9" />
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold">Clínica Demo</p>
-            <p className="flex items-center gap-1.5 text-[0.72rem] text-white/70">
+            <p className="flex items-center gap-1.5 text-[0.72rem] text-white/85">
               <span className="size-1.5 rounded-full bg-mint" /> Assistente virtual · online
             </p>
           </div>
@@ -638,7 +638,7 @@ export function CoreDiagram() {
     { t: "Produtos Digitais", s: "sistemas e apps com agentes", pos: "right-0 bottom-6" },
   ];
   return (
-    <figure
+    <div
       role="img"
       aria-label="Diagrama: núcleo de IA, Agentes e Automação ao centro, com Sites Inteligentes, Visibilidade em IA e Produtos Digitais ao redor."
       className="relative mx-auto aspect-square w-full max-w-[32rem]"
@@ -660,7 +660,7 @@ export function CoreDiagram() {
           <p className="mt-0.5 text-xs leading-snug text-white/65">{s.s}</p>
         </div>
       ))}
-    </figure>
+    </div>
   );
 }
 
