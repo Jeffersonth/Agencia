@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { track } from "@/lib/track";
 import Link from "next/link";
 import { ReportRequest } from "./ReportRequest";
 
@@ -42,6 +43,12 @@ export function RoiCalculator() {
   const [offHours, setOffHours] = useState(35);
   const [lossIn, setLossIn] = useState(25);
   const [lossOff, setLossOff] = useState(45);
+  const tracked = useRef(false);
+  const onInteract = () => {
+    if (tracked.current) return;
+    tracked.current = true;
+    track("tool_use", { tool: "calculadora_roi" });
+  };
 
   const result = useMemo(() => {
     const c = Math.max(0, Math.min(100, conversion)) / 100;
@@ -66,7 +73,7 @@ export function RoiCalculator() {
 
   return (
     <div className="grid items-start gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
-      <div className="rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-card)] md:p-8">
+      <div onChange={onInteract} className="rounded-[var(--radius-card)] border border-line bg-white p-6 shadow-[var(--shadow-card)] md:p-8">
         <h2 className="text-xl font-semibold">Seus números</h2>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">
           <Field label="Contatos (leads) por mês">

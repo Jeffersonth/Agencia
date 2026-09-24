@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { Analytics } from "@/components/Analytics";
 import { graph, organizationSchema, websiteSchema } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="conteudo">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

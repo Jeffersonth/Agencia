@@ -20,6 +20,8 @@ Variáveis de ambiente (veja `.env.example`):
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Domínio público. Usado em canonicals, sitemap, Schema.org, robots.txt e llms.txt. |
 | `LEAD_WEBHOOK_URL` | Opcional. Recebe os leads dos formulários (n8n, Make, CRM). Sem ele, os leads vão para o log do servidor. |
+| `NEXT_PUBLIC_GA_ID` | Opcional. GA4 com banner de consentimento (Consent Mode). Sem ele, nada é carregado. |
+| `INDEXNOW_KEY` | Opcional. Publica `/indexnow-key.txt`; depois do deploy, rode `npm run indexnow` para enviar o sitemap ao IndexNow. |
 
 ## Stack
 
@@ -73,6 +75,8 @@ Privacidade · Termos · `robots.txt` · `sitemap.xml` · `llms.txt`.
 - `robots.txt` separando robôs de busca (liberados) e de treinamento (liberados por decisão; trocar em `src/app/robots.ts`).
 - `llms.txt` gerado a partir do conteúdo; `sitemap.xml` com todas as rotas; canonicals e breadcrumbs visíveis.
 - Imagem Open Graph gerada automaticamente.
+- GA4 com eventos de conversão: `whatsapp_click`, `generate_lead` (formulários, com a origem) e `tool_use` (calculadora e teste de visibilidade), respeitando o consentimento de cookies.
+- IndexNow (`npm run indexnow`), já que o índice do Bing alimenta o Copilot e outros assistentes.
 
 ## Antes de publicar (placeholders)
 
@@ -88,7 +92,7 @@ A especificação pede para decidir **nome e domínio antes do lançamento**. Tu
 - [ ] Revisar Política de Privacidade e Termos com o jurídico/DPO
 - [ ] Configurar `LEAD_WEBHOOK_URL` (ex.: fluxo n8n → CRM + aviso no WhatsApp)
 - [ ] Números de demonstração no WhatsApp (Clínica Demo, Escritório Demo, Imobiliária Demo) — hoje apontam para o WhatsApp principal com mensagem pré-preenchida
-- [ ] Google Search Console, Bing Webmaster Tools + IndexNow e GA4 (eventos: clique no WhatsApp, envio de formulário, uso das ferramentas)
+- [ ] Definir `NEXT_PUBLIC_GA_ID` e `INDEXNOW_KEY`; cadastrar o site no Google Search Console e no Bing Webmaster Tools e marcar `generate_lead` e `whatsapp_click` como conversões no GA4
 
 ### Regra ética dos cases
 

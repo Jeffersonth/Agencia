@@ -5,6 +5,7 @@ import { useState, type FormEvent } from "react";
 import { CircleCheck, LoaderCircle } from "lucide-react";
 import { site, whatsappLink } from "@/lib/site";
 import { WhatsAppGlyph } from "@/components/Icon";
+import { track } from "@/lib/track";
 
 type Status = "idle" | "sending" | "ok" | "error";
 
@@ -39,6 +40,7 @@ export function LeadForm({
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("ok");
+      track("generate_lead", { origem: origin });
       form.reset();
     } catch {
       setStatus("error");

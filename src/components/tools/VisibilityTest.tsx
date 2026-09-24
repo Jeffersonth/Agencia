@@ -5,6 +5,7 @@ import { useState, type FormEvent } from "react";
 import { CircleAlert, CircleCheck, CircleX, LoaderCircle } from "lucide-react";
 import type { VisibilityReport } from "@/lib/visibility";
 import { cx } from "@/components/ui";
+import { track } from "@/lib/track";
 import { ReportRequest } from "./ReportRequest";
 
 const statusIcon = {
@@ -58,6 +59,7 @@ export function VisibilityTest() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Erro ao analisar.");
       setReport(data);
+      track("tool_use", { tool: "teste_visibilidade", score: data.score });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro ao analisar.");
     } finally {

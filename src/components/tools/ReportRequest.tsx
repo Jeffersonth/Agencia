@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { CircleCheck } from "lucide-react";
+import { track } from "@/lib/track";
 
 const inputCls =
   "block w-full rounded-xl border border-line-strong bg-white px-4 py-3 text-base text-ink placeholder:text-slate/60 focus:border-signal focus:outline-none focus:ring-4 focus:ring-signal/15";
@@ -22,6 +23,7 @@ export function ReportRequest({ origin, summary, title }: { origin: string; summ
         body: JSON.stringify({ ...data, empresa: data.empresa || "-", desafio: summary, origem: origin }),
       });
       setState(res.ok ? "ok" : "error");
+      if (res.ok) track("generate_lead", { origem: origin });
     } catch {
       setState("error");
     }
