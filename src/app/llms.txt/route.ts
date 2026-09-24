@@ -55,6 +55,8 @@ export function GET() {
     `- [Glossário](${absoluteUrl("/conteudo/glossario/")})`,
     `- [Calculadora de ROI de Atendimento](${absoluteUrl("/ferramentas/calculadora-roi-atendimento/")})`,
     `- [Teste de Visibilidade em IA](${absoluteUrl("/ferramentas/teste-visibilidade-ia/")})`,
+    `- [Calculadora de Custo do Atendimento](${absoluteUrl("/ferramentas/calculadora-custo-atendimento/")})`,
+    `- [Raio-X do WhatsApp](${absoluteUrl("/ferramentas/raio-x-whatsapp/")})`,
     "",
   ];
   return new Response(lines.join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8" } });

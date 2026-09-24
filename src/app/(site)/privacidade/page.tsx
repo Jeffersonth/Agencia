@@ -20,7 +20,7 @@ export default function PrivacidadePage() {
       <h2>1. Dados que coletamos</h2>
       <ul>
         <li>Dados informados por você em formulários: nome, empresa, WhatsApp, e-mail e a descrição do seu desafio.</li>
-        <li>Dados informados nas ferramentas (como o endereço de um site no Teste de Visibilidade em IA ou números na Calculadora de ROI).</li>
+        <li>Dados informados nas ferramentas (como o endereço de um site no Teste de Visibilidade em IA ou números nas calculadoras) e mensagens enviadas ao chat de IA do site.</li>
         <li>Dados de navegação coletados por ferramentas de mensuração, como páginas visitadas e origem do acesso.</li>
         <li>Conversas pelo WhatsApp, inclusive com o nosso agente de IA.</li>
       </ul>
@@ -45,6 +45,10 @@ export default function PrivacidadePage() {
       <p>
         Nosso WhatsApp é atendido por um assistente virtual de IA, que pode transferir a conversa para uma pessoa da equipe. As conversas são usadas
         apenas para atender você e melhorar o atendimento, e não são usadas para treinar modelos de terceiros.
+      </p>
+      <p>
+        No site, o chat “Pergunte à IA” envia as mensagens da conversa ao provedor de IA (Anthropic) apenas para gerar a resposta. O site não grava o
+        conteúdo dessas conversas. Não informe dados pessoais sensíveis no chat; para propostas e atendimento, use o Diagnóstico ou o WhatsApp.
       </p>
       <h2>6. Armazenamento e segurança</h2>
       <p>

@@ -51,6 +51,8 @@ export function allRoutes(): RouteInfo[] {
     { path: "/ferramentas/", title: "Ferramentas gratuitas", group: "ferramentas", priority: 0.5 },
     { path: "/ferramentas/calculadora-roi-atendimento/", title: "Calculadora de ROI de Atendimento", description: "Quanto você perde hoje com demora no atendimento.", group: "ferramentas", priority: 0.6 },
     { path: "/ferramentas/teste-visibilidade-ia/", title: "Teste de Visibilidade em IA", description: "Retrato rápido da prontidão do seu site para as IAs.", group: "ferramentas", priority: 0.6 },
+    { path: "/ferramentas/calculadora-custo-atendimento/", title: "Calculadora de Custo do Atendimento", description: "Quanto custa o atendimento repetitivo e a cobertura de horário com pessoas.", group: "ferramentas", priority: 0.6 },
+    { path: "/ferramentas/raio-x-whatsapp/", title: "Raio-X do WhatsApp", description: "Nota de 0 a 100 para o atendimento no WhatsApp, com pontos a melhorar.", group: "ferramentas", priority: 0.6 },
     { path: "/privacidade/", title: "Política de Privacidade", group: "legal", priority: 0.2 },
     { path: "/termos/", title: "Termos de Uso", group: "legal", priority: 0.2 },
   ];

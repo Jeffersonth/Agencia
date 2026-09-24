@@ -22,6 +22,8 @@ Variáveis de ambiente (veja `.env.example`):
 | `LEAD_WEBHOOK_URL` | Opcional. Recebe os leads dos formulários (n8n, Make, CRM). Sem ele, os leads vão para o log do servidor. |
 | `NEXT_PUBLIC_GA_ID` | Opcional. GA4 com banner de consentimento (Consent Mode). Sem ele, nada é carregado. |
 | `INDEXNOW_KEY` | Opcional. Publica `/indexnow-key.txt`; depois do deploy, rode `npm run indexnow` para enviar o sitemap ao IndexNow. |
+| `ANTHROPIC_API_KEY` | Opcional. Liga o chat "Pergunte à IA" (Claude). Sem ela, o chat não aparece. |
+| `CHAT_MODEL` / `CHAT_DAILY_LIMIT` | Opcionais. Modelo do chat (padrão `claude-opus-5`) e limite de mensagens por dia (padrão 500). |
 
 ## Stack
 
@@ -103,9 +105,19 @@ O que é real é apresentado como real; o que é demonstração é rotulado como
 fictícia declarada, sem números apresentados como alcançados e sem depoimentos). Para publicar um
 case real, use `status: "real"` e preencha `results` com números de projeto.
 
+## Chat de IA do site
+
+- Balão "Pergunte à IA" em todas as páginas do site (`src/components/ChatWidget.tsx`), exibido só quando `/api/chat/` informa que há chave configurada.
+- `src/app/api/chat/route.ts`: resposta em streaming, esforço `low`, fallback de recusa do lado do servidor (`fallbacks: "default"`), cache de prompt na base de conhecimento, até 20 mensagens por visitante a cada 10 minutos e limite diário (`CHAT_DAILY_LIMIT`).
+- `src/lib/chat/knowledge.ts`: base de conhecimento gerada do próprio conteúdo (serviços, preços, setores, Diagnóstico, método, guias, glossário) e as regras do assistente (não inventar preços nem clientes, não dar parecer jurídico/médico, encaminhar para o Diagnóstico ou WhatsApp). Muda sozinha quando o conteúdo muda.
+- Na resposta, só viram link as páginas do próprio site e o WhatsApp; o conteúdo das conversas não é gravado pelo site.
+- Para ligar na VPS: `ANTHROPIC_API_KEY=sk-ant-... bash scripts/deploy-vps.sh` (a chave fica no `.env` da VPS).
+
 ## Ferramentas
 
 - **Calculadora de ROI de Atendimento:** cálculo no navegador, premissas visíveis e ajustáveis; resultado sem cadastro, relatório completo mediante contato.
+- **Calculadora de Custo do Atendimento:** custo do atendimento repetitivo, equipe equivalente, custo de ampliar o horário com pessoas e o teto mensal em que um agente ainda gera economia.
+- **Raio-X do WhatsApp:** 10 perguntas, nota de 0 a 100 e os três pontos que mais valem a pena melhorar.
 - **Teste de Visibilidade em IA:** `POST /api/visibilidade` analisa só páginas públicas do domínio informado
   (HTTPS, conteúdo no HTML, robôs de IA no robots.txt, Schema.org, título, description, H1, sitemap, llms.txt,
   canonical, idioma, Open Graph, tempo de resposta). Bloqueia IPs privados/locais e revalida cada redirecionamento.

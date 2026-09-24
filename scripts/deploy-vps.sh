@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Instala/atualiza o site em https://agencia.inovalabs.io na VPS, atrás do Traefik existente.
 # Uso (na VPS, como root):  bash deploy-vps.sh
-# Variáveis opcionais: GITHUB_TOKEN, APP_DIR, BRANCH, SKIP_GIT, LEAD_WEBHOOK_URL, NEXT_PUBLIC_GA_ID, INDEXNOW_KEY
+# Variáveis opcionais: GITHUB_TOKEN, APP_DIR, BRANCH, SKIP_GIT, LEAD_WEBHOOK_URL, NEXT_PUBLIC_GA_ID, INDEXNOW_KEY,
+#   ANTHROPIC_API_KEY (liga o chat de IA), CHAT_MODEL, CHAT_DAILY_LIMIT
 # SKIP_GIT=1: usa o código já presente em APP_DIR (deploy pelo GitHub Actions via rsync).
 set -euo pipefail
 
@@ -99,6 +100,9 @@ set_env TRAEFIK_CERTRESOLVER "$RESOLVER"
 set_env LEAD_WEBHOOK_URL "${LEAD_WEBHOOK_URL:-}"
 set_env NEXT_PUBLIC_GA_ID "${NEXT_PUBLIC_GA_ID:-}"
 set_env INDEXNOW_KEY "${INDEXNOW_KEY:-}"
+set_env ANTHROPIC_API_KEY "${ANTHROPIC_API_KEY:-}"
+set_env CHAT_MODEL "${CHAT_MODEL:-}"
+set_env CHAT_DAILY_LIMIT "${CHAT_DAILY_LIMIT:-}"
 
 # 5. Build e subida
 log "Construindo a imagem e subindo o contêiner (leva alguns minutos na primeira vez)"
