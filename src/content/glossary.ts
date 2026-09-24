@@ -128,6 +128,71 @@ export const glossary: Term[] = [
     ],
     related: ["/conteudo/glossario/rag/", "/conteudo/guias/agentes-de-ia-para-empresas/"],
   },
+  {
+    slug: "e-e-a-t",
+    term: "E-E-A-T",
+    definition:
+      "Sigla para Experiência, Especialidade, Autoridade e Confiabilidade: critérios que o Google usa para avaliar a qualidade e a credibilidade de um conteúdo.",
+    body: [
+      "Sinais de E-E-A-T incluem conteúdo assinado por quem tem experiência real, página “Sobre” com a trajetória do autor, dados de contato, cases verificáveis e menções da marca em outros sites.",
+      "Esses mesmos sinais ajudam assistentes de IA a entender quem é a empresa e se vale a pena citá-la.",
+    ],
+    related: ["/conteudo/glossario/geo/", "/servicos/seo-e-geo/", "/sobre/"],
+  },
+  {
+    slug: "dados-estruturados",
+    term: "Dados estruturados (Schema.org)",
+    definition:
+      "Marcações no código da página que descrevem, em formato padronizado, o que ela contém: uma empresa, um serviço, um preço, um artigo, perguntas frequentes.",
+    body: [
+      "O vocabulário mais usado é o Schema.org, geralmente em JSON-LD. Ele ajuda buscadores e modelos de linguagem a extrair informações sem ambiguidade.",
+      "Nem toda marcação gera resultado visual no Google, mas todas contribuem para a compreensão da página.",
+    ],
+    related: ["/conteudo/guias/geo-como-aparecer-nas-ias/", "/conteudo/glossario/geo/"],
+  },
+  {
+    slug: "janela-de-atendimento-24-horas",
+    term: "Janela de atendimento de 24 horas (WhatsApp)",
+    definition:
+      "Período de 24 horas aberto quando o cliente envia uma mensagem à empresa no WhatsApp, durante o qual a empresa pode responder livremente.",
+    body: [
+      "Dentro da janela, as respostas não dependem de modelos pré-aprovados. Fora dela, a empresa só pode iniciar a conversa com mensagens de modelo, cobradas pela Meta conforme a categoria.",
+      "Por isso, agentes que respondem rápido aproveitam melhor a janela e reduzem custo.",
+    ],
+    related: ["/conteudo/guias/ia-no-whatsapp/", "/conteudo/glossario/api-oficial-do-whatsapp/"],
+  },
+  {
+    slug: "ocr",
+    term: "OCR (reconhecimento óptico de caracteres)",
+    definition:
+      "Tecnologia que transforma texto em imagens ou PDFs digitalizados em texto que o computador consegue ler e processar.",
+    body: [
+      "Em automação de documentos, o OCR é o primeiro passo: depois dele, a IA identifica os campos (CNPJ, valores, datas) e valida os dados antes de lançá-los em outro sistema.",
+    ],
+    related: ["/solucoes/operacoes/automacao-de-documentos/"],
+  },
+  {
+    slug: "base-de-conhecimento",
+    term: "Base de conhecimento",
+    definition:
+      "Conjunto organizado de informações da empresa — serviços, preços, regras, perguntas frequentes, manuais — que um agente de IA usa para responder.",
+    body: [
+      "A qualidade de um agente depende mais da base de conhecimento do que do modelo de IA. Uma base curada, atualizada e com fontes claras reduz respostas erradas.",
+      "A mesma base pode alimentar o agente de WhatsApp, o assistente do site e o agente interno da equipe.",
+    ],
+    related: ["/conteudo/glossario/rag/", "/solucoes/operacoes/agente-de-conhecimento/"],
+  },
+  {
+    slug: "dado-pessoal-sensivel",
+    term: "Dado pessoal sensível",
+    definition:
+      "Categoria da LGPD que inclui dados sobre saúde, origem racial ou étnica, religião, opinião política, filiação sindical, vida sexual, genética e biometria.",
+    body: [
+      "O tratamento de dados sensíveis tem bases legais mais restritas e exige cuidados extras de segurança, controle de acesso e transparência.",
+      "Projetos de IA em clínicas e em muitas áreas do direito lidam com esse tipo de dado e costumam pedir IA privada.",
+    ],
+    related: ["/conteudo/guias/ia-e-lgpd/", "/seguranca-e-lgpd/", "/solucoes/ia-corporativa/ia-privada/"],
+  },
 ];
 
 export const getTerm = (slug: string) => glossary.find((t) => t.slug === slug);

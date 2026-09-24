@@ -343,6 +343,156 @@ export const guides: Article[] = [
     ],
     related: ["/servicos/seo-e-geo/", "/servicos/seo-e-geo/auditoria-visibilidade-ia/", "/ferramentas/teste-visibilidade-ia/", "/conteudo/glossario/geo/"],
   },
+  {
+    slug: "ia-para-clinicas",
+    kind: "guia",
+    title: "IA para clínicas: agendamento, WhatsApp e LGPD",
+    metaTitle: "IA para Clínicas: Agendamento no WhatsApp, Menos Faltas e LGPD",
+    description:
+      "Como clínicas e consultórios usam IA para agendar, confirmar e reduzir faltas pelo WhatsApp, o que a IA pode e não pode responder e como cumprir a LGPD com dados de saúde.",
+    answer:
+      "Clínicas usam IA principalmente para agendar, confirmar e remarcar consultas pelo WhatsApp, responder dúvidas administrativas 24 horas por dia e reduzir faltas com lembretes. A IA cuida do administrativo e nunca faz orientação clínica. Como dados de saúde são sensíveis na LGPD, o projeto precisa de base legal, controle de acesso, registro de uso e provedores que não retêm dados.",
+    updatedAt: UPDATED,
+    readingMinutes: 8,
+    sections: [
+      {
+        id: "onde-ajuda",
+        heading: "Onde a IA ajuda uma clínica",
+        blocks: [
+          { type: "ul", items: [
+            "Agendamento e remarcação pelo WhatsApp, consultando a agenda real de cada profissional.",
+            "Confirmação ativa e lembretes na véspera, com oferta da vaga para a lista de espera quando alguém desmarca.",
+            "Respostas sobre convênios, preparo de exames, endereço, valores e documentos necessários.",
+            "Atendimento à noite e no fim de semana, quando a recepção está fechada.",
+            "Leitura de guias, autorizações e documentos, com lançamento no sistema.",
+          ] },
+          { type: "p", text: "O ganho mais rápido costuma estar no agendamento: é um processo repetitivo, de alto volume e com impacto direto na receita, porque cada horário vazio é faturamento perdido." },
+        ],
+      },
+      {
+        id: "limites",
+        heading: "O que a IA não deve fazer",
+        blocks: [
+          { type: "p", text: "Um agente de atendimento de clínica é administrativo. Ele não diagnostica, não interpreta exames e não orienta tratamento. Quando a conversa entra em tema clínico, o agente transfere para a equipe, com o histórico completo." },
+          { type: "callout", title: "Regra de ouro", text: "Tudo o que exige julgamento clínico vai para um profissional. A IA organiza a fila, não substitui o cuidado." },
+        ],
+      },
+      {
+        id: "lgpd",
+        heading: "LGPD para dados de saúde",
+        blocks: [
+          { type: "p", text: "Dados de saúde são dados pessoais sensíveis na LGPD (Lei nº 13.709/2018), com regras mais rígidas de tratamento. Na prática, o projeto precisa de:" },
+          { type: "ol", items: [
+            "Base legal definida para cada uso dos dados, com consentimento quando necessário.",
+            "Conta do WhatsApp, agenda e histórico em nome da clínica.",
+            "Controle de acesso: cada pessoa vê só o que precisa.",
+            "Registro de uso para auditoria.",
+            "Provedores de IA com contrato de não retenção de dados ou IA privada.",
+          ] },
+        ],
+      },
+      {
+        id: "comunicacao",
+        heading: "Comunicação e regras do conselho",
+        blocks: [
+          { type: "p", text: "A comunicação da clínica, inclusive a feita pelo agente, segue as regras de publicidade do conselho profissional (CFM, CFO e outros). Por isso, os roteiros e as respostas do agente são validados por um profissional da clínica antes de irem ao ar." },
+        ],
+      },
+      {
+        id: "medir",
+        heading: "Como medir o resultado",
+        blocks: [
+          { type: "table", head: ["Indicador", "Como medir"], rows: [
+            ["Taxa de faltas", "Consultas não comparecidas ÷ consultas marcadas, antes e depois"],
+            ["Ocupação da agenda", "Horários preenchidos ÷ horários disponíveis"],
+            ["Agendamentos fora do horário", "Consultas marcadas à noite e no fim de semana"],
+            ["Horas de recepção liberadas", "Tempo gasto com confirmações e dúvidas repetitivas"],
+          ] },
+        ],
+      },
+    ],
+    faq: [
+      { q: "O paciente sabe que fala com uma IA?", a: "Deve saber. O agente se apresenta como assistente virtual e o paciente pode pedir para falar com a recepção a qualquer momento." },
+      { q: "Funciona com o meu sistema de agenda?", a: "Se o sistema tem API, a integração é direta. Se não tem, o Google Agenda pode servir de ponte. Isso é avaliado no Diagnóstico." },
+      { q: "Quanto custa?", a: "O módulo de Agendamento Inteligente parte de R$ 3.500 e o Agente de IA para WhatsApp de R$ 7.500, com sustentação mensal." },
+    ],
+    related: [
+      "/setores/clinicas-e-saude/",
+      "/solucoes/atendimento-inteligente/agendamento-inteligente/",
+      "/solucoes/atendimento-inteligente/agente-ia-whatsapp/",
+      "/conteudo/guias/ia-e-lgpd/",
+    ],
+  },
+  {
+    slug: "ia-para-escritorios-de-advocacia",
+    kind: "guia",
+    title: "IA para escritórios de advocacia: o que pode e o que não pode",
+    metaTitle: "IA para Escritórios de Advocacia: Atendimento, Documentos e Regras da OAB",
+    description:
+      "Como escritórios usam IA em atendimento, triagem, documentos e pesquisa, respeitando o Código de Ética e as regras de publicidade da OAB e protegendo os dados dos clientes.",
+    answer:
+      "Escritórios de advocacia usam IA para acolher e triar contatos 24 horas por dia, agendar consultas, gerar documentos padrão e pesquisar no próprio acervo. Pelas regras da OAB, o agente não pode captar clientes indevidamente, prometer resultado nem dar parecer jurídico: ele organiza o atendimento e o advogado assume o caso. Dados de clientes pedem IA privada ou provedores sem retenção.",
+    updatedAt: UPDATED,
+    readingMinutes: 8,
+    sections: [
+      {
+        id: "usos",
+        heading: "Onde a IA gera retorno no escritório",
+        blocks: [
+          { type: "ul", items: [
+            "Acolhimento e triagem inicial de quem procura o escritório, inclusive à noite.",
+            "Agendamento de consultas com o advogado da área certa.",
+            "Geração de contratos, procurações e peças padrão a partir de modelos.",
+            "Onboarding de clientes: coleta de documentos, pastas e cadastro automáticos.",
+            "Pesquisa no acervo de peças e pareceres do próprio escritório.",
+          ] },
+        ],
+      },
+      {
+        id: "oab",
+        heading: "O que as regras da OAB exigem",
+        blocks: [
+          { type: "p", text: "O Código de Ética e Disciplina e o Provimento nº 205/2021, que trata da publicidade na advocacia, continuam valendo quando a comunicação é feita por um agente de IA. Na prática:" },
+          { type: "ul", items: [
+            "Sem captação indevida: o agente atende quem procurou o escritório; não aborda terceiros.",
+            "Sem promessa de resultado e sem mercantilização da advocacia.",
+            "Sem parecer jurídico automático: orientação é papel do advogado.",
+            "Conteúdos e roteiros validados por um advogado do escritório antes de irem ao ar.",
+          ] },
+          { type: "callout", text: "Este guia é informativo e não substitui a análise do próprio escritório sobre as normas da OAB aplicáveis ao seu caso." },
+        ],
+      },
+      {
+        id: "sigilo",
+        heading: "Sigilo e dados dos clientes",
+        blocks: [
+          { type: "p", text: "Colar dados de clientes em ferramentas públicas de IA expõe o escritório. O caminho seguro é usar provedores corporativos com contrato de não retenção ou IA privada, com controle de acesso por área e registro de uso." },
+        ],
+      },
+      {
+        id: "comecar",
+        heading: "Por onde começar",
+        blocks: [
+          { type: "ol", items: [
+            "Triagem e agendamento: libera horas dos advogados já no primeiro mês.",
+            "Documentos padrão: contratos e procurações gerados a partir de modelos.",
+            "Acervo: pesquisa com IA privada sobre peças e pareceres anteriores.",
+          ] },
+        ],
+      },
+    ],
+    faq: [
+      { q: "Um agente de IA pode responder dúvidas jurídicas?", a: "Não deve dar parecer. Ele acolhe, organiza as informações e agenda; a orientação jurídica é do advogado." },
+      { q: "A IA pode redigir peças?", a: "Pode gerar rascunhos a partir do acervo e de modelos, sempre revisados por um advogado, de preferência em ambiente de IA privada." },
+      { q: "Quanto custa?", a: "Agente de WhatsApp a partir de R$ 7.500, automação de documentos a partir de R$ 12.000 e IA privada a partir de R$ 20.000." },
+    ],
+    related: [
+      "/setores/escritorios-de-advocacia/",
+      "/solucoes/vendas-e-receita/sdr-com-ia/",
+      "/solucoes/operacoes/automacao-de-documentos/",
+      "/solucoes/ia-corporativa/ia-privada/",
+    ],
+  },
 ];
 
 export const comparisons: Article[] = [

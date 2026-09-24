@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { ButtonLink, Section, SectionHeading } from "@/components/ui";
 import { IconTile, WhatsAppGlyph } from "@/components/Icon";
 import { CaseCard } from "@/components/CaseCard";
-import { Checklist, CTASection, DiagnosticActions, FAQSection, PageHero, Signature } from "@/components/sections";
+import { Checklist, CTASection, DiagnosticActions, FAQSection, LinkCard, PageHero, Signature } from "@/components/sections";
 import { CalendarMock, LeadScoreMock } from "@/components/visuals";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -109,6 +109,17 @@ export default async function SetorPage({ params }: PageProps<"/setores/[setor]"
       </Section>
 
       <FAQSection items={sector.faq} tone="mist" />
+
+      <section className="bg-mist pb-4">
+        <div className="container-site">
+          <LinkCard
+            href={`/conteudo/guias/${isLaw ? "ia-para-escritorios-de-advocacia" : "ia-para-clinicas"}/`}
+            meta="Guia do setor"
+            title={isLaw ? "IA para escritórios de advocacia: o que pode e o que não pode" : "IA para clínicas: agendamento, WhatsApp e LGPD"}
+            text="Usos, limites, regras do conselho e LGPD, explicados sem jargão."
+          />
+        </div>
+      </section>
       <CTASection title={sector.cta} />
       <Signature updatedAt="2026-09-24" />
     </>
