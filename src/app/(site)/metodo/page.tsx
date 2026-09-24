@@ -5,7 +5,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { Section, SectionHeading } from "@/components/ui";
 import { Icon } from "@/components/Icon";
 import { Checklist, CTASection, DiagnosticActions, PageHero, Signature } from "@/components/sections";
-import { MethodTimeline } from "@/components/MethodTimeline";
 
 const path = "/metodo/";
 
@@ -39,10 +38,36 @@ export default function MetodoPage() {
       />
 
       <Section labelledBy="etapas">
-        <SectionHeading id="etapas" eyebrow="Linha do tempo" title="Do problema à operação." />
-        <div className="mt-14">
-          <MethodTimeline detailed />
-        </div>
+        <h2 id="etapas" className="sr-only">
+          Etapas
+        </h2>
+        <ol className="relative mx-auto max-w-4xl space-y-5">
+          <span aria-hidden className="absolute bottom-6 left-6 top-6 w-0.5 bg-gradient-to-b from-violet-400 via-signal to-accent" />
+          {methodSteps.map((s, i) => {
+            const last = i === methodSteps.length - 1;
+            return (
+              <li key={s.title} className="relative flex gap-5 md:gap-7">
+                <span
+                  className={`relative z-10 mt-4 inline-flex size-12 shrink-0 items-center justify-center rounded-full font-[family-name:var(--font-display)] font-bold ${last ? "bg-[#1a9e7a] text-white" : "bg-navy-900 text-sky"}`}
+                >
+                  {i + 1}
+                </span>
+                <div className={`flex-1 rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] ring-1 md:p-7 ${last ? "ring-accent/40" : "ring-line/60"}`}>
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <h3 className="text-[1.3rem] font-bold">{s.title}</h3>
+                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${last ? "bg-accent-50 text-accent-strong" : "bg-violet-50 text-violet"}`}>{s.duration}</span>
+                  </div>
+                  <p className="mt-2 text-slate">
+                    {s.text} {s.detail}
+                  </p>
+                  <p className="mt-3 text-sm text-slate">
+                    <strong className="text-ink">De você:</strong> {s.fromYou}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
       </Section>
 
       <Section tone="mist" labelledBy="entregaveis">

@@ -28,6 +28,23 @@ export default function SobrePage() {
         title="Engenharia de IA aplicada a resultado de negócio."
         answer={`A ${site.name} é um estúdio de engenharia de IA que ajuda empresas a atender, vender e operar melhor com agentes e automações. Reúne mais de 4 anos de experiência e mais de 300 projetos entregues, com atuação em setores regulados como jurídico e saúde, atendendo empresas em todo o Brasil.`}
         actions={<DiagnosticActions secondary={{ href: "/metodo/", label: "Nosso método" }} />}
+        visual={
+          <dl className="grid grid-cols-2 gap-4 text-white">
+            {[
+              [site.stats.years, "anos de operação", "text-gradient"],
+              [site.stats.projects, "projetos entregues", "text-gradient-mint"],
+            ].map(([n, l, c]) => (
+              <div key={l} className="glass rounded-[1.25rem] p-7">
+                <dd className={`w-fit font-[family-name:var(--font-display)] text-[2.6rem] font-bold ${c}`}>{n}</dd>
+                <dt className="mt-1 text-sm text-white/65">{l}</dt>
+              </div>
+            ))}
+            <div className="glass col-span-2 rounded-[1.25rem] p-6">
+              <dd className="font-[family-name:var(--font-display)] text-lg font-semibold">Jurídico · Saúde</dd>
+              <dt className="mt-1 text-sm text-white/65">setores regulados atendidos, com LGPD desde o primeiro dia</dt>
+            </div>
+          </dl>
+        }
       />
 
       <Section labelledBy="historia">
@@ -47,23 +64,6 @@ export default function SobrePage() {
         </div>
       </Section>
 
-      <Section tone="mist" labelledBy="numeros">
-        <h2 id="numeros" className="sr-only">
-          Números
-        </h2>
-        <dl className="grid gap-5 md:grid-cols-3">
-          {[
-            [site.stats.years, "anos de engenharia"],
-            [site.stats.projects, "projetos entregues"],
-            ["Jurídico · Saúde", "setores regulados atendidos"],
-          ].map(([n, l]) => (
-            <div key={l} className="rounded-[var(--radius-card)] bg-white ring-1 ring-line/60 p-8">
-              <dd className="text-4xl font-semibold tracking-tight text-navy md:text-5xl">{n}</dd>
-              <dt className="mt-2 text-slate">{l}</dt>
-            </div>
-          ))}
-        </dl>
-      </Section>
 
       <Section labelledBy="fundador">
         <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">

@@ -4,8 +4,11 @@ import { comparisons, guides } from "@/content/articles";
 import { glossary } from "@/content/glossary";
 import { breadcrumbSchema, graph, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
-import { Section, SectionHeading, TextLink } from "@/components/ui";
-import { CTASection, LinkCard, PageHero } from "@/components/sections";
+import { Badge, Section, SectionHeading, TextLink } from "@/components/ui";
+import { CTASection, PageHero } from "@/components/sections";
+import { BannerCard } from "@/components/BannerCard";
+import { Orb } from "@/components/Orb";
+import { site } from "@/lib/site";
 
 const path = "/conteudo/";
 
@@ -31,18 +34,51 @@ export default function ConteudoPage() {
 
       <Section id="guias" labelledBy="guias-titulo">
         <SectionHeading id="guias-titulo" eyebrow="Guias" title="Conteúdo longo e definitivo." />
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {guides.map((g) => (
-            <LinkCard key={g.slug} href={`/conteudo/guias/${g.slug}/`} meta={`Guia · ${g.readingMinutes} min`} title={g.title} text={g.description} />
+        <Link
+          href={`/conteudo/guias/${guides[0].slug}/`}
+          className="group mt-10 grid overflow-hidden rounded-[1.4rem] bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:shadow-[var(--shadow-lift)] md:grid-cols-2"
+        >
+          <div className="relative min-h-60 overflow-hidden bg-[linear-gradient(135deg,#3b5bff,#6a4dff)]">
+            <Orb tone="blue" wave={false} className="absolute left-1/2 top-1/2 size-64 -translate-x-1/2 -translate-y-1/2 transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <div className="flex flex-col justify-center p-8 md:p-10">
+            <Badge tone="blue" className="w-fit">Destaque · Guia</Badge>
+            <h3 className="mt-4 text-[1.6rem] font-bold leading-tight md:text-[1.9rem]">{guides[0].title}</h3>
+            <p className="mt-3 text-slate">{guides[0].description}</p>
+            <p className="mt-6 text-sm text-slate">
+              {site.founder.name} · {guides[0].readingMinutes} min de leitura
+            </p>
+          </div>
+        </Link>
+        <div className="mt-5 grid gap-5 md:grid-cols-3">
+          {guides.slice(1).map((g, i) => (
+            <BannerCard
+              key={g.slug}
+              href={`/conteudo/guias/${g.slug}/`}
+              tone={(["violet", "teal", "blue"] as const)[i % 3]}
+              deco={(["flow", "shield", "lines"] as const)[i % 3]}
+              tag="Guia"
+              meta={`${g.readingMinutes} min de leitura`}
+              title={g.title}
+              cta="Ler artigo"
+            />
           ))}
         </div>
       </Section>
 
       <Section tone="mist" id="comparativos" labelledBy="comparativos-titulo">
         <SectionHeading id="comparativos-titulo" eyebrow="Comparativos" title="Para decidir entre uma opção e outra." />
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
-          {comparisons.map((c) => (
-            <LinkCard key={c.slug} href={`/conteudo/comparativos/${c.slug}/`} meta={`Comparativo · ${c.readingMinutes} min`} title={c.title} text={c.description} />
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {comparisons.map((c, i) => (
+            <BannerCard
+              key={c.slug}
+              href={`/conteudo/comparativos/${c.slug}/`}
+              tone={(["violet", "blue", "cyan", "teal"] as const)[i % 4]}
+              tag="Comparativo"
+              meta={`${c.readingMinutes} min de leitura`}
+              title={c.title}
+              cta="Ler comparativo"
+            />
           ))}
         </div>
       </Section>
