@@ -11,7 +11,7 @@ export default function NotFound() {
         <Container className="grid min-h-[60vh] items-center gap-12 py-20 md:grid-cols-2 md:py-28">
           <div>
             <p className="eyebrow">Erro 404</p>
-            <h1 className="mt-4 text-[2.5rem] leading-[1.06] md:text-[3.6rem]">O sinal se perdeu no caminho</h1>
+            <h1 className="mt-4 text-[2.5rem] leading-[1.06] md:text-[3.6rem]">Esta página se perdeu no caminho</h1>
             <p className="mt-5 max-w-md text-lg text-slate">A página que você procura não existe ou mudou de lugar. Vamos te levar de volta ao trilho.</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <ButtonLink href="/" size="lg">

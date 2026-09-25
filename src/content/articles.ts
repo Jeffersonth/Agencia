@@ -792,7 +792,7 @@ export const guides: Article[] = [
     description:
       "Do que é feito o custo de um agente de IA (implantação, sustentação mensal, consumo de IA e de WhatsApp), faixas de preço por tipo de projeto e como calcular se o investimento se paga.",
     answer:
-      "O custo de um agente de IA tem três partes: a implantação, paga uma vez (na Sinal, a partir de R$ 7.500 para um agente de WhatsApp e a partir de R$ 15.000 para um SDR com IA); a sustentação mensal, que mantém o agente monitorado e atualizado; e o consumo, pago direto aos provedores (mensagens da Meta e uso do modelo de IA). O investimento se paga quando as horas liberadas e as vendas recuperadas superam esse total.",
+      "O custo de um agente de IA tem três partes: a implantação, paga uma vez (na Soluna IA, a partir de R$ 7.500 para um agente de WhatsApp e a partir de R$ 15.000 para um SDR com IA); a sustentação mensal, que mantém o agente monitorado e atualizado; e o consumo, pago direto aos provedores (mensagens da Meta e uso do modelo de IA). O investimento se paga quando as horas liberadas e as vendas recuperadas superam esse total.",
     updatedAt: UPDATED,
     readingMinutes: 7,
     sections: [
@@ -823,7 +823,7 @@ export const guides: Article[] = [
             ["SDR com IA", "R$ 15.000", "3 a 5 semanas"],
             ["IA privada (nuvem privada)", "R$ 20.000", "Conforme o escopo"],
           ] },
-          { type: "callout", text: "Valores de entrada da Sinal. O preço final depende do número de integrações, do volume de conversas e das regras de negócio, e é fechado depois do Diagnóstico." },
+          { type: "callout", text: "Valores de entrada da Soluna IA. O preço final depende do número de integrações, do volume de conversas e das regras de negócio, e é fechado depois do Diagnóstico." },
         ],
       },
       {
@@ -1079,7 +1079,7 @@ export const comparisons: Article[] = [
     ],
     faq: [
       { q: "Usar o ChatGPT gratuito na empresa é seguro?", a: "Para dados de clientes, não é recomendado. Planos gratuitos e individuais têm termos diferentes dos planos empresariais. Uma política de uso de IA define o que pode ser colado em cada ferramenta." },
-      { q: "Quanto custa a IA privada?", a: "Na Sinal, a partir de R$ 20.000 em nuvem privada e a partir de R$ 45.000 em infraestrutura dedicada, mais a infraestrutura quando necessária." },
+      { q: "Quanto custa a IA privada?", a: "Na Soluna IA, a partir de R$ 20.000 em nuvem privada e a partir de R$ 45.000 em infraestrutura dedicada, mais a infraestrutura quando necessária." },
     ],
     related: ["/solucoes/ia-corporativa/ia-privada/", "/solucoes/ia-corporativa/governanca-ia-lgpd/", "/conteudo/guias/ia-e-lgpd/", "/conteudo/glossario/ia-privada/"],
   },

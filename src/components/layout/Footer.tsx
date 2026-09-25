@@ -71,7 +71,7 @@ export function Footer() {
         <FooterColumn
           title="Empresa"
           links={[
-            { label: "Sobre a Sinal", href: "/sobre/" },
+            { label: "Sobre a Soluna IA", href: "/sobre/" },
             { label: "Método", href: "/metodo/" },
             { label: "Segurança e LGPD", href: "/seguranca-e-lgpd/" },
             { label: "Cases", href: "/cases/" },

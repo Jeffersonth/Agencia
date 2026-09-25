@@ -101,7 +101,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* 2 — Resposta direta (Sobre a Sinal) */}
+      {/* 2 — Resposta direta (Sobre a Soluna IA) */}
       <section className="relative bg-mist pt-16 md:pt-24">
         <span aria-hidden className="pointer-events-none absolute left-4 top-10 select-none font-[family-name:var(--font-display)] text-[14rem] font-extrabold leading-none text-violet-400/[0.06] md:left-10">
           S
