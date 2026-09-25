@@ -288,14 +288,14 @@ export async function WhatsAppCard({ light }: { light?: boolean }) {
       <div className="mx-auto w-fit rounded-2xl bg-white p-3">
         <div
           role="img"
-          aria-label="QR code para falar com o nosso agente no WhatsApp"
+          aria-label="QR code para falar com a gente no WhatsApp"
           className="size-[150px] [&>svg]:size-full"
           dangerouslySetInnerHTML={{ __html: qrSvg }}
         />
       </div>
-      <p className={cx("mt-4 font-semibold", light ? "text-ink" : "text-white")}>Fale com o nosso agente</p>
+      <p className={cx("mt-4 font-semibold", light ? "text-ink" : "text-white")}>Fale com a gente no WhatsApp</p>
       <p className={cx("mt-1 text-sm", light ? "text-slate" : "text-white/65")}>
-        Atendido pela própria IA que implantamos. A melhor demonstração.
+        Aponte a câmera do celular ou toque no botão para conversar com a equipe.
       </p>
       <a
         href={link}

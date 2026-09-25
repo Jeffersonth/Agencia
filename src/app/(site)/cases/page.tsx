@@ -30,8 +30,8 @@ export default function CasesPage() {
         crumbs={crumbs}
         eyebrow="Soluções em Ação"
         title="O que já construímos, e o que a IA pode fazer pela sua empresa."
-        answer="Mais de 300 projetos entregues em sites, sistemas, aplicativos e automações. Aqui você encontra três níveis de prova: cases reais e produtos próprios, projetos demonstrativos de IA rotulados como tal, e agentes de demonstração que você pode testar agora no WhatsApp."
-        actions={<DiagnosticActions secondary={{ href: "#demonstracoes", label: "Testar uma demonstração" }} />}
+        answer="Mais de 300 projetos entregues em sites, sistemas, aplicativos e automações. Aqui você encontra cases reais e produtos próprios, e projetos demonstrativos de IA rotulados como tal."
+        actions={<DiagnosticActions secondary={{ href: "#demonstrativos", label: "Ver projetos demonstrativos" }} />}
       />
 
       <Section labelledBy="reais">
@@ -60,6 +60,7 @@ export default function CasesPage() {
         </div>
       </Section>
 
+      {liveDemos.length > 0 && (
       <Section tone="navy" id="demonstracoes" labelledBy="ao-vivo">
         <SectionHeading
           dark
@@ -87,6 +88,7 @@ export default function CasesPage() {
           ))}
         </div>
       </Section>
+      )}
 
       <section className="border-b border-line bg-white py-10">
         <div className="container-site">

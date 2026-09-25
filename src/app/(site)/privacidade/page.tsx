@@ -22,7 +22,7 @@ export default function PrivacidadePage() {
         <li>Dados informados por você em formulários: nome, empresa, WhatsApp, e-mail e a descrição do seu desafio.</li>
         <li>Dados informados nas ferramentas (como o endereço de um site no Teste de Visibilidade em IA ou números nas calculadoras) e mensagens enviadas ao chat de IA do site.</li>
         <li>Dados de navegação coletados por ferramentas de mensuração, como páginas visitadas e origem do acesso.</li>
-        <li>Conversas pelo WhatsApp, inclusive com o nosso agente de IA.</li>
+        <li>Conversas pelo WhatsApp.</li>
       </ul>
       <h2>2. Para que usamos</h2>
       <ul>
@@ -38,13 +38,12 @@ export default function PrivacidadePage() {
       </p>
       <h2>4. Compartilhamento</h2>
       <p>
-        Compartilhamos dados apenas com fornecedores necessários à operação (hospedagem, e-mail, ferramentas de CRM, mensuração, WhatsApp Business Platform e
+        Compartilhamos dados apenas com fornecedores necessários à operação (hospedagem, e-mail, ferramentas de CRM, mensuração, WhatsApp e
         provedores de IA com contrato de não retenção), sempre com obrigações de confidencialidade e segurança. Não vendemos dados pessoais.
       </p>
-      <h2>5. Agente de IA no WhatsApp</h2>
+      <h2>5. WhatsApp e chat de IA</h2>
       <p>
-        Nosso WhatsApp é atendido por um assistente virtual de IA, que pode transferir a conversa para uma pessoa da equipe. As conversas são usadas
-        apenas para atender você e melhorar o atendimento, e não são usadas para treinar modelos de terceiros.
+        As conversas pelo WhatsApp são usadas apenas para atender você e dar andamento ao que foi solicitado.
       </p>
       <p>
         No site, o chat “Pergunte à IA” envia as mensagens da conversa ao provedor de IA (Anthropic) apenas para gerar a resposta. O site não grava o

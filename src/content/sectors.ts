@@ -68,7 +68,6 @@ export const sectors: Sector[] = [
     },
     proofNote: "Já atendemos escritórios de advocacia em projetos de site e sistemas. Os cenários abaixo são demonstrativos de como aplicamos IA no setor.",
     demoCases: ["sdr-juridico-trabalhista", "assistente-juridico-ia-privada", "onboarding-clientes-advocacia"],
-    liveDemo: { label: "o Escritório Demo", message: "Quero testar o Escritório Demo" },
     guide: { slug: "ia-para-escritorios-de-advocacia", title: "IA para escritórios de advocacia: o que pode e o que não pode" },
     faq: [
       { q: "É permitido usar IA no atendimento de um escritório?", a: "Sim, desde que respeite as regras da OAB: sem captação indevida, sem promessa de resultado e com o advogado responsável pelo caso. O agente faz o acolhimento e a triagem; a orientação jurídica é do advogado." },
@@ -117,9 +116,8 @@ export const sectors: Sector[] = [
         "Um profissional da clínica valida os conteúdos e roteiros antes de irem ao ar.",
       ],
     },
-    proofNote: "Enquanto publicamos os primeiros cases de IA em saúde, mostramos como aplicamos cada solução em cenários demonstrativos — e você pode testar a Clínica Demo no WhatsApp.",
+    proofNote: "Enquanto publicamos os primeiros cases de IA em saúde, mostramos como aplicamos cada solução em cenários demonstrativos.",
     demoCases: ["agendamento-clinica-odontologica", "cobranca-amigavel", "geo-clinica-estetica"],
-    liveDemo: { label: "a Clínica Demo", message: "Quero testar a Clínica Demo" },
     guide: { slug: "ia-para-clinicas", title: "IA para clínicas: agendamento, WhatsApp e LGPD" },
     faq: [
       { q: "É seguro usar IA no atendimento de uma clínica?", a: "Sim, com API oficial do WhatsApp, dados em nome da clínica, controle de acesso e adequação à LGPD. O agente cuida do administrativo; o clínico fica com a equipe." },
@@ -168,9 +166,8 @@ export const sectors: Sector[] = [
         "Conta do WhatsApp, CRM e histórico em nome da imobiliária, com controle de acesso por corretor.",
       ],
     },
-    proofNote: "Os cenários abaixo são demonstrativos de como aplicamos IA no atendimento imobiliário, e você pode testar a Imobiliária Demo no WhatsApp.",
+    proofNote: "Os cenários abaixo são demonstrativos de como aplicamos IA no atendimento imobiliário.",
     demoCases: ["pre-atendimento-imobiliario"],
-    liveDemo: { label: "a Imobiliária Demo", message: "Quero testar a Imobiliária Demo" },
     guide: { slug: "ia-para-imobiliarias", title: "IA para imobiliárias: atendimento de leads, visitas e CRM" },
     faq: [
       { q: "O agente sabe responder sobre cada imóvel?", a: "Sim. Ele é conectado ao catálogo (site, CRM imobiliário ou planilha) e responde com os dados do anúncio. Quando a pergunta foge do catálogo, transfere para o corretor." },
