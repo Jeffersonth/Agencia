@@ -1,13 +1,13 @@
 /**
  * Configuração central da marca.
  *
- * Nome "Sinal" e fundador vêm do design (Claude Design). Domínio, contatos,
+ * Nome "Soluna IA" e fundador. Domínio, contatos,
  * razão social e redes ainda são placeholders (entre colchetes ou fictícios):
  * troque aqui e o site inteiro (páginas, Schema.org, sitemap, robots.txt e llms.txt) é atualizado.
  */
 export const site = {
-  name: "Sinal",
-  legalName: "[Razão Social da Sinal]",
+  name: "Soluna IA",
+  legalName: "[Razão Social da Soluna IA]",
   cnpj: "00.000.000/0000-00",
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://agencia.inovalabs.io").replace(/\/$/, ""),
   tagline: "Agentes de IA e Automação para Empresas",
@@ -40,8 +40,8 @@ export const site = {
     hours: "Segunda a sexta, das 9h às 18h",
   },
   social: {
-    linkedin: "https://www.linkedin.com/company/[sinal]",
-    instagram: "https://www.instagram.com/[sinal]",
+    linkedin: "https://www.linkedin.com/company/[soluna-ia]",
+    instagram: "https://www.instagram.com/[soluna.ia]",
   },
 } as const;
 

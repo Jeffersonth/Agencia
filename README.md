@@ -1,4 +1,4 @@
-# Sinal — site da agência de IA
+# Soluna IA — site da agência
 
 Site institucional da agência (estúdio de engenharia de IA), construído a partir da especificação
 “Estrutura Completa do Site — Agência de IA”. Next.js com geração estática: todas as páginas saem
@@ -29,7 +29,7 @@ Variáveis de ambiente (veja `.env.example`):
 ## Stack
 
 - **Next.js 16** (App Router, SSG) + **React 19** + **TypeScript**
-- **Tailwind CSS 4** com o design system da Sinal em `src/app/globals.css`, extraído do Claude Design (`Home.dc.html`): índigo/violeta (`#251b60 → #181240`), botões em degradê `#7c4dff → #4d7cff`, fundo claro `#f4f3fa`, texto `#14122b`, acento menta para métricas
+- **Tailwind CSS 4** com o design system em `src/app/globals.css`: índigo/violeta (`#251b60 → #181240`), botões em degradê `#7c4dff → #4d7cff`, fundo claro `#f4f3fa`, texto `#14122b`, acento menta para métricas
 - **Sora** (títulos) e **Inter** (texto), auto-hospedadas via `@fontsource-variable`; ícones em linha (`lucide-react`)
 - Orbes decorativos (`src/components/Orb.tsx`) e interfaces ilustrativas em HTML/CSS (`src/components/visuals.tsx`), sem imagens de banco
 
@@ -87,7 +87,7 @@ Privacidade · Termos · `robots.txt` · `sitemap.xml` · `llms.txt`.
 
 A especificação pede para decidir **nome e domínio antes do lançamento**. Tudo está centralizado:
 
-- [ ] `src/lib/site.ts`: nome **Sinal** e fundador **Jefferson Thales** vêm do design; confirmar domínio (`sinal.com.br` é suposição), razão social, CNPJ, WhatsApp, e-mail e redes sociais
+- [ ] `src/lib/site.ts`: confirmar razão social, CNPJ e redes sociais (nome **Soluna IA**, fundador **Jefferson Thales**, WhatsApp e e-mail já preenchidos)
 - [ ] LinkedIn do fundador, texto da trajetória e foto em `src/app/(site)/sobre/page.tsx`
 - [ ] Logotipo definitivo, se houver além do ícone de pulso do design (`src/components/layout/Logo.tsx` e `src/app/icon.svg`)
 - [ ] Cases reais: completar AcertoCLT e Prospector CNPJ com números reais e adicionar 6–8 sites e 2–3 apps/SaaS (`src/content/cases.ts`)

@@ -1,6 +1,6 @@
 import { cx } from "@/components/ui";
 
-/** Orbe brilhante do design Sinal (decorativo). */
+/** Orbe brilhante (decorativo). */
 export type OrbTone = "blue" | "violet" | "teal" | "orange" | "cyan";
 
 const palettes: Record<OrbTone, [string, string, string]> = {
