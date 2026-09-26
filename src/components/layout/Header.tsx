@@ -19,9 +19,9 @@ const notchPos = {
 
 function MegaPanel({ group }: { group: NavGroup }) {
   const align = group.align ?? "center";
-  const width = group.wide ? "w-[54rem]" : group.featured ? "w-[42rem]" : "w-[22rem]";
+  const width = group.wide ? "w-[50rem]" : group.featured ? "w-[42rem]" : "w-[22rem]";
   return (
-    <div className={cx("absolute top-full z-50 pt-3", alignOuter[align], width)}>
+    <div className={cx("absolute top-full z-50 max-w-[calc(100vw-24px)] pt-3", alignOuter[align], width)}>
       <div
         className={cx(
           "invisible origin-top translate-y-1 scale-[0.98] opacity-0 transition-all duration-200 ease-out",
@@ -88,7 +88,7 @@ export function Header() {
         Pular para o conteúdo
       </a>
       <div className="container-site flex h-[4.5rem] items-center justify-between gap-6">
-        <Logo dark />
+        <Logo dark markClassName="size-[37px]" />
 
         <nav aria-label="Navegação principal" className="hidden lg:block">
           <ul className="flex items-center gap-1">
@@ -109,7 +109,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <span className="hidden sm:block">
             <ButtonLink href="/diagnostico/" size="sm" className="lg:px-5 lg:py-2.5">
               Agendar Diagnóstico
