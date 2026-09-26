@@ -278,3 +278,86 @@
 .typing-dot:nth-child(3) {
   animation-delay: 0.4s;
 }
+
+/* --- "Agente em ação": micro-animações e glow neon --- */
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(124, 77, 255, 0.35),
+      0 0 22px -4px rgba(124, 77, 255, 0.55),
+      0 0 60px -10px rgba(77, 124, 255, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(140, 170, 255, 0.55),
+      0 0 34px -2px rgba(124, 77, 255, 0.8),
+      0 0 90px -8px rgba(77, 124, 255, 0.55);
+  }
+}
+@keyframes bar-load {
+  0% {
+    transform: scaleX(0.05);
+  }
+  60% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+@keyframes node-ping {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+@keyframes chip-live {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-caret {
+  animation: caret-blink 1s steps(1) infinite;
+}
+.animate-glow {
+  animation: glow-pulse 3.4s ease-in-out infinite;
+}
+.animate-bar {
+  transform-origin: left;
+  animation: bar-load 2.6s ease-in-out infinite;
+}
+.animate-flow {
+  stroke-dasharray: 4 4;
+  animation: flow-dash 0.9s linear infinite;
+}
+.animate-node {
+  animation: node-ping 2.4s ease-in-out infinite;
+}
+.animate-chip {
+  animation: chip-live 2.2s ease-in-out infinite;
+}

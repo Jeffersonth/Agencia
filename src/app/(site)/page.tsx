@@ -15,6 +15,7 @@ import { Orb, type OrbTone } from "@/components/Orb";
 import { BannerCard } from "@/components/BannerCard";
 import { caseTone } from "@/components/CaseCard";
 import { CTASection, FAQList, SecurityStrip } from "@/components/sections";
+import { AgentInAction } from "@/components/AgentInAction";
 
 // Ruído sutil (grão) para o card escuro, sem depender de imagem externa
 const GRAIN =
@@ -50,9 +51,10 @@ function SwirlMark({ className }: { className?: string }) {
 }
 
 export const metadata: Metadata = pageMetadata({
-  title: `${site.name} — Agentes de IA e Automação para Empresas`,
+  title: `${site.name} | Agentes de IA e Automação para Empresas`,
   absoluteTitle: true,
-  description: site.description,
+  description:
+    "Agência de IA e automação para empresas em todo o Brasil. Criamos agentes de IA, integrações e sistemas inteligentes para atendimento, vendas e operações.",
   path: "/",
 });
 
@@ -108,25 +110,25 @@ export default function HomePage() {
         <Orb tone="blue" className="animate-float pointer-events-none absolute left-[8%] top-20 hidden size-28 md:block lg:size-36" />
         <Orb tone="cyan" wave={false} className="animate-float pointer-events-none absolute right-[10%] top-56 hidden size-16 [animation-delay:3s] md:block" />
         <Container className="relative z-10 pb-20 pt-14 text-center md:pb-24 md:pt-20">
-          <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.8rem] text-white/85">
-            <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Estúdio de engenharia de IA
+          <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/85">
+            <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Soluna IA · AI Solutions Agency
           </p>
-          <h1 className="mx-auto mt-7 max-w-4xl text-[2.5rem] leading-[1.06] text-white md:text-[3.9rem]">
-            Sua empresa parou de perder cliente <span className="text-gradient">nos intervalos.</span>
+          <h1 className="mx-auto mt-7 max-w-4xl text-[2.4rem] leading-[1.08] text-white md:text-[3.7rem]">
+            Agentes de IA e automação para empresas que querem <span className="text-gradient">operar em outro nível.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-[1.2rem]">
-            Agentes de IA que atendem, qualificam e vendem 24/7 — integrados aos sistemas que você já usa. Engenharia sênior, entrega rápida, resultado medido.
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-[1.18rem]">
+            Projetamos e implementamos agentes de IA, automações e sistemas inteligentes para atendimento, vendas e operações — integrados ao WhatsApp, CRM, ERP e às ferramentas que sua empresa já utiliza.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <ButtonLink href="/diagnostico/" size="lg">
-              Agendar diagnóstico
+              Agendar Diagnóstico de IA
             </ButtonLink>
             <ButtonLink href="/solucoes/" size="lg" variant="ghost-light">
-              Ver soluções
+              Conhecer as Soluções
             </ButtonLink>
           </div>
           <p className="mt-6 text-sm text-white/60">
-            {site.stats.years} anos · {site.stats.projects} projetos entregues · Especialistas em setores regulados
+            {site.stats.years} anos de experiência · {site.stats.projects} projetos entregues · Atendimento em todo o Brasil
           </p>
           <div className="relative mt-14">
             <svg aria-hidden viewBox="0 0 1200 120" preserveAspectRatio="none" className="pointer-events-none absolute -top-6 left-1/2 hidden h-28 w-[110%] -translate-x-1/2 md:block">
@@ -144,6 +146,9 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+      {/* 1.5 — Agente em ação (bento interativo) */}
+      <AgentInAction />
 
       {/* 2 — Resposta direta (Sobre a Soluna IA) */}
       <section className="relative bg-mist pt-16 md:pt-24">
