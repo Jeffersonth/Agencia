@@ -105,11 +105,15 @@ const productionControls = [
 ];
 
 const homeFaq = [
-  { q: "Quanto tempo até estar rodando?", a: "Um agente de IA para WhatsApp entra no ar em 2 a 3 semanas. Projetos com mais integrações são faseados, com entregas a cada etapa." },
-  { q: "A IA vai substituir o meu time?", a: "Não. A IA assume o repetitivo — responder, qualificar, digitar, agendar — e transfere para uma pessoa quando o caso pede julgamento." },
-  { q: "Funciona com os sistemas que eu já uso?", a: "Sim. Integramos com WhatsApp, CRMs, agendas, ERPs e planilhas via API ou integração sob medida. Avaliamos o seu cenário no Diagnóstico." },
+  { q: "O que é um agente de IA?", a: "Um agente de IA é um sistema que interpreta informações, mantém contexto, decide dentro de regras definidas e executa tarefas usando os sistemas conectados. Diferente de um chatbot, ele pode consultar dados, atualizar sistemas e encaminhar casos para pessoas quando necessário." },
+  { q: "Qual a diferença entre um chatbot e um agente de IA?", a: "Um chatbot normalmente responde perguntas seguindo fluxos ou uma base de conhecimento. Um agente de IA, além de conversar, consulta sistemas, interpreta informações, decide dentro de limites definidos e executa ações." },
+  { q: "O que a Soluna IA faz?", a: "A Soluna IA é uma agência brasileira especializada em agentes de inteligência artificial e automação para empresas. Desenvolvemos soluções para atendimento, vendas, suporte e processos internos, além de sistemas, sites, aplicativos e projetos de SEO e GEO." },
+  { q: "Vocês integram a IA aos sistemas que eu já uso?", a: "Sim. Projetamos integrações com CRMs, ERPs, WhatsApp, agendas, bancos de dados, APIs, planilhas e sistemas internos. A viabilidade e a arquitetura são analisadas no Diagnóstico." },
+  { q: "Agentes de IA funcionam no WhatsApp?", a: "Sim. Integramos agentes de IA ao WhatsApp para atendimento, qualificação de leads, vendas, suporte e agendamentos, usando a API oficial e as integrações adequadas ao projeto." },
+  { q: "A Soluna atende empresas de todo o Brasil?", a: "Sim. O atendimento é online, o que permite projetos para empresas de pequeno, médio e grande porte em qualquer região do Brasil." },
+  { q: "Quanto tempo leva para implementar um agente de IA?", a: "Depende do número de processos, integrações e regras. Projetos mais simples podem entrar no ar em poucas semanas; operações mais complexas são divididas em fases, com entregas a cada etapa." },
+  { q: "A IA vai substituir o meu time?", a: "Não. A IA assume o repetitivo — responder, qualificar, digitar, agendar — e transfere para uma pessoa quando o caso exige negociação, julgamento ou decisão sensível." },
   { q: "Meus dados ficam seguros?", a: "Sim. API oficial do WhatsApp, contas e dados em nome da sua empresa, adequação à LGPD e opção de IA privada para dados sensíveis." },
-  { q: "Como é cobrado?", a: "Implantação + sustentação mensal + consumo repassado sem margem. Os projetos partem de faixas claras e o preço fechado sai do Diagnóstico, que é creditado no projeto." },
 ];
 
 export default function HomePage() {
@@ -607,7 +611,7 @@ export default function HomePage() {
       <Section labelledBy="duvidas">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
-            <SectionHeading id="duvidas" eyebrow="Dúvidas" title="Perguntas que todo mundo faz antes de começar" text="Não encontrou o que procura? Fale com a gente no diagnóstico." />
+            <SectionHeading id="duvidas" eyebrow="Perguntas frequentes" title="O que empresas querem saber antes de começar." text="Não encontrou o que procura? Fale com a gente no Diagnóstico." />
             <ButtonLink href="/diagnostico/" className="mt-7">
               Agendar diagnóstico
             </ButtonLink>
@@ -641,7 +645,10 @@ export default function HomePage() {
       </Section>
 
       {/* 11 — CTA final */}
-      <CTASection title="Descubra o que a IA já resolveria na sua operação" />
+      <CTASection
+        title="Descubra onde a IA pode gerar mais impacto na sua empresa."
+        text="Antes de falar sobre ferramentas, modelos ou automações, queremos entender sua operação. No Diagnóstico, mapeamos processos, gargalos e sistemas para achar onde agentes de IA e automação geram maior retorno."
+      />
     </>
   );
 }
