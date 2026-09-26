@@ -3,19 +3,15 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BarChart3, CircleHelp, Clock, FileStack, FileText, Hourglass, Layers, Repeat, Sparkle } from "lucide-react";
 import { hubs } from "@/content/solutions";
 import { sectors } from "@/content/sectors";
-import { cases, caseTypeLabels } from "@/content/cases";
-import { guides } from "@/content/articles";
 import { methodSteps } from "@/content/method";
 import type { IconName } from "@/content/types";
 import { complementaryServices } from "@/lib/nav";
 import { site } from "@/lib/site";
 import { faqSchema, graph, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
-import { Badge, ButtonLink, Container, Section, SectionHeading, TextLink } from "@/components/ui";
+import { ButtonLink, Container, Section, SectionHeading, TextLink } from "@/components/ui";
 import { Icon, IconTile } from "@/components/Icon";
-import { Orb, type OrbTone } from "@/components/Orb";
-import { BannerCard } from "@/components/BannerCard";
-import { caseTone } from "@/components/CaseCard";
+import { Orb } from "@/components/Orb";
 import { CTASection, FAQList, SecurityStrip } from "@/components/sections";
 import { AgentInAction } from "@/components/AgentInAction";
 
@@ -89,26 +85,6 @@ const techLayers: { icon: IconName; title: string; text: string }[] = [
   { icon: "code", title: "Software", text: "Interfaces e sistemas desenvolvidos quando a operação exige algo específico." },
 ];
 
-const productionQuestions = [
-  "O que acontece quando a IA não sabe a resposta?",
-  "Quem recebe um atendimento que precisa de uma pessoa?",
-  "Quais sistemas ela pode acessar e quais ações pode executar?",
-  "Como saber se o agente está funcionando como deveria?",
-];
-
-const productionControls = [
-  "Regras e limites de atuação",
-  "Transferência para atendimento humano",
-  "Controle de permissões",
-  "Registro de interações",
-  "Monitoramento de falhas",
-  "Avaliação da qualidade das respostas",
-  "Tratamento de exceções",
-  "Controle de custos",
-  "Versionamento",
-  "Evolução contínua dos agentes",
-];
-
 const integracoesTechs = ["WhatsApp", "HubSpot", "RD Station", "Pipedrive", "Google Workspace", "ERPs", "CRMs", "APIs", "n8n", "Make", "Bancos de Dados"];
 
 const diagnosticoInclui = [
@@ -120,13 +96,6 @@ const diagnosticoInclui = [
   "Avaliação inicial de segurança e LGPD",
   "Roteiro de implementação",
   "Escopo, prazo e investimento",
-];
-
-const ferramentasGratuitas: { title: string; text: string; icon: IconName }[] = [
-  { title: "Calculadora de ROI de Atendimento", text: "Descubra quanto a demora na resposta pode estar custando em oportunidades.", icon: "chart" },
-  { title: "Calculadora de Custo do Atendimento", text: "Compare o custo atual da operação com diferentes cenários.", icon: "gauge" },
-  { title: "Raio-X do WhatsApp", text: "Avalie a maturidade do atendimento da sua empresa pelo WhatsApp.", icon: "message" },
-  { title: "Teste de Visibilidade em IA", text: "Avalie como seu site está preparado para buscadores e sistemas de IA.", icon: "search" },
 ];
 
 const arquiteturaFatores = ["Qualidade", "Segurança", "Privacidade", "Latência", "Volume", "Custo", "Capacidade de integração", "Manutenção", "Escalabilidade"];
@@ -188,11 +157,6 @@ const homeFaq = [
 ];
 
 export default function HomePage() {
-  const featuredCases = ["agendamento-clinica-odontologica", "sdr-juridico-trabalhista", "extracao-notas-fiscais"]
-    .map((s) => cases.find((c) => c.slug === s)!)
-    .filter(Boolean);
-  const blogTones: OrbTone[] = ["blue", "violet", "teal"];
-  const blogDeco = ["lines", "flow", "shield"] as const;
   const hubBySlug = (slug: string) => hubs.find((h) => h.slug === slug)!;
   const coreDuo = [hubBySlug("atendimento-inteligente"), hubBySlug("vendas-e-receita")];
 
@@ -223,7 +187,7 @@ export default function HomePage() {
         <Orb tone="cyan" wave={false} className="animate-float pointer-events-none absolute right-[10%] top-56 hidden size-16 [animation-delay:3s] md:block" />
         <Container className="relative z-10 pb-20 pt-14 text-center md:pb-24 md:pt-20">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/85">
-            <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Soluna IA · AI Solutions Agency
+            <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Soluna IA — Agência de IA e Automação para Empresas
           </p>
           <h1 className="mx-auto mt-7 max-w-4xl text-[2.4rem] leading-[1.08] text-white md:text-[3.7rem]">
             Agentes de IA e automação para empresas que querem <span className="text-gradient">operar em outro nível.</span>
@@ -246,10 +210,6 @@ export default function HomePage() {
             Projetos sob medida · LGPD · Integrações com sistemas existentes · Suporte contínuo
           </p>
           <div className="relative mt-14">
-            <svg aria-hidden viewBox="0 0 1200 120" preserveAspectRatio="none" className="pointer-events-none absolute -top-6 left-1/2 hidden h-28 w-[110%] -translate-x-1/2 md:block">
-              <path d="M0 110 Q600 -10 1200 110" fill="none" stroke="#8ab4ff" strokeOpacity=".35" />
-              <path d="M0 120 Q600 20 1200 120" fill="none" stroke="#8ab4ff" strokeOpacity=".18" />
-            </svg>
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/45">Integra com as ferramentas que você já usa</p>
             <ul className="mt-4 flex flex-wrap justify-center gap-2.5">
               {integrations.map((i) => (
@@ -261,9 +221,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
-      {/* 1.5 — Agente em ação (bento interativo) */}
-      <AgentInAction />
 
       {/* 2 — Resposta direta (Sobre a Soluna IA) */}
       <section className="relative bg-mist pt-16 md:pt-24">
@@ -329,8 +286,8 @@ export default function HomePage() {
 
       {/* 3 — O problema */}
       <Section labelledBy="problema">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <div>
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <div className="lg:self-center">
             <SectionHeading id="problema" eyebrow="Oportunidades de automação" title="Sua empresa provavelmente usa pessoas em tarefas que a IA faria em segundos." />
             <p className="mt-6 border-l-[3px] border-violet-400 pl-5 text-lg font-medium text-ink">
               A IA transforma esses pontos de atrito em fluxos rápidos, mensuráveis e escaláveis.
@@ -339,13 +296,13 @@ export default function HomePage() {
               Descobrir onde aplicar IA na minha empresa
             </ButtonLink>
           </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
+          <ul className="grid auto-rows-fr gap-4 sm:grid-cols-2">
             {problems.map(({ icon: I, text }) => (
-              <li key={text} className="rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60">
-                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-violet-50 text-violet-400">
+              <li key={text} className="flex h-full items-start gap-4 rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60">
+                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-400">
                   <I aria-hidden className="size-5" strokeWidth={1.75} />
                 </span>
-                <p className="mt-5 font-[family-name:var(--font-display)] text-[1.05rem] font-semibold leading-snug text-ink">{text}</p>
+                <p className="font-[family-name:var(--font-display)] text-[1rem] font-semibold leading-snug text-ink">{text}</p>
               </li>
             ))}
           </ul>
@@ -472,6 +429,9 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* 4.45 — Agente em ação (abaixo dos pilares) */}
+      <AgentInAction />
+
       {/* 4.5 — IA por área da empresa */}
       <Section tone="white" labelledBy="areas">
         <SectionHeading
@@ -540,42 +500,6 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 4.7 — IA em produção */}
-      <Section tone="white" labelledBy="producao">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
-          <div>
-            <SectionHeading
-              id="producao"
-              eyebrow="Confiabilidade"
-              title="Criar uma demo de IA é fácil. Colocá-la em produção é outra história."
-              text="Uma solução empresarial precisa lidar com o que não aparece em uma apresentação:"
-            />
-            <ul className="mt-6 space-y-3">
-              {productionQuestions.map((q) => (
-                <li key={q} className="flex items-start gap-3 text-[1.02rem] text-ink">
-                  <CircleHelp aria-hidden className="mt-0.5 size-5 shrink-0 text-violet-400" />
-                  {q}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-[1.4rem] bg-mist p-8 ring-1 ring-line/60 md:p-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate">Por isso, projetamos com</p>
-            <ul className="mt-5 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
-              {productionControls.map((c) => (
-                <li key={c} className="flex items-start gap-2.5 text-[0.95rem] text-slate">
-                  <Icon name="check" className="mt-0.5 size-4 shrink-0 text-accent-strong" />
-                  {c}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-7 border-t border-line/70 pt-5 text-[1.05rem] font-bold text-ink">
-              IA empresarial não é só inteligência. É inteligência com <span className="text-signal">controle operacional</span>.
-            </p>
-          </div>
-        </div>
-      </Section>
-
       {/* 5 — Método */}
       <section aria-labelledby="metodo" className="bg-liquid on-dark relative overflow-hidden py-20 text-white md:py-28">
         {/* Decoração: estrelas e globo wireframe (sem texto) */}
@@ -593,12 +517,17 @@ export default function HomePage() {
         </svg>
 
         <Container className="relative">
-          <p className="eyebrow inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-1.5 text-white/80 backdrop-blur-sm">
-            Como funciona
-          </p>
-          <h2 id="metodo" className="mt-6 max-w-3xl text-[2rem] font-bold leading-[1.08] text-white md:text-[3.1rem]">
-            Um método. Cinco etapas.<br className="hidden sm:block" /> Zero improviso.
-          </h2>
+          <div className="max-w-3xl">
+            <p className="eyebrow inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-1.5 text-white/80 backdrop-blur-sm">
+              Do diagnóstico à evolução
+            </p>
+            <h2 id="metodo" className="mt-6 text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.7rem]">
+              Um método em 5 etapas para transformar oportunidades de IA em soluções que funcionam na operação real.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/70">
+              Não começamos pela ferramenta. Começamos pelo problema, entendemos a operação, desenhamos a arquitetura certa e acompanhamos a solução depois que ela entra em produção.
+            </p>
+          </div>
 
           {/* Card de vidro fosco com as 5 etapas */}
           <div className="glass-card mt-12 rounded-[1.75rem] p-6 shadow-[0_40px_90px_-40px_rgba(8,10,45,0.9)] md:mt-16 md:p-10 lg:p-12">
@@ -606,84 +535,32 @@ export default function HomePage() {
               {methodSteps.map((s, i) => (
                 <li
                   key={s.title}
-                  className={`relative ${i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""}`}
+                  className={`relative flex flex-col ${i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""}`}
                 >
-                  <span className="num-outline block font-[family-name:var(--font-display)] text-[3.75rem] font-extrabold leading-none">0{i + 1}</span>
-                  <h3 className="mt-6 text-[1.15rem] font-bold text-white">{s.title}</h3>
-                  <p className="mt-3 text-[0.92rem] leading-relaxed text-white/70">{s.text}</p>
+                  <span className="num-outline block font-[family-name:var(--font-display)] text-[3.25rem] font-extrabold leading-none">0{i + 1}</span>
+                  <h3 className="mt-5 text-[1.1rem] font-bold text-white">{s.title}</h3>
+                  <p className="mt-3 text-[0.9rem] leading-relaxed text-white/70">{s.text}</p>
+                  <p className="mt-4 border-t border-white/10 pt-3 text-[0.82rem] leading-relaxed text-white/60">
+                    <span className="font-semibold text-lilac">Resultado:</span> {s.result}
+                  </p>
                 </li>
               ))}
             </ol>
           </div>
 
-          <div className="mt-10">
-            <TextLink href="/metodo/" className="!text-lilac">
-              Conheça o Método
-            </TextLink>
+          <div className="mt-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/45">Da estratégia à operação</p>
+              <p className="mt-2 font-[family-name:var(--font-display)] text-[1.05rem] font-bold text-white">
+                Diagnosticar <span className="text-lilac">→</span> Projetar <span className="text-lilac">→</span> Construir <span className="text-lilac">→</span> Validar <span className="text-lilac">→</span> Evoluir
+              </p>
+            </div>
+            <ButtonLink href="/diagnostico/" size="lg" variant="light" className="shrink-0">
+              Agendar Diagnóstico de IA
+            </ButtonLink>
           </div>
         </Container>
       </section>
-
-      {/* 5.5 — Humano + IA */}
-      <Section tone="white" labelledBy="humano-ia">
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
-          <SectionHeading
-            id="humano-ia"
-            eyebrow="Automação responsável"
-            title="Automatize o que pode ser automatizado. Preserve pessoas onde elas fazem diferença."
-            text="A IA assume o trabalho repetitivo. As pessoas permanecem responsáveis por negociação, julgamento, criatividade e decisões sensíveis. Projetamos pontos claros de intervenção humana para que tecnologia e equipe trabalhem juntas."
-          />
-          <div className="rounded-[1.4rem] bg-mist p-8 ring-1 ring-line/60 md:p-10">
-            <p className="text-sm text-slate">A pergunta não é</p>
-            <p className="mt-2 text-[1.35rem] font-semibold text-slate/70 line-through decoration-violet-400/40 md:text-[1.5rem]">
-              “Quantas pessoas a IA pode substituir?”
-            </p>
-            <p className="mt-8 text-sm text-slate">A pergunta correta é</p>
-            <p className="mt-2 text-[1.35rem] font-bold leading-snug text-ink md:text-[1.6rem]">
-              “Quanto mais essa equipe consegue fazer quando deixa de gastar tempo com tarefas que uma máquina pode executar?”
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* 6 — Prova / cases */}
-      <Section labelledBy="cases">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
-          <div>
-            <SectionHeading id="cases" eyebrow="Soluções em ação" title="Resultados que dá para medir." />
-            <div className="bg-brand mt-8 rounded-[1.4rem] p-8 text-white shadow-[var(--shadow-glow)]">
-              <p className="font-[family-name:var(--font-display)] text-6xl font-bold">{site.stats.projects}</p>
-              <p className="mt-3 text-white/85">projetos entregues em sites, sistemas, aplicativos e automações. Em cada projeto de IA registramos o “antes” e medimos o depois.</p>
-            </div>
-            <TextLink href="/cases/" className="mt-6">
-              Ver todos os cases
-            </TextLink>
-          </div>
-          <ul className="space-y-4">
-            {featuredCases.map((c) => (
-              <li key={c.slug}>
-                <Link
-                  href={`/cases/${c.slug}/`}
-                  className="group flex items-center gap-5 rounded-[1.25rem] bg-white p-4 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]"
-                >
-                  <span className="flex size-28 shrink-0 items-center justify-center rounded-xl bg-signal-50">
-                    <Orb tone={caseTone[c.type]} className="size-20" />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block font-[family-name:var(--font-display)] text-[1.08rem] font-bold leading-snug">{c.title}</span>
-                    <span className="mt-2 flex flex-wrap gap-1.5">
-                      <Badge tone="blue">{caseTypeLabels[c.type]}</Badge>
-                      <Badge tone="violet">{c.sector}</Badge>
-                      <Badge tone="gray">Demonstrativo</Badge>
-                    </span>
-                    <span className="mt-2 block text-sm font-semibold text-signal">Explorar case</span>
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Section>
 
       {/* 7 — Setores */}
       <Section labelledBy="setores" className="!pt-4">
@@ -737,31 +614,6 @@ export default function HomePage() {
               <span className="text-lg font-bold text-signal">Plano em até 7 dias.</span> O valor pode ser creditado no projeto contratado, conforme condições comerciais vigentes.
             </p>
           </div>
-        </div>
-      </Section>
-
-      {/* 7.2 — Ferramentas gratuitas */}
-      <Section tone="mist" labelledBy="ferramentas">
-        <SectionHeading
-          id="ferramentas"
-          eyebrow="Meça antes de contratar"
-          title="Antes de acreditar na gente, olhe para os seus próprios números."
-          text="Criamos ferramentas gratuitas para ajudar a identificar gargalos e estimar oportunidades antes mesmo de conversar com a Soluna."
-        />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {ferramentasGratuitas.map((f) => (
-            <div key={f.title} className="rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60">
-              <span className="inline-flex size-10 items-center justify-center rounded-xl bg-violet-50 text-violet-400 ring-1 ring-violet-100">
-                <Icon name={f.icon} className="size-[1.1rem]" />
-              </span>
-              <h3 className="mt-4 text-[1.02rem] font-bold leading-snug">{f.title}</h3>
-              <p className="mt-2 text-[0.88rem] leading-snug text-slate">{f.text}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-8 flex flex-wrap items-center gap-4">
-          <ButtonLink href="/ferramentas/">Usar ferramentas gratuitas</ButtonLink>
-          <p className="text-sm text-slate">Sem cadastro. Resultado na hora.</p>
         </div>
       </Section>
 
@@ -921,30 +773,6 @@ export default function HomePage() {
             </ButtonLink>
           </div>
           <FAQList items={homeFaq} />
-        </div>
-      </Section>
-
-      {/* 10 — Conteúdo */}
-      <Section labelledBy="conteudo" className="!pt-4">
-        <div className="flex items-end justify-between gap-6">
-          <SectionHeading id="conteudo" eyebrow="Conteúdo" title="Guias para decidir com segurança" />
-          <TextLink href="/conteudo/" className="shrink-0">
-            Ver todos
-          </TextLink>
-        </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {guides.slice(0, 3).map((g, i) => (
-            <BannerCard
-              key={g.slug}
-              href={`/conteudo/guias/${g.slug}/`}
-              tone={blogTones[i]}
-              deco={blogDeco[i]}
-              tag="Guia"
-              meta={`${g.readingMinutes} min de leitura`}
-              title={g.title}
-              cta="Ler artigo"
-            />
-          ))}
         </div>
       </Section>
 

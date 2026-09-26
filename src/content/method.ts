@@ -1,9 +1,10 @@
 import type { IconName } from "./types";
 
-export const methodSteps: { title: string; text: string; detail: string; icon: IconName; duration: string; fromYou: string }[] = [
+export const methodSteps: { title: string; text: string; result: string; detail: string; icon: IconName; duration: string; fromYou: string }[] = [
   {
     title: "Diagnóstico",
-    text: "Mapeamos processos, gargalos e potencial de ROI.",
+    text: "Entendemos processos, gargalos, sistemas, dados e oportunidades de automação.",
+    result: "Escopo claro, prioridades definidas e oportunidades com maior potencial de impacto.",
     detail: "Entrevistas, análise de dados e registro do “antes” (tempo de resposta, faltas, horas gastas) para medir o resultado depois.",
     icon: "search",
     duration: "até 7 dias",
@@ -11,7 +12,8 @@ export const methodSteps: { title: string; text: string; detail: string; icon: I
   },
   {
     title: "Estratégia e Arquitetura",
-    text: "Arquitetura da solução e fluxos aprovados com você.",
+    text: "Definimos como agentes, automações, integrações, dados, permissões e intervenção humana irão funcionar juntos.",
+    result: "Arquitetura técnica, fluxos, integrações e indicadores definidos antes do desenvolvimento.",
     detail: "Regras de negócio, transbordo, integrações e segurança definidos por escrito antes de qualquer linha de código.",
     icon: "compass",
     duration: "1–2 semanas",
@@ -19,7 +21,8 @@ export const methodSteps: { title: string; text: string; detail: string; icon: I
   },
   {
     title: "Construção e Integração",
-    text: "Engenharia com IA e revisão sênior em cada entrega.",
+    text: "Desenvolvemos agentes de IA, automações, integrações, bases de conhecimento e sistemas necessários ao projeto.",
+    result: "Uma solução funcional conectada à operação da empresa.",
     detail: "Usamos IA para construir mais rápido, não para pular etapas. Cada entrega passa por revisão sênior e QA.",
     icon: "zap",
     duration: "conforme escopo",
@@ -27,7 +30,8 @@ export const methodSteps: { title: string; text: string; detail: string; icon: I
   },
   {
     title: "Validação e Implantação",
-    text: "Testes com cenários reais antes de ir ao ar.",
+    text: "Testamos fluxos, respostas, integrações, exceções e cenários reais antes da entrada em produção.",
+    result: "Solução validada, documentada e preparada para operar com segurança e previsibilidade.",
     detail: "Conversas, documentos e casos reais da sua operação — inclusive os difíceis — antes de liberar para os clientes.",
     icon: "check",
     duration: "antes do go-live",
@@ -35,7 +39,8 @@ export const methodSteps: { title: string; text: string; detail: string; icon: I
   },
   {
     title: "Monitoramento e Evolução",
-    text: "Monitoramento, ajustes e evolução mensal.",
+    text: "Acompanhamos desempenho, falhas, qualidade, custos e novas oportunidades de melhoria.",
+    result: "Uma solução que continua evoluindo conforme a operação e as necessidades da empresa mudam.",
     detail: "Acompanhamos os indicadores, ajustamos o que precisa e evoluímos a solução todo mês.",
     icon: "gauge",
     duration: "contínuo",

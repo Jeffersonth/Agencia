@@ -21,7 +21,7 @@ function MegaPanel({ group }: { group: NavGroup }) {
   const align = group.align ?? "center";
   const width = group.wide ? "w-[50rem]" : group.featured ? "w-[42rem]" : "w-[22rem]";
   return (
-    <div className={cx("absolute top-full z-50 max-w-[calc(100vw-24px)] pt-3", alignOuter[align], width)}>
+    <div className={cx("pointer-events-none absolute top-full z-50 max-w-[calc(100vw-24px)] pt-3 group-hover:pointer-events-auto group-focus-within:pointer-events-auto", alignOuter[align], width)}>
       <div
         className={cx(
           "invisible origin-top translate-y-1 scale-[0.98] opacity-0 transition-all duration-200 ease-out",
