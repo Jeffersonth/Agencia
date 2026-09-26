@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CircleHelp, Clock, FileStack, Hourglass, Sparkle } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BarChart3, CircleHelp, Clock, FileStack, FileText, Hourglass, Layers, Repeat, Sparkle } from "lucide-react";
 import { hubs } from "@/content/solutions";
 import { sectors } from "@/content/sectors";
 import { cases, caseTypeLabels } from "@/content/cases";
@@ -61,10 +61,14 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const problems = [
-  { icon: Clock, text: "Leads que chegam fora do horário e só recebem resposta no dia seguinte." },
-  { icon: FileStack, text: "Equipe qualificada gastando horas copiando dados entre sistemas." },
+  { icon: Clock, text: "Leads esperando resposta fora do horário." },
+  { icon: FileStack, text: "Equipe copiando dados entre sistemas." },
+  { icon: Repeat, text: "Atendimento repetindo as mesmas informações todos os dias." },
   { icon: Hourglass, text: "Orçamentos enviados e nunca acompanhados." },
-  { icon: CircleHelp, text: "Processos que dependem da memória de alguém." },
+  { icon: FileText, text: "Documentos processados manualmente." },
+  { icon: Layers, text: "Informações espalhadas entre planilhas, CRMs, e-mails e WhatsApp." },
+  { icon: CircleHelp, text: "Processos críticos dependendo da memória de alguém." },
+  { icon: BarChart3, text: "Relatórios consumindo horas toda semana." },
 ];
 
 const integrations = ["WhatsApp", "RD Station", "HubSpot", "Pipedrive", "Google Agenda", "n8n"];
@@ -269,9 +273,9 @@ export default function HomePage() {
         <Container className="relative grid gap-5 lg:grid-cols-[1.35fr_1fr]">
           <div className="rounded-[1.4rem] bg-white p-8 shadow-[var(--shadow-card)] ring-1 ring-line/60 md:p-11">
             <p className="eyebrow">Sobre a {site.name}</p>
-            <h2 className="mt-4 text-[1.9rem] md:text-[2.4rem]">IA trabalhando dentro da operação, não ao lado dela.</h2>
+            <h2 className="mt-4 text-[1.9rem] md:text-[2.4rem]">Uma agência brasileira especializada em IA e automação para empresas.</h2>
             <p data-answer className="mt-5 text-[1.05rem] leading-relaxed text-slate">
-              A {site.name} é um estúdio de engenharia de IA que cria agentes e automações para empresas. Implantamos atendimento e vendas por IA no WhatsApp, automação de processos e sistemas sob medida, com foco em resultado e segurança de dados. Atendemos empresas em todo o Brasil, com experiência em setores regulados como jurídico e saúde.
+              A {site.name} é uma AI Solutions Agency que desenvolve e implementa agentes de IA, automações e soluções digitais sob medida para empresas de pequeno, médio e grande porte em todo o Brasil. Nossa especialidade é colocar inteligência artificial para trabalhar dentro da operação: atendendo clientes, qualificando oportunidades, executando tarefas, consultando informações e automatizando processos que hoje consomem o tempo da equipe. Quando o projeto exige mais, também desenvolvemos sistemas, SaaS, aplicativos, sites e estratégias de SEO e GEO.
             </p>
             <dl className="mt-8 flex gap-10">
               <div>
@@ -327,10 +331,13 @@ export default function HomePage() {
       <Section labelledBy="problema">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
-            <SectionHeading id="problema" eyebrow="O problema" title="O gargalo não é a demanda. É a capacidade de responder a ela." />
+            <SectionHeading id="problema" eyebrow="Oportunidades de automação" title="Sua empresa provavelmente usa pessoas em tarefas que a IA faria em segundos." />
             <p className="mt-6 border-l-[3px] border-violet-400 pl-5 text-lg font-medium text-ink">
-              Cada uma dessas falhas tem um custo. A IA resolve todas ao mesmo tempo.
+              A IA transforma esses pontos de atrito em fluxos rápidos, mensuráveis e escaláveis.
             </p>
+            <ButtonLink href="/diagnostico/" className="mt-7">
+              Descobrir onde aplicar IA na minha empresa
+            </ButtonLink>
           </div>
           <ul className="grid gap-4 sm:grid-cols-2">
             {problems.map(({ icon: I, text }) => (

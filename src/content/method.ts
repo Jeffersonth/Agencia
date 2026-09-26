@@ -10,7 +10,7 @@ export const methodSteps: { title: string; text: string; detail: string; icon: I
     fromYou: "uma conversa inicial e acesso a quem conhece o processo.",
   },
   {
-    title: "Desenho",
+    title: "Estratégia e Arquitetura",
     text: "Arquitetura da solução e fluxos aprovados com você.",
     detail: "Regras de negócio, transbordo, integrações e segurança definidos por escrito antes de qualquer linha de código.",
     icon: "compass",
@@ -18,7 +18,7 @@ export const methodSteps: { title: string; text: string; detail: string; icon: I
     fromYou: "aprovar fluxos, regras e escopo antes de construir.",
   },
   {
-    title: "Construção acelerada",
+    title: "Construção e Integração",
     text: "Engenharia com IA e revisão sênior em cada entrega.",
     detail: "Usamos IA para construir mais rápido, não para pular etapas. Cada entrega passa por revisão sênior e QA.",
     icon: "zap",
@@ -26,7 +26,7 @@ export const methodSteps: { title: string; text: string; detail: string; icon: I
     fromYou: "acessos aos sistemas e um ponto focal para dúvidas.",
   },
   {
-    title: "Validação",
+    title: "Validação e Implantação",
     text: "Testes com cenários reais antes de ir ao ar.",
     detail: "Conversas, documentos e casos reais da sua operação — inclusive os difíceis — antes de liberar para os clientes.",
     icon: "check",
@@ -34,7 +34,7 @@ export const methodSteps: { title: string; text: string; detail: string; icon: I
     fromYou: "casos reais para teste e o aval final para ir ao ar.",
   },
   {
-    title: "Operação contínua",
+    title: "Monitoramento e Evolução",
     text: "Monitoramento, ajustes e evolução mensal.",
     detail: "Acompanhamos os indicadores, ajustamos o que precisa e evoluímos a solução todo mês.",
     icon: "gauge",

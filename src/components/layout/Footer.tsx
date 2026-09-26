@@ -26,6 +26,8 @@ function FooterColumn({ title, links }: { title: string; links: { label: string;
 
 export function Footer() {
   const year = new Date().getFullYear();
+  // Só exibe razão social/CNPJ quando forem dados reais (nunca publicar placeholder).
+  const hasLegalInfo = !site.legalName.includes("[") && !/^0[0.]/.test(site.cnpj);
   return (
     <footer className="on-dark bg-navy-900 text-white">
       <div className="container-site grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] lg:gap-10 lg:py-20">
@@ -110,7 +112,8 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-site flex flex-col gap-3 py-7 text-[0.82rem] text-white/45 md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {site.name} · {site.legalName} · CNPJ {site.cnpj}
+            © {year} {site.name}
+            {hasLegalInfo ? ` · ${site.legalName} · CNPJ ${site.cnpj}` : ""}
           </p>
           <div className="flex items-center gap-5">
             <Link href="/privacidade/" className="hover:text-white">
