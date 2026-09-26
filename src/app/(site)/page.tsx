@@ -60,10 +60,26 @@ export default function HomePage() {
 
       {/* 1 — Hero */}
       <section className="bg-hero on-dark relative overflow-hidden text-white">
-        <div aria-hidden className="pointer-events-none absolute -bottom-36 left-1/2 h-[22rem] w-[75rem] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(120,170,255,.35),transparent_70%)] blur-md" />
+        <video
+          aria-hidden
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/130837c4-0244-4f37-9c61-8d801d93fd29.jpg"
+          className="motion-reduce:hidden pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-70"
+        >
+          <source
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104303_0c6d60b2-9353-408e-9449-585108a22fb5.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div aria-hidden className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(24,18,64,.58),rgba(24,18,64,.46)_45%,rgba(24,18,64,.82))]" />
+        <div aria-hidden className="pointer-events-none absolute -bottom-36 left-1/2 z-0 h-[22rem] w-[75rem] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(120,170,255,.35),transparent_70%)] blur-md" />
         <Orb tone="blue" className="animate-float pointer-events-none absolute left-[8%] top-20 hidden size-28 md:block lg:size-36" />
         <Orb tone="cyan" wave={false} className="animate-float pointer-events-none absolute right-[10%] top-56 hidden size-16 [animation-delay:3s] md:block" />
-        <Container className="relative pb-20 pt-14 text-center md:pb-24 md:pt-20">
+        <Container className="relative z-10 pb-20 pt-14 text-center md:pb-24 md:pt-20">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.8rem] text-white/85">
             <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Estúdio de engenharia de IA
           </p>
