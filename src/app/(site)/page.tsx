@@ -407,6 +407,28 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* 5.5 — Humano + IA */}
+      <Section tone="white" labelledBy="humano-ia">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <SectionHeading
+            id="humano-ia"
+            eyebrow="Automação responsável"
+            title="Automatize o que pode ser automatizado. Preserve pessoas onde elas fazem diferença."
+            text="A IA assume o trabalho repetitivo. As pessoas permanecem responsáveis por negociação, julgamento, criatividade e decisões sensíveis. Projetamos pontos claros de intervenção humana para que tecnologia e equipe trabalhem juntas."
+          />
+          <div className="rounded-[1.4rem] bg-mist p-8 ring-1 ring-line/60 md:p-10">
+            <p className="text-sm text-slate">A pergunta não é</p>
+            <p className="mt-2 text-[1.35rem] font-semibold text-slate/70 line-through decoration-violet-400/40 md:text-[1.5rem]">
+              “Quantas pessoas a IA pode substituir?”
+            </p>
+            <p className="mt-8 text-sm text-slate">A pergunta correta é</p>
+            <p className="mt-2 text-[1.35rem] font-bold leading-snug text-ink md:text-[1.6rem]">
+              “Quanto mais essa equipe consegue fazer quando deixa de gastar tempo com tarefas que uma máquina pode executar?”
+            </p>
+          </div>
+        </div>
+      </Section>
+
       {/* 6 — Prova / cases */}
       <Section labelledBy="cases">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
