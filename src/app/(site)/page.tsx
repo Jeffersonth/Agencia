@@ -135,6 +135,33 @@ const seoGeoEntende = [
   "quais informações sustentam sua autoridade",
 ];
 
+const solutionPillars: { title: string; href: string; icon: IconName; text: string; apps: string[]; cta: string }[] = [
+  {
+    title: "Agentes de IA",
+    href: "/solucoes/atendimento-inteligente/",
+    icon: "sparkles",
+    text: "Agentes inteligentes para atendimento, vendas, suporte e processos internos. Conversam, consultam informações, qualificam oportunidades, executam ações em sistemas e transferem casos para pessoas quando necessário.",
+    apps: ["Atendimento com IA", "Agente de IA para WhatsApp", "SDR com IA", "Qualificação de leads", "Suporte ao cliente", "Agente de conhecimento interno", "Follow-ups", "Agendamentos"],
+    cta: "Conhecer Agentes de IA",
+  },
+  {
+    title: "IA + Automação de Processos",
+    href: "/solucoes/operacoes/",
+    icon: "workflow",
+    text: "Automatizamos tarefas repetitivas e processos que passam por diferentes ferramentas e departamentos. A IA interpreta as informações; a automação executa o processo.",
+    apps: ["Processamento de documentos", "Extração e classificação de dados", "Atualização automática de CRM", "Criação de relatórios", "Follow-ups automáticos", "Integração entre sistemas", "Automação financeira", "Workflows inteligentes"],
+    cta: "Conhecer Automação com IA",
+  },
+  {
+    title: "IA Corporativa",
+    href: "/solucoes/ia-corporativa/",
+    icon: "lock",
+    text: "Uma camada de inteligência sobre os dados e o conhecimento da própria empresa — consultando documentos, bases de conhecimento e sistemas internos, respeitando permissões, governança e requisitos de segurança.",
+    apps: ["Assistentes internos", "Busca inteligente corporativa", "RAG e bases de conhecimento", "Copilotos para equipes", "IA privada", "Governança de acesso"],
+    cta: "Conhecer IA Corporativa",
+  },
+];
+
 const porqueSoluna: { title: string; text: string; icon: IconName }[] = [
   { title: "IA aplicada ao negócio", text: "Começamos pelo problema e pelo resultado esperado — não pela ferramenta da moda.", icon: "target" },
   { title: "Engenharia especializada", text: "Arquitetamos soluções que integram modelos de IA, automações, APIs, sistemas e dados.", icon: "code" },
@@ -210,6 +237,9 @@ export default function HomePage() {
           </div>
           <p className="mt-6 text-sm text-white/60">
             {site.stats.years} anos de experiência · {site.stats.projects} projetos entregues · Atendimento em todo o Brasil
+          </p>
+          <p className="mt-3 text-[0.8rem] text-white/45">
+            Projetos sob medida · LGPD · Integrações com sistemas existentes · Suporte contínuo
           </p>
           <div className="relative mt-14">
             <svg aria-hidden viewBox="0 0 1200 120" preserveAspectRatio="none" className="pointer-events-none absolute -top-6 left-1/2 hidden h-28 w-[110%] -translate-x-1/2 md:block">
@@ -403,6 +433,35 @@ export default function HomePage() {
 
         <div className="mt-10 text-center">
           <TextLink href="/solucoes/">Ver todas as soluções</TextLink>
+        </div>
+      </Section>
+
+      {/* 4.4 — Soluções principais (pilares) */}
+      <Section tone="white" labelledBy="pilares">
+        <SectionHeading
+          id="pilares"
+          eyebrow="Soluções de inteligência artificial"
+          title="IA trabalhando dentro da sua empresa."
+          text="Não vendemos apenas chatbot. Projetamos agentes capazes de compreender contexto, tomar decisões dentro de regras definidas, executar tarefas, consultar sistemas e colaborar com pessoas."
+        />
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          {solutionPillars.map((p) => (
+            <div key={p.title} className="flex flex-col rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60">
+              <span className="inline-flex size-11 items-center justify-center rounded-xl bg-violet-50 text-violet-400 ring-1 ring-violet-100">
+                <Icon name={p.icon} className="size-5" />
+              </span>
+              <h3 className="mt-5 text-[1.25rem] font-bold">{p.title}</h3>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-slate">{p.text}</p>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {p.apps.map((a) => (
+                  <li key={a} className="rounded-full bg-mist px-3 py-1 text-[0.8rem] font-medium text-slate ring-1 ring-line/70">{a}</li>
+                ))}
+              </ul>
+              <Link href={p.href} className="group mt-6 inline-flex items-center gap-1.5 font-semibold text-signal">
+                {p.cta} <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          ))}
         </div>
       </Section>
 
