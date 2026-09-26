@@ -6,6 +6,7 @@ import { sectors } from "@/content/sectors";
 import { cases, caseTypeLabels } from "@/content/cases";
 import { guides } from "@/content/articles";
 import { methodSteps } from "@/content/method";
+import type { IconName } from "@/content/types";
 import { site } from "@/lib/site";
 import { faqSchema, graph, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -66,6 +67,14 @@ const problems = [
 ];
 
 const integrations = ["WhatsApp", "RD Station", "HubSpot", "Pipedrive", "Google Agenda", "n8n"];
+
+const aiAreas: { area: string; icon: IconName; items: string[] }[] = [
+  { area: "Atendimento", icon: "headset", items: ["Atendimento 24/7", "Triagem automática", "Consulta de informações", "Agendamentos", "Suporte de primeiro nível", "Transferência para humanos"] },
+  { area: "Comercial", icon: "target", items: ["SDR com IA", "Qualificação de leads", "Follow-up", "Reativação de base", "Atualização de CRM", "Preparação de reuniões"] },
+  { area: "Operações", icon: "workflow", items: ["Processamento de documentos", "Integração entre sistemas", "Classificação de informações", "Execução de rotinas", "Alertas automáticos", "Relatórios operacionais"] },
+  { area: "Financeiro", icon: "file", items: ["Leitura de documentos", "Cobrança e comunicação", "Extração de dados", "Relatórios gerenciais", "Rotinas assistidas"] },
+  { area: "Gestão e Conhecimento", icon: "book", items: ["Assistentes internos", "Pesquisa em documentos", "Bases de conhecimento", "Resumo e análise", "Copilotos para equipes"] },
+];
 
 const homeFaq = [
   { q: "Quanto tempo até estar rodando?", a: "Um agente de IA para WhatsApp entra no ar em 2 a 3 semanas. Projetos com mais integrações são faseados, com entregas a cada etapa." },
@@ -305,6 +314,48 @@ export default function HomePage() {
 
         <div className="mt-10 text-center">
           <TextLink href="/solucoes/">Ver todas as soluções</TextLink>
+        </div>
+      </Section>
+
+      {/* 4.5 — IA por área da empresa */}
+      <Section tone="white" labelledBy="areas">
+        <SectionHeading
+          id="areas"
+          eyebrow="Possibilidades"
+          title="Onde a IA pode trabalhar na sua empresa?"
+          text="Não existe uma única forma de aplicar IA. O objetivo é descobrir onde ela gera retorno real dentro da sua operação."
+        />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {aiAreas.map((a) => (
+            <div key={a.area} className="rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-violet-50 text-violet-400 ring-1 ring-violet-100">
+                  <Icon name={a.icon} className="size-5" />
+                </span>
+                <h3 className="text-[1.15rem] font-bold">{a.area}</h3>
+              </div>
+              <ul className="mt-5 space-y-2 text-[0.92rem] text-slate">
+                {a.items.map((it) => (
+                  <li key={it} className="flex items-start gap-2.5">
+                    <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-violet-400" />
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div className="bg-brand relative flex flex-col justify-between overflow-hidden rounded-[var(--radius-card)] p-7 text-white shadow-[var(--shadow-glow)]">
+            <div aria-hidden className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-[radial-gradient(circle,rgba(160,200,255,.6),transparent_65%)]" />
+            <div className="relative">
+              <h3 className="text-[1.25rem] font-bold text-white">Não sabe por onde começar?</h3>
+              <p className="mt-3 text-[0.95rem] leading-relaxed text-white/85">
+                No Diagnóstico, mapeamos seus processos e apontamos onde a IA gera mais retorno — com prioridades claras.
+              </p>
+            </div>
+            <ButtonLink href="/diagnostico/" variant="light" size="sm" className="relative mt-6 w-fit">
+              Descobrir oportunidades de IA
+            </ButtonLink>
+          </div>
         </div>
       </Section>
 
