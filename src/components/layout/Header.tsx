@@ -88,7 +88,7 @@ export function Header() {
         Pular para o conteúdo
       </a>
       <div className="container-site flex h-[4.5rem] items-center justify-between gap-6">
-        <Logo dark />
+        <Logo dark markClassName="size-[37px]" />
 
         <nav aria-label="Navegação principal" className="hidden lg:block">
           <ul className="flex items-center gap-1">

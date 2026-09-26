@@ -39,10 +39,10 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ dark, className }: { dark?: boolean; className?: string }) {
+export function Logo({ dark, className, markClassName }: { dark?: boolean; className?: string; markClassName?: string }) {
   return (
     <Link href="/" className={cx("inline-flex shrink-0 items-center gap-2.5", className)} aria-label={`${site.name} — página inicial`}>
-      <LogoMark className="shrink-0" />
+      <LogoMark className={cx("shrink-0", markClassName)} />
       <span className={cx("whitespace-nowrap font-[family-name:var(--font-display)] text-[1.2rem] font-bold tracking-[-0.03em]", dark ? "text-white" : "text-ink")}>
         Soluna <span className={dark ? "text-[#b9a4ff]" : "text-violet-400"}>IA</span>
       </span>
