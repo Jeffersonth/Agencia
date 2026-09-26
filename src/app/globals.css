@@ -179,6 +179,26 @@
     border: 1px solid rgb(255 255 255 / 0.14);
     backdrop-filter: blur(6px);
   }
+  /* Wallpaper "IA líquida" (sem texto) para a seção do método */
+  .bg-liquid {
+    background:
+      radial-gradient(55% 75% at 6% 28%, rgba(255, 126, 92, 0.26) 0%, transparent 44%),
+      radial-gradient(48% 62% at 22% 66%, rgba(178, 84, 255, 0.36) 0%, transparent 56%),
+      radial-gradient(52% 70% at 88% 22%, rgba(63, 198, 245, 0.4) 0%, transparent 60%),
+      radial-gradient(46% 64% at 72% 96%, rgba(61, 92, 255, 0.46) 0%, transparent 62%),
+      linear-gradient(158deg, #1b2a72 0%, #141a56 46%, #0f1240 100%);
+  }
+  .glass-card {
+    background: rgb(255 255 255 / 0.07);
+    border: 1px solid rgb(255 255 255 / 0.16);
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+  }
+  .num-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgb(255 255 255 / 0.55);
+    text-shadow: 0 0 24px rgb(140 170 255 / 0.35);
+  }
 
   .prose-site > * + * {
     margin-top: 1.1em;

@@ -226,23 +226,52 @@ export default function HomePage() {
       </Section>
 
       {/* 5 — Método */}
-      <Section tone="aurora" labelledBy="metodo">
-        <SectionHeading dark id="metodo" eyebrow="Como funciona" title="Um método. Cinco etapas. Zero improviso." />
-        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {methodSteps.map((s, i) => (
-            <li key={s.title} className="glass rounded-[var(--radius-card)] p-6">
-              <span className="inline-flex h-9 min-w-9 items-center justify-center rounded-lg bg-white/15 px-2 text-sm font-semibold">0{i + 1}</span>
-              <h3 className="mt-5 text-[1.1rem] font-bold text-white">{s.title}</h3>
-              <p className="mt-2 text-[0.9rem] text-white/70">{s.text}</p>
-            </li>
-          ))}
-        </ol>
-        <div className="mt-10">
-          <TextLink href="/metodo/" className="!text-lilac">
-            Conheça o Método
-          </TextLink>
-        </div>
-      </Section>
+      <section aria-labelledby="metodo" className="bg-liquid on-dark relative overflow-hidden py-20 text-white md:py-28">
+        {/* Decoração: estrelas e globo wireframe (sem texto) */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(1px_1px_at_20%_30%,#fff,transparent),radial-gradient(1px_1px_at_65%_15%,#cfe0ff,transparent),radial-gradient(1px_1px_at_82%_42%,#fff,transparent),radial-gradient(1.5px_1.5px_at_35%_70%,#fff,transparent),radial-gradient(1px_1px_at_90%_78%,#bcd,transparent)]" />
+        <svg aria-hidden viewBox="0 0 200 200" className="pointer-events-none absolute -right-16 top-1/3 hidden h-[26rem] w-[26rem] text-white/10 md:block">
+          <g fill="none" stroke="currentColor" strokeWidth="0.6">
+            <circle cx="100" cy="100" r="88" />
+            <ellipse cx="100" cy="100" rx="88" ry="30" />
+            <ellipse cx="100" cy="100" rx="88" ry="58" />
+            <ellipse cx="100" cy="100" rx="30" ry="88" />
+            <ellipse cx="100" cy="100" rx="58" ry="88" />
+            <line x1="12" y1="100" x2="188" y2="100" />
+            <line x1="100" y1="12" x2="100" y2="188" />
+          </g>
+        </svg>
+
+        <Container className="relative">
+          <p className="eyebrow inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-1.5 text-white/80 backdrop-blur-sm">
+            Como funciona
+          </p>
+          <h2 id="metodo" className="mt-6 max-w-3xl text-[2rem] font-bold leading-[1.08] text-white md:text-[3.1rem]">
+            Um método. Cinco etapas.<br className="hidden sm:block" /> Zero improviso.
+          </h2>
+
+          {/* Card de vidro fosco com as 5 etapas */}
+          <div className="glass-card mt-12 rounded-[1.75rem] p-6 shadow-[0_40px_90px_-40px_rgba(8,10,45,0.9)] md:mt-16 md:p-10 lg:p-12">
+            <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+              {methodSteps.map((s, i) => (
+                <li
+                  key={s.title}
+                  className={`relative ${i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""}`}
+                >
+                  <span className="num-outline block font-[family-name:var(--font-display)] text-[3.75rem] font-extrabold leading-none">0{i + 1}</span>
+                  <h3 className="mt-6 text-[1.15rem] font-bold text-white">{s.title}</h3>
+                  <p className="mt-3 text-[0.92rem] leading-relaxed text-white/70">{s.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="mt-10">
+            <TextLink href="/metodo/" className="!text-lilac">
+              Conheça o Método
+            </TextLink>
+          </div>
+        </Container>
+      </section>
 
       {/* 6 — Prova / cases */}
       <Section labelledBy="cases">
