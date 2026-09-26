@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CircleHelp, Clock, FileStack, Hourglass, Sparkle } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BarChart3, CircleHelp, Clock, FileStack, FileText, Hourglass, Layers, Repeat, Sparkle } from "lucide-react";
 import { hubs } from "@/content/solutions";
 import { sectors } from "@/content/sectors";
 import { cases, caseTypeLabels } from "@/content/cases";
@@ -61,10 +61,14 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const problems = [
-  { icon: Clock, text: "Leads que chegam fora do horário e só recebem resposta no dia seguinte." },
-  { icon: FileStack, text: "Equipe qualificada gastando horas copiando dados entre sistemas." },
+  { icon: Clock, text: "Leads esperando resposta fora do horário." },
+  { icon: FileStack, text: "Equipe copiando dados entre sistemas." },
+  { icon: Repeat, text: "Atendimento repetindo as mesmas informações todos os dias." },
   { icon: Hourglass, text: "Orçamentos enviados e nunca acompanhados." },
-  { icon: CircleHelp, text: "Processos que dependem da memória de alguém." },
+  { icon: FileText, text: "Documentos processados manualmente." },
+  { icon: Layers, text: "Informações espalhadas entre planilhas, CRMs, e-mails e WhatsApp." },
+  { icon: CircleHelp, text: "Processos críticos dependendo da memória de alguém." },
+  { icon: BarChart3, text: "Relatórios consumindo horas toda semana." },
 ];
 
 const integrations = ["WhatsApp", "RD Station", "HubSpot", "Pipedrive", "Google Agenda", "n8n"];
@@ -103,6 +107,72 @@ const productionControls = [
   "Controle de custos",
   "Versionamento",
   "Evolução contínua dos agentes",
+];
+
+const integracoesTechs = ["WhatsApp", "HubSpot", "RD Station", "Pipedrive", "Google Workspace", "ERPs", "CRMs", "APIs", "n8n", "Make", "Bancos de Dados"];
+
+const diagnosticoInclui = [
+  "Mapeamento de processos",
+  "Identificação de oportunidades",
+  "Priorização por impacto",
+  "Análise dos sistemas envolvidos",
+  "Estimativa de ROI",
+  "Avaliação inicial de segurança e LGPD",
+  "Roteiro de implementação",
+  "Escopo, prazo e investimento",
+];
+
+const ferramentasGratuitas: { title: string; text: string; icon: IconName }[] = [
+  { title: "Calculadora de ROI de Atendimento", text: "Descubra quanto a demora na resposta pode estar custando em oportunidades.", icon: "chart" },
+  { title: "Calculadora de Custo do Atendimento", text: "Compare o custo atual da operação com diferentes cenários.", icon: "gauge" },
+  { title: "Raio-X do WhatsApp", text: "Avalie a maturidade do atendimento da sua empresa pelo WhatsApp.", icon: "message" },
+  { title: "Teste de Visibilidade em IA", text: "Avalie como seu site está preparado para buscadores e sistemas de IA.", icon: "search" },
+];
+
+const arquiteturaFatores = ["Qualidade", "Segurança", "Privacidade", "Latência", "Volume", "Custo", "Capacidade de integração", "Manutenção", "Escalabilidade"];
+
+const seoGeoEntende = [
+  "quem é sua empresa",
+  "o que ela oferece",
+  "para quem ela oferece",
+  "em quais assuntos possui experiência",
+  "quais informações sustentam sua autoridade",
+];
+
+const solutionPillars: { title: string; href: string; icon: IconName; text: string; apps: string[]; cta: string }[] = [
+  {
+    title: "Agentes de IA",
+    href: "/solucoes/atendimento-inteligente/",
+    icon: "sparkles",
+    text: "Agentes inteligentes para atendimento, vendas, suporte e processos internos. Conversam, consultam informações, qualificam oportunidades, executam ações em sistemas e transferem casos para pessoas quando necessário.",
+    apps: ["Atendimento com IA", "Agente de IA para WhatsApp", "SDR com IA", "Qualificação de leads", "Suporte ao cliente", "Agente de conhecimento interno", "Follow-ups", "Agendamentos"],
+    cta: "Conhecer Agentes de IA",
+  },
+  {
+    title: "IA + Automação de Processos",
+    href: "/solucoes/operacoes/",
+    icon: "workflow",
+    text: "Automatizamos tarefas repetitivas e processos que passam por diferentes ferramentas e departamentos. A IA interpreta as informações; a automação executa o processo.",
+    apps: ["Processamento de documentos", "Extração e classificação de dados", "Atualização automática de CRM", "Criação de relatórios", "Follow-ups automáticos", "Integração entre sistemas", "Automação financeira", "Workflows inteligentes"],
+    cta: "Conhecer Automação com IA",
+  },
+  {
+    title: "IA Corporativa",
+    href: "/solucoes/ia-corporativa/",
+    icon: "lock",
+    text: "Uma camada de inteligência sobre os dados e o conhecimento da própria empresa — consultando documentos, bases de conhecimento e sistemas internos, respeitando permissões, governança e requisitos de segurança.",
+    apps: ["Assistentes internos", "Busca inteligente corporativa", "RAG e bases de conhecimento", "Copilotos para equipes", "IA privada", "Governança de acesso"],
+    cta: "Conhecer IA Corporativa",
+  },
+];
+
+const porqueSoluna: { title: string; text: string; icon: IconName }[] = [
+  { title: "IA aplicada ao negócio", text: "Começamos pelo problema e pelo resultado esperado — não pela ferramenta da moda.", icon: "target" },
+  { title: "Engenharia especializada", text: "Arquitetamos soluções que integram modelos de IA, automações, APIs, sistemas e dados.", icon: "code" },
+  { title: "Soluções sob medida", text: "Cada projeto considera os processos, sistemas, clientes e regras da empresa.", icon: "compass" },
+  { title: "Integração com seu ecossistema", text: "Aproveitamos as ferramentas que já fazem sentido na operação.", icon: "plug" },
+  { title: "Segurança desde o início", text: "LGPD, controle de acesso e governança fazem parte da arquitetura quando aplicável.", icon: "shield" },
+  { title: "Acompanhamento contínuo", text: "IA não termina no lançamento: monitoramos e evoluímos soluções em produção.", icon: "gauge" },
 ];
 
 const homeFaq = [
@@ -172,6 +242,9 @@ export default function HomePage() {
           <p className="mt-6 text-sm text-white/60">
             {site.stats.years} anos de experiência · {site.stats.projects} projetos entregues · Atendimento em todo o Brasil
           </p>
+          <p className="mt-3 text-[0.8rem] text-white/45">
+            Projetos sob medida · LGPD · Integrações com sistemas existentes · Suporte contínuo
+          </p>
           <div className="relative mt-14">
             <svg aria-hidden viewBox="0 0 1200 120" preserveAspectRatio="none" className="pointer-events-none absolute -top-6 left-1/2 hidden h-28 w-[110%] -translate-x-1/2 md:block">
               <path d="M0 110 Q600 -10 1200 110" fill="none" stroke="#8ab4ff" strokeOpacity=".35" />
@@ -200,9 +273,9 @@ export default function HomePage() {
         <Container className="relative grid gap-5 lg:grid-cols-[1.35fr_1fr]">
           <div className="rounded-[1.4rem] bg-white p-8 shadow-[var(--shadow-card)] ring-1 ring-line/60 md:p-11">
             <p className="eyebrow">Sobre a {site.name}</p>
-            <h2 className="mt-4 text-[1.9rem] md:text-[2.4rem]">IA trabalhando dentro da operação, não ao lado dela.</h2>
+            <h2 className="mt-4 text-[1.9rem] md:text-[2.4rem]">Uma agência brasileira especializada em IA e automação para empresas.</h2>
             <p data-answer className="mt-5 text-[1.05rem] leading-relaxed text-slate">
-              A {site.name} é um estúdio de engenharia de IA que cria agentes e automações para empresas. Implantamos atendimento e vendas por IA no WhatsApp, automação de processos e sistemas sob medida, com foco em resultado e segurança de dados. Atendemos empresas em todo o Brasil, com experiência em setores regulados como jurídico e saúde.
+              A {site.name} é uma AI Solutions Agency que desenvolve e implementa agentes de IA, automações e soluções digitais sob medida para empresas de pequeno, médio e grande porte em todo o Brasil. Nossa especialidade é colocar inteligência artificial para trabalhar dentro da operação: atendendo clientes, qualificando oportunidades, executando tarefas, consultando informações e automatizando processos que hoje consomem o tempo da equipe. Quando o projeto exige mais, também desenvolvemos sistemas, SaaS, aplicativos, sites e estratégias de SEO e GEO.
             </p>
             <dl className="mt-8 flex gap-10">
               <div>
@@ -237,14 +310,34 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* 2.5 — Integrações */}
+      <Section tone="white" labelledBy="integracoes">
+        <div className="mx-auto max-w-3xl text-center">
+          <SectionHeading id="integracoes" align="center" title="IA que trabalha com o que sua empresa já usa." />
+          <ul className="mt-8 flex flex-wrap justify-center gap-2.5">
+            {integracoesTechs.map((t) => (
+              <li key={t} className="rounded-full border border-line-strong bg-mist px-4 py-1.5 text-[0.9rem] font-semibold text-ink">
+                {t}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-lg text-slate">
+            Não criamos mais uma ferramenta isolada. <span className="font-semibold text-ink">Integramos inteligência à operação que já existe.</span>
+          </p>
+        </div>
+      </Section>
+
       {/* 3 — O problema */}
       <Section labelledBy="problema">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
-            <SectionHeading id="problema" eyebrow="O problema" title="O gargalo não é a demanda. É a capacidade de responder a ela." />
+            <SectionHeading id="problema" eyebrow="Oportunidades de automação" title="Sua empresa provavelmente usa pessoas em tarefas que a IA faria em segundos." />
             <p className="mt-6 border-l-[3px] border-violet-400 pl-5 text-lg font-medium text-ink">
-              Cada uma dessas falhas tem um custo. A IA resolve todas ao mesmo tempo.
+              A IA transforma esses pontos de atrito em fluxos rápidos, mensuráveis e escaláveis.
             </p>
+            <ButtonLink href="/diagnostico/" className="mt-7">
+              Descobrir onde aplicar IA na minha empresa
+            </ButtonLink>
           </div>
           <ul className="grid gap-4 sm:grid-cols-2">
             {problems.map(({ icon: I, text }) => (
@@ -347,6 +440,35 @@ export default function HomePage() {
 
         <div className="mt-10 text-center">
           <TextLink href="/solucoes/">Ver todas as soluções</TextLink>
+        </div>
+      </Section>
+
+      {/* 4.4 — Soluções principais (pilares) */}
+      <Section tone="white" labelledBy="pilares">
+        <SectionHeading
+          id="pilares"
+          eyebrow="Soluções de inteligência artificial"
+          title="IA trabalhando dentro da sua empresa."
+          text="Não vendemos apenas chatbot. Projetamos agentes capazes de compreender contexto, tomar decisões dentro de regras definidas, executar tarefas, consultar sistemas e colaborar com pessoas."
+        />
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          {solutionPillars.map((p) => (
+            <div key={p.title} className="flex flex-col rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60">
+              <span className="inline-flex size-11 items-center justify-center rounded-xl bg-violet-50 text-violet-400 ring-1 ring-violet-100">
+                <Icon name={p.icon} className="size-5" />
+              </span>
+              <h3 className="mt-5 text-[1.25rem] font-bold">{p.title}</h3>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-slate">{p.text}</p>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {p.apps.map((a) => (
+                  <li key={a} className="rounded-full bg-mist px-3 py-1 text-[0.8rem] font-medium text-slate ring-1 ring-line/70">{a}</li>
+                ))}
+              </ul>
+              <Link href={p.href} className="group mt-6 inline-flex items-center gap-1.5 font-semibold text-signal">
+                {p.cta} <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -587,6 +709,111 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* 7.1 — Diagnóstico de IA */}
+      <Section tone="white" labelledBy="diagnostico">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div>
+            <SectionHeading
+              id="diagnostico"
+              eyebrow="Antes de construir"
+              title="Primeiro descobrimos onde vale a pena usar IA."
+              text="Implementar IA só porque a tecnologia existe é uma forma cara de resolver o problema errado. Por isso, projetos mais amplos podem começar pelo Diagnóstico Soluna: analisamos processos, sistemas, volumes e gargalos para identificar e priorizar oportunidades por impacto, complexidade e potencial de retorno."
+            />
+            <ButtonLink href="/diagnostico/" className="mt-7">
+              Conhecer o Diagnóstico Soluna
+            </ButtonLink>
+          </div>
+          <div className="rounded-[1.4rem] bg-mist p-8 ring-1 ring-line/60 md:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate">O diagnóstico pode incluir</p>
+            <ul className="mt-5 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+              {diagnosticoInclui.map((d) => (
+                <li key={d} className="flex items-start gap-2.5 text-[0.95rem] text-slate">
+                  <Icon name="check" className="mt-0.5 size-4 shrink-0 text-accent-strong" />
+                  {d}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-7 border-t border-line/70 pt-5 text-slate">
+              <span className="text-lg font-bold text-signal">Plano em até 7 dias.</span> O valor pode ser creditado no projeto contratado, conforme condições comerciais vigentes.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* 7.2 — Ferramentas gratuitas */}
+      <Section tone="mist" labelledBy="ferramentas">
+        <SectionHeading
+          id="ferramentas"
+          eyebrow="Meça antes de contratar"
+          title="Antes de acreditar na gente, olhe para os seus próprios números."
+          text="Criamos ferramentas gratuitas para ajudar a identificar gargalos e estimar oportunidades antes mesmo de conversar com a Soluna."
+        />
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {ferramentasGratuitas.map((f) => (
+            <div key={f.title} className="rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60">
+              <span className="inline-flex size-10 items-center justify-center rounded-xl bg-violet-50 text-violet-400 ring-1 ring-violet-100">
+                <Icon name={f.icon} className="size-[1.1rem]" />
+              </span>
+              <h3 className="mt-4 text-[1.02rem] font-bold leading-snug">{f.title}</h3>
+              <p className="mt-2 text-[0.88rem] leading-snug text-slate">{f.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <ButtonLink href="/ferramentas/">Usar ferramentas gratuitas</ButtonLink>
+          <p className="text-sm text-slate">Sem cadastro. Resultado na hora.</p>
+        </div>
+      </Section>
+
+      {/* 7.3 — Quando não usar IA */}
+      <Section tone="white" labelledBy="quando-nao">
+        <div className="mx-auto max-w-3xl text-center">
+          <SectionHeading id="quando-nao" align="center" eyebrow="Tecnologia com critério" title="Nem todo problema precisa de inteligência artificial." />
+          <div className="mt-6 space-y-3 text-lg leading-relaxed text-slate">
+            <p>Às vezes uma automação simples resolve. Às vezes o problema está no processo. Às vezes um sistema precisa ser reorganizado antes de qualquer IA entrar. E existem decisões que continuam melhores nas mãos de uma pessoa.</p>
+            <p>Nosso trabalho não é colocar IA em tudo. É encontrar onde a tecnologia realmente melhora a operação.</p>
+          </div>
+          <p className="mt-7 text-[1.3rem] font-bold text-ink md:text-[1.5rem]">Quando IA não for a melhor resposta, nós dizemos.</p>
+        </div>
+      </Section>
+
+      {/* 7.4 — Arquitetura */}
+      <Section tone="mist" labelledBy="arquitetura">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div>
+            <SectionHeading
+              id="arquitetura"
+              eyebrow="Arquitetura"
+              title="Escolhemos a tecnologia de acordo com o problema."
+              text="Um projeto pode combinar modelos de IA, bancos de dados, APIs, plataformas de automação, ferramentas de comunicação e sistemas já usados pela empresa."
+            />
+            <div className="mt-6 rounded-[1.2rem] bg-white p-6 ring-1 ring-line/60">
+              <p className="text-slate">Não começamos perguntando <span className="text-slate/60 line-through">“Como colocar determinada ferramenta na sua empresa?”</span></p>
+              <p className="mt-2 font-bold text-ink">Começamos perguntando: “Qual arquitetura resolve melhor este problema?”</p>
+            </div>
+          </div>
+          <div className="lg:pt-2">
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate">A arquitetura considera fatores como</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {arquiteturaFatores.map((f) => (
+                <li key={f} className="rounded-full bg-white px-3.5 py-1.5 text-sm text-slate ring-1 ring-line/70">{f}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* 7.45 — Independência tecnológica */}
+      <Section tone="white" labelledBy="independencia">
+        <div className="mx-auto max-w-3xl text-center">
+          <SectionHeading id="independencia" align="center" eyebrow="A solução é sua" title="Sua empresa não deveria ficar presa à agência que construiu a solução." />
+          <p className="mt-6 text-lg leading-relaxed text-slate">
+            Sempre que tecnicamente possível, estruturamos projetos para que contas, dados, integrações e ativos sejam controlados pela empresa contratante — o que facilita governança, continuidade e evolução ao longo do tempo. Arquitetura, propriedade de código, credenciais, documentação e condições de saída são definidas com clareza no escopo e no contrato de cada projeto.
+          </p>
+          <p className="mt-6 text-[1.15rem] font-semibold text-ink">Porque parceria tecnológica saudável também significa liberdade.</p>
+        </div>
+      </Section>
+
       {/* 7.5 — Serviços complementares (secundário) */}
       <Section tone="mist" labelledBy="complementares" className="!pt-4">
         <SectionHeading
@@ -613,6 +840,52 @@ export default function HomePage() {
                 Conhecer <ArrowRight aria-hidden className="size-3.5 transition-transform group-hover:translate-x-0.5" />
               </span>
             </Link>
+          ))}
+        </div>
+      </Section>
+
+      {/* 7.6 — SEO + GEO */}
+      <Section tone="white" labelledBy="seo-geo">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div>
+            <SectionHeading
+              id="seo-geo"
+              eyebrow="A nova busca"
+              title="Sua empresa precisa ser encontrada pelo Google — e compreendida pelas IAs."
+              text="Além dos buscadores tradicionais, as pessoas também usam ferramentas de IA para pesquisar soluções, fornecedores, produtos e serviços. Nosso trabalho de SEO e GEO estrutura o site para que buscadores e sistemas de IA entendam com clareza:"
+            />
+            <ButtonLink href="/servicos/seo-e-geo/" className="mt-7">
+              Conhecer SEO e GEO
+            </ButtonLink>
+          </div>
+          <div className="rounded-[1.4rem] bg-mist p-8 ring-1 ring-line/60 md:p-10">
+            <ul className="space-y-3">
+              {seoGeoEntende.map((s) => (
+                <li key={s} className="flex items-start gap-3 text-[1.02rem] text-ink">
+                  <Icon name="check" className="mt-0.5 size-5 shrink-0 text-accent-strong" />
+                  {s}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 border-t border-line/70 pt-5 text-[0.95rem] text-slate">
+              Combinamos SEO técnico, arquitetura de conteúdo, dados estruturados, conteúdo especializado, autoridade de entidade e mensuração contínua.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* 7.7 — Por que Soluna */}
+      <Section tone="mist" labelledBy="porque">
+        <SectionHeading id="porque" eyebrow="Por que empresas escolhem a Soluna" title="Estratégia, engenharia e execução no mesmo time." align="center" />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {porqueSoluna.map((p) => (
+            <div key={p.title} className="rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60">
+              <span className="inline-flex size-11 items-center justify-center rounded-xl bg-signal-50 text-signal">
+                <Icon name={p.icon} className="size-5" />
+              </span>
+              <h3 className="mt-5 text-[1.15rem] font-bold">{p.title}</h3>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-slate">{p.text}</p>
+            </div>
           ))}
         </div>
       </Section>

@@ -17,6 +17,21 @@ const STEPS = ["Mensagem recebida", "Intenção: qualificação de lead", "Consu
 const NODES = ["Cliente", "Agente de IA", "CRM / ERP", "Automação", "Ação"];
 const CHANNELS = ["WhatsApp", "CRM", "ERP", "API", "n8n"];
 
+const CAPABILITIES = [
+  "Receber e interpretar mensagens",
+  "Identificar a intenção de um cliente",
+  "Consultar produtos, serviços ou informações internas",
+  "Buscar dados em CRM, ERP ou banco de dados",
+  "Qualificar oportunidades comerciais",
+  "Criar ou atualizar registros no CRM",
+  "Agendar reuniões",
+  "Enviar propostas ou informações",
+  "Interpretar documentos e gerar relatórios",
+  "Acionar automações",
+  "Transferir o atendimento para uma pessoa",
+  "Registrar tudo que aconteceu no processo",
+];
+
 type Rendered = { full: number; partial: string; typingIdx: number | null };
 
 export function AgentInAction() {
@@ -155,6 +170,22 @@ export function AgentInAction() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Capacidades (§8) — o que um agente pode fazer */}
+        <div className="mt-12 rounded-[1.4rem] border border-white/12 bg-white/[0.04] p-6 backdrop-blur-sm md:p-8">
+          <p className="text-[0.95rem] text-white/70">Um agente de IA conectado aos sistemas da empresa pode:</p>
+          <ul className="mt-5 grid gap-x-8 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3">
+            {CAPABILITIES.map((c) => (
+              <li key={c} className="flex items-start gap-2.5 text-[0.9rem] text-white/85">
+                <span aria-hidden className="mt-1.5 size-1.5 shrink-0 rounded-full bg-mint" />
+                {c}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 border-t border-white/10 pt-5 text-[1.05rem] font-semibold text-white">
+            A diferença não está apenas em conversar. Está na capacidade de <span className="text-gradient">agir dentro da operação</span>.
+          </p>
         </div>
       </Container>
     </section>
