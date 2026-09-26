@@ -5,7 +5,6 @@ import { hubs } from "@/content/solutions";
 import { sectors } from "@/content/sectors";
 import { methodSteps } from "@/content/method";
 import type { IconName } from "@/content/types";
-import { complementaryServices } from "@/lib/nav";
 import { site } from "@/lib/site";
 import { faqSchema, graph, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -47,6 +46,153 @@ function SwirlMark({ className }: { className?: string }) {
     </span>
   );
 }
+
+// Capas ilustradas (mockups) para os serviços complementares
+type CoverVariant = "sites" | "saas" | "apps" | "seo";
+const coverBg: Record<CoverVariant, string> = {
+  sites: "linear-gradient(140deg,#6a5cff,#3f7bff)",
+  saas: "linear-gradient(140deg,#7c4dff,#b04dff)",
+  apps: "linear-gradient(140deg,#2bd0a8,#3f7bff)",
+  seo: "linear-gradient(140deg,#3f7bff,#8a5cff)",
+};
+
+function ServiceCover({ variant }: { variant: CoverVariant }) {
+  return (
+    <div className="relative h-44 overflow-hidden" style={{ background: coverBg[variant] }}>
+      <span aria-hidden className="pointer-events-none absolute -right-8 -top-10 size-40 rounded-full bg-white/15 blur-md" />
+      <span aria-hidden className="pointer-events-none absolute -bottom-12 -left-8 size-36 rounded-full bg-black/10 blur-md" />
+      {variant === "sites" && (
+        <div className="absolute inset-x-6 top-6 rounded-t-xl bg-white shadow-[0_18px_40px_-18px_rgba(8,10,45,0.6)] ring-1 ring-black/5">
+          <div className="flex items-center gap-1.5 border-b border-line/60 px-3 py-2">
+            <span className="size-2 rounded-full bg-[#ff5f57]" /><span className="size-2 rounded-full bg-[#febc2e]" /><span className="size-2 rounded-full bg-[#28c840]" />
+            <span className="ml-2 h-3 flex-1 rounded-full bg-mist" />
+          </div>
+          <div className="flex gap-3 p-3.5">
+            <div className="flex-1 space-y-2">
+              <span className="block h-3 w-4/5 rounded bg-ink/80" />
+              <span className="block h-2 w-full rounded bg-line" />
+              <span className="block h-2 w-2/3 rounded bg-line" />
+              <span className="mt-1 block h-5 w-24 rounded-full bg-[linear-gradient(90deg,#7c4dff,#4d7cff)]" />
+            </div>
+            <span className="size-16 shrink-0 rounded-lg bg-[linear-gradient(135deg,#8ab4ff,#c9b6ff)]" />
+          </div>
+        </div>
+      )}
+      {variant === "saas" && (
+        <div className="absolute inset-x-6 top-6 flex gap-2 rounded-xl bg-white p-2.5 shadow-[0_18px_40px_-18px_rgba(8,10,45,0.6)] ring-1 ring-black/5">
+          <div className="w-10 shrink-0 space-y-1.5 border-r border-line/60 pr-2">
+            {[0, 1, 2, 3].map((i) => <span key={i} className={`block h-2 rounded ${i === 0 ? "bg-violet-400" : "bg-line"}`} />)}
+          </div>
+          <div className="flex-1">
+            <div className="flex gap-2">
+              <span className="h-8 flex-1 rounded-md bg-violet-50 ring-1 ring-violet-100" />
+              <span className="h-8 flex-1 rounded-md bg-signal-50 ring-1 ring-signal-100" />
+            </div>
+            <div className="mt-2 flex items-end gap-1.5">
+              {[10, 18, 12, 24, 16, 28].map((h, i) => <span key={i} className="w-full rounded-t bg-[linear-gradient(180deg,#7c4dff,#4d7cff)]" style={{ height: `${h}px` }} />)}
+            </div>
+          </div>
+        </div>
+      )}
+      {variant === "apps" && (
+        <div className="absolute left-1/2 top-6 w-28 -translate-x-1/2 rounded-[1.1rem] bg-white p-2 shadow-[0_18px_40px_-18px_rgba(8,10,45,0.6)] ring-1 ring-black/5">
+          <span className="mx-auto mb-2 block h-1 w-8 rounded-full bg-line" />
+          <span className="block h-10 rounded-lg bg-[linear-gradient(135deg,#2bd0a8,#4d7cff)]" />
+          <div className="mt-1.5 space-y-1">
+            <span className="block h-2 w-full rounded bg-mist" /><span className="block h-2 w-2/3 rounded bg-mist" />
+          </div>
+          <div className="mt-2 flex justify-around border-t border-line/60 pt-1.5">
+            {[0, 1, 2].map((i) => <span key={i} className={`size-1.5 rounded-full ${i === 0 ? "bg-violet-400" : "bg-line"}`} />)}
+          </div>
+        </div>
+      )}
+      {variant === "seo" && (
+        <div className="absolute inset-x-6 top-7 rounded-xl bg-white p-3 shadow-[0_18px_40px_-18px_rgba(8,10,45,0.6)] ring-1 ring-black/5">
+          <div className="flex items-center gap-2 rounded-full bg-mist px-3 py-1.5 ring-1 ring-line/60">
+            <span className="size-2.5 rounded-full border-2 border-slate" />
+            <span className="h-2 flex-1 rounded bg-line" />
+          </div>
+          <ul className="mt-2.5 space-y-1.5">
+            {[0, 1, 2].map((i) => (
+              <li key={i} className="flex items-center gap-2">
+                <span className={`size-4 shrink-0 rounded ${i === 0 ? "bg-[linear-gradient(135deg,#7c4dff,#4d7cff)]" : "bg-mist ring-1 ring-line/60"}`} />
+                <span className={`block h-2 rounded ${i === 0 ? "w-3/4 bg-ink/70" : "w-1/2 bg-line"}`} />
+                {i === 0 && <ArrowUpRight aria-hidden className="ml-auto size-4 text-accent-strong" />}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Diagrama de arquitetura: núcleo de IA conectado aos sistemas (visual da seção Arquitetura)
+function ArchDiagram({ className }: { className?: string }) {
+  const nodes = [
+    { x: 170, y: 24, label: "WhatsApp" },
+    { x: 250, y: 70, label: "CRM" },
+    { x: 250, y: 160, label: "ERP" },
+    { x: 170, y: 206, label: "Automação" },
+    { x: 90, y: 160, label: "APIs" },
+    { x: 90, y: 70, label: "Dados" },
+  ];
+  return (
+    <svg viewBox="0 0 340 230" className={className} role="img" aria-label="Núcleo de IA conectado a WhatsApp, CRM, ERP, automação, APIs e dados">
+      <defs>
+        <linearGradient id="arch-core" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#7c4dff" />
+          <stop offset="1" stopColor="#4d7cff" />
+        </linearGradient>
+      </defs>
+      <g stroke="#c9c6e4" strokeWidth="1.4">
+        {nodes.map((n) => (
+          <line key={n.label} x1="170" y1="115" x2={n.x} y2={n.y} className="animate-flow" />
+        ))}
+      </g>
+      {nodes.map((n) => (
+        <g key={n.label}>
+          <rect x={n.x - 38} y={n.y - 13} width="76" height="26" rx="13" fill="#fff" stroke="#e2e0ee" />
+          <text x={n.x} y={n.y + 4} textAnchor="middle" fontSize="11" fontWeight="600" fill="#4a4a63">{n.label}</text>
+        </g>
+      ))}
+      <circle cx="170" cy="115" r="34" fill="url(#arch-core)" />
+      <circle cx="170" cy="115" r="34" fill="none" stroke="#fff" strokeOpacity="0.4" strokeWidth="2" />
+      <text x="170" y="120" textAnchor="middle" fontSize="16" fontWeight="800" fill="#fff">IA</text>
+    </svg>
+  );
+}
+
+const buildServices: { variant: CoverVariant; title: string; href: string; description: string; features: string[] }[] = [
+  {
+    variant: "sites",
+    title: "Sites de Alta Performance",
+    href: "/servicos/criacao-de-sites/",
+    description: "Sites institucionais, landing pages e plataformas construídos para performance, conversão, SEO e integração com IA.",
+    features: ["Núcleo rápido, com Core Web Vitals", "SEO técnico desde a base", "Pronto para agentes de IA"],
+  },
+  {
+    variant: "saas",
+    title: "Sistemas e SaaS",
+    href: "/servicos/desenvolvimento-de-sistemas/",
+    description: "Software sob medida para processos que não deveriam depender de dezenas de planilhas e ferramentas desconectadas.",
+    features: ["Painéis e fluxos sob medida", "Integração com os seus sistemas", "Escalável, seguro e documentado"],
+  },
+  {
+    variant: "apps",
+    title: "Aplicativos",
+    href: "/servicos/desenvolvimento-de-aplicativos/",
+    description: "Aplicativos web e mobile integrados ao ecossistema digital da empresa, com uma única base de código.",
+    features: ["iOS, Android e web", "Conectado à sua operação", "Da publicação à evolução"],
+  },
+  {
+    variant: "seo",
+    title: "SEO, GEO e LLM Visibility",
+    href: "/servicos/seo-e-geo/",
+    description: "Estratégia para aumentar a presença da empresa nos mecanismos de busca e nas respostas produzidas por sistemas de IA.",
+    features: ["SEO técnico + conteúdo", "Otimização para IAs generativas (GEO)", "Autoridade de entidade"],
+  },
+];
 
 export const metadata: Metadata = pageMetadata({
   title: `${site.name} | Agentes de IA e Automação para Empresas`,
@@ -310,7 +456,7 @@ export default function HomePage() {
       </Section>
 
       {/* 4 — Soluções */}
-      <Section labelledBy="solucoes" className="!pt-4">
+      <Section labelledBy="solucoes">
         <SectionHeading id="solucoes" eyebrow="Soluções" title="IA no centro da sua operação." align="center" />
         <div className="mt-12 grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
           {/* Card 1 — destaque escuro */}
@@ -563,32 +709,45 @@ export default function HomePage() {
       </section>
 
       {/* 7 — Setores */}
-      <Section labelledBy="setores" className="!pt-4">
-        <SectionHeading id="setores" eyebrow="Setores" title="IA desenhada para as regras do seu setor." />
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <Section labelledBy="setores">
+        <SectionHeading
+          id="setores"
+          eyebrow="Setores"
+          title="IA desenhada para as regras do seu setor."
+          text="Cada operação tem processos, linguagem, riscos e requisitos diferentes. Por isso construímos cada solução considerando o contexto real — e a conformidade — do seu setor."
+        />
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {sectors.map((s) => (
             <Link
               key={s.slug}
               href={`/setores/${s.slug}/`}
-              className="group rounded-[var(--radius-card)] bg-white p-8 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] md:p-10"
+              className="group relative flex flex-col overflow-hidden rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40 md:p-8"
             >
+              <span aria-hidden className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#7c4dff,#4d7cff)] opacity-0 transition-opacity group-hover:opacity-100" />
               <IconTile name={s.icon} />
-              <h3 className="mt-7 text-[1.4rem] font-bold">{s.menuName}</h3>
-              <p className="mt-2 text-slate">{s.cardText}</p>
-              <span className="mt-6 inline-flex items-center gap-1.5 font-semibold text-signal">
+              <h3 className="mt-6 text-[1.3rem] font-bold">{s.menuName}</h3>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-slate">{s.cardText}</p>
+              <p className="mt-4 inline-flex items-center gap-2 text-[0.82rem] text-slate">
+                <Icon name="shield" className="size-3.5 text-accent-strong" />
+                {s.compliance.label}
+              </p>
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-6 font-semibold text-signal">
                 IA para {s.menuName.toLowerCase()} <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
           ))}
         </div>
-        <div className="mt-5">
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <TextLink href="/setores/">Ver soluções por setor</TextLink>
+        </div>
+        <div className="mt-8">
           <SecurityStrip text="API oficial do WhatsApp, adequação à LGPD, opção de IA privada, contas e dados em nome da sua empresa, e código e automações com cláusula de saída." />
         </div>
       </Section>
 
       {/* 7.1 — Diagnóstico de IA */}
       <Section tone="white" labelledBy="diagnostico">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <SectionHeading
               id="diagnostico"
@@ -631,7 +790,7 @@ export default function HomePage() {
 
       {/* 7.4 — Arquitetura */}
       <Section tone="mist" labelledBy="arquitetura">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <SectionHeading
               id="arquitetura"
@@ -644,11 +803,12 @@ export default function HomePage() {
               <p className="mt-2 font-bold text-ink">Começamos perguntando: “Qual arquitetura resolve melhor este problema?”</p>
             </div>
           </div>
-          <div className="lg:pt-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate">A arquitetura considera fatores como</p>
+          <div className="rounded-[1.4rem] bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60 md:p-8">
+            <ArchDiagram className="mx-auto w-full max-w-[22rem]" />
+            <p className="mt-6 border-t border-line/60 pt-5 text-sm font-semibold uppercase tracking-[0.12em] text-slate">A arquitetura considera fatores como</p>
             <ul className="mt-4 flex flex-wrap gap-2">
               {arquiteturaFatores.map((f) => (
-                <li key={f} className="rounded-full bg-white px-3.5 py-1.5 text-sm text-slate ring-1 ring-line/70">{f}</li>
+                <li key={f} className="rounded-full bg-mist px-3.5 py-1.5 text-sm text-slate ring-1 ring-line/70">{f}</li>
               ))}
             </ul>
           </div>
@@ -667,30 +827,42 @@ export default function HomePage() {
       </Section>
 
       {/* 7.5 — Serviços complementares (secundário) */}
-      <Section tone="mist" labelledBy="complementares" className="!pt-4">
+      <Section tone="mist" labelledBy="complementares">
         <SectionHeading
           id="complementares"
           eyebrow="Tecnologia completa"
           title="Quando o projeto precisa de mais do que IA, nós construímos."
           text="Nossa especialidade é IA e automação. Mas algumas transformações exigem uma estrutura digital maior — e a Soluna também desenvolve os ativos que sustentam a estratégia."
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {complementaryServices.map((s) => (
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {buildServices.map((s) => (
             <Link
               key={s.href}
               href={s.href}
-              className="group rounded-[var(--radius-card)] bg-white p-6 ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)] hover:ring-violet-400/40"
+              className="group flex flex-col overflow-hidden rounded-[1.4rem] bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
             >
-              {s.icon && (
-                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-mist text-slate ring-1 ring-line/70 transition-colors group-hover:bg-violet-50 group-hover:text-violet-400">
-                  <Icon name={s.icon} className="size-[1.1rem]" />
+              <div className="relative overflow-hidden">
+                <ServiceCover variant={s.variant} />
+                <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-[0.72rem] font-bold text-ink shadow-sm backdrop-blur-sm">
+                  Conhecer
+                  <ArrowUpRight aria-hidden className="size-3.5 text-violet-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
-              )}
-              <h3 className="mt-4 text-[1.02rem] font-bold">{s.label.replace("Desenvolvimento de ", "")}</h3>
-              <p className="mt-1.5 text-[0.88rem] leading-snug text-slate">{s.description}</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-[0.82rem] font-semibold text-signal">
-                Conhecer <ArrowRight aria-hidden className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-              </span>
+              </div>
+              <div className="flex flex-1 flex-col p-7 md:p-8">
+                <h3 className="text-[1.3rem] font-bold leading-snug">{s.title}</h3>
+                <p className="mt-2.5 text-[0.95rem] leading-relaxed text-slate">{s.description}</p>
+                <ul className="mt-5 space-y-2.5 border-t border-line/60 pt-5">
+                  {s.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-[0.9rem] text-ink">
+                      <Icon name="check" className="mt-0.5 size-4 shrink-0 text-accent-strong" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-signal">
+                  Conhecer {s.title} <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
             </Link>
           ))}
         </div>
@@ -698,7 +870,7 @@ export default function HomePage() {
 
       {/* 7.6 — SEO + GEO */}
       <Section tone="white" labelledBy="seo-geo">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
           <div>
             <SectionHeading
               id="seo-geo"
@@ -742,31 +914,10 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* 8 — Quem constrói */}
-      <Section labelledBy="time" className="!pt-4">
-        <SectionHeading id="time" eyebrow="Quem constrói" title="Engenharia sênior, sem camadas." align="center" />
-        <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
-          <Link href="/sobre/" className="flex flex-col items-center rounded-[var(--radius-card)] bg-white p-8 text-center shadow-[var(--shadow-card)] ring-1 ring-line/60">
-            <span className="flex size-28 items-end justify-center overflow-hidden rounded-full bg-[linear-gradient(160deg,#6aa0ff,#2438b0)]" aria-hidden>
-              <span className="mb-[-10%] size-[70%] rounded-t-full bg-white/85" />
-            </span>
-            <p className="mt-5 font-[family-name:var(--font-display)] text-lg font-bold">{site.founder.name}</p>
-            <p className="text-sm text-slate">{site.founder.jobTitle}</p>
-          </Link>
-          <div className="flex flex-col items-center rounded-[var(--radius-card)] bg-white p-8 text-center shadow-[var(--shadow-card)] ring-1 ring-line/60">
-            <span className="flex size-28 items-center justify-center rounded-full bg-[linear-gradient(160deg,#b98cff,#4b1fa0)]" aria-hidden>
-              <Orb tone="violet" wave={false} className="size-14" />
-            </span>
-            <p className="mt-5 font-[family-name:var(--font-display)] text-lg font-bold">Rede de especialistas</p>
-            <p className="text-sm text-slate">Design, dados e jurídico/LGPD sob demanda, com revisão sênior em cada entrega.</p>
-          </div>
-        </div>
-      </Section>
-
       {/* 9 — FAQ */}
       <Section labelledBy="duvidas">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div>
+          <div className="lg:sticky lg:top-28 lg:self-start">
             <SectionHeading id="duvidas" eyebrow="Perguntas frequentes" title="O que empresas querem saber antes de começar." text="Não encontrou o que procura? Fale com a gente no Diagnóstico." />
             <ButtonLink href="/diagnostico/" className="mt-7">
               Agendar diagnóstico
