@@ -657,8 +657,8 @@ export default function HomePage() {
           loading="lazy"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[72%_35%]"
         />
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,18,64,0.9)_0%,rgba(15,18,64,0.45)_45%,rgba(15,18,64,0.02)_100%)]" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(15,18,64,0.5)_100%)]" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,18,64,0.95)_0%,rgba(15,18,64,0.78)_45%,rgba(15,18,64,0.55)_100%)]" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(15,18,64,0.35),rgba(15,18,64,0.6))]" />
 
         <Container className="relative">
           <div className="max-w-3xl">
@@ -674,7 +674,7 @@ export default function HomePage() {
           </div>
 
           {/* Card de vidro fosco com as 5 etapas */}
-          <div className="glass-card mt-12 rounded-[1.75rem] p-6 shadow-[0_40px_90px_-40px_rgba(8,10,45,0.9)] md:mt-16 md:p-10 lg:p-12">
+          <div className="glass-card mt-12 rounded-[1.75rem] bg-[rgba(16,18,52,0.72)] p-6 shadow-[0_40px_90px_-40px_rgba(8,10,45,0.9)] md:mt-16 md:p-10 lg:p-12">
             <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
               {methodSteps.map((s, i) => (
                 <li
