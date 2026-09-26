@@ -648,19 +648,17 @@ export default function HomePage() {
 
       {/* 5 — Método */}
       <section aria-labelledby="metodo" className="bg-liquid on-dark relative overflow-hidden py-20 text-white md:py-28">
-        {/* Decoração: estrelas e globo wireframe (sem texto) */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(1px_1px_at_20%_30%,#fff,transparent),radial-gradient(1px_1px_at_65%_15%,#cfe0ff,transparent),radial-gradient(1px_1px_at_82%_42%,#fff,transparent),radial-gradient(1.5px_1.5px_at_35%_70%,#fff,transparent),radial-gradient(1px_1px_at_90%_78%,#bcd,transparent)]" />
-        <svg aria-hidden viewBox="0 0 200 200" className="pointer-events-none absolute -right-16 top-1/3 hidden h-[26rem] w-[26rem] text-white/10 md:block">
-          <g fill="none" stroke="currentColor" strokeWidth="0.6">
-            <circle cx="100" cy="100" r="88" />
-            <ellipse cx="100" cy="100" rx="88" ry="30" />
-            <ellipse cx="100" cy="100" rx="88" ry="58" />
-            <ellipse cx="100" cy="100" rx="30" ry="88" />
-            <ellipse cx="100" cy="100" rx="58" ry="88" />
-            <line x1="12" y1="100" x2="188" y2="100" />
-            <line x1="100" y1="12" x2="100" y2="188" />
-          </g>
-        </svg>
+        {/* Imagem de fundo (cérebro neural) + camadas de legibilidade */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/metodo-brain.jpg"
+          alt=""
+          aria-hidden
+          loading="lazy"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[72%_35%]"
+        />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(15,18,64,0.9)_0%,rgba(15,18,64,0.45)_45%,rgba(15,18,64,0.02)_100%)]" />
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(15,18,64,0.5)_100%)]" />
 
         <Container className="relative">
           <div className="max-w-3xl">
