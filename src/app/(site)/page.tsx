@@ -7,6 +7,7 @@ import { cases, caseTypeLabels } from "@/content/cases";
 import { guides } from "@/content/articles";
 import { methodSteps } from "@/content/method";
 import type { IconName } from "@/content/types";
+import { complementaryServices } from "@/lib/nav";
 import { site } from "@/lib/site";
 import { faqSchema, graph, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -583,6 +584,36 @@ export default function HomePage() {
         </div>
         <div className="mt-5">
           <SecurityStrip text="API oficial do WhatsApp, adequação à LGPD, opção de IA privada, contas e dados em nome da sua empresa, e código e automações com cláusula de saída." />
+        </div>
+      </Section>
+
+      {/* 7.5 — Serviços complementares (secundário) */}
+      <Section tone="mist" labelledBy="complementares" className="!pt-4">
+        <SectionHeading
+          id="complementares"
+          eyebrow="Tecnologia completa"
+          title="Quando o projeto precisa de mais do que IA, nós construímos."
+          text="Nossa especialidade é IA e automação. Mas algumas transformações exigem uma estrutura digital maior — e a Soluna também desenvolve os ativos que sustentam a estratégia."
+        />
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {complementaryServices.map((s) => (
+            <Link
+              key={s.href}
+              href={s.href}
+              className="group rounded-[var(--radius-card)] bg-white p-6 ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-card)] hover:ring-violet-400/40"
+            >
+              {s.icon && (
+                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-mist text-slate ring-1 ring-line/70 transition-colors group-hover:bg-violet-50 group-hover:text-violet-400">
+                  <Icon name={s.icon} className="size-[1.1rem]" />
+                </span>
+              )}
+              <h3 className="mt-4 text-[1.02rem] font-bold">{s.label.replace("Desenvolvimento de ", "")}</h3>
+              <p className="mt-1.5 text-[0.88rem] leading-snug text-slate">{s.description}</p>
+              <span className="mt-3 inline-flex items-center gap-1 text-[0.82rem] font-semibold text-signal">
+                Conhecer <ArrowRight aria-hidden className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          ))}
         </div>
       </Section>
 
