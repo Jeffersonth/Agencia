@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, CircleHelp, Clock, FileStack, Gauge, Hourglass, LayoutTemplate } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CircleHelp, Clock, FileStack, Hourglass, Sparkle } from "lucide-react";
 import { hubs } from "@/content/solutions";
 import { sectors } from "@/content/sectors";
 import { cases, caseTypeLabels } from "@/content/cases";
@@ -15,6 +15,39 @@ import { Orb, type OrbTone } from "@/components/Orb";
 import { BannerCard } from "@/components/BannerCard";
 import { caseTone } from "@/components/CaseCard";
 import { CTASection, FAQList, SecurityStrip } from "@/components/sections";
+
+// Ruído sutil (grão) para o card escuro, sem depender de imagem externa
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
+// Ilustração "planeta" (visão computacional / operações)
+function PlanetMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 96 96" aria-hidden className={className}>
+      <defs>
+        <radialGradient id="planet" cx="38%" cy="30%" r="78%">
+          <stop offset="0" stopColor="#a9c7ff" />
+          <stop offset="52%" stopColor="#4d7cff" />
+          <stop offset="100%" stopColor="#2b52d8" />
+        </radialGradient>
+      </defs>
+      <ellipse cx="45" cy="60" rx="43" ry="12" fill="none" stroke="#b9a4ff" strokeWidth="4.5" opacity="0.6" transform="rotate(-20 45 60)" />
+      <circle cx="43" cy="47" r="27" fill="url(#planet)" />
+      <ellipse cx="34" cy="38" rx="8" ry="5" fill="#ffffff" opacity="0.35" transform="rotate(-20 34 38)" />
+      <path d="M83 14l2.6 7.4 7.4 2.6-7.4 2.6L83 34l-2.6-7.4L73 24l7.4-2.6z" fill="#7c4dff" />
+    </svg>
+  );
+}
+
+// Ilustração "esfera marmorizada" (dados e previsões / IA corporativa)
+function SwirlMark({ className }: { className?: string }) {
+  return (
+    <span className={`relative inline-block overflow-hidden rounded-full ${className ?? ""}`} style={{ background: "conic-gradient(from 205deg at 52% 46%, #3d5cff, #7c4dff, #ff7a45, #ffb547, #ff5e8a, #3d5cff)" }}>
+      <span className="absolute inset-0 rounded-full" style={{ boxShadow: "inset -8px -10px 22px rgba(6,8,40,0.5), inset 9px 11px 22px rgba(255,255,255,0.45)" }} />
+      <span className="absolute left-[26%] top-[22%] size-3 rounded-full bg-white/50 blur-[2px]" />
+    </span>
+  );
+}
 
 export const metadata: Metadata = pageMetadata({
   title: `${site.name} — Agentes de IA e Automação para Empresas`,
@@ -40,19 +73,14 @@ const homeFaq = [
   { q: "Como é cobrado?", a: "Implantação + sustentação mensal + consumo repassado sem margem. Os projetos partem de faixas claras e o preço fechado sai do Diagnóstico, que é creditado no projeto." },
 ];
 
-const solutionTones: Record<string, "blue" | "violet"> = {
-  "atendimento-inteligente": "blue",
-  "vendas-e-receita": "violet",
-  operacoes: "blue",
-  "ia-corporativa": "violet",
-};
-
 export default function HomePage() {
   const featuredCases = ["agendamento-clinica-odontologica", "sdr-juridico-trabalhista", "extracao-notas-fiscais"]
     .map((s) => cases.find((c) => c.slug === s)!)
     .filter(Boolean);
   const blogTones: OrbTone[] = ["blue", "violet", "teal"];
   const blogDeco = ["lines", "flow", "shield"] as const;
+  const hubBySlug = (slug: string) => hubs.find((h) => h.slug === slug)!;
+  const coreDuo = [hubBySlug("atendimento-inteligente"), hubBySlug("vendas-e-receita")];
 
   return (
     <>
@@ -60,10 +88,26 @@ export default function HomePage() {
 
       {/* 1 — Hero */}
       <section className="bg-hero on-dark relative overflow-hidden text-white">
-        <div aria-hidden className="pointer-events-none absolute -bottom-36 left-1/2 h-[22rem] w-[75rem] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(120,170,255,.35),transparent_70%)] blur-md" />
+        <video
+          aria-hidden
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/130837c4-0244-4f37-9c61-8d801d93fd29.jpg"
+          className="motion-reduce:hidden pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-70"
+        >
+          <source
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260912_104303_0c6d60b2-9353-408e-9449-585108a22fb5.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div aria-hidden className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(24,18,64,.58),rgba(24,18,64,.46)_45%,rgba(24,18,64,.82))]" />
+        <div aria-hidden className="pointer-events-none absolute -bottom-36 left-1/2 z-0 h-[22rem] w-[75rem] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgba(120,170,255,.35),transparent_70%)] blur-md" />
         <Orb tone="blue" className="animate-float pointer-events-none absolute left-[8%] top-20 hidden size-28 md:block lg:size-36" />
         <Orb tone="cyan" wave={false} className="animate-float pointer-events-none absolute right-[10%] top-56 hidden size-16 [animation-delay:3s] md:block" />
-        <Container className="relative pb-20 pt-14 text-center md:pb-24 md:pt-20">
+        <Container className="relative z-10 pb-20 pt-14 text-center md:pb-24 md:pt-20">
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.8rem] text-white/85">
             <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Estúdio de engenharia de IA
           </p>
@@ -171,62 +215,136 @@ export default function HomePage() {
       {/* 4 — Soluções */}
       <Section labelledBy="solucoes" className="!pt-4">
         <SectionHeading id="solucoes" eyebrow="Soluções" title="IA no centro da sua operação." align="center" />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {hubs.map((h) => (
-            <Link
-              key={h.slug}
-              href={`/solucoes/${h.slug}/`}
-              className="group rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
-            >
-              <span className={solutionTones[h.slug] === "violet" ? "inline-flex size-12 items-center justify-center rounded-xl bg-violet-50 text-violet-400" : "inline-flex size-12 items-center justify-center rounded-xl bg-signal-50 text-signal"}>
-                <Icon name={h.icon} className="size-5" />
-              </span>
-              <h3 className="mt-6 text-[1.2rem] font-bold">{h.name}</h3>
-              <p className="mt-2 text-[0.95rem] text-slate">{h.menuDescription}</p>
-            </Link>
-          ))}
+        <div className="mt-12 grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+          {/* Card 1 — destaque escuro */}
+          <div className="relative overflow-hidden rounded-[1.5rem] bg-[#0a0a18] p-8 text-white md:col-span-2 md:p-10 lg:col-span-1">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              style={{ background: "radial-gradient(58% 55% at 14% -4%, rgba(45,212,191,0.5) 0%, transparent 56%), radial-gradient(72% 62% at 104% 108%, rgba(124,77,255,0.6) 0%, transparent 60%)" }}
+            />
+            <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-overlay" style={{ backgroundImage: GRAIN }} />
+            <div className="relative">
+              <h3 className="max-w-[16rem] text-[1.6rem] font-bold leading-[1.15] text-white md:text-[1.85rem]">
+                Atendimento e vendas com IA, sem parar.
+              </h3>
+              <span aria-hidden className="mt-6 block h-px w-full bg-white/15" />
+              <ul className="mt-7 space-y-6">
+                {coreDuo.map((h) => (
+                  <li key={h.slug}>
+                    <Link href={`/solucoes/${h.slug}/`} className="group flex gap-4">
+                      <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-white text-navy-900 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.6)]">
+                        <Icon name={h.icon} className="size-5" />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="flex items-center gap-1.5 text-[1.05rem] font-bold text-white">
+                          {h.name}
+                          <ArrowRight aria-hidden className="size-4 -translate-x-1 text-lilac opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+                        </span>
+                        <span className="mt-1 block text-[0.9rem] leading-snug text-white/65">{h.menuDescription}</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Card 2 — Operações & Processos */}
           <Link
-            href="/servicos/"
-            className="group rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
+            href="/solucoes/operacoes/"
+            className="group flex h-full flex-col rounded-[1.5rem] bg-white p-8 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
           >
-            <span className="inline-flex size-12 items-center justify-center rounded-xl bg-signal-50 text-signal">
-              <LayoutTemplate aria-hidden className="size-5" />
-            </span>
-            <h3 className="mt-6 text-[1.2rem] font-bold">Sites, SEO/GEO e Sistemas</h3>
-            <p className="mt-2 text-[0.95rem] text-slate">Capacidades que alimentam o núcleo: todo projeto sai com um componente de IA.</p>
-          </Link>
-          <Link href="/metodo/" className="group relative overflow-hidden rounded-[var(--radius-card)] bg-navy-900 p-7 text-white transition-all hover:-translate-y-0.5">
-            <div aria-hidden className="absolute -right-10 -top-10 size-44 rounded-full bg-[radial-gradient(circle,rgba(124,77,255,.55),transparent_65%)]" />
-            <span className="relative inline-flex size-12 items-center justify-center rounded-xl bg-white/10 text-lilac">
-              <Gauge aria-hidden className="size-5" />
-            </span>
-            <h3 className="relative mt-6 text-[1.2rem] font-bold text-white">Operação contínua</h3>
-            <p className="relative mt-2 text-[0.95rem] text-white/70">Monitoramos, ajustamos e evoluímos a solução todo mês.</p>
-            <span className="relative mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-lilac">
-              Conheça o método <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
+            <PlanetMark className="size-20" />
+            <h3 className="mt-6 text-[1.3rem] font-bold leading-snug">Operações e processos no automático</h3>
+            <ul className="mt-5 space-y-3 text-[0.95rem] text-slate">
+              {["Automação de documentos e relatórios", "Agente de conhecimento interno", "Integração entre os seus sistemas"].map((t) => (
+                <li key={t} className="flex items-start gap-2.5">
+                  <Sparkle aria-hidden className="mt-0.5 size-4 shrink-0 text-violet-400" fill="currentColor" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <span className="mt-auto inline-flex items-center gap-1.5 pt-7 text-sm font-bold uppercase tracking-[0.08em] text-signal">
+              Explore mais
+              <ArrowUpRight aria-hidden className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </span>
           </Link>
+
+          {/* Card 3 — IA Corporativa Privada */}
+          <Link
+            href="/solucoes/ia-corporativa/"
+            className="group flex h-full flex-col rounded-[1.5rem] bg-[linear-gradient(180deg,#ffffff,#f2f0ff)] p-8 ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
+          >
+            <SwirlMark className="size-20" />
+            <h3 className="mt-6 text-[1.3rem] font-bold leading-snug">IA privada, com os dados sob controle</h3>
+            <ul className="mt-5 space-y-3 text-[0.95rem] text-slate">
+              {["Inteligência sobre os seus dados", "Adequação à LGPD e governança", "Controle total de acessos"].map((t) => (
+                <li key={t} className="flex items-start gap-2.5">
+                  <Sparkle aria-hidden className="mt-0.5 size-4 shrink-0 text-violet-400" fill="currentColor" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-auto pt-7">
+              <p className="text-gradient font-[family-name:var(--font-display)] text-5xl font-extrabold leading-none">{site.stats.projects}</p>
+              <p className="mt-1 text-sm text-slate">projetos entregues com IA</p>
+            </div>
+          </Link>
+        </div>
+
+        <div className="mt-10 text-center">
+          <TextLink href="/solucoes/">Ver todas as soluções</TextLink>
         </div>
       </Section>
 
       {/* 5 — Método */}
-      <Section tone="aurora" labelledBy="metodo">
-        <SectionHeading dark id="metodo" eyebrow="Como funciona" title="Um método. Cinco etapas. Zero improviso." />
-        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {methodSteps.map((s, i) => (
-            <li key={s.title} className="glass rounded-[var(--radius-card)] p-6">
-              <span className="inline-flex h-9 min-w-9 items-center justify-center rounded-lg bg-white/15 px-2 text-sm font-semibold">0{i + 1}</span>
-              <h3 className="mt-5 text-[1.1rem] font-bold text-white">{s.title}</h3>
-              <p className="mt-2 text-[0.9rem] text-white/70">{s.text}</p>
-            </li>
-          ))}
-        </ol>
-        <div className="mt-10">
-          <TextLink href="/metodo/" className="!text-lilac">
-            Conheça o Método
-          </TextLink>
-        </div>
-      </Section>
+      <section aria-labelledby="metodo" className="bg-liquid on-dark relative overflow-hidden py-20 text-white md:py-28">
+        {/* Decoração: estrelas e globo wireframe (sem texto) */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.5] [background-image:radial-gradient(1px_1px_at_20%_30%,#fff,transparent),radial-gradient(1px_1px_at_65%_15%,#cfe0ff,transparent),radial-gradient(1px_1px_at_82%_42%,#fff,transparent),radial-gradient(1.5px_1.5px_at_35%_70%,#fff,transparent),radial-gradient(1px_1px_at_90%_78%,#bcd,transparent)]" />
+        <svg aria-hidden viewBox="0 0 200 200" className="pointer-events-none absolute -right-16 top-1/3 hidden h-[26rem] w-[26rem] text-white/10 md:block">
+          <g fill="none" stroke="currentColor" strokeWidth="0.6">
+            <circle cx="100" cy="100" r="88" />
+            <ellipse cx="100" cy="100" rx="88" ry="30" />
+            <ellipse cx="100" cy="100" rx="88" ry="58" />
+            <ellipse cx="100" cy="100" rx="30" ry="88" />
+            <ellipse cx="100" cy="100" rx="58" ry="88" />
+            <line x1="12" y1="100" x2="188" y2="100" />
+            <line x1="100" y1="12" x2="100" y2="188" />
+          </g>
+        </svg>
+
+        <Container className="relative">
+          <p className="eyebrow inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-1.5 text-white/80 backdrop-blur-sm">
+            Como funciona
+          </p>
+          <h2 id="metodo" className="mt-6 max-w-3xl text-[2rem] font-bold leading-[1.08] text-white md:text-[3.1rem]">
+            Um método. Cinco etapas.<br className="hidden sm:block" /> Zero improviso.
+          </h2>
+
+          {/* Card de vidro fosco com as 5 etapas */}
+          <div className="glass-card mt-12 rounded-[1.75rem] p-6 shadow-[0_40px_90px_-40px_rgba(8,10,45,0.9)] md:mt-16 md:p-10 lg:p-12">
+            <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+              {methodSteps.map((s, i) => (
+                <li
+                  key={s.title}
+                  className={`relative ${i > 0 ? "lg:border-l lg:border-white/10 lg:pl-8" : ""}`}
+                >
+                  <span className="num-outline block font-[family-name:var(--font-display)] text-[3.75rem] font-extrabold leading-none">0{i + 1}</span>
+                  <h3 className="mt-6 text-[1.15rem] font-bold text-white">{s.title}</h3>
+                  <p className="mt-3 text-[0.92rem] leading-relaxed text-white/70">{s.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="mt-10">
+            <TextLink href="/metodo/" className="!text-lilac">
+              Conheça o Método
+            </TextLink>
+          </div>
+        </Container>
+      </section>
 
       {/* 6 — Prova / cases */}
       <Section labelledBy="cases">
