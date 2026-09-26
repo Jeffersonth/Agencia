@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Container } from "@/components/ui";
+import { ParticleNetwork } from "@/components/ParticleNetwork";
 
 type Turn = { from: "user" | "agent"; text: string };
 
@@ -62,7 +63,7 @@ export function AgentInAction() {
 
   return (
     <section aria-labelledby="agente-acao" className="bg-liquid on-dark relative overflow-hidden py-20 text-white md:py-28">
-      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.4] [background-image:radial-gradient(1px_1px_at_18%_24%,#fff,transparent),radial-gradient(1px_1px_at_72%_18%,#cfe0ff,transparent),radial-gradient(1.4px_1.4px_at_40%_72%,#fff,transparent),radial-gradient(1px_1px_at_88%_66%,#bcd,transparent)]" />
+      <ParticleNetwork className="pointer-events-none absolute inset-0 h-full w-full opacity-70" />
       <Container className="relative">
         <div className="max-w-3xl">
           <p className="eyebrow inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-4 py-1.5 text-white/80 backdrop-blur-sm">

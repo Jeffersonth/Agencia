@@ -229,6 +229,11 @@ export default function HomePage() {
               style={{ background: "radial-gradient(58% 55% at 14% -4%, rgba(45,212,191,0.5) 0%, transparent 56%), radial-gradient(72% 62% at 104% 108%, rgba(124,77,255,0.6) 0%, transparent 60%)" }}
             />
             <div aria-hidden className="pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-overlay" style={{ backgroundImage: GRAIN }} />
+            <span aria-hidden className="absolute right-6 top-6 flex items-end gap-[3px]" title="atividade ao vivo">
+              {[0.15, 0.35, 0, 0.5, 0.25].map((d, i) => (
+                <span key={i} className="animate-bary block w-[3px] rounded-full bg-[linear-gradient(180deg,#8affd6,#4d7cff)]" style={{ height: "22px", animationDelay: `${d}s` }} />
+              ))}
+            </span>
             <div className="relative">
               <h3 className="max-w-[16rem] text-[1.6rem] font-bold leading-[1.15] text-white md:text-[1.85rem]">
                 Atendimento e vendas com IA, sem parar.

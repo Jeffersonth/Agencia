@@ -361,3 +361,16 @@
 .animate-chip {
   animation: chip-live 2.2s ease-in-out infinite;
 }
+@keyframes bar-y {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.animate-bary {
+  transform-origin: bottom;
+  animation: bar-y 1.1s ease-in-out infinite;
+}
