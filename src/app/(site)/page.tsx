@@ -76,6 +76,34 @@ const aiAreas: { area: string; icon: IconName; items: string[] }[] = [
   { area: "Gestão e Conhecimento", icon: "book", items: ["Assistentes internos", "Pesquisa em documentos", "Bases de conhecimento", "Resumo e análise", "Copilotos para equipes"] },
 ];
 
+const techLayers: { icon: IconName; title: string; text: string }[] = [
+  { icon: "sparkles", title: "Inteligência Artificial", text: "Modelos e agentes que interpretam informações, mantêm contexto e geram respostas." },
+  { icon: "zap", title: "Automação", text: "Fluxos que executam tarefas automaticamente, do início ao fim." },
+  { icon: "plug", title: "Integrações", text: "Conexões com CRM, ERP, WhatsApp, APIs e ferramentas internas." },
+  { icon: "database", title: "Dados", text: "Bases de conhecimento e informações da própria empresa." },
+  { icon: "code", title: "Software", text: "Interfaces e sistemas desenvolvidos quando a operação exige algo específico." },
+];
+
+const productionQuestions = [
+  "O que acontece quando a IA não sabe a resposta?",
+  "Quem recebe um atendimento que precisa de uma pessoa?",
+  "Quais sistemas ela pode acessar e quais ações pode executar?",
+  "Como saber se o agente está funcionando como deveria?",
+];
+
+const productionControls = [
+  "Regras e limites de atuação",
+  "Transferência para atendimento humano",
+  "Controle de permissões",
+  "Registro de interações",
+  "Monitoramento de falhas",
+  "Avaliação da qualidade das respostas",
+  "Tratamento de exceções",
+  "Controle de custos",
+  "Versionamento",
+  "Evolução contínua dos agentes",
+];
+
 const homeFaq = [
   { q: "Quanto tempo até estar rodando?", a: "Um agente de IA para WhatsApp entra no ar em 2 a 3 semanas. Projetos com mais integrações são faseados, com entregas a cada etapa." },
   { q: "A IA vai substituir o meu time?", a: "Não. A IA assume o repetitivo — responder, qualificar, digitar, agendar — e transfere para uma pessoa quando o caso pede julgamento." },
@@ -355,6 +383,68 @@ export default function HomePage() {
             <ButtonLink href="/diagnostico/" variant="light" size="sm" className="relative mt-6 w-fit">
               Descobrir oportunidades de IA
             </ButtonLink>
+          </div>
+        </div>
+      </Section>
+
+      {/* 4.6 — Diferencial técnico */}
+      <Section tone="mist" labelledBy="diferencial">
+        <SectionHeading
+          id="diferencial"
+          eyebrow="Mais do que chatbots"
+          title="IA conectada à operação real."
+          text="Um agente útil precisa fazer mais do que conversar. Ele entende o contexto da empresa, acessa as informações certas e executa ações nos sistemas certos. Por isso, nossos projetos podem combinar:"
+        />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {techLayers.map((l) => (
+            <div key={l.title} className="rounded-[var(--radius-card)] bg-white p-7 shadow-[var(--shadow-card)] ring-1 ring-line/60">
+              <span className="inline-flex size-11 items-center justify-center rounded-xl bg-signal-50 text-signal">
+                <Icon name={l.icon} className="size-5" />
+              </span>
+              <h3 className="mt-5 text-[1.15rem] font-bold">{l.title}</h3>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-slate">{l.text}</p>
+            </div>
+          ))}
+          <div className="flex items-center rounded-[var(--radius-card)] bg-navy-900 p-7 text-white">
+            <p className="text-[1.02rem] leading-relaxed text-white/85">
+              O resultado é uma solução construída para o <span className="text-gradient font-semibold">seu processo</span> — e não um processo adaptado à ferramenta.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      {/* 4.7 — IA em produção */}
+      <Section tone="white" labelledBy="producao">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div>
+            <SectionHeading
+              id="producao"
+              eyebrow="Confiabilidade"
+              title="Criar uma demo de IA é fácil. Colocá-la em produção é outra história."
+              text="Uma solução empresarial precisa lidar com o que não aparece em uma apresentação:"
+            />
+            <ul className="mt-6 space-y-3">
+              {productionQuestions.map((q) => (
+                <li key={q} className="flex items-start gap-3 text-[1.02rem] text-ink">
+                  <CircleHelp aria-hidden className="mt-0.5 size-5 shrink-0 text-violet-400" />
+                  {q}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-[1.4rem] bg-mist p-8 ring-1 ring-line/60 md:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-slate">Por isso, projetamos com</p>
+            <ul className="mt-5 grid gap-x-6 gap-y-2.5 sm:grid-cols-2">
+              {productionControls.map((c) => (
+                <li key={c} className="flex items-start gap-2.5 text-[0.95rem] text-slate">
+                  <Icon name="check" className="mt-0.5 size-4 shrink-0 text-accent-strong" />
+                  {c}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-7 border-t border-line/70 pt-5 text-[1.05rem] font-bold text-ink">
+              IA empresarial não é só inteligência. É inteligência com <span className="text-signal">controle operacional</span>.
+            </p>
           </div>
         </div>
       </Section>
