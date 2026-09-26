@@ -4,13 +4,20 @@ import { useEffect, useState } from "react";
 import { Container } from "@/components/ui";
 import { ParticleNetwork } from "@/components/ParticleNetwork";
 
-type Turn = { from: "user" | "agent"; text: string };
+type Turn = { from: "user" | "agent" | "action"; text: string };
 
 const CONVO: Turn[] = [
-  { from: "user", text: "Vocês fazem agente de IA pro nosso WhatsApp?" },
-  { from: "agent", text: "Fazemos. Integro com a API oficial do WhatsApp e ao seu CRM. Qual o volume por dia?" },
-  { from: "user", text: "Uns 400 atendimentos." },
-  { from: "agent", text: "Consigo responder e qualificar em segundos, 24/7, e chamar um humano quando precisar." },
+  { from: "user", text: "Oi! Vi o anúncio de vocês. Vocês atendem no sábado? Queria marcar uma avaliação." },
+  { from: "action", text: "Interpretando intenção · consultando agenda e regras de atendimento" },
+  { from: "agent", text: "Oi! Atendemos sim, sábado das 9h às 13h. Já consigo verificar um horário pra você. Qual seu nome e a cidade?" },
+  { from: "user", text: "Sou a Marina, de Campinas." },
+  { from: "action", text: "Registrando lead no CRM · qualificando oportunidade" },
+  { from: "agent", text: "Prazer, Marina! 😊 Pra Campinas o atendimento é presencial ou online. Tenho sábado às 10h ou 11h30. Qual prefere?" },
+  { from: "user", text: "Pode ser 10h, presencial." },
+  { from: "action", text: "Agendando · enviando confirmação e lembrete automático" },
+  { from: "agent", text: "Fechado! ✅ Agendei presencial no sábado às 10h e já te enviei a confirmação. Um dia antes eu mando um lembrete. Precisa de mais alguma coisa?" },
+  { from: "user", text: "Só isso, muito obrigada!" },
+  { from: "agent", text: "Combinado, Marina. Qualquer dúvida é só chamar aqui. Até sábado! 🙌" },
 ];
 
 const STEPS = ["Mensagem recebida", "Intenção: qualificação de lead", "Consulta ao CRM", "Resposta gerada"];
@@ -53,20 +60,20 @@ export function AgentInAction() {
         await wait(600);
         for (let i = 0; i < CONVO.length && !cancelled; i++) {
           const t = CONVO[i];
-          if (t.from === "user") {
-            setR({ full: i + 1, partial: "", typingIdx: null });
-            await wait(750);
-          } else {
+          if (t.from === "agent") {
             setR({ full: i, partial: "", typingIdx: i });
             for (let c = 1; c <= t.text.length && !cancelled; c++) {
               setR({ full: i, partial: t.text.slice(0, c), typingIdx: i });
-              await wait(24);
+              await wait(18);
             }
             setR({ full: i + 1, partial: "", typingIdx: null });
-            await wait(950);
+            await wait(900);
+          } else {
+            setR({ full: i + 1, partial: "", typingIdx: null });
+            await wait(t.from === "action" ? 850 : 700);
           }
         }
-        await wait(2800);
+        await wait(3200);
       }
     }
     run();
@@ -105,12 +112,22 @@ export function AgentInAction() {
                 </p>
               </div>
             </div>
-            <div className="mt-4 flex min-h-[15rem] flex-1 flex-col justify-end gap-2.5">
+            <div className="mt-4 flex h-[26rem] flex-1 flex-col justify-end gap-2.5 overflow-hidden">
               {CONVO.map((t, i) => {
                 const isTyping = r.typingIdx === i;
                 const visible = i < r.full || isTyping;
                 if (!visible) return null;
                 const text = isTyping ? r.partial : t.text;
+                if (t.from === "action") {
+                  return (
+                    <div key={i} className="flex justify-center">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[0.72rem] text-white/55">
+                        <span className="typing-dot size-1.5 rounded-full bg-mint" />
+                        {text}
+                      </span>
+                    </div>
+                  );
+                }
                 return (
                   <div key={i} className={t.from === "user" ? "flex justify-end" : "flex justify-start"}>
                     <span
