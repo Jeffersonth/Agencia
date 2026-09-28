@@ -10,7 +10,7 @@ FROM node:22-alpine AS build
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 # A URL pública entra no HTML estático (canonicals, sitemap, Schema.org), por isso é definida no build.
-ARG NEXT_PUBLIC_SITE_URL=https://agencia.inovalabs.io
+ARG NEXT_PUBLIC_SITE_URL=https://solunaia.com.br
 ARG NEXT_PUBLIC_GA_ID=
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID
 COPY --from=deps /app/node_modules ./node_modules

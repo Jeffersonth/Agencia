@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Instala/atualiza o site em https://agencia.inovalabs.io na VPS, atrás do Traefik existente.
+# Instala/atualiza o site em https://solunaia.com.br na VPS, atrás do Traefik existente.
 # Uso (na VPS, como root):  bash deploy-vps.sh
 # Variáveis opcionais: GITHUB_TOKEN, APP_DIR, BRANCH, SKIP_GIT, LEAD_WEBHOOK_URL, NEXT_PUBLIC_GA_ID, INDEXNOW_KEY,
 #   ANTHROPIC_API_KEY (liga o chat de IA), CHAT_MODEL, CHAT_DAILY_LIMIT,
@@ -10,7 +10,7 @@ set -euo pipefail
 REPO="Jeffersonth/Agencia"
 BRANCH="${BRANCH:-main}"
 APP_DIR="${APP_DIR:-/opt/agencia}"
-DOMAIN="agencia.inovalabs.io"
+DOMAIN="solunaia.com.br"
 
 log() { printf '\n\033[1;35m▸ %s\033[0m\n' "$*"; }
 die() { printf '\n\033[1;31m✗ %s\033[0m\n' "$*" >&2; exit 1; }

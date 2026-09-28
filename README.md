@@ -125,5 +125,5 @@ case real, use `status: "real"` e preencha `results` com números de projeto.
 
 ## Deploy
 
-Produção: **https://agencia.inovalabs.io**, em contêiner Docker na VPS da Hostinger, atrás do Traefik.
+Produção: **https://solunaia.com.br**, em contêiner Docker na VPS da Hostinger, atrás do Traefik.
 Passo a passo em [`DEPLOY.md`](DEPLOY.md).

@@ -9,7 +9,7 @@ export const site = {
   name: "Soluna IA",
   legalName: "[Razão Social da Soluna IA]",
   cnpj: "00.000.000/0000-00",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://agencia.inovalabs.io").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://solunaia.com.br").replace(/\/$/, ""),
   tagline: "Agentes de IA e Automação para Empresas",
   description:
     "Agentes de IA, automações e sistemas sob medida que fazem sua empresa atender, vender e operar 24/7. Diagnóstico com ROI. Atendemos todo o Brasil.",
@@ -35,7 +35,7 @@ export const site = {
     // Somente dígitos, com DDI e DDD (ex.: 5511999999999)
     whatsapp: "5511924574553",
     whatsappDisplay: "+55 (11) 92457-4553",
-    email: "jeff.thchaves@gmail.com",
+    email: "suporte@solunaia.com.br",
     coverage: "Atendimento 100% digital, em todo o Brasil",
     hours: "Segunda a sexta, das 9h às 18h",
   },

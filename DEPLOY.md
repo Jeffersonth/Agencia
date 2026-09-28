@@ -1,6 +1,6 @@
-# Deploy — agencia.inovalabs.io (VPS Hostinger 72.60.247.135)
+# Deploy — solunaia.com.br (VPS Hostinger 72.60.247.135)
 
-O DNS de `agencia.inovalabs.io` já aponta para a VPS, e as portas 80/443 são atendidas por um
+O DNS de `solunaia.com.br` já aponta para a VPS, e as portas 80/443 são atendidas por um
 **Traefik** (há outros sites no servidor). O site roda como um contêiner Docker atrás desse Traefik.
 
 Arquivos: `Dockerfile` (imagem Next.js standalone), `docker-compose.yml` (labels do Traefik) e
@@ -12,9 +12,9 @@ Se a VPS usa um desses painéis (os templates da Hostinger costumam vir com eles
 
 1. Nova aplicação → origem **GitHub** → repositório `Jeffersonth/Agencia`, branch `main`.
 2. Build: **Dockerfile** (na raiz). Porta interna: **3000**.
-3. Domínio: `agencia.inovalabs.io` com HTTPS (Let's Encrypt) ativado.
+3. Domínio: `solunaia.com.br` com HTTPS (Let's Encrypt) ativado.
 4. Variáveis de ambiente (build e runtime):
-   - `NEXT_PUBLIC_SITE_URL=https://agencia.inovalabs.io`
+   - `NEXT_PUBLIC_SITE_URL=https://solunaia.com.br`
    - `NEXT_PUBLIC_GA_ID=` (opcional)
    - `LEAD_WEBHOOK_URL=` (webhook que recebe os leads, ex.: n8n)
    - `INDEXNOW_KEY=` (opcional)
@@ -56,7 +56,7 @@ docker compose up -d --build
 ```
 
 Ajuste as três variáveis `TRAEFIK_*` com o que aparecer no `docker inspect`. Em ~1 minuto o
-Traefik emite o certificado e o site responde em https://agencia.inovalabs.io.
+Traefik emite o certificado e o site responde em https://solunaia.com.br.
 
 ### Deploy automático (Opção B)
 
@@ -100,6 +100,6 @@ Com `ANTHROPIC_API_KEY` no `.env` da VPS (ou `ANTHROPIC_API_KEY=... bash scripts
 
 ## Depois do primeiro deploy
 
-1. Abrir https://agencia.inovalabs.io e testar o formulário do Diagnóstico.
+1. Abrir https://solunaia.com.br e testar o formulário do Diagnóstico.
 2. Cadastrar o domínio no Google Search Console e no Bing Webmaster Tools; enviar `/sitemap.xml`.
-3. Com `INDEXNOW_KEY` definido: `NEXT_PUBLIC_SITE_URL=https://agencia.inovalabs.io INDEXNOW_KEY=... npm run indexnow`.
+3. Com `INDEXNOW_KEY` definido: `NEXT_PUBLIC_SITE_URL=https://solunaia.com.br INDEXNOW_KEY=... npm run indexnow`.

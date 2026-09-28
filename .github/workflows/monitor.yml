@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  SITE: https://agencia.inovalabs.io
+  SITE: https://solunaia.com.br
   ISSUE_TITLE: "Site fora do ar"
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
           done
           chat=$(curl -s --max-time 20 "$SITE/api/chat/" || true)
           case "$chat" in '{"enabled":'*) ;; *) problems="$problems\n- \`/api/chat/\` não respondeu como esperado" ;; esac
-          expiry=$(echo | openssl s_client -connect agencia.inovalabs.io:443 -servername agencia.inovalabs.io 2>/dev/null | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
+          expiry=$(echo | openssl s_client -connect solunaia.com.br:443 -servername solunaia.com.br 2>/dev/null | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
           if [ -z "$expiry" ]; then
             problems="$problems\n- não foi possível ler o certificado HTTPS"
           else
