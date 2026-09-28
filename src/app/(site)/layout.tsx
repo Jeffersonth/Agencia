@@ -1,6 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ChatWidget } from "@/components/ChatWidget";
+import { ChatWidgetLoader } from "@/components/ChatWidgetLoader";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,7 +8,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <Header />
       <main id="conteudo">{children}</main>
       <Footer />
-      <ChatWidget />
+      <ChatWidgetLoader />
     </>
   );
 }
