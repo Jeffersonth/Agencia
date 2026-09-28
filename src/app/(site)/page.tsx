@@ -424,9 +424,12 @@ export default function HomePage() {
             </ButtonLink>
           </div>
           <ul className="grid auto-rows-fr gap-4 sm:grid-cols-2">
-            {problems.map(({ icon: I, text }) => (
+            {problems.map(({ icon: I, text }, i) => (
               <li key={text} className="flex h-full items-start gap-4 rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60">
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-400">
+                <span
+                  className="animate-icon-bob size-11 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-400"
+                  style={{ animationDelay: `${(i % 4) * 0.25}s` }}
+                >
                   <I aria-hidden className="size-5" strokeWidth={1.75} />
                 </span>
                 <p className="font-[family-name:var(--font-display)] text-[1rem] font-semibold leading-snug text-ink">{text}</p>
@@ -459,10 +462,13 @@ export default function HomePage() {
               </h3>
               <span aria-hidden className="mt-6 block h-px w-full bg-white/15" />
               <ul className="mt-7 space-y-6">
-                {coreDuo.map((h) => (
+                {coreDuo.map((h, i) => (
                   <li key={h.slug}>
                     <Link href={`/solucoes/${h.slug}/`} className="group flex gap-4">
-                      <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-white text-navy-900 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.6)]">
+                      <span
+                        className="animate-icon-bob size-12 shrink-0 items-center justify-center rounded-full bg-white text-navy-900 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.6)]"
+                        style={{ animationDelay: `${i * 0.3}s` }}
+                      >
                         <Icon name={h.icon} className="size-5" />
                       </span>
                       <span className="min-w-0">
@@ -484,7 +490,7 @@ export default function HomePage() {
             href="/solucoes/operacoes/"
             className="group flex h-full flex-col rounded-[1.5rem] bg-white p-8 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
           >
-            <PlanetMark className="size-20" />
+            <PlanetMark className="size-20 animate-icon-spin-slow" />
             <h3 className="mt-6 text-[1.3rem] font-bold leading-snug">Operações e processos no automático</h3>
             <ul className="mt-5 space-y-3 text-[0.95rem] text-slate">
               {["Automação de documentos e relatórios", "Agente de conhecimento interno", "Integração entre os seus sistemas"].map((t) => (
@@ -505,7 +511,7 @@ export default function HomePage() {
             href="/solucoes/ia-corporativa/"
             className="group flex h-full flex-col rounded-[1.5rem] bg-[linear-gradient(180deg,#ffffff,#f2f0ff)] p-8 ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
           >
-            <SwirlMark className="size-20" />
+            <SwirlMark className="size-20 animate-icon-spin-slow" />
             <h3 className="mt-6 text-[1.3rem] font-bold leading-snug">IA privada, com os dados sob controle</h3>
             <ul className="mt-5 space-y-3 text-[0.95rem] text-slate">
               {["Inteligência sobre os seus dados", "Adequação à LGPD e governança", "Controle total de acessos"].map((t) => (

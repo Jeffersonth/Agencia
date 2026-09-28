@@ -95,8 +95,8 @@ export function IconTile({ name, dark }: { name: IconName; dark?: boolean }) {
     <span
       className={
         dark
-          ? "inline-flex size-11 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/15"
-          : "inline-flex size-11 items-center justify-center rounded-xl bg-signal-50 text-signal ring-1 ring-signal-100"
+          ? "animate-icon-bob size-11 items-center justify-center rounded-xl bg-white/10 text-white ring-1 ring-white/15"
+          : "animate-icon-bob size-11 items-center justify-center rounded-xl bg-signal-50 text-signal ring-1 ring-signal-100"
       }
     >
       <Icon name={name} className="size-5" />

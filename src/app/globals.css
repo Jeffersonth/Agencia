@@ -50,6 +50,19 @@
     scroll-padding-top: 6rem;
   }
 
+  /*
+   * scroll-padding-top (acima) só vale para navegação nativa do navegador
+   * (digitar a URL com #hash, ou clicar num <a> comum). O next/link, ao
+   * navegar para uma âncora na mesma página, rola até o elemento via JS
+   * (scrollIntoView) — que respeita scroll-margin-top no próprio alvo, não
+   * scroll-padding-top no html. Sem isso, o título ficava escondido atrás
+   * do cabeçalho fixo (4,5rem) ao clicar em botões como "Conhecer os
+   * formatos" ou no índice "Neste artigo".
+   */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+
   body {
     background: var(--color-mist);
     color: var(--color-ink);
@@ -268,6 +281,34 @@
 }
 .animate-float {
   animation: floatY 8s ease-in-out infinite;
+}
+
+/* Ícones de destaque (badges de soluções/serviços/setores, cards da home):
+   balanço e giro contínuos e discretos, para dar sensação de "vivo" sem
+   distrair. Pausam sozinhos com prefers-reduced-motion (regra global acima). */
+@keyframes icon-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-4deg);
+  }
+}
+@keyframes icon-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-icon-bob {
+  display: inline-flex;
+  animation: icon-bob 3.6s ease-in-out infinite;
+}
+.animate-icon-spin-slow {
+  animation: icon-spin-slow 16s linear infinite;
 }
 .typing-dot {
   animation: pulse-dot 1.2s ease-in-out infinite;
