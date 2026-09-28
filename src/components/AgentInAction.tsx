@@ -92,7 +92,7 @@ export function AgentInAction() {
             Agentes que executam
             <span className="rounded-full bg-violet-400/20 px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-wide text-lilac">demonstração</span>
           </p>
-          <h2 id="agente-acao" className="mt-6 text-[2rem] font-bold leading-[1.1] text-white md:text-[2.7rem]">
+          <h2 id="agente-acao" className="mt-6 text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Muito além de responder perguntas.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-white/70">

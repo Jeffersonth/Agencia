@@ -281,7 +281,7 @@ export default function AplicativosPage() {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Discovery</Eyebrow>
-            <h2 id="discovery" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.5rem]">
+            <h2 id="discovery" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Antes de desenvolver telas, entendemos por que o aplicativo deve existir.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -366,7 +366,7 @@ export default function AplicativosPage() {
       <Section tone="aurora" labelledBy="ecossistema">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-white/80">O que existe por trás da tela</Eyebrow>
-          <h2 id="ecossistema" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+          <h2 id="ecossistema" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             A maior parte do valor de um aplicativo não vive apenas no celular.
           </h2>
           <p className="mt-5 text-lg text-white/75">
@@ -412,7 +412,7 @@ export default function AplicativosPage() {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Inteligência aplicada</Eyebrow>
-            <h2 id="ia-app" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+            <h2 id="ia-app" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               IA no aplicativo precisa melhorar a experiência — não apenas aparecer no menu.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -455,7 +455,7 @@ export default function AplicativosPage() {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Secure by design</Eyebrow>
-            <h2 id="seguranca" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+            <h2 id="seguranca" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Aplicativos carregam dados, identidade e ações da operação dentro do dispositivo.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -493,7 +493,7 @@ export default function AplicativosPage() {
       <Section tone="navy" labelledBy="metodo">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-sky">Do protótipo às lojas</Eyebrow>
-          <h2 id="metodo" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.6rem]">
+          <h2 id="metodo" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Cinco etapas para transformar uma ideia em um app pronto para usuários reais.
           </h2>
           <p className="mt-5 text-lg text-white/70">
@@ -568,7 +568,7 @@ export default function AplicativosPage() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Por que construir conosco</Eyebrow>
-            <h2 id="por-que" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+            <h2 id="por-que" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Produto mobile, software e IA no mesmo projeto.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -595,7 +595,7 @@ export default function AplicativosPage() {
       <Section tone="white" labelledBy="quando-nao">
         <div className="rounded-[1.5rem] border border-dashed border-line-strong bg-mist p-8 md:p-12">
           <Eyebrow className="mb-4">Tecnologia com critério</Eyebrow>
-          <h2 id="quando-nao" className="max-w-3xl text-[1.6rem] font-bold md:text-[2.1rem]">
+          <h2 id="quando-nao" className="max-w-3xl text-[1.5rem] font-bold md:text-[2.125rem]">
             Nem toda ideia precisa virar aplicativo.
           </h2>
           <p className="mt-5 max-w-3xl text-lg text-slate">
@@ -624,7 +624,7 @@ export default function AplicativosPage() {
       <Section tone="navy" labelledBy="cta-final">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow className="mb-5 text-sky">Da ideia à App Store e Google Play</Eyebrow>
-          <h2 id="cta-final" className="text-[2rem] font-bold leading-[1.1] text-white md:text-[2.7rem]">
+          <h2 id="cta-final" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Tem uma ideia de aplicativo? Valide o produto antes de investir no código.
           </h2>
           <p className="mt-5 text-lg text-white/75">

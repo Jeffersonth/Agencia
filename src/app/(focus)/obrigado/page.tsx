@@ -19,7 +19,7 @@ export default function ObrigadoPage() {
         <span className="flex size-24 items-center justify-center rounded-full bg-white/10 text-mint ring-1 ring-white/15">
           <CircleCheck aria-hidden className="size-11" strokeWidth={1.5} />
         </span>
-        <h1 className="mt-8 max-w-2xl text-[2.4rem] leading-[1.08] text-white md:text-[3.4rem]">Recebemos sua mensagem</h1>
+        <h1 className="mt-8 max-w-2xl text-[1.5rem] leading-[1.15] text-white md:text-[2.125rem]">Recebemos sua mensagem</h1>
         <p className="mt-5 max-w-xl text-lg text-white/70">
           Nosso time responde em até um dia útil. Enquanto isso, você já pode dar uma olhada em como trabalhamos e nos projetos que construímos.
         </p>

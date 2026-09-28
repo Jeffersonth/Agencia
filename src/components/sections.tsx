@@ -82,7 +82,7 @@ export function PageHero({
         <div className={cx("mt-10 grid items-center gap-12 md:mt-12", !!visual && "lg:grid-cols-[1.05fr_0.95fr] lg:gap-16")}>
           <div className={cx(centered && !visual && "mx-auto max-w-3xl text-center")}>
             {eyebrow && <Eyebrow className="mb-5">{eyebrow}</Eyebrow>}
-            <h1 className="text-[2.3rem] leading-[1.08] text-white md:text-[3rem] xl:text-[3.2rem]">{title}</h1>
+            <h1 className="text-[1.5rem] leading-[1.15] text-white md:text-[2.125rem]">{title}</h1>
             {answer && (
               <p data-answer className={cx("mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-[1.2rem]", centered && !visual && "mx-auto")}>
                 {answer}
@@ -273,7 +273,7 @@ export function CTASection({
           </svg>
           <div className={cx("relative grid items-center gap-10", showWhatsApp && "lg:grid-cols-[1.45fr_0.55fr]")}>
             <div className={cx(!showWhatsApp && "mx-auto max-w-3xl text-center")}>
-              <h2 className="text-[1.9rem] text-white md:text-[2.6rem]">{title}</h2>
+              <h2 className="text-[1.5rem] text-white md:text-[2.125rem]">{title}</h2>
               <p className="mt-4 max-w-2xl text-lg text-white/70">{text}</p>
               <div className={cx("mt-8 flex flex-wrap gap-3", !showWhatsApp && "justify-center")}>
                 <ButtonLink href="/diagnostico/" size="lg">
@@ -379,7 +379,7 @@ export function IndicatorsBlock({
     <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
       <div>
         <Eyebrow className="mb-4">Prova</Eyebrow>
-        <h2 className="text-[1.9rem] font-bold md:text-[2.5rem]">Resultado que dá para medir.</h2>
+        <h2 className="text-[1.5rem] font-bold md:text-[2.125rem]">Resultado que dá para medir.</h2>
         <p className="mt-5 text-lg text-slate">
           {note ??
             "No Diagnóstico registramos o “antes” da sua operação. Depois da implantação, acompanhamos os mesmos indicadores todo mês — é assim que o resultado vira número, e não promessa."}

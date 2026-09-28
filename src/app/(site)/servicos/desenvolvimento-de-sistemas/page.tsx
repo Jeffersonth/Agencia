@@ -308,7 +308,7 @@ export default function SistemasPage() {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Discovery</Eyebrow>
-            <h2 id="discovery" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.5rem]">
+            <h2 id="discovery" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Não começamos programando. Primeiro descobrimos o que precisa ser construído.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -401,7 +401,7 @@ export default function SistemasPage() {
       <Section tone="aurora" labelledBy="ia-nucleo">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-white/80">AI-native, com critério</Eyebrow>
-          <h2 id="ia-nucleo" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+          <h2 id="ia-nucleo" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             IA não precisa ser um chatbot colado no produto.
           </h2>
           <p className="mt-5 text-lg text-white/75">
@@ -489,7 +489,7 @@ export default function SistemasPage() {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Secure by design</Eyebrow>
-            <h2 id="seguranca" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+            <h2 id="seguranca" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Segurança não entra na última semana do projeto.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -540,7 +540,7 @@ export default function SistemasPage() {
       <Section tone="navy" labelledBy="metodo">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-sky">Do Discovery à evolução</Eyebrow>
-          <h2 id="metodo" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.6rem]">
+          <h2 id="metodo" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Cinco etapas para transformar uma ideia em software operando de verdade.
           </h2>
           <p className="mt-5 text-lg text-white/70">
@@ -619,7 +619,7 @@ export default function SistemasPage() {
       <Section tone="white" labelledBy="quando-nao">
         <div className="rounded-[1.5rem] border border-dashed border-line-strong bg-mist p-8 md:p-12">
           <Eyebrow className="mb-4">Tecnologia com critério</Eyebrow>
-          <h2 id="quando-nao" className="max-w-3xl text-[1.6rem] font-bold md:text-[2.1rem]">
+          <h2 id="quando-nao" className="max-w-3xl text-[1.5rem] font-bold md:text-[2.125rem]">
             Nem todo problema precisa de um sistema novo.
           </h2>
           <p className="mt-5 max-w-3xl text-lg text-slate">
@@ -633,7 +633,7 @@ export default function SistemasPage() {
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Por que construir conosco</Eyebrow>
-            <h2 id="por-que" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+            <h2 id="por-que" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Produto, engenharia e IA no mesmo contexto.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -676,7 +676,7 @@ export default function SistemasPage() {
       <Section tone="navy" labelledBy="cta-final">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow className="mb-5 text-sky">Da ideia à operação</Eyebrow>
-          <h2 id="cta-final" className="text-[2rem] font-bold leading-[1.1] text-white md:text-[2.7rem]">
+          <h2 id="cta-final" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Se o seu processo não cabe em uma ferramenta pronta, talvez seja hora de construir a ferramenta certa.
           </h2>
           <p className="mt-5 text-lg text-white/75">

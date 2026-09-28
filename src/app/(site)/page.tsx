@@ -333,7 +333,7 @@ export default function HomePage() {
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/85">
             <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Soluna IA — Agência de IA e Automação para Empresas
           </p>
-          <h1 className="mx-auto mt-7 max-w-4xl text-[2.4rem] leading-[1.08] text-white md:text-[3.7rem]">
+          <h1 className="mx-auto mt-7 max-w-4xl text-[1.5rem] leading-[1.15] text-white md:text-[2.125rem]">
             Agentes de IA e automação para empresas que querem <span className="text-gradient">operar em outro nível.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-[1.18rem]">
@@ -374,7 +374,7 @@ export default function HomePage() {
         <Container className="relative grid gap-5 lg:grid-cols-[1.35fr_1fr]">
           <div className="rounded-[1.4rem] bg-white p-8 shadow-[var(--shadow-card)] ring-1 ring-line/60 md:p-11">
             <p className="eyebrow">Sobre a {site.name}</p>
-            <h2 className="mt-4 text-[1.9rem] md:text-[2.4rem]">Uma agência brasileira especializada em IA e automação para empresas.</h2>
+            <h2 className="mt-4 text-[1.5rem] md:text-[2.125rem]">Uma agência brasileira especializada em IA e automação para empresas.</h2>
             <p data-answer className="mt-5 text-[1.05rem] leading-relaxed text-slate">
               A {site.name} é uma AI Solutions Agency que desenvolve e implementa agentes de IA, automações e soluções digitais sob medida para empresas de pequeno, médio e grande porte em todo o Brasil. Nossa especialidade é colocar inteligência artificial para trabalhar dentro da operação: atendendo clientes, qualificando oportunidades, executando tarefas, consultando informações e automatizando processos que hoje consomem o tempo da equipe. Quando o projeto exige mais, também desenvolvemos sistemas, SaaS, aplicativos, sites e estratégias de SEO e GEO.
             </p>
@@ -652,7 +652,7 @@ export default function HomePage() {
             <p className="eyebrow inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-1.5 text-white/80 backdrop-blur-sm">
               Do diagnóstico à evolução
             </p>
-            <h2 id="metodo" className="mt-6 text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.7rem]">
+            <h2 id="metodo" className="mt-6 text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Um método em 5 etapas para transformar oportunidades de IA em soluções que funcionam na operação real.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">

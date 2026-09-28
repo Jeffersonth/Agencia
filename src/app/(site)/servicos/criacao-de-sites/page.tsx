@@ -324,7 +324,7 @@ export default function CriacaoDeSitesPage() {
       <Section tone="navy" labelledBy="padrao">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-sky">Um projeto completo</Eyebrow>
-          <h2 id="padrao" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.6rem]">
+          <h2 id="padrao" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Não entregamos apenas páginas. Entregamos a estrutura para o site funcionar como um ativo de negócio.
           </h2>
           <p className="mt-5 text-lg text-white/70">Dependendo do escopo contratado, o projeto pode contemplar:</p>
@@ -433,7 +433,7 @@ export default function CriacaoDeSitesPage() {
       <Section tone="aurora" labelledBy="jornada">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-white/80">Mais do que posicionamento</Eyebrow>
-          <h2 id="jornada" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+          <h2 id="jornada" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Um site que pode ser encontrado vale mais do que um site que apenas existe.
           </h2>
           <p className="mt-5 text-lg text-white/75">
@@ -558,7 +558,7 @@ export default function CriacaoDeSitesPage() {
       <Section tone="navy" labelledBy="metodo">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-sky">Como construímos</Eyebrow>
-          <h2 id="metodo" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.6rem]">
+          <h2 id="metodo" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Do posicionamento à publicação, em 5 etapas.
           </h2>
         </div>
@@ -676,7 +676,7 @@ export default function CriacaoDeSitesPage() {
       <Section tone="navy" labelledBy="cta-final">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow className="mb-5 text-sky">Seu site representa a empresa que você construiu?</Eyebrow>
-          <h2 id="cta-final" className="text-[2rem] font-bold leading-[1.1] text-white md:text-[2.7rem]">
+          <h2 id="cta-final" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Transforme sua presença digital em um ativo de negócio.
           </h2>
           <p className="mt-5 text-lg text-white/75">

@@ -49,7 +49,7 @@ export default async function CasePage({ params }: PageProps<"/cases/[slug]">) {
               <Badge tone="blue">{caseTypeLabels[item.type]}</Badge>
               <Badge tone="gray">{item.sector}</Badge>
             </div>
-            <h1 className="mt-6 text-[2.2rem] leading-[1.1] text-white md:text-[3.1rem]">{item.title}</h1>
+            <h1 className="mt-6 text-[1.5rem] leading-[1.15] text-white md:text-[2.125rem]">{item.title}</h1>
             <p data-answer className="mt-5 text-lg text-white/75 md:text-xl">
               {item.summary}
             </p>
