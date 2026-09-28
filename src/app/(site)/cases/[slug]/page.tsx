@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import { caseTypeLabels, cases, getCase } from "@/content/cases";
 import { articleSchema, breadcrumbSchema, graph, pageMetadata } from "@/lib/seo";
 import { whatsappLink } from "@/lib/site";
@@ -75,10 +76,13 @@ export default async function CasePage({ params }: PageProps<"/cases/[slug]">) {
             </div>
             <div>
               <h2 className="text-2xl font-semibold md:text-3xl">Como funciona</h2>
-              <ol className="mt-6 space-y-4">
+              <ol className="relative mt-6 grid gap-0">
                 {item.how.map((h, i) => (
-                  <li key={h} className="flex gap-4">
-                    <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-semibold text-white">{i + 1}</span>
+                  <li key={h} className="relative flex gap-4 pb-6 last:pb-0">
+                    {i < item.how.length - 1 && (
+                      <span aria-hidden className="absolute left-4 top-9 bottom-1 w-0.5 bg-gradient-to-b from-violet-400 to-signal" />
+                    )}
+                    <span className="relative z-10 inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-semibold text-white">{i + 1}</span>
                     <span className="pt-0.5 text-lg">{h}</span>
                   </li>
                 ))}
@@ -90,6 +94,29 @@ export default async function CasePage({ params }: PageProps<"/cases/[slug]">) {
                 <Chips items={item.tech} />
               </div>
             </div>
+            {item.expectedOutcome && (
+              <div>
+                <h2 className="text-2xl font-semibold md:text-3xl">O que a solução muda</h2>
+                <p className="mt-3 text-slate">
+                  Sem números apresentados como alcançados — a mudança qualitativa que essa arquitetura é feita para entregar.
+                </p>
+                <ul className="mt-6 space-y-4">
+                  {item.expectedOutcome.map((o) => (
+                    <li key={o.before} className="grid gap-3 rounded-2xl bg-mist p-5 sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-5">
+                      <p className="text-[0.95rem] text-slate">
+                        <span className="mb-1 block text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-slate/70">Antes</span>
+                        {o.before}
+                      </p>
+                      <ArrowRight aria-hidden className="hidden size-5 shrink-0 text-signal sm:block" />
+                      <p className="text-[0.95rem] font-medium text-ink">
+                        <span className="mb-1 block text-[0.72rem] font-semibold uppercase tracking-[0.08em] text-signal">Depois</span>
+                        {o.after}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {item.results && (
               <div>
                 <h2 className="text-2xl font-semibold md:text-3xl">Resultados</h2>

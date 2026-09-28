@@ -53,7 +53,7 @@ export default function CasesPage() {
           id="demonstrativos"
           eyebrow="Nível 2 · Projetos demonstrativos"
           title="Como aplicamos cada solução."
-          text="Cenário, solução, funcionamento, tecnologias e indicadores acompanhados — sem números apresentados como alcançados."
+          text="Cenário, solução, como funciona, tecnologias, o que a solução muda e indicadores acompanhados — sem números apresentados como alcançados."
         />
         <div className="mt-12">
           <CaseFilter items={demos} />
