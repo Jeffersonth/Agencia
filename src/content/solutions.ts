@@ -41,7 +41,7 @@ export const hubs: SolutionHub[] = [
       { q: "O cliente percebe que está falando com uma IA?", a: "Recomendamos deixar claro que é um assistente virtual. A conversa é natural, em linguagem comum, e o cliente pode pedir um humano a qualquer momento." },
       { q: "Qual canal devo automatizar primeiro?", a: "Quase sempre o WhatsApp, porque concentra o maior volume. Confirmamos isso com os seus dados no Diagnóstico." },
       { q: "A IA pode responder algo errado?", a: "O agente responde com base no conhecimento da sua empresa e é configurado para transferir quando não tem certeza. Testamos com cenários reais antes de ir ao ar." },
-      { q: "Quanto custa um agente de atendimento?", a: "O Agente de IA para WhatsApp parte de R$ 7.500 de implantação, com sustentação mensal. O preço fechado sai do Diagnóstico." },
+      { q: "Quanto custa um agente de atendimento?", a: "Investimento sob consulta, com implantação única e sustentação mensal. O preço fechado sai do Diagnóstico." },
     ],
     cta: { title: "Quantos clientes você perde fora do horário?", text: "No Diagnóstico medimos o seu volume, o tempo de resposta atual e o retorno de um agente." },
     guide: "ia-no-whatsapp",
@@ -84,7 +84,7 @@ export const hubs: SolutionHub[] = [
       { q: "Por onde começar em vendas?", a: "Se você tem base de clientes parada, a Reativação costuma dar o retorno mais rápido. Se gera leads novos todo mês, o SDR com IA. O Diagnóstico mostra qual tem maior ROI no seu caso." },
       { q: "A IA substitui o time comercial?", a: "Não. A IA assume a pré-venda e o follow-up; quem negocia e fecha é o seu vendedor, agora com leads mais quentes." },
       { q: "Preciso ter um CRM?", a: "Ajuda muito. Se você ainda não tem, implantamos um como parte do projeto." },
-      { q: "Quanto custa?", a: "SDR com IA a partir de R$ 15.000, CRM a partir de R$ 5.000, funis a partir de R$ 4.000 e reativação a partir de R$ 4.500 por campanha." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, definido conforme o escopo de cada frente (SDR, CRM, funis ou reativação). O preço fechado sai do Diagnóstico." },
     ],
     cta: { title: "Descubra quantos leads você perde hoje.", text: "No Diagnóstico medimos o tempo de resposta, a taxa de conversão e o potencial da sua base." },
     guide: "agentes-de-ia-para-empresas",
@@ -127,7 +127,7 @@ export const hubs: SolutionHub[] = [
       { q: "Qual processo automatizar primeiro?", a: "O que combina alto volume, regras claras e custo de erro. No Diagnóstico listamos os candidatos e o retorno estimado de cada um." },
       { q: "Automação com IA é confiável?", a: "É, quando tem validação, logs e fila de exceções. Nenhum dado incerto é lançado sem revisão." },
       { q: "Vocês usam n8n?", a: "Sim, quando faz sentido. Para casos específicos escrevemos código. Em ambos os casos, as contas e os fluxos ficam em nome da sua empresa." },
-      { q: "Quanto custa?", a: "Automações intermediárias partem de R$ 4.000; automação de documentos de R$ 12.000; agentes operacionais de R$ 10.000." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, definido conforme a complexidade do processo. O preço fechado sai do Diagnóstico." },
     ],
     cta: { title: "Quantas horas sua equipe gasta com trabalho repetitivo?", text: "No Diagnóstico mapeamos os processos e mostramos quanto tempo e dinheiro cada automação devolve." },
     guide: "agentes-de-ia-para-empresas",
@@ -189,7 +189,7 @@ export const services: ServicePage[] = [
     featured: true,
     title: "Agente de IA para WhatsApp para Empresas",
     metaDescription:
-      "Agente de IA que atende, tira dúvidas, agenda e vende no WhatsApp 24/7, integrado ao seu CRM. API oficial e dados seguros. Implantação a partir de R$ 7.500.",
+      "Agente de IA que atende, tira dúvidas, agenda e vende no WhatsApp 24/7, integrado ao seu CRM. API oficial e dados seguros. Investimento sob consulta.",
     h1: "Agente de IA para WhatsApp: atende, qualifica e agenda 24/7",
     answer:
       "Um agente de IA para WhatsApp é um atendente virtual que conversa com seus clientes em linguagem natural, responde dúvidas com base no conhecimento da sua empresa, agenda e vende, e passa para um humano quando o caso pede. Funciona 24 horas por dia, usa a API oficial do WhatsApp e se integra ao seu CRM e à sua agenda. Ideal para empresas que recebem muitas mensagens e perdem vendas fora do horário comercial.",
@@ -217,8 +217,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["WhatsApp API oficial", "RD Station", "HubSpot", "Pipedrive", "Google Agenda", "Sistemas de agendamento", "Planilhas", "ERPs via integração sob medida"],
     pricing: {
-      from: 7500,
-      prefix: "Implantação a partir de",
       timeline: "2 a 3 semanas",
       details: [
         "Inclui plano de sustentação mensal.",
@@ -255,7 +253,7 @@ export const services: ServicePage[] = [
     icon: "calendar",
     title: "Agendamento Inteligente com IA para Empresas",
     metaDescription:
-      "Agente de IA que agenda, confirma e remarca horários pelo WhatsApp 24/7, integrado à sua agenda. Menos faltas, recepção livre. Módulo a partir de R$ 3.500.",
+      "Agente de IA que agenda, confirma e remarca horários pelo WhatsApp 24/7, integrado à sua agenda. Menos faltas, recepção livre. Investimento sob consulta.",
     h1: "Agendamento Inteligente: agenda cheia, menos faltas e recepção livre",
     answer:
       "O Agendamento Inteligente é um agente de IA que marca, confirma e remarca horários pelo WhatsApp, consultando a sua agenda em tempo real. Envia lembretes, oferece encaixes quando alguém desmarca e reduz as faltas. Ideal para clínicas, consultórios e prestadores de serviço que vivem de agenda.",
@@ -283,8 +281,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["Google Agenda", "Sistemas de agendamento com API", "Sistemas clínicos", "WhatsApp API oficial", "Planilhas"],
     pricing: {
-      from: 3500,
-      prefix: "Módulo a partir de",
       timeline: "1 a 2 semanas",
       details: [
         "Incluso no plano Profissional do Agente de IA para WhatsApp.",
@@ -316,7 +312,7 @@ export const services: ServicePage[] = [
     icon: "inbox",
     title: "Central de Atendimento Multicanal com IA para Empresas",
     metaDescription:
-      "WhatsApp, Instagram, site e e-mail em uma caixa de entrada única, com IA respondendo e distribuindo conversas. Nenhuma mensagem perdida. A partir de R$ 6.000.",
+      "WhatsApp, Instagram, site e e-mail em uma caixa de entrada única, com IA respondendo e distribuindo conversas. Nenhuma mensagem perdida. Investimento sob consulta.",
     h1: "Central Multicanal: todos os canais em uma caixa só, com IA na linha de frente",
     answer:
       "A Central Multicanal reúne WhatsApp, Instagram, chat do site e e-mail em uma única caixa de entrada, com um agente de IA respondendo primeiro e distribuindo cada conversa para a pessoa certa. Nenhuma mensagem se perde entre canais, e a equipe atende com o histórico completo do cliente. Ideal para empresas com atendimento intenso em vários canais.",
@@ -344,8 +340,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["WhatsApp API oficial", "Instagram Direct", "Chat do site", "E-mail", "RD Station", "HubSpot", "Pipedrive"],
     pricing: {
-      from: 6000,
-      prefix: "Implantação a partir de",
       timeline: "3 a 4 semanas",
       details: [
         "Inclui sustentação mensal.",
@@ -374,7 +368,7 @@ export const services: ServicePage[] = [
     icon: "globe",
     title: "Assistente de IA para Site para Empresas",
     metaDescription:
-      "Chat com IA no seu site, treinado na base de conhecimento da empresa, que tira dúvidas e converte visitantes em leads 24/7. A partir de R$ 3.500.",
+      "Chat com IA no seu site, treinado na base de conhecimento da empresa, que tira dúvidas e converte visitantes em leads 24/7. Investimento sob consulta.",
     h1: "Assistente de IA para Site: o visitante pergunta, a empresa responde na hora",
     answer:
       "O Assistente de IA para Site é um chat treinado na base de conhecimento da sua empresa que responde às dúvidas dos visitantes em linguagem natural, 24/7, e transforma interesse em contato: coleta dados, agenda ou leva para o WhatsApp. Ideal para sites com tráfego que não converte e empresas que querem atender sem formulário.",
@@ -401,11 +395,9 @@ export const services: ServicePage[] = [
     ],
     integrations: ["WordPress", "Next.js", "Webflow", "Qualquer site (trecho de código)", "RD Station", "HubSpot", "WhatsApp API oficial", "Google Analytics"],
     pricing: {
-      from: 3500,
-      prefix: "Implantação a partir de",
       timeline: "1 a 2 semanas",
       details: [
-        "R$ 1.500 se você já tem o nosso Agente de IA para WhatsApp (mesma base de conhecimento).",
+        "Condição especial se você já tem o nosso Agente de IA para WhatsApp (mesma base de conhecimento).",
         "Inclui sustentação mensal.",
       ],
     },
@@ -434,7 +426,7 @@ export const services: ServicePage[] = [
     featured: true,
     title: "SDR com IA para Empresas",
     metaDescription:
-      "Um SDR com IA responde cada lead em segundos, qualifica e agenda reunião com seu vendedor, 24/7. Integrado ao CRM. Implantação a partir de R$ 15.000.",
+      "Um SDR com IA responde cada lead em segundos, qualifica e agenda reunião com seu vendedor, 24/7. Integrado ao CRM. Investimento sob consulta.",
     h1: "SDR com IA: responde, qualifica e agenda antes do concorrente",
     answer:
       "Um SDR com IA é um agente de pré-vendas que aborda cada lead em segundos, faz as perguntas de qualificação, identifica quem tem perfil e fit, e agenda a reunião direto na agenda do vendedor. Trabalha 24/7, registra tudo no CRM e garante que nenhum lead fique sem resposta. Ideal para empresas que investem em geração de leads e perdem oportunidades por demora no primeiro contato.",
@@ -460,8 +452,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["RD Station", "HubSpot", "Pipedrive", "Kommo", "WhatsApp API oficial", "Formulários e landing pages", "Meta Ads", "Google Ads"],
     pricing: {
-      from: 15000,
-      prefix: "Implantação a partir de",
       timeline: "3 a 5 semanas",
       details: [
         "Inclui sustentação mensal.",
@@ -491,7 +481,7 @@ export const services: ServicePage[] = [
     icon: "kanban",
     title: "CRM e Pipeline Inteligente para Empresas",
     metaDescription:
-      "Implantação de CRM com etapas automáticas, pontuação de leads e alertas de follow-up, integrado ao WhatsApp e ao site. A partir de R$ 5.000.",
+      "Implantação de CRM com etapas automáticas, pontuação de leads e alertas de follow-up, integrado ao WhatsApp e ao site. Investimento sob consulta.",
     h1: "CRM & Pipeline Inteligente: cada oportunidade no lugar certo, na hora certa",
     answer:
       "Implantamos e automatizamos o seu CRM para que cada lead entre sozinho, avance de etapa com base no que acontece e gere alertas quando alguém precisa agir. A pontuação automática mostra quem está pronto para comprar. Ideal para empresas que vendem por WhatsApp e planilha e perdem oportunidades por falta de acompanhamento.",
@@ -520,8 +510,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["RD Station CRM", "HubSpot", "Pipedrive", "Kommo", "WhatsApp API oficial", "Formulários", "Planilhas"],
     pricing: {
-      from: 5000,
-      prefix: "Implantação a partir de",
       timeline: "2 a 3 semanas",
       details: [
         "Licença do CRM paga diretamente pela empresa.",
@@ -550,7 +538,7 @@ export const services: ServicePage[] = [
     icon: "workflow",
     title: "Funis e Nutrição Automatizada para Empresas",
     metaDescription:
-      "Sequências automáticas de e-mail e WhatsApp disparadas pelo comportamento de cada lead, até ele estar pronto para comprar. A partir de R$ 4.000.",
+      "Sequências automáticas de e-mail e WhatsApp disparadas pelo comportamento de cada lead, até ele estar pronto para comprar. Investimento sob consulta.",
     h1: "Funis & Nutrição Automatizada: o follow-up que ninguém esquece",
     answer:
       "Criamos sequências automáticas de e-mail e WhatsApp que acompanham cada lead de acordo com o que ele faz — abriu, clicou, pediu orçamento, sumiu. O contato certo chega na hora certa, sem depender da memória do vendedor. Ideal para empresas com ciclo de venda de dias ou semanas e muitos leads que ainda não estão prontos.",
@@ -578,8 +566,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["RD Station Marketing", "Brevo", "Mailchimp", "WhatsApp API oficial", "HubSpot", "Pipedrive", "Formulários"],
     pricing: {
-      from: 4000,
-      prefix: "Implantação a partir de",
       timeline: "2 a 3 semanas",
       details: [
         "Mensagens de marketing no WhatsApp são pagas à Meta e exigem consentimento (opt-in).",
@@ -608,7 +594,7 @@ export const services: ServicePage[] = [
     icon: "refresh",
     title: "Reativação de Clientes com IA para Empresas",
     metaDescription:
-      "Campanhas com IA que reengajam clientes inativos e orçamentos perdidos pelo WhatsApp, com conversa personalizada. A partir de R$ 4.500 por campanha.",
+      "Campanhas com IA que reengajam clientes inativos e orçamentos perdidos pelo WhatsApp, com conversa personalizada. Investimento sob consulta.",
     h1: "Reativação de Clientes: a receita que já está na sua base",
     answer:
       "A Reativação de Clientes é uma campanha com IA que volta a conversar com clientes parados e orçamentos perdidos, de forma personalizada, pelo WhatsApp e por e-mail. O agente responde quem se interessa, qualifica e passa para o vendedor. É a forma mais rápida de gerar receita com IA, porque trabalha com contatos que já conhecem a sua empresa.",
@@ -636,9 +622,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["WhatsApp API oficial", "E-mail", "RD Station", "HubSpot", "Pipedrive", "ERPs e sistemas de gestão", "Planilhas"],
     pricing: {
-      from: 4500,
-      prefix: "A partir de",
-      suffix: "por campanha",
       timeline: "1 a 2 semanas",
       details: [
         "Mensagens de marketing pagas pela empresa, direto à Meta.",
@@ -670,7 +653,7 @@ export const services: ServicePage[] = [
     featured: true,
     title: "Automação de Documentos com IA para Empresas",
     metaDescription:
-      "IA que lê, extrai e organiza dados de notas, contratos e PDFs, e gera documentos a partir de modelos. Menos digitação, menos erro. Implantação a partir de R$ 12.000.",
+      "IA que lê, extrai e organiza dados de notas, contratos e PDFs, e gera documentos a partir de modelos. Menos digitação, menos erro. Investimento sob consulta.",
     h1: "Automação de Documentos com IA: da leitura ao lançamento, sem digitar",
     answer:
       "A automação de documentos com IA lê notas fiscais, contratos, PDFs e formulários, extrai os dados, valida e lança nos seus sistemas, além de gerar documentos a partir de modelos. Elimina a digitação manual, reduz erros e libera horas da equipe. Ideal para contabilidades, escritórios de advocacia, clínicas e empresas que processam grandes volumes de documentos.",
@@ -697,8 +680,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["E-mail", "Google Drive", "ERPs", "Sistemas contábeis", "Sistemas jurídicos", "Planilhas", "Assinatura digital"],
     pricing: {
-      from: 12000,
-      prefix: "Implantação a partir de",
       timeline: "3 a 6 semanas, conforme volume e complexidade",
       details: [
         "Inclui sustentação mensal.",
@@ -728,7 +709,7 @@ export const services: ServicePage[] = [
     icon: "book",
     title: "Agente de Conhecimento Interno com IA para Empresas",
     metaDescription:
-      "Um assistente de IA treinado nos manuais, processos e contratos da sua empresa, que responde à equipe citando a fonte. A partir de R$ 10.000.",
+      "Um assistente de IA treinado nos manuais, processos e contratos da sua empresa, que responde à equipe citando a fonte. Investimento sob consulta.",
     h1: "Agente de Conhecimento Interno: a resposta certa, com a fonte, em segundos",
     answer:
       "O Agente de Conhecimento Interno é um assistente de IA treinado nos documentos da sua empresa — manuais, processos, políticas e contratos — que responde às perguntas da equipe em linguagem natural e sempre cita a fonte. Reduz o tempo de busca, acelera o treinamento de novos colaboradores e diminui a dependência de quem “sabe onde está”.",
@@ -757,8 +738,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["Google Drive", "SharePoint", "OneDrive", "Notion", "Confluence", "PDFs", "Slack", "Microsoft Teams"],
     pricing: {
-      from: 10000,
-      prefix: "Implantação a partir de",
       timeline: "3 a 5 semanas",
       details: ["Inclui sustentação mensal.", "Recomendamos IA Privada quando o acervo contém dados sensíveis."],
     },
@@ -785,7 +764,7 @@ export const services: ServicePage[] = [
     icon: "plug",
     title: "Integração de Sistemas para Empresas",
     metaDescription:
-      "Conectamos ERP, CRM, planilhas, APIs e sistemas legados para que os dados fluam sozinhos, sem retrabalho nem divergência. A partir de R$ 4.000.",
+      "Conectamos ERP, CRM, planilhas, APIs e sistemas legados para que os dados fluam sozinhos, sem retrabalho nem divergência. Investimento sob consulta.",
     h1: "Integração de Sistemas: o dado digitado uma vez, disponível em todo lugar",
     answer:
       "A Integração de Sistemas conecta ERP, CRM, planilhas, e-commerce, APIs e sistemas legados para que as informações fluam automaticamente entre eles. Acaba com a digitação dupla, com dados divergentes e com o “exporta, ajusta e importa”. Ideal para empresas que usam vários sistemas que não conversam entre si.",
@@ -813,8 +792,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["Omie", "Bling", "Tiny", "TOTVS", "SAP (via API)", "RD Station", "HubSpot", "Shopify", "WooCommerce", "Google Sheets", "Bancos de dados"],
     pricing: {
-      from: 4000,
-      prefix: "Integrações intermediárias a partir de",
       timeline: "1 a 3 semanas",
       details: [
         "Integrações complexas (sistemas legados sem API, alto volume) são orçadas após o Diagnóstico.",
@@ -844,7 +821,7 @@ export const services: ServicePage[] = [
     icon: "cog",
     title: "Automação de Processos Sob Medida com n8n e Agentes de IA",
     metaDescription:
-      "Fluxos de automação sob medida em n8n e agentes operacionais com IA para o processo específico da sua empresa. A partir de R$ 4.000.",
+      "Fluxos de automação sob medida em n8n e agentes operacionais com IA para o processo específico da sua empresa. Investimento sob consulta.",
     h1: "Automação de Processos: o seu processo, rodando sozinho, do jeito que ele é",
     answer:
       "Construímos fluxos de automação sob medida, em n8n e com agentes de IA, para o processo específico da sua empresa: aprovações, cobranças, onboarding, relatórios e ordens de serviço. Da automação intermediária ao agente operacional que decide e age. Ideal para processos repetitivos que hoje dependem de planilha, e-mail e memória.",
@@ -872,13 +849,11 @@ export const services: ServicePage[] = [
     ],
     integrations: ["n8n", "Google Workspace", "Microsoft 365", "ERPs", "CRMs", "WhatsApp API oficial", "E-mail", "Planilhas", "APIs"],
     pricing: {
-      from: 4000,
-      prefix: "A partir de",
       timeline: "2 a 5 semanas, conforme o processo",
       details: ["Inclui sustentação mensal.", "Contas do n8n e dos provedores em nome da sua empresa."],
       tiers: [
-        { name: "Automação intermediária", from: 4000, note: "Fluxos com regras claras e integrações entre sistemas." },
-        { name: "Automação avançada (agente operacional)", from: 10000, note: "Agente de IA que interpreta, decide e age, com revisão humana." },
+        { name: "Automação intermediária", note: "Fluxos com regras claras e integrações entre sistemas." },
+        { name: "Automação avançada (agente operacional)", note: "Agente de IA que interpreta, decide e age, com revisão humana." },
       ],
     },
     security: "Execução com logs, credenciais protegidas, contas em nome da sua empresa e fila de revisão para decisões sensíveis.",
@@ -907,7 +882,7 @@ export const services: ServicePage[] = [
     featured: true,
     title: "IA Privada para Empresas | Dados que não saem do seu controle",
     metaDescription:
-      "IA rodando em ambiente privado, sem expor os dados da sua empresa. Ideal para jurídico e saúde. Governança, LGPD e controle total. Projetos a partir de R$ 20.000.",
+      "IA rodando em ambiente privado, sem expor os dados da sua empresa. Ideal para jurídico e saúde. Governança, LGPD e controle total. Investimento sob consulta.",
     h1: "IA Privada: toda a inteligência, nenhum vazamento de dados",
     answer:
       "IA privada é o uso de inteligência artificial em um ambiente controlado pela empresa, em que os dados não são usados para treinar modelos de terceiros nem saem do seu domínio. Permite aplicar IA a documentos, atendimento e análise mesmo com informações confidenciais. Ideal para escritórios de advocacia, clínicas e empresas que lidam com dados sensíveis e precisam cumprir a LGPD.",
@@ -920,12 +895,12 @@ export const services: ServicePage[] = [
       {
         name: "IA em Nuvem Privada",
         text: "Modelos de ponta via provedor corporativo, com contrato de não retenção de dados. Atende à maioria dos casos regulados, com o melhor custo-benefício.",
-        price: "A partir de R$ 20.000",
+        price: "Sob consulta",
       },
       {
         name: "IA Dedicada / On-premise",
         text: "Modelo aberto rodando em servidor próprio ou dedicado, para quando a exigência é máxima.",
-        price: "A partir de R$ 45.000 + infraestrutura (GPU)",
+        price: "Sob consulta",
       },
     ],
     steps: [
@@ -945,15 +920,13 @@ export const services: ServicePage[] = [
     ],
     integrations: ["Microsoft Azure", "Google Cloud", "AWS", "Modelos abertos", "Google Drive", "SharePoint", "Sistemas jurídicos", "Prontuários eletrônicos"],
     pricing: {
-      from: 20000,
-      prefix: "A partir de",
       details: [
         "Inclui sustentação mensal.",
         "A infraestrutura de GPU, quando necessária, é repassada.",
       ],
       tiers: [
-        { name: "Nuvem privada", from: 20000 },
-        { name: "Dedicada / on-premise", from: 45000, note: "Mais a infraestrutura (GPU)." },
+        { name: "Nuvem privada" },
+        { name: "Dedicada / on-premise", note: "Mais a infraestrutura (GPU)." },
       ],
     },
     security: "É o núcleo desta solução: não retenção de dados, controle de acesso, logs e conformidade com a LGPD.",
@@ -979,7 +952,7 @@ export const services: ServicePage[] = [
     icon: "shield",
     title: "Governança de IA e LGPD para Empresas",
     metaDescription:
-      "Política de uso de IA, mapeamento de riscos, adequação à LGPD, controles e logs para empresas que já usam IA. A partir de R$ 6.000.",
+      "Política de uso de IA, mapeamento de riscos, adequação à LGPD, controles e logs para empresas que já usam IA. Investimento sob consulta.",
     h1: "Governança & Segurança de IA: regras claras, risco sob controle",
     answer:
       "A Governança de IA organiza como a sua empresa usa inteligência artificial: política de uso, mapeamento de riscos, adequação à LGPD, controles de acesso e registros para auditoria. É o ponto de partida ideal para empresas em que a equipe já usa IA de forma informal e a diretoria precisa de segurança para avançar.",
@@ -1007,8 +980,6 @@ export const services: ServicePage[] = [
     ],
     integrations: ["Google Workspace", "Microsoft 365", "ChatGPT Enterprise / Team", "Claude for Work", "Gemini para empresas", "SSO corporativo"],
     pricing: {
-      from: 6000,
-      prefix: "A partir de",
       timeline: "3 a 4 semanas",
       details: [
         "Trabalhamos junto com o jurídico ou o DPO da sua empresa na parte legal.",

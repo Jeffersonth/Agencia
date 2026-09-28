@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getGuide } from "@/content/articles";
 import { getHub, getService, serviceHref, services } from "@/content/solutions";
 import { breadcrumbSchema, faqSchema, graph, pageMetadata, serviceSchema } from "@/lib/seo";
-import { brl } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { Badge, Card, Container, Section, SectionHeading, TextLink } from "@/components/ui";
 import {
@@ -58,7 +57,7 @@ export default async function ServicePage({ params }: PageProps<"/solucoes/[solu
     <>
       <JsonLd
         data={graph(
-          serviceSchema({ name: service.name, description: service.answer, path, price: service.pricing.from, serviceType: service.title }),
+          serviceSchema({ name: service.name, description: service.answer, path, serviceType: service.title }),
           faqSchema(service.faq),
           breadcrumbSchema(crumbs),
         )}
@@ -73,9 +72,7 @@ export default async function ServicePage({ params }: PageProps<"/solucoes/[solu
         actions={<DiagnosticActions secondary={{ href: "#investimento", label: "Prazo e investimento" }} />}
         aside={
           <div className="mt-7 flex flex-wrap gap-2">
-            <Badge tone="gray">
-              {service.pricing.prefix ?? "A partir de"} {brl(service.pricing.from)}
-            </Badge>
+            <Badge tone="gray">Investimento sob consulta</Badge>
             {service.pricing.timeline && <Badge tone="gray">Entrega em {service.pricing.timeline}</Badge>}
             <Badge tone="green">Sustentação mensal inclusa</Badge>
           </div>

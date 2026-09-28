@@ -77,7 +77,6 @@ export function Footer() {
             { label: "Método", href: "/metodo/" },
             { label: "Segurança e LGPD", href: "/seguranca-e-lgpd/" },
             { label: "Cases", href: "/cases/" },
-            { label: "Investimento", href: "/investimento/" },
             { label: "Conteúdo e guias", href: "/conteudo/" },
             { label: "Ferramentas gratuitas", href: "/ferramentas/" },
             { label: "Contato", href: "/contato/" },

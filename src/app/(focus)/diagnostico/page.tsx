@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { BadgePercent, Filter, ShieldCheck } from "lucide-react";
 import { breadcrumbSchema, faqSchema, graph, pageMetadata, serviceSchema } from "@/lib/seo";
-import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { Card, Section, SectionHeading } from "@/components/ui";
 import { Checklist, FAQList, WhatsAppCard } from "@/components/sections";
@@ -17,7 +16,7 @@ const answer =
 export const metadata: Metadata = pageMetadata({
   title: "Diagnóstico de IA & Automação para Empresas",
   description:
-    "Mapeamos seus processos, apontamos onde a IA gera mais retorno e entregamos um plano com estimativa de ROI em 7 dias. A partir de R$ 2.500, 100% creditável no projeto.",
+    "Mapeamos seus processos, apontamos onde a IA gera mais retorno e entregamos um plano com estimativa de ROI em 7 dias. Investimento sob consulta, 100% creditável no projeto.",
   path,
 });
 
@@ -55,7 +54,7 @@ export default function DiagnosticoPage() {
   const crumbs = [{ name: "Diagnóstico", path }];
   return (
     <>
-      <JsonLd data={graph(serviceSchema({ name: "Diagnóstico de IA & Automação", description: answer, path, price: 2500 }), faqSchema(faq), breadcrumbSchema(crumbs))} />
+      <JsonLd data={graph(serviceSchema({ name: "Diagnóstico de IA & Automação", description: answer, path }), faqSchema(faq), breadcrumbSchema(crumbs))} />
 
       <section className="relative text-white">
         <div className="container-site grid items-start gap-12 pb-20 pt-6 md:pt-10 lg:grid-cols-[1fr_0.95fr] lg:gap-16">
@@ -119,13 +118,13 @@ export default function DiagnosticoPage() {
             offers={[
               {
                 name: "Essencial",
-                price: "a partir de R$ 2.500",
+                price: "Sob consulta",
                 text: "Foco na frente com maior potencial de retorno.",
                 features: ["Mapeamento de uma frente (ex.: atendimento ou vendas)", "Oportunidades priorizadas", "Estimativa de ROI", "Proposta fechada + reunião"],
               },
               {
                 name: "Completo",
-                price: "a partir de R$ 5.000",
+                price: "Sob consulta",
                 text: "Toda a operação, com roteiro de implantação.",
                 highlight: true,
                 badge: "Mais completo",

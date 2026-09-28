@@ -145,7 +145,7 @@ export function RoiCalculator() {
             </div>
           </dl>
           <p className="mt-6 text-xs text-white/50">
-            * Considerando a implantação de um Agente de IA para WhatsApp a partir de {brl(IMPLANTACAO_AGENTE)}, sem incluir sustentação e consumo.
+            * Considerando a implantação de um Agente de IA para WhatsApp (investimento sob consulta), sem incluir sustentação e consumo.
             Estimativa ilustrativa, não é promessa de resultado.
           </p>
         </div>

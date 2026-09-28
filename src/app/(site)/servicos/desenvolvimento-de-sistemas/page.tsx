@@ -181,7 +181,7 @@ const faq = [
   { q: "Vocês desenvolvem MVP?", a: "Sim. O MVP é estruturado para validar a hipótese central do produto com um escopo responsável, evitando investir cedo demais em funcionalidades que ainda não foram validadas." },
   { q: "Vocês também criam sistemas internos?", a: "Sim. Além de SaaS, desenvolvemos sistemas corporativos, portais, áreas do cliente, dashboards e ferramentas internas sob medida." },
   { q: "Todo projeto começa com Discovery?", a: "Para projetos de software com escopo relevante, o Discovery é a etapa recomendada e pode ser obrigatória antes de um orçamento fechado. Ele reduz a incerteza sobre fluxos, requisitos, integrações e complexidade." },
-  { q: "Quanto custa desenvolver um SaaS?", a: "Depende de escopo, regras, perfis, integrações, arquitetura, UX/UI, billing, IA e infraestrutura. A página apresenta faixas de referência, mas o valor definitivo é definido após o Discovery." },
+  { q: "Quanto custa desenvolver um SaaS?", a: "Investimento sob consulta. Depende de escopo, regras, perfis, integrações, arquitetura, UX/UI, billing, IA e infraestrutura — o valor definitivo é definido após o Discovery." },
   { q: "Quanto tempo leva para desenvolver?", a: "Depende do produto. MVPs menores podem ser entregues em fases mais curtas; plataformas com múltiplos módulos e integrações exigem cronogramas maiores. O roadmap é definido após o Discovery." },
   { q: "O código fica comigo?", a: "As condições de propriedade são definidas em contrato. Nos modelos em que o cliente possui o código, o repositório e demais ativos podem ficar sob controle da empresa contratante — na prática, o repositório Git fica em nome da sua empresa desde o início." },
   { q: "Posso trocar de fornecedor depois?", a: "A arquitetura, a documentação e a propriedade podem ser estruturadas para reduzir lock-in e permitir continuidade com outro time, conforme as condições contratuais." },
@@ -204,7 +204,7 @@ export default function SistemasPage() {
   ];
   return (
     <>
-      <JsonLd data={graph(serviceSchema({ name: "Desenvolvimento de SaaS e Sistemas Sob Medida", description: answer, path, price: 25000 }), faqSchema(faq), breadcrumbSchema(crumbs))} />
+      <JsonLd data={graph(serviceSchema({ name: "Desenvolvimento de SaaS e Sistemas Sob Medida", description: answer, path }), faqSchema(faq), breadcrumbSchema(crumbs))} />
 
       <PageHero
         crumbs={crumbs}
@@ -583,21 +583,21 @@ export default function SistemasPage() {
           id="modelos"
           eyebrow="Como começar"
           title="Diferentes estágios exigem diferentes formas de construção."
-          text="Faixas de referência para planejar. O valor real depende do Discovery — escopo, integrações, riscos, requisitos e complexidade."
+          text="Investimento sob consulta, definido conforme o Discovery — escopo, integrações, riscos, requisitos e complexidade."
         />
         <div className="mt-12">
           <OfferCards
             columns={4}
             offers={[
-              { name: "Discovery + Protótipo", price: "R$ 6.000 – 12.000", text: "Transforme uma ideia ou processo em escopo validado antes de investir no desenvolvimento." },
-              { name: "MVP / Sistema Inicial", price: "R$ 25.000 – 50.000", text: "Valide uma proposta, digitalize um processo principal ou lance uma primeira versão utilizável." },
-              { name: "SaaS", price: "a partir de R$ 50.000", text: "Produto para múltiplos clientes, com arquitetura de produto, autenticação, planos, cobrança e evolução.", highlight: true, badge: "Mais completo" },
-              { name: "Sistema Corporativo com IA", price: "R$ 60.000 – 150.000", text: "Múltiplos módulos, integrações, dados, agentes e automações dentro da operação." },
+              { name: "Discovery + Protótipo", price: "Sob consulta", text: "Transforme uma ideia ou processo em escopo validado antes de investir no desenvolvimento." },
+              { name: "MVP / Sistema Inicial", price: "Sob consulta", text: "Valide uma proposta, digitalize um processo principal ou lance uma primeira versão utilizável." },
+              { name: "SaaS", price: "Sob consulta", text: "Produto para múltiplos clientes, com arquitetura de produto, autenticação, planos, cobrança e evolução.", highlight: true, badge: "Mais completo" },
+              { name: "Sistema Corporativo com IA", price: "Sob consulta", text: "Múltiplos módulos, integrações, dados, agentes e automações dentro da operação." },
             ]}
           />
         </div>
         <p className="mt-6 rounded-2xl border border-line bg-mist p-5 text-[0.95rem] text-slate">
-          <strong className="text-ink">Sustentação (depois do go-live):</strong> monitoramento, correções, atualizações, segurança e pequenas evoluções — cerca de 1,5% do valor do projeto por mês, com mínimo de R$ 1.500. Modelo, SLA e escopo confirmados na proposta.
+          <strong className="text-ink">Sustentação (depois do go-live):</strong> monitoramento, correções, atualizações, segurança e pequenas evoluções. Investimento sob consulta — modelo, SLA e escopo confirmados na proposta.
         </p>
       </Section>
 

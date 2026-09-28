@@ -57,13 +57,10 @@ export type VisualName =
 
 export type SolutionSlug = "atendimento-inteligente" | "vendas-e-receita" | "operacoes" | "ia-corporativa";
 
-export type PriceTier = { name: string; from: number; suffix?: string; note?: string };
+export type PriceTier = { name: string; note?: string };
 
+/** Investimento sempre sob consulta: nenhum valor numérico é publicado no site. */
 export type Pricing = {
-  /** Valor de entrada ("a partir de"). */
-  from: number;
-  prefix?: string;
-  suffix?: string;
   timeline?: string;
   details: string[];
   tiers?: PriceTier[];

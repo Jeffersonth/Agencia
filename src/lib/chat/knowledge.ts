@@ -3,7 +3,7 @@ import { sectors } from "@/content/sectors";
 import { comparisons, guides } from "@/content/articles";
 import { glossary } from "@/content/glossary";
 import { methodSteps } from "@/content/method";
-import { brl, site, whatsappLink } from "@/lib/site";
+import { site, whatsappLink } from "@/lib/site";
 
 /**
  * Base de conhecimento do assistente do site, gerada a partir do mesmo conteúdo
@@ -24,7 +24,7 @@ function knowledge() {
   push(
     "## Diagnóstico (ponto de partida de todo projeto) — /diagnostico/",
     "Mapeia processos, aponta onde IA e automação geram mais retorno e entrega um plano com estimativa de ROI e proposta fechada em até 7 dias.",
-    "Diagnóstico Essencial: a partir de R$ 2.500, foco em uma frente. Diagnóstico Completo: a partir de R$ 5.000, toda a operação com roteiro por fases e avaliação de segurança e LGPD.",
+    "Diagnóstico Essencial: foco em uma frente. Diagnóstico Completo: toda a operação, com roteiro por fases e avaliação de segurança e LGPD. Investimento sob consulta, definido conforme o escopo.",
     "O valor é 100% creditado no projeto se o cliente seguir em até 30 dias. O cliente não é obrigado a contratar; o plano é dele.",
     "Planos de sustentação mensal (Essencial, Profissional, Enterprise): preço sob proposta, definido no Diagnóstico.",
   );
@@ -39,13 +39,11 @@ function knowledge() {
     push(`### ${h.name} — /solucoes/${h.slug}/`, h.answer);
     for (const s of services.filter((x) => x.solution === h.slug)) {
       const p = s.pricing;
-      const price = `${p.prefix ?? "A partir de"} ${brl(p.from)}${p.suffix ? ` ${p.suffix}` : ""}`;
-      const tiers = p.tiers?.map((t) => `${t.name}: a partir de ${brl(t.from)}${t.note ? ` (${t.note})` : ""}`).join("; ");
       push(
         `#### ${s.name} — ${serviceHref(s)}`,
         s.answer,
         `Para quem é: ${s.forWho.join(" ")}`,
-        `Investimento: ${price}.${tiers ? ` Faixas: ${tiers}.` : ""}${p.timeline ? ` Prazo típico: ${p.timeline}.` : ""} ${p.details.join(" ")}`,
+        `Investimento: sob consulta, definido conforme o escopo.${p.timeline ? ` Prazo típico: ${p.timeline}.` : ""} ${p.details.join(" ")}`,
         `Integrações comuns: ${s.integrations.join(", ")}.`,
         `Segurança: ${s.security}`,
         ...s.faq.map((f) => `P: ${f.q} R: ${f.a}`),
@@ -55,10 +53,10 @@ function knowledge() {
 
   push(
     "## Serviços complementares",
-    "- Criação de Sites — /servicos/criacao-de-sites/: landing page a partir de R$ 3.500; site institucional a partir de R$ 7.500; e-commerce a partir de R$ 18.000; portais a partir de R$ 20.000; manutenção R$ 390 ou R$ 790 por mês.",
-    "- SEO e GEO — /servicos/seo-e-geo/: Auditoria de Visibilidade em IA R$ 1.500 ou R$ 2.800; pacote GEO na criação do site a partir de R$ 2.000; planos mensais de R$ 1.800 a R$ 5.500 (mínimo 6 meses).",
-    "- Desenvolvimento de Sistemas — /servicos/desenvolvimento-de-sistemas/: discovery R$ 6.000 a R$ 12.000; MVP/sistema interno R$ 25.000 a R$ 50.000; sistema corporativo com IA R$ 60.000 a R$ 150.000; SaaS a partir de R$ 50.000.",
-    "- Desenvolvimento de Aplicativos — /servicos/desenvolvimento-de-aplicativos/: app iOS e Android a partir de R$ 40.000; app + sistema web a partir de R$ 80.000.",
+    "- Criação de Sites — /servicos/criacao-de-sites/: landing page, site institucional, e-commerce ou portal. Investimento sob consulta; manutenção mensal opcional (Site Gerenciado ou Site Pro).",
+    "- SEO e GEO — /servicos/seo-e-geo/: auditoria estratégica, implementação e planos mensais contínuos (mínimo 6 meses). Investimento sob consulta.",
+    "- Desenvolvimento de Sistemas — /servicos/desenvolvimento-de-sistemas/: Discovery, MVP/sistema inicial, SaaS ou sistema corporativo com IA. Investimento sob consulta, definido após o Discovery.",
+    "- Desenvolvimento de Aplicativos — /servicos/desenvolvimento-de-aplicativos/: app iOS e Android, com ou sem sistema web. Investimento sob consulta, definido após o Discovery.",
   );
 
   out.push("## Setores", "");

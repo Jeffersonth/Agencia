@@ -647,7 +647,7 @@ export default function HomePage() {
       </Section>
 
       {/* 5 — Método */}
-      <section aria-labelledby="metodo" className="bg-liquid on-dark relative overflow-hidden py-20 text-white md:py-28">
+      <section aria-labelledby="metodo" className="bg-liquid on-dark relative overflow-hidden py-14 text-white md:py-20">
         {/* Imagem de fundo (cérebro neural) + camadas de legibilidade */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

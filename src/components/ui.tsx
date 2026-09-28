@@ -34,7 +34,7 @@ export function Section({
           ? "bg-white"
           : "bg-mist";
   return (
-    <section id={id} aria-labelledby={labelledBy} className={cx("relative overflow-hidden py-20 md:py-28", toneClass, className)}>
+    <section id={id} aria-labelledby={labelledBy} className={cx("relative overflow-hidden py-14 md:py-20", toneClass, className)}>
       <Container className="relative">{children}</Container>
     </section>
   );

@@ -23,7 +23,7 @@ export default function SolucoesPage() {
         eyebrow="IA, Agentes & Automação"
         title="Soluções de IA que trabalham dentro da sua operação."
         answer="Construímos agentes de IA e automações em quatro frentes: atendimento, vendas, operações e IA corporativa privada. Cada solução é integrada aos sistemas que você já usa, começa por um Diagnóstico com estimativa de ROI e é acompanhada com indicadores todo mês."
-        actions={<DiagnosticActions secondary={{ href: "/investimento/", label: "Ver investimento" }} />}
+        actions={<DiagnosticActions secondary={{ href: "/contato/", label: "Falar com a gente" }} />}
       />
 
       {hubs.map((hub, i) => (
