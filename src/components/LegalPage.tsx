@@ -9,7 +9,7 @@ export function LegalPage({ title, path, updatedAt, children }: { title: string;
       <section className="border-b border-line bg-mist">
         <Container className="pb-12 pt-8 md:pt-10">
           <Breadcrumbs items={[{ name: title, path }]} />
-          <h1 className="mt-10 text-[2.2rem] font-semibold md:text-5xl">{title}</h1>
+          <h1 className="mt-10 text-[1.5rem] font-semibold md:text-[2.125rem]">{title}</h1>
           <p className="mt-3 text-slate">Última atualização: {date}</p>
         </Container>
       </section>

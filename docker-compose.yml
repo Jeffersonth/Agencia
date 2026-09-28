@@ -7,6 +7,8 @@ services:
       args:
         NEXT_PUBLIC_SITE_URL: https://solunaia.com.br
         NEXT_PUBLIC_GA_ID: ${NEXT_PUBLIC_GA_ID:-}
+        GOOGLE_SITE_VERIFICATION: ${GOOGLE_SITE_VERIFICATION:-}
+        BING_SITE_VERIFICATION: ${BING_SITE_VERIFICATION:-}
     image: agencia-site:latest
     container_name: agencia-site
     restart: unless-stopped

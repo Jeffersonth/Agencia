@@ -64,7 +64,7 @@ export function SectionHeading({
   return (
     <div className={cx("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow && <Eyebrow className="mb-4">{eyebrow}</Eyebrow>}
-      <h2 id={id} className={cx("text-[1.9rem] font-bold md:text-[2.6rem]", dark && "text-white")}>
+      <h2 id={id} className={cx("text-[1.5rem] font-bold md:text-[2.125rem]", dark && "text-white")}>
         {title}
       </h2>
       {text && (

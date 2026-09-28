@@ -12,7 +12,10 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # A URL pública entra no HTML estático (canonicals, sitemap, Schema.org), por isso é definida no build.
 ARG NEXT_PUBLIC_SITE_URL=https://solunaia.com.br
 ARG NEXT_PUBLIC_GA_ID=
-ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID
+# Meta tags de verificação (Google Search Console, Bing Webmaster Tools): também vão no HTML estático.
+ARG GOOGLE_SITE_VERIFICATION=
+ARG BING_SITE_VERIFICATION=
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL NEXT_PUBLIC_GA_ID=$NEXT_PUBLIC_GA_ID GOOGLE_SITE_VERIFICATION=$GOOGLE_SITE_VERIFICATION BING_SITE_VERIFICATION=$BING_SITE_VERIFICATION
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build

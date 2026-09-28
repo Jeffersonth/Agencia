@@ -62,7 +62,7 @@ export default function DiagnosticoPage() {
             <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.8rem] text-white/85">
               <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Plano em até 7 dias · valor creditável
             </p>
-            <h1 className="mt-6 text-[2.35rem] leading-[1.08] text-white md:text-[3.2rem]">Descubra onde a IA gera mais retorno na sua empresa.</h1>
+            <h1 className="mt-6 text-[1.5rem] leading-[1.15] text-white md:text-[2.125rem]">Descubra onde a IA gera mais retorno na sua empresa.</h1>
             <p data-answer className="mt-6 text-lg leading-relaxed text-white/75">
               {answer}
             </p>
@@ -155,7 +155,7 @@ export default function DiagnosticoPage() {
       <Section tone="mist" labelledBy="faq-diag">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <div>
-            <h2 id="faq-diag" className="text-3xl font-semibold md:text-[2.5rem]">
+            <h2 id="faq-diag" className="text-[1.5rem] font-semibold md:text-[2.125rem]">
               Perguntas frequentes
             </h2>
             <div className="mt-8">

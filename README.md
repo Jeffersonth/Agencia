@@ -23,6 +23,7 @@ Variáveis de ambiente (veja `.env.example`):
 | `LEAD_WEBHOOK_URL` | Opcional. Também envia os leads para um webhook (n8n, Make, CRM). Sem e-mail nem webhook, os leads vão só para o log do servidor. |
 | `NEXT_PUBLIC_GA_ID` | Opcional. GA4 com banner de consentimento (Consent Mode). Sem ele, nada é carregado. |
 | `INDEXNOW_KEY` | Opcional. Publica `/indexnow-key.txt`; depois do deploy, rode `npm run indexnow` para enviar o sitemap ao IndexNow. |
+| `GOOGLE_SITE_VERIFICATION` / `BING_SITE_VERIFICATION` | Opcionais. Verificação de propriedade no Google Search Console e no Bing Webmaster Tools (meta tag). Entram no HTML no build — exigem rebuild da imagem para mudar. |
 | `ANTHROPIC_API_KEY` | Opcional. Liga o chat "Pergunte à IA" (Claude). Sem ela, o chat não aparece. |
 | `CHAT_MODEL` / `CHAT_DAILY_LIMIT` | Opcionais. Modelo do chat (padrão `claude-opus-5`) e limite de mensagens por dia (padrão 500). |
 

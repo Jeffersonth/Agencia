@@ -3,7 +3,8 @@
 # Uso (na VPS, como root):  bash deploy-vps.sh
 # Variáveis opcionais: GITHUB_TOKEN, APP_DIR, BRANCH, SKIP_GIT, LEAD_WEBHOOK_URL, NEXT_PUBLIC_GA_ID, INDEXNOW_KEY,
 #   ANTHROPIC_API_KEY (liga o chat de IA), CHAT_MODEL, CHAT_DAILY_LIMIT,
-#   SMTP_USER + SMTP_PASS (leads por e-mail; Gmail com senha de app), LEAD_EMAIL_TO
+#   SMTP_USER + SMTP_PASS (leads por e-mail; Gmail com senha de app), LEAD_EMAIL_TO,
+#   GOOGLE_SITE_VERIFICATION, BING_SITE_VERIFICATION (Search Console / Bing Webmaster Tools)
 # SKIP_GIT=1: usa o código já presente em APP_DIR (deploy pelo GitHub Actions via rsync).
 set -euo pipefail
 
@@ -104,6 +105,8 @@ set_env SMTP_PASS "${SMTP_PASS:-}"
 set_env LEAD_EMAIL_TO "${LEAD_EMAIL_TO:-}"
 set_env NEXT_PUBLIC_GA_ID "${NEXT_PUBLIC_GA_ID:-}"
 set_env INDEXNOW_KEY "${INDEXNOW_KEY:-}"
+set_env GOOGLE_SITE_VERIFICATION "${GOOGLE_SITE_VERIFICATION:-}"
+set_env BING_SITE_VERIFICATION "${BING_SITE_VERIFICATION:-}"
 set_env ANTHROPIC_API_KEY "${ANTHROPIC_API_KEY:-}"
 set_env CHAT_MODEL "${CHAT_MODEL:-}"
 set_env CHAT_DAILY_LIMIT "${CHAT_DAILY_LIMIT:-}"

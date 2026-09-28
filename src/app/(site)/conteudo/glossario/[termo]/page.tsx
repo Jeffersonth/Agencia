@@ -49,7 +49,7 @@ export default async function TermPage({ params }: PageProps<"/conteudo/glossari
           <Breadcrumbs items={crumbs} dark />
           <div className="mt-12 max-w-3xl">
             <p className="eyebrow mb-4">Glossário</p>
-            <h1 className="text-[2.2rem] leading-[1.1] text-white md:text-[3.1rem]">O que é {term.term}?</h1>
+            <h1 className="text-[1.5rem] leading-[1.15] text-white md:text-[2.125rem]">O que é {term.term}?</h1>
             <p data-answer className="mt-6 border-l-[3px] border-lilac pl-6 text-lg leading-relaxed text-white/85 md:text-xl">
               {term.definition}
             </p>

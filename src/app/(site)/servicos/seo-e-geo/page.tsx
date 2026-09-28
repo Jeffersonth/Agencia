@@ -346,7 +346,7 @@ export default function SeoGeoPage() {
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Sem atalhos</Eyebrow>
-            <h2 id="sem-atalhos" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+            <h2 id="sem-atalhos" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Otimização para IA não substitui os fundamentos.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -449,7 +449,7 @@ export default function SeoGeoPage() {
       <Section tone="aurora" labelledBy="geo-llm">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-white/80">Busca generativa</Eyebrow>
-          <h2 id="geo-llm" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+          <h2 id="geo-llm" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Sua empresa também precisa ser compreendida quando a busca deixa de ser uma lista de links.
           </h2>
           <p className="mt-5 text-lg text-white/75">
@@ -565,7 +565,7 @@ export default function SeoGeoPage() {
       <Section tone="navy" labelledBy="metodo">
         <div className="max-w-3xl">
           <Eyebrow className="mb-5 text-sky">Da auditoria à evolução</Eyebrow>
-          <h2 id="metodo" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.6rem]">
+          <h2 id="metodo" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Cinco etapas para transformar um site existente em um ativo mais competitivo.
           </h2>
         </div>
@@ -691,7 +691,7 @@ export default function SeoGeoPage() {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
             <Eyebrow className="mb-5 text-sky">Diferencial</Eyebrow>
-            <h2 id="por-que" className="text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.4rem]">
+            <h2 id="por-que" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               SEO, conteúdo, desenvolvimento e IA no mesmo contexto.
             </h2>
             <p className="mt-5 text-lg text-white/75">
@@ -726,7 +726,7 @@ export default function SeoGeoPage() {
       <Section tone="navy" labelledBy="cta-final">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow className="mb-5 text-sky">Seu site já existe. O potencial dele talvez ainda não.</Eyebrow>
-          <h2 id="cta-final" className="text-[2rem] font-bold leading-[1.1] text-white md:text-[2.7rem]">
+          <h2 id="cta-final" className="text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
             Descubra o que impede seu site de gerar mais visibilidade, autoridade e oportunidades.
           </h2>
           <p className="mt-5 text-lg text-white/75">

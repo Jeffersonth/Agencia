@@ -80,7 +80,7 @@ export function ArticleView({ article, crumbs }: { article: Article; crumbs: { n
         <div className="mt-6">
           <Badge tone="blue">{guia ? "Guia" : "Comparativo"}</Badge>
         </div>
-        <h1 className="mt-5 text-[2.1rem] leading-[1.12] md:text-[2.8rem]">{article.title}</h1>
+        <h1 className="mt-5 text-[1.5rem] leading-[1.15] md:text-[2.125rem]">{article.title}</h1>
         <div className="mt-6 flex items-center gap-3 border-b border-line pb-7">
           <span aria-hidden className="flex size-11 items-end justify-center overflow-hidden rounded-full bg-[linear-gradient(160deg,#6aa0ff,#2438b0)]">
             <span className="mb-[-12%] size-[68%] rounded-t-full bg-white/85" />

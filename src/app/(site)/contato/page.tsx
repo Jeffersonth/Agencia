@@ -46,7 +46,7 @@ export default function ContatoPage() {
         <Container className="relative grid items-start gap-12 pb-20 pt-8 md:pt-10 lg:grid-cols-[1fr_0.95fr] lg:gap-14">
           <div>
             <Breadcrumbs items={crumbs} dark />
-            <h1 className="mt-10 text-[2.35rem] leading-[1.08] text-white md:text-[3.1rem]">Vamos conversar sobre a sua operação.</h1>
+            <h1 className="mt-10 text-[1.5rem] leading-[1.15] text-white md:text-[2.125rem]">Vamos conversar sobre a sua operação.</h1>
             <p data-answer className="mt-6 text-lg leading-relaxed text-white/75">
               Atendemos empresas em todo o Brasil. Fale com a gente no WhatsApp, por e-mail ou pelo formulário. Respondemos em horário comercial.
             </p>

@@ -231,8 +231,6 @@ const techLayers: { icon: IconName; title: string; text: string }[] = [
   { icon: "code", title: "Software", text: "Interfaces e sistemas desenvolvidos quando a operação exige algo específico." },
 ];
 
-const integracoesTechs = ["WhatsApp", "HubSpot", "RD Station", "Pipedrive", "Google Workspace", "ERPs", "CRMs", "APIs", "n8n", "Make", "Bancos de Dados"];
-
 const diagnosticoInclui = [
   "Mapeamento de processos",
   "Identificação de oportunidades",
@@ -335,7 +333,7 @@ export default function HomePage() {
           <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-white/85">
             <span className="size-1.5 rounded-full bg-mint shadow-[0_0_8px_#5ce6a8]" /> Soluna IA — Agência de IA e Automação para Empresas
           </p>
-          <h1 className="mx-auto mt-7 max-w-4xl text-[2.4rem] leading-[1.08] text-white md:text-[3.7rem]">
+          <h1 className="mx-auto mt-7 max-w-4xl text-[1.5rem] leading-[1.15] text-white md:text-[2.125rem]">
             Agentes de IA e automação para empresas que querem <span className="text-gradient">operar em outro nível.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-[1.18rem]">
@@ -369,14 +367,14 @@ export default function HomePage() {
       </section>
 
       {/* 2 — Resposta direta (Sobre a Soluna IA) */}
-      <section className="relative bg-mist pt-16 md:pt-24">
+      <section className="relative bg-mist pt-16 pb-16 md:pt-24 md:pb-24">
         <span aria-hidden className="pointer-events-none absolute left-4 top-10 select-none font-[family-name:var(--font-display)] text-[14rem] font-extrabold leading-none text-violet-400/[0.06] md:left-10">
           S
         </span>
         <Container className="relative grid gap-5 lg:grid-cols-[1.35fr_1fr]">
           <div className="rounded-[1.4rem] bg-white p-8 shadow-[var(--shadow-card)] ring-1 ring-line/60 md:p-11">
             <p className="eyebrow">Sobre a {site.name}</p>
-            <h2 className="mt-4 text-[1.9rem] md:text-[2.4rem]">Uma agência brasileira especializada em IA e automação para empresas.</h2>
+            <h2 className="mt-4 text-[1.5rem] md:text-[2.125rem]">Uma agência brasileira especializada em IA e automação para empresas.</h2>
             <p data-answer className="mt-5 text-[1.05rem] leading-relaxed text-slate">
               A {site.name} é uma AI Solutions Agency que desenvolve e implementa agentes de IA, automações e soluções digitais sob medida para empresas de pequeno, médio e grande porte em todo o Brasil. Nossa especialidade é colocar inteligência artificial para trabalhar dentro da operação: atendendo clientes, qualificando oportunidades, executando tarefas, consultando informações e automatizando processos que hoje consomem o tempo da equipe. Quando o projeto exige mais, também desenvolvemos sistemas, SaaS, aplicativos, sites e estratégias de SEO e GEO.
             </p>
@@ -413,23 +411,6 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* 2.5 — Integrações */}
-      <Section tone="white" labelledBy="integracoes">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionHeading id="integracoes" align="center" title="IA que trabalha com o que sua empresa já usa." />
-          <ul className="mt-8 flex flex-wrap justify-center gap-2.5">
-            {integracoesTechs.map((t) => (
-              <li key={t} className="rounded-full border border-line-strong bg-mist px-4 py-1.5 text-[0.9rem] font-semibold text-ink">
-                {t}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-lg text-slate">
-            Não criamos mais uma ferramenta isolada. <span className="font-semibold text-ink">Integramos inteligência à operação que já existe.</span>
-          </p>
-        </div>
-      </Section>
-
       {/* 3 — O problema */}
       <Section labelledBy="problema">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
@@ -443,9 +424,12 @@ export default function HomePage() {
             </ButtonLink>
           </div>
           <ul className="grid auto-rows-fr gap-4 sm:grid-cols-2">
-            {problems.map(({ icon: I, text }) => (
+            {problems.map(({ icon: I, text }, i) => (
               <li key={text} className="flex h-full items-start gap-4 rounded-[var(--radius-card)] bg-white p-6 shadow-[var(--shadow-card)] ring-1 ring-line/60">
-                <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-400">
+                <span
+                  className="animate-icon-bob size-11 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-400"
+                  style={{ animationDelay: `${(i % 4) * 0.25}s` }}
+                >
                   <I aria-hidden className="size-5" strokeWidth={1.75} />
                 </span>
                 <p className="font-[family-name:var(--font-display)] text-[1rem] font-semibold leading-snug text-ink">{text}</p>
@@ -478,10 +462,13 @@ export default function HomePage() {
               </h3>
               <span aria-hidden className="mt-6 block h-px w-full bg-white/15" />
               <ul className="mt-7 space-y-6">
-                {coreDuo.map((h) => (
+                {coreDuo.map((h, i) => (
                   <li key={h.slug}>
                     <Link href={`/solucoes/${h.slug}/`} className="group flex gap-4">
-                      <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-white text-navy-900 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.6)]">
+                      <span
+                        className="animate-icon-bob size-12 shrink-0 items-center justify-center rounded-full bg-white text-navy-900 shadow-[0_6px_18px_-6px_rgba(0,0,0,0.6)]"
+                        style={{ animationDelay: `${i * 0.3}s` }}
+                      >
                         <Icon name={h.icon} className="size-5" />
                       </span>
                       <span className="min-w-0">
@@ -503,7 +490,7 @@ export default function HomePage() {
             href="/solucoes/operacoes/"
             className="group flex h-full flex-col rounded-[1.5rem] bg-white p-8 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
           >
-            <PlanetMark className="size-20" />
+            <PlanetMark className="size-20 animate-icon-spin-slow" />
             <h3 className="mt-6 text-[1.3rem] font-bold leading-snug">Operações e processos no automático</h3>
             <ul className="mt-5 space-y-3 text-[0.95rem] text-slate">
               {["Automação de documentos e relatórios", "Agente de conhecimento interno", "Integração entre os seus sistemas"].map((t) => (
@@ -524,7 +511,7 @@ export default function HomePage() {
             href="/solucoes/ia-corporativa/"
             className="group flex h-full flex-col rounded-[1.5rem] bg-[linear-gradient(180deg,#ffffff,#f2f0ff)] p-8 ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
           >
-            <SwirlMark className="size-20" />
+            <SwirlMark className="size-20 animate-icon-spin-slow" />
             <h3 className="mt-6 text-[1.3rem] font-bold leading-snug">IA privada, com os dados sob controle</h3>
             <ul className="mt-5 space-y-3 text-[0.95rem] text-slate">
               {["Inteligência sobre os seus dados", "Adequação à LGPD e governança", "Controle total de acessos"].map((t) => (
@@ -665,7 +652,7 @@ export default function HomePage() {
             <p className="eyebrow inline-flex items-center rounded-full border border-white/20 bg-white/[0.06] px-4 py-1.5 text-white/80 backdrop-blur-sm">
               Do diagnóstico à evolução
             </p>
-            <h2 id="metodo" className="mt-6 text-[1.9rem] font-bold leading-[1.12] text-white md:text-[2.7rem]">
+            <h2 id="metodo" className="mt-6 text-[1.5rem] font-bold leading-[1.15] text-white md:text-[2.125rem]">
               Um método em 5 etapas para transformar oportunidades de IA em soluções que funcionam na operação real.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/70">
@@ -914,14 +901,14 @@ export default function HomePage() {
 
       {/* 9 — FAQ */}
       <Section labelledBy="duvidas">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <SectionHeading id="duvidas" eyebrow="Perguntas frequentes" title="O que empresas querem saber antes de começar." text="Não encontrou o que procura? Fale com a gente no Diagnóstico." />
-            <ButtonLink href="/diagnostico/" className="mt-7">
-              Agendar diagnóstico
-            </ButtonLink>
-          </div>
-          <FAQList items={homeFaq} />
+        <div className="mx-auto max-w-2xl text-center">
+          <SectionHeading id="duvidas" align="center" eyebrow="Perguntas frequentes" title="O que empresas querem saber antes de começar." text="Não encontrou o que procura? Fale com a gente no Diagnóstico." />
+          <ButtonLink href="/diagnostico/" className="mt-7">
+            Agendar diagnóstico
+          </ButtonLink>
+        </div>
+        <div className="mt-12">
+          <FAQList items={homeFaq} columns={2} />
         </div>
       </Section>
 

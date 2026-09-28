@@ -6,6 +6,15 @@ import { Analytics } from "@/components/Analytics";
 import { graph, organizationSchema, websiteSchema } from "@/lib/seo";
 import { site } from "@/lib/site";
 
+/**
+ * Verificação de propriedade no Google Search Console e no Bing Webmaster
+ * Tools: cole o código que cada ferramenta fornece (método "tag HTML") nas
+ * variáveis de ambiente GOOGLE_SITE_VERIFICATION / BING_SITE_VERIFICATION.
+ * Sem elas, nenhuma das duas meta tags é renderizada.
+ */
+const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
+const bingVerification = process.env.BING_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -18,6 +27,10 @@ export const metadata: Metadata = {
   creator: site.name,
   formatDetection: { telephone: false },
   robots: { index: true, follow: true },
+  verification: {
+    ...(googleVerification ? { google: googleVerification } : {}),
+    ...(bingVerification ? { other: { "msvalidate.01": bingVerification } } : {}),
+  },
 };
 
 export const viewport: Viewport = {
