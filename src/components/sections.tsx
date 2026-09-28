@@ -190,24 +190,44 @@ export function Chips({ items, dark }: { items: string[]; dark?: boolean }) {
 
 /* ───────────────────────────── FAQ ───────────────────────────── */
 
-export function FAQList({ items }: { items: FAQ[] }) {
+function FAQItem({ f, open }: { f: FAQ; open: boolean }) {
+  return (
+    <details
+      open={open}
+      className="group rounded-2xl bg-white px-6 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-colors open:bg-[linear-gradient(135deg,#7c4dff,#4d7cff)] open:shadow-[var(--shadow-glow)] open:ring-0"
+    >
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 [&::-webkit-details-marker]:hidden">
+        <h3 className="font-[family-name:var(--font-display)] text-[1.02rem] font-semibold tracking-[-0.01em] group-open:text-white">{f.q}</h3>
+        <span className="shrink-0 text-signal group-open:text-white" aria-hidden>
+          <Plus className="size-5 group-open:hidden" />
+          <Minus className="hidden size-5 group-open:block" />
+        </span>
+      </summary>
+      <p className="-mt-1 pb-6 pr-8 text-[0.95rem] text-white/85">{f.a}</p>
+    </details>
+  );
+}
+
+export function FAQList({ items, columns = 1 }: { items: FAQ[]; columns?: 1 | 2 }) {
+  if (columns === 2) {
+    const mid = Math.ceil(items.length / 2);
+    const cols = [items.slice(0, mid), items.slice(mid)];
+    return (
+      <div className="grid gap-3.5 md:grid-cols-2 md:gap-x-6">
+        {cols.map((col, ci) => (
+          <div key={ci} className="space-y-3.5">
+            {col.map((f, i) => (
+              <FAQItem key={f.q} f={f} open={ci === 0 && i === 0} />
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  }
   return (
     <div className="space-y-3.5">
       {items.map((f, i) => (
-        <details
-          key={f.q}
-          open={i === 0}
-          className="group rounded-2xl bg-white px-6 shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-colors open:bg-[linear-gradient(135deg,#7c4dff,#4d7cff)] open:shadow-[var(--shadow-glow)] open:ring-0"
-        >
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 [&::-webkit-details-marker]:hidden">
-            <h3 className="font-[family-name:var(--font-display)] text-[1.02rem] font-semibold tracking-[-0.01em] group-open:text-white">{f.q}</h3>
-            <span className="shrink-0 text-signal group-open:text-white" aria-hidden>
-              <Plus className="size-5 group-open:hidden" />
-              <Minus className="hidden size-5 group-open:block" />
-            </span>
-          </summary>
-          <p className="-mt-1 pb-6 pr-8 text-[0.95rem] text-white/85">{f.a}</p>
-        </details>
+        <FAQItem key={f.q} f={f} open={i === 0} />
       ))}
     </div>
   );

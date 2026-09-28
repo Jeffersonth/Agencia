@@ -231,8 +231,6 @@ const techLayers: { icon: IconName; title: string; text: string }[] = [
   { icon: "code", title: "Software", text: "Interfaces e sistemas desenvolvidos quando a operação exige algo específico." },
 ];
 
-const integracoesTechs = ["WhatsApp", "HubSpot", "RD Station", "Pipedrive", "Google Workspace", "ERPs", "CRMs", "APIs", "n8n", "Make", "Bancos de Dados"];
-
 const diagnosticoInclui = [
   "Mapeamento de processos",
   "Identificação de oportunidades",
@@ -369,7 +367,7 @@ export default function HomePage() {
       </section>
 
       {/* 2 — Resposta direta (Sobre a Soluna IA) */}
-      <section className="relative bg-mist pt-16 md:pt-24">
+      <section className="relative bg-mist pt-16 pb-16 md:pt-24 md:pb-24">
         <span aria-hidden className="pointer-events-none absolute left-4 top-10 select-none font-[family-name:var(--font-display)] text-[14rem] font-extrabold leading-none text-violet-400/[0.06] md:left-10">
           S
         </span>
@@ -412,23 +410,6 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
-
-      {/* 2.5 — Integrações */}
-      <Section tone="white" labelledBy="integracoes">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionHeading id="integracoes" align="center" title="IA que trabalha com o que sua empresa já usa." />
-          <ul className="mt-8 flex flex-wrap justify-center gap-2.5">
-            {integracoesTechs.map((t) => (
-              <li key={t} className="rounded-full border border-line-strong bg-mist px-4 py-1.5 text-[0.9rem] font-semibold text-ink">
-                {t}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-lg text-slate">
-            Não criamos mais uma ferramenta isolada. <span className="font-semibold text-ink">Integramos inteligência à operação que já existe.</span>
-          </p>
-        </div>
-      </Section>
 
       {/* 3 — O problema */}
       <Section labelledBy="problema">
@@ -914,14 +895,14 @@ export default function HomePage() {
 
       {/* 9 — FAQ */}
       <Section labelledBy="duvidas">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <SectionHeading id="duvidas" eyebrow="Perguntas frequentes" title="O que empresas querem saber antes de começar." text="Não encontrou o que procura? Fale com a gente no Diagnóstico." />
-            <ButtonLink href="/diagnostico/" className="mt-7">
-              Agendar diagnóstico
-            </ButtonLink>
-          </div>
-          <FAQList items={homeFaq} />
+        <div className="mx-auto max-w-2xl text-center">
+          <SectionHeading id="duvidas" align="center" eyebrow="Perguntas frequentes" title="O que empresas querem saber antes de começar." text="Não encontrou o que procura? Fale com a gente no Diagnóstico." />
+          <ButtonLink href="/diagnostico/" className="mt-7">
+            Agendar diagnóstico
+          </ButtonLink>
+        </div>
+        <div className="mt-12">
+          <FAQList items={homeFaq} columns={2} />
         </div>
       </Section>
 
