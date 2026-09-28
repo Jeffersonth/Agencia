@@ -18,6 +18,7 @@ Se a VPS usa um desses painéis (os templates da Hostinger costumam vir com eles
    - `NEXT_PUBLIC_GA_ID=` (opcional)
    - `LEAD_WEBHOOK_URL=` (webhook que recebe os leads, ex.: n8n)
    - `INDEXNOW_KEY=` (opcional)
+   - `GOOGLE_SITE_VERIFICATION=` / `BING_SITE_VERIFICATION=` (opcionais; ver "Search Console e Bing Webmaster Tools" abaixo)
 5. Ative o deploy automático no push. Nesse caso o workflow `deploy.yml` não é necessário.
 
 ## Opção rápida — script (Traefik já instalado)
@@ -98,8 +99,18 @@ Com `ANTHROPIC_API_KEY` no `.env` da VPS (ou `ANTHROPIC_API_KEY=... bash scripts
 - **CI** (`.github/workflows/ci.yml`): em cada PR e no `main`, além de typecheck e build, sobe o site e roda `npm run check`, que percorre todas as páginas e falha com link interno quebrado, título ou descrição ausentes ou repetidos, canonical errado, H1 ausente ou duplicado, JSON-LD inválido, URL do sitemap fora do ar ou 404 com status errado.
 - **Monitor** (`.github/workflows/monitor.yml`): a cada 15 minutos, testa páginas principais, `sitemap.xml`, `robots.txt`, `llms.txt`, `/api/chat/` e a validade do certificado HTTPS. Se algo falhar, abre a issue "Site fora do ar" (o GitHub avisa por e-mail) e a fecha quando o site volta. Para rodar na hora: Actions → Monitor → Run workflow.
 
+## Search Console e Bing Webmaster Tools
+
+O site já vem pronto para os dois — só falta gerar o código de verificação e (re)fazer o deploy:
+
+1. **Google Search Console** ([search.google.com/search-console](https://search.google.com/search-console)): Adicionar propriedade → tipo "Domínio" ou "Prefixo do URL" (`https://solunaia.com.br`) → método **Tag HTML** → copie só o valor do atributo `content` (não a tag inteira) → defina como `GOOGLE_SITE_VERIFICATION` no `.env` da VPS (ou `GOOGLE_SITE_VERIFICATION=... bash scripts/deploy-vps.sh`) → clique em "Verificar" no Search Console depois do deploy.
+2. **Bing Webmaster Tools** ([bing.com/webmasters](https://www.bing.com/webmasters)): Adicionar site → Verificação manual → **Tag Meta** → copie o `content` → `BING_SITE_VERIFICATION` da mesma forma. (Ou use "Importar do Google Search Console", que dispensa esse passo.)
+3. Em ambos, depois de verificado: envie `/sitemap.xml`.
+
+Como essas meta tags entram no HTML estático (gerado no build), mudar as variáveis exige reconstruir a imagem — não basta reiniciar o contêiner.
+
 ## Depois do primeiro deploy
 
 1. Abrir https://solunaia.com.br e testar o formulário do Diagnóstico.
-2. Cadastrar o domínio no Google Search Console e no Bing Webmaster Tools; enviar `/sitemap.xml`.
+2. Verificar o domínio no Google Search Console e no Bing Webmaster Tools (acima) e enviar `/sitemap.xml`.
 3. Com `INDEXNOW_KEY` definido: `NEXT_PUBLIC_SITE_URL=https://solunaia.com.br INDEXNOW_KEY=... npm run indexnow`.
