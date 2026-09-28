@@ -5,7 +5,7 @@ services:
     build:
       context: .
       args:
-        NEXT_PUBLIC_SITE_URL: https://agencia.inovalabs.io
+        NEXT_PUBLIC_SITE_URL: https://solunaia.com.br
         NEXT_PUBLIC_GA_ID: ${NEXT_PUBLIC_GA_ID:-}
     image: agencia-site:latest
     container_name: agencia-site
@@ -29,7 +29,7 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=${TRAEFIK_NETWORK:-traefik}
-      - traefik.http.routers.agencia.rule=Host(`agencia.inovalabs.io`)
+      - traefik.http.routers.agencia.rule=Host(`solunaia.com.br`)
       - traefik.http.routers.agencia.entrypoints=${TRAEFIK_ENTRYPOINT:-websecure}
       - traefik.http.routers.agencia.tls=true
       - traefik.http.routers.agencia.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}

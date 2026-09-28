@@ -40,7 +40,7 @@ jobs:
         if: env.HAS_SECRETS == 'true'
         run: |
           for i in $(seq 1 20); do
-            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 https://agencia.inovalabs.io/robots.txt || true)
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 15 https://solunaia.com.br/robots.txt || true)
             [ "$code" = 200 ] && { echo "Site respondendo."; exit 0; }
             sleep 6
           done

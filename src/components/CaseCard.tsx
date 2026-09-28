@@ -12,6 +12,15 @@ export const caseTone: Record<CaseType, OrbTone> = {
   saas: "cyan",
 };
 
+const caseDeco: Record<CaseType, "chat" | "flow" | "shield" | "window" | "device" | "layers"> = {
+  ia: "chat",
+  automacao: "flow",
+  seo: "shield",
+  sites: "window",
+  apps: "device",
+  saas: "layers",
+};
+
 export function CaseStatusBadge({ status }: { status: CaseStudy["status"] }) {
   return status === "real" ? <Badge tone="green">Case real</Badge> : <Badge tone="gray">Projeto demonstrativo</Badge>;
 }
@@ -22,7 +31,7 @@ export function CaseCard({ item }: { item: CaseStudy }) {
       href={item.noDetail ? undefined : `/cases/${item.slug}/`}
       tone={caseTone[item.type]}
       tag={item.status === "real" ? "Case real" : "Demonstrativo"}
-      deco={item.type === "automacao" ? "flow" : item.type === "seo" ? "shield" : undefined}
+      deco={caseDeco[item.type]}
       meta={
         <span className="flex flex-wrap gap-1.5">
           <Badge tone="blue">{caseTypeLabels[item.type]}</Badge>

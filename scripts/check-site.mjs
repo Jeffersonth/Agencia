@@ -9,7 +9,7 @@
  */
 
 const BASE = (process.env.BASE_URL || "http://localhost:3000").replace(/\/$/, "");
-const SITE = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://agencia.inovalabs.io").replace(/\/$/, "");
+const SITE = (process.env.SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://solunaia.com.br").replace(/\/$/, "");
 
 const errors = [];
 const fail = (page, msg) => errors.push(`${page}: ${msg}`);
