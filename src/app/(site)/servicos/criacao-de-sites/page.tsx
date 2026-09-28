@@ -215,7 +215,7 @@ export default function CriacaoDeSitesPage() {
   ];
   return (
     <>
-      <JsonLd data={graph(serviceSchema({ name: "Criação de Sites Profissionais para Empresas", description: answer, path, price: 3500 }), faqSchema(faq), breadcrumbSchema(crumbs))} />
+      <JsonLd data={graph(serviceSchema({ name: "Criação de Sites Profissionais para Empresas", description: answer, path }), faqSchema(faq), breadcrumbSchema(crumbs))} />
 
       <PageHero
         crumbs={crumbs}
@@ -310,14 +310,14 @@ export default function CriacaoDeSitesPage() {
           <OfferCards
             columns={4}
             offers={[
-              { name: "Landing Page", price: "R$ 3.500", priceNote: "a partir de · 1 a 2 semanas", text: "Página focada em uma oferta, produto ou campanha — ideal para tráfego pago e geração de leads.", features: ["Copy orientada à conversão", "Formulário + WhatsApp + CRM", "Analytics e eventos de conversão", "SEO técnico e otimizações"] },
-              { name: "Site Institucional", price: "R$ 7.500", priceNote: "a partir de · 3 a 5 semanas", text: "A principal presença digital da empresa, preparada para crescer.", features: ["Arquitetura de informação e copy", "Páginas de serviço, cases e blog", "SEO técnico + conteúdo + GEO", "Analytics, integrações e painel"], highlight: true, badge: "Mais pedido" },
-              { name: "E-commerce", price: "R$ 18.000", priceNote: "a partir de · 6 a 10 semanas", text: "Lojas que unem experiência de compra, performance, aquisição e operação.", features: ["Catálogo, checkout e pagamento", "Frete, estoque e ERP", "SEO de produtos e recuperação de carrinho", "IA aplicada a vendas e atendimento"] },
-              { name: "Portais e Sites Dinâmicos", price: "R$ 20.000", priceNote: "a partir de · prazo por escopo", text: "Áreas autenticadas, grande volume de conteúdo e integrações avançadas.", features: ["Área do cliente e área restrita", "Painel administrativo e APIs", "Busca avançada e conteúdo dinâmico", "Automação e IA aplicada ao produto"] },
+              { name: "Landing Page", price: "Sob consulta", priceNote: "1 a 2 semanas", text: "Página focada em uma oferta, produto ou campanha — ideal para tráfego pago e geração de leads.", features: ["Copy orientada à conversão", "Formulário + WhatsApp + CRM", "Analytics e eventos de conversão", "SEO técnico e otimizações"] },
+              { name: "Site Institucional", price: "Sob consulta", priceNote: "3 a 5 semanas", text: "A principal presença digital da empresa, preparada para crescer.", features: ["Arquitetura de informação e copy", "Páginas de serviço, cases e blog", "SEO técnico + conteúdo + GEO", "Analytics, integrações e painel"], highlight: true, badge: "Mais pedido" },
+              { name: "E-commerce", price: "Sob consulta", priceNote: "6 a 10 semanas", text: "Lojas que unem experiência de compra, performance, aquisição e operação.", features: ["Catálogo, checkout e pagamento", "Frete, estoque e ERP", "SEO de produtos e recuperação de carrinho", "IA aplicada a vendas e atendimento"] },
+              { name: "Portais e Sites Dinâmicos", price: "Sob consulta", priceNote: "prazo por escopo", text: "Áreas autenticadas, grande volume de conteúdo e integrações avançadas.", features: ["Área do cliente e área restrita", "Painel administrativo e APIs", "Busca avançada e conteúdo dinâmico", "Automação e IA aplicada ao produto"] },
             ]}
           />
         </div>
-        <p className="mt-6 text-sm text-slate">*Valores iniciais sujeitos ao escopo. Investimento e cronograma definitivos são apresentados após a análise do projeto.</p>
+        <p className="mt-6 text-sm text-slate">Investimento e cronograma definitivos são apresentados após a análise do projeto.</p>
       </Section>
 
       {/* §5 — Padrão Soluna */}
@@ -517,13 +517,13 @@ export default function CriacaoDeSitesPage() {
               <p className="mt-2 text-[0.95rem] text-slate">{e.text}</p>
             </Card>
           ))}
-          <Card className="bg-navy text-white [&_h3]:text-white">
-            <h3 className="text-lg font-semibold">Segurança que continua sua</h3>
+          <div className="rounded-[var(--radius-card)] bg-navy p-6 text-white shadow-[var(--shadow-card)] md:p-8">
+            <h3 className="text-lg font-semibold text-white">Segurança que continua sua</h3>
             <p className="mt-2 text-[0.95rem] text-white/75">Ativos essenciais sob controle da empresa e adequação à LGPD dentro do escopo.</p>
             <TextLink href="/seguranca-e-lgpd/" className="mt-4 inline-flex text-sky">
               Como tratamos seus dados
             </TextLink>
-          </Card>
+          </div>
         </div>
       </Section>
 
@@ -587,16 +587,16 @@ export default function CriacaoDeSitesPage() {
             <Checklist items={entregaveis} className="mt-6 grid gap-x-8 sm:grid-cols-2 [&>li+li]:mt-0" />
             <p className="mt-6 text-[0.95rem] text-slate">O objetivo é que sua empresa tenha controle e clareza sobre aquilo que foi construído.</p>
           </Card>
-          <Card className="bg-navy text-white [&_h2]:text-white">
+          <div className="rounded-[var(--radius-card)] bg-navy p-6 text-white shadow-[var(--shadow-card)] md:p-8">
             <p className="mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-sky">O projeto é seu</p>
-            <h2 className="text-2xl font-semibold">Você não deveria ficar preso a uma agência.</h2>
+            <h2 className="text-2xl font-semibold text-white">Você não deveria ficar preso a uma agência.</h2>
             <p className="mt-4 text-white/75">
               Domínio, contas, ativos, código e condições de propriedade são definidos de forma transparente. Sempre que aplicável ao escopo, estruturamos os ativos essenciais sob controle da empresa contratante.
             </p>
             <p className="mt-4 font-semibold text-white">
               Você continua com a Soluna porque a parceria gera valor — não porque sair se tornou impossível.
             </p>
-          </Card>
+          </div>
         </div>
       </Section>
 
@@ -610,17 +610,14 @@ export default function CriacaoDeSitesPage() {
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { name: "Landing Page", price: "R$ 3.500", prazo: "1 a 2 semanas" },
-            { name: "Site Institucional", price: "R$ 7.500", prazo: "3 a 5 semanas" },
-            { name: "E-commerce", price: "R$ 18.000", prazo: "6 a 10 semanas" },
-            { name: "Portais e Sites Dinâmicos", price: "R$ 20.000", prazo: "prazo por escopo" },
+            { name: "Landing Page", prazo: "1 a 2 semanas" },
+            { name: "Site Institucional", prazo: "3 a 5 semanas" },
+            { name: "E-commerce", prazo: "6 a 10 semanas" },
+            { name: "Portais e Sites Dinâmicos", prazo: "prazo por escopo" },
           ].map((p) => (
             <div key={p.name} className="rounded-2xl bg-mist p-6">
               <h3 className="text-[1.05rem] font-semibold text-ink">{p.name}</h3>
-              <p className="mt-3 font-[family-name:var(--font-display)] text-2xl font-bold text-ink">
-                <span className="text-sm font-medium text-slate">a partir de </span>
-                {p.price}
-              </p>
+              <p className="mt-3 font-[family-name:var(--font-display)] text-2xl font-bold text-ink">Sob consulta</p>
               <p className="mt-2 text-sm text-slate">Prazo estimado: {p.prazo}.</p>
             </div>
           ))}
@@ -629,12 +626,12 @@ export default function CriacaoDeSitesPage() {
         <div className="mt-8 grid gap-5 lg:grid-cols-2">
           <Card>
             <p className="eyebrow mb-3">Depois do lançamento</p>
-            <h3 className="text-2xl font-semibold">Site Gerenciado <span className="ml-1 text-signal">R$ 390/mês</span></h3>
+            <h3 className="text-2xl font-semibold">Site Gerenciado <span className="ml-1 text-signal">Sob consulta</span></h3>
             <Checklist items={["Hospedagem gerenciada", "Atualizações", "Backups", "Segurança", "Monitoramento"]} className="mt-5" />
           </Card>
           <Card className="ring-2 ring-violet-400/40">
             <p className="eyebrow mb-3">Evolução contínua</p>
-            <h3 className="text-2xl font-semibold">Site Pro <span className="ml-1 text-signal">R$ 790/mês</span></h3>
+            <h3 className="text-2xl font-semibold">Site Pro <span className="ml-1 text-signal">Sob consulta</span></h3>
             <p className="mt-3 text-[0.95rem] text-slate">Tudo do Site Gerenciado, além de:</p>
             <Checklist items={["Evolução contínua", "Ajustes de conteúdo", "Melhorias de conversão", "Pequenas evoluções recorrentes"]} className="mt-4" />
           </Card>

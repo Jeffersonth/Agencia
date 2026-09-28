@@ -12,7 +12,7 @@ const answer =
 export const metadata: Metadata = pageMetadata({
   title: "Auditoria de Visibilidade em IA (ChatGPT, Gemini e Google)",
   description:
-    "Descubra como sua marca aparece no ChatGPT, Gemini, Claude, Perplexity e Google, quem é citado no seu lugar e o plano para corrigir. A partir de R$ 1.500, creditável.",
+    "Descubra como sua marca aparece no ChatGPT, Gemini, Claude, Perplexity e Google, quem é citado no seu lugar e o plano para corrigir. Investimento sob consulta, creditável.",
   path,
 });
 
@@ -31,7 +31,7 @@ export default function AuditoriaPage() {
   ];
   return (
     <>
-      <JsonLd data={graph(serviceSchema({ name: "Auditoria de Visibilidade em IA", description: answer, path, price: 1500 }), faqSchema(faq), breadcrumbSchema(crumbs))} />
+      <JsonLd data={graph(serviceSchema({ name: "Auditoria de Visibilidade em IA", description: answer, path }), faqSchema(faq), breadcrumbSchema(crumbs))} />
       <PageHero
         crumbs={crumbs}
         eyebrow="Produto de entrada · SEO e GEO"
@@ -72,8 +72,8 @@ export default function AuditoriaPage() {
           <OfferCards
             columns={2}
             offers={[
-              { name: "Essencial", price: "R$ 1.500", priceNote: "cerca de 5 dias úteis", features: ["Perguntas-chave testadas nas principais IAs", "Diagnóstico técnico do site", "Plano de ação priorizado", "Relatório em PDF"] },
-              { name: "Completa", price: "R$ 2.800", priceNote: "cerca de 10 dias úteis", highlight: true, badge: "Mais completa", features: ["Tudo da Essencial", "Análise dos concorrentes citados", "Revisão de conteúdo página a página", "Roteiro de 6 meses", "Reunião de apresentação"] },
+              { name: "Essencial", price: "Sob consulta", priceNote: "cerca de 5 dias úteis", features: ["Perguntas-chave testadas nas principais IAs", "Diagnóstico técnico do site", "Plano de ação priorizado", "Relatório em PDF"] },
+              { name: "Completa", price: "Sob consulta", priceNote: "cerca de 10 dias úteis", highlight: true, badge: "Mais completa", features: ["Tudo da Essencial", "Análise dos concorrentes citados", "Revisão de conteúdo página a página", "Roteiro de 6 meses", "Reunião de apresentação"] },
             ]}
           />
         </div>

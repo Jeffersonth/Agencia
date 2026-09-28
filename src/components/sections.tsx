@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, Check, ChevronRight, KeyRound, Lock, LogOut, Minus, Plus, ScrollText, ShieldCheck } from "lucide-react";
 import type { FAQ, ServicePage, SolutionHub, Step } from "@/content/types";
 import { serviceHref } from "@/content/solutions";
-import { brl, site, whatsappLink } from "@/lib/site";
+import { site, whatsappLink } from "@/lib/site";
 import { Badge, ButtonLink, Container, Eyebrow, Section, SectionHeading, TextLink, cx } from "@/components/ui";
 import { IconTile, WhatsAppGlyph } from "@/components/Icon";
 import { LogoMark } from "@/components/layout/Logo";
@@ -75,7 +75,7 @@ export function PageHero({
           <Orb tone="cyan" wave={false} className="animate-float pointer-events-none absolute bottom-16 right-[22%] hidden size-12 [animation-delay:2s] lg:block" />
         </>
       )}
-      <Container className="relative pb-16 pt-8 md:pb-24 md:pt-10">
+      <Container className="relative pb-12 pt-8 md:pb-20 md:pt-10">
         <div className={cx(centered && !visual && "flex justify-center")}>
           <Breadcrumbs items={crumbs} dark />
         </div>
@@ -245,9 +245,9 @@ export function CTASection({
   showWhatsApp?: boolean;
 }) {
   return (
-    <section className="bg-mist py-16 md:py-24">
+    <section className="bg-mist py-12 md:py-20">
       <Container>
-        <div className="bg-hero on-dark relative overflow-hidden rounded-[1.75rem] px-6 py-14 text-white shadow-[var(--shadow-float)] md:px-14 md:py-16">
+        <div className="bg-hero on-dark relative overflow-hidden rounded-[1.75rem] px-6 py-12 text-white shadow-[var(--shadow-float)] md:px-14 md:py-14">
           <svg aria-hidden viewBox="0 0 800 100" preserveAspectRatio="none" className="pointer-events-none absolute inset-x-0 bottom-6 h-24 w-full opacity-60">
             <path d="M0 90 C 200 60, 420 50, 800 20" fill="none" stroke="#8ab4ff" strokeOpacity="0.5" strokeWidth="1.2" />
           </svg>
@@ -259,8 +259,8 @@ export function CTASection({
                 <ButtonLink href="/diagnostico/" size="lg">
                   Agendar diagnóstico
                 </ButtonLink>
-                <ButtonLink href="/investimento/" variant="ghost-light" size="lg">
-                  Ver investimento
+                <ButtonLink href="/contato/" variant="ghost-light" size="lg">
+                  Falar com um especialista
                 </ButtonLink>
               </div>
               <p className="mt-5 text-sm text-white/50">Valor 100% creditado no projeto se você seguir em até 30 dias.</p>
@@ -397,11 +397,8 @@ export function PriceBlock({ service }: { service: Pick<ServicePage, "pricing" |
   return (
     <div className="overflow-hidden rounded-[var(--radius-card)] bg-white shadow-[var(--shadow-lift)] ring-1 ring-line/60">
       <div className="bg-hero p-7 text-white md:p-9">
-        <p className="text-sm font-medium text-white/65">{p.prefix ?? "A partir de"}</p>
-        <p className="text-gradient mt-1 w-fit font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight md:text-5xl">
-          {brl(p.from)}
-          {p.suffix && <span className="ml-2 text-lg font-medium text-white/65">{p.suffix}</span>}
-        </p>
+        <p className="text-sm font-medium text-white/65">Investimento</p>
+        <p className="text-gradient mt-1 w-fit font-[family-name:var(--font-display)] text-4xl font-bold tracking-tight md:text-5xl">Sob consulta</p>
         {p.timeline && (
           <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-sm font-medium">
             <span className="size-1.5 rounded-full bg-mint" aria-hidden /> Entrega em {p.timeline}
@@ -417,7 +414,7 @@ export function PriceBlock({ service }: { service: Pick<ServicePage, "pricing" |
                   <span className="block font-semibold">{t.name}</span>
                   {t.note && <span className="block text-sm text-slate">{t.note}</span>}
                 </span>
-                <span className="shrink-0 font-semibold text-signal">a partir de {brl(t.from)}</span>
+                <span className="shrink-0 font-semibold text-signal">Sob consulta</span>
               </li>
             ))}
           </ul>
@@ -427,7 +424,6 @@ export function PriceBlock({ service }: { service: Pick<ServicePage, "pricing" |
           <ButtonLink href="/diagnostico/" arrow>
             Receber proposta fechada
           </ButtonLink>
-          <TextLink href="/investimento/">Como cobramos</TextLink>
         </div>
       </div>
     </div>
@@ -450,9 +446,7 @@ export function ServiceCard({ service, showSolution }: { service: ServicePage; s
       <h3 className={cx("text-[1.2rem] font-bold", showSolution ? "mt-1.5" : "mt-6")}>{service.name}</h3>
       <p className="mt-2 flex-1 text-slate">{service.cardDescription}</p>
       <p className="mt-6 flex items-center justify-between border-t border-line pt-5 text-sm">
-        <span className="text-slate">
-          a partir de <strong className="font-semibold text-ink">{brl(service.pricing.from)}</strong>
-        </span>
+        <span className="font-semibold text-ink">Sob consulta</span>
         <ArrowRight aria-hidden className="size-4 text-signal transition-transform group-hover:translate-x-1" />
       </p>
     </Link>

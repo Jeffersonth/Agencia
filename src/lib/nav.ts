@@ -84,7 +84,6 @@ export const mainNav: NavGroup[] = [
       { label: "Sobre", href: "/sobre/", description: "Quem somos e quem está por trás.", icon: "users" },
       { label: "Método", href: "/metodo/", description: "Cinco etapas, zero improviso.", icon: "compass" },
       { label: "Segurança e LGPD", href: "/seguranca-e-lgpd/", description: "Seus dados continuam seus.", icon: "shield" },
-      { label: "Investimento", href: "/investimento/", description: "Faixas de preço, com clareza.", icon: "chart" },
       { label: "Contato", href: "/contato/", description: "Fale com a gente.", icon: "headset" },
     ],
   },

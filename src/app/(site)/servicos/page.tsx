@@ -25,10 +25,10 @@ const details: Record<string, string> = {
 };
 
 const prices: Record<string, string> = {
-  "/servicos/criacao-de-sites/": "a partir de R$ 3.500",
-  "/servicos/seo-e-geo/": "a partir de R$ 1.500",
-  "/servicos/desenvolvimento-de-sistemas/": "a partir de R$ 25.000",
-  "/servicos/desenvolvimento-de-aplicativos/": "a partir de R$ 40.000",
+  "/servicos/criacao-de-sites/": "Sob consulta",
+  "/servicos/seo-e-geo/": "Sob consulta",
+  "/servicos/desenvolvimento-de-sistemas/": "Sob consulta",
+  "/servicos/desenvolvimento-de-aplicativos/": "Sob consulta",
 };
 
 export default function ServicosPage() {

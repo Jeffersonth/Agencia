@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/conteudo/guias/", destination: "/conteudo/#guias", permanent: false },
       { source: "/conteudo/comparativos/", destination: "/conteudo/#comparativos", permanent: false },
+      // Página de faixas de preço descontinuada: valores agora são sempre sob consulta.
+      { source: "/investimento/", destination: "/contato/", permanent: true },
     ];
   },
   async headers() {

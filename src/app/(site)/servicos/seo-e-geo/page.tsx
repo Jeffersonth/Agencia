@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { breadcrumbSchema, faqSchema, graph, pageMetadata, serviceSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
-import { ButtonLink, Card, Eyebrow, Section, SectionHeading, TextLink } from "@/components/ui";
+import { ButtonLink, Card, Eyebrow, Section, SectionHeading } from "@/components/ui";
 import { Checklist, FAQSection, LinkCard, PageHero, Signature } from "@/components/sections";
 import { OfferCards } from "@/components/OfferCards";
 import { whatsappLink } from "@/lib/site";
@@ -215,7 +215,7 @@ export default function SeoGeoPage() {
   ];
   return (
     <>
-      <JsonLd data={graph(serviceSchema({ name: "SEO, GEO e LLM SEO", description: answer, path, price: 1500 }), faqSchema(faq), breadcrumbSchema(crumbs))} />
+      <JsonLd data={graph(serviceSchema({ name: "SEO, GEO e LLM SEO", description: answer, path }), faqSchema(faq), breadcrumbSchema(crumbs))} />
 
       <PageHero
         crumbs={crumbs}
@@ -594,12 +594,12 @@ export default function SeoGeoPage() {
             <Checklist items={entregaveis} className="mt-6 grid gap-x-8 sm:grid-cols-2 [&>li+li]:mt-0" />
             <p className="mt-6 text-[0.95rem] text-slate">A composição exata depende do diagnóstico e do contrato.</p>
           </Card>
-          <Card className="bg-navy text-white [&_h2]:text-white">
+          <div className="rounded-[var(--radius-card)] bg-navy p-6 text-white shadow-[var(--shadow-card)] md:p-8">
             <p className="mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-sky">Sem promessas vazias</p>
-            <h2 className="text-2xl font-semibold">O que não fazemos.</h2>
+            <h2 className="text-2xl font-semibold text-white">O que não fazemos.</h2>
             <p className="mt-3 text-white/70">Nenhuma agência controla os mecanismos de busca. Não prometemos:</p>
             <Checklist dark className="mt-5" items={naoFazemos} />
-          </Card>
+          </div>
         </div>
       </Section>
 
@@ -656,7 +656,7 @@ export default function SeoGeoPage() {
             <p className="eyebrow mb-3">Ponto de entrada</p>
             <h3 className="text-2xl font-semibold">Auditoria Estratégica</h3>
             <p className="mt-3 text-slate">Diagnóstico completo antes de decidir o próximo passo: auditoria técnica, de conteúdo, arquitetura, GEO/LLM SEO, mensuração, oportunidades e um roadmap priorizado.</p>
-            <p className="mt-6 text-3xl font-semibold text-navy">a partir de R$ 1.500</p>
+            <p className="mt-6 text-3xl font-semibold text-navy">Sob consulta</p>
             <p className="mt-1 text-sm text-slate">Valor creditável na contratação da implementação.</p>
             <div className="mt-6">
               <ButtonLink href="/servicos/seo-e-geo/auditoria-visibilidade-ia/" arrow>
@@ -677,9 +677,9 @@ export default function SeoGeoPage() {
           <p className="mb-6 text-sm font-semibold uppercase tracking-[0.08em] text-slate">SEO/GEO contínuo · contrato mínimo de 6 meses</p>
           <OfferCards
             offers={[
-              { name: "Presença", price: "R$ 1.800/mês", text: "Base técnica e medição.", features: ["Ajustes técnicos contínuos", "Google Business Profile", "Monitoramento de posições e citações", "Relatório mensal"] },
-              { name: "Crescimento", price: "R$ 3.200/mês", text: "Conteúdo citável todo mês.", features: ["Tudo do Presença", "Produção de conteúdo citável", "Otimização das páginas de serviço", "Links internos e dados estruturados"], highlight: true, badge: "Recomendado" },
-              { name: "Autoridade", price: "R$ 5.500/mês", text: "Presença da marca fora do site.", features: ["Tudo do Crescimento", "Comparativos e guias-pilar", "Autoridade fora do site (artigos, diretórios, LinkedIn)", "Reunião mensal de estratégia"] },
+              { name: "Presença", price: "Sob consulta", text: "Base técnica e medição.", features: ["Ajustes técnicos contínuos", "Google Business Profile", "Monitoramento de posições e citações", "Relatório mensal"] },
+              { name: "Crescimento", price: "Sob consulta", text: "Conteúdo citável todo mês.", features: ["Tudo do Presença", "Produção de conteúdo citável", "Otimização das páginas de serviço", "Links internos e dados estruturados"], highlight: true, badge: "Recomendado" },
+              { name: "Autoridade", price: "Sob consulta", text: "Presença da marca fora do site.", features: ["Tudo do Crescimento", "Comparativos e guias-pilar", "Autoridade fora do site (artigos, diretórios, LinkedIn)", "Reunião mensal de estratégia"] },
             ]}
           />
           <p className="mt-4 text-sm text-slate">Os modelos comerciais e o escopo definitivo são confirmados na proposta.</p>
@@ -713,7 +713,7 @@ export default function SeoGeoPage() {
       <Section tone="white" labelledBy="saiba-mais">
         <h2 id="saiba-mais" className="text-2xl font-semibold md:text-3xl">Saiba mais</h2>
         <div className="mt-8 grid gap-5 md:grid-cols-3">
-          <LinkCard href="/servicos/seo-e-geo/auditoria-visibilidade-ia/" meta="Produto de entrada" title="Auditoria de Visibilidade em IA" text="Como sua marca aparece hoje nas IAs. A partir de R$ 1.500, creditável." />
+          <LinkCard href="/servicos/seo-e-geo/auditoria-visibilidade-ia/" meta="Produto de entrada" title="Auditoria de Visibilidade em IA" text="Como sua marca aparece hoje nas IAs. Investimento sob consulta, creditável." />
           <LinkCard href="/conteudo/guias/geo-como-aparecer-nas-ias/" meta="Guia" title="GEO: como aparecer no ChatGPT, Gemini e Google AI Mode" />
           <LinkCard href="/ferramentas/teste-visibilidade-ia/" meta="Ferramenta gratuita" title="Teste de Visibilidade em IA" text="Um retrato rápido da prontidão técnica do seu site." />
         </div>

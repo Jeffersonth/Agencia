@@ -4,7 +4,6 @@ import { cases } from "@/content/cases";
 import { getHub, hubs, servicesOf } from "@/content/solutions";
 import { getGuide } from "@/content/articles";
 import { breadcrumbSchema, faqSchema, graph, pageMetadata, serviceSchema } from "@/lib/seo";
-import { brl } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { Container, Section, SectionHeading, TextLink } from "@/components/ui";
 import { CaseCard } from "@/components/CaseCard";
@@ -33,7 +32,6 @@ export default async function HubPage({ params }: PageProps<"/solucoes/[solucao]
     { name: hub.name, path },
   ];
   const children = servicesOf(hub.slug);
-  const minPrice = Math.min(...children.map((s) => s.pricing.from));
   const hubCases = cases.filter((c) => c.service?.startsWith(path) || c.alsoFor?.includes(hub.slug)).slice(0, 3);
   const guide = hub.guide ? getGuide(hub.guide) : undefined;
   const lead = children.find((s) => s.featured) ?? children[0];
@@ -42,7 +40,7 @@ export default async function HubPage({ params }: PageProps<"/solucoes/[solucao]
     <>
       <JsonLd
         data={graph(
-          serviceSchema({ name: hub.name, description: hub.answer, path, price: minPrice, serviceType: hub.title }),
+          serviceSchema({ name: hub.name, description: hub.answer, path, serviceType: hub.title }),
           faqSchema(hub.faq),
           breadcrumbSchema(crumbs),
         )}
@@ -53,7 +51,7 @@ export default async function HubPage({ params }: PageProps<"/solucoes/[solucao]
         title={hub.h1}
         answer={hub.answer}
         actions={<DiagnosticActions secondary={{ href: "#solucoes", label: "Ver as soluções" }} />}
-        aside={<p className="mt-6 text-sm text-slate">Projetos a partir de {brl(minPrice)} · Diagnóstico creditável no projeto</p>}
+        aside={<p className="mt-6 text-sm text-slate">Investimento sob consulta · Diagnóstico creditável no projeto</p>}
         visual={<Visual name={lead.visual} />}
       />
 
@@ -141,11 +139,11 @@ export default async function HubPage({ params }: PageProps<"/solucoes/[solucao]
       <FAQSection items={hub.faq} />
 
       {guide && (
-        <section className="bg-white pb-20">
+        <section className="bg-white pb-14 md:pb-20">
           <Container>
             <div className="grid gap-5 md:grid-cols-2">
               <LinkCard href={`/conteudo/guias/${guide.slug}/`} meta="Guia" title={guide.title} text={guide.description} />
-              <LinkCard href="/investimento/" meta="Investimento" title="Quanto custa IA e automação" text="Faixas de preço claras, do Diagnóstico à operação contínua." />
+              <LinkCard href="/diagnostico/" meta="Investimento" title="Quanto custa IA e automação" text="Cada projeto é orçado por escopo, sob consulta, a partir do Diagnóstico." />
             </div>
           </Container>
         </section>

@@ -78,10 +78,10 @@ export const guides: Article[] = [
         blocks: [
           { type: "p", text: "O custo tem três partes: implantação (o projeto), sustentação mensal (monitoramento, ajustes e evolução) e consumo (mensagens do WhatsApp, uso do modelo de IA), que deve ser pago direto pela sua empresa aos provedores." },
           { type: "ul", items: [
-            "Agente de IA para WhatsApp: implantação a partir de R$ 7.500.",
-            "SDR com IA: implantação a partir de R$ 15.000.",
-            "Automação de documentos: implantação a partir de R$ 12.000.",
-            "Agente de conhecimento interno: implantação a partir de R$ 10.000.",
+            "Agente de IA para WhatsApp: investimento sob consulta.",
+            "SDR com IA: investimento sob consulta.",
+            "Automação de documentos: investimento sob consulta.",
+            "Agente de conhecimento interno: investimento sob consulta.",
           ] },
           { type: "p", text: "O preço fechado depende das integrações e do volume, por isso todo projeto começa por um Diagnóstico, que mapeia os processos e estima o retorno." },
         ],
@@ -290,7 +290,7 @@ export const guides: Article[] = [
           { type: "ol", items: [
             "Uma intenção por URL: cada página responde a uma pergunta real.",
             "Resposta direta no topo: 40 a 60 palavras dizendo o que é, para quem e qual o resultado.",
-            "Conteúdo citável: escopo, prazos e faixas de preço claros.",
+            "Conteúdo citável: escopo, prazos e condições de contratação claros.",
             "Autoridade de entidade: quem é a empresa, quem é o fundador e onde mais a marca aparece.",
             "Base técnica: HTML renderizado no servidor, performance e dados estruturados.",
           ] },
@@ -414,7 +414,7 @@ export const guides: Article[] = [
     faq: [
       { q: "O paciente sabe que fala com uma IA?", a: "Deve saber. O agente se apresenta como assistente virtual e o paciente pode pedir para falar com a recepção a qualquer momento." },
       { q: "Funciona com o meu sistema de agenda?", a: "Se o sistema tem API, a integração é direta. Se não tem, o Google Agenda pode servir de ponte. Isso é avaliado no Diagnóstico." },
-      { q: "Quanto custa?", a: "O módulo de Agendamento Inteligente parte de R$ 3.500 e o Agente de IA para WhatsApp de R$ 7.500, com sustentação mensal." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, para o módulo de Agendamento Inteligente ou o Agente de IA para WhatsApp, com sustentação mensal." },
     ],
     related: [
       "/setores/clinicas-e-saude/",
@@ -484,7 +484,7 @@ export const guides: Article[] = [
     faq: [
       { q: "Um agente de IA pode responder dúvidas jurídicas?", a: "Não deve dar parecer. Ele acolhe, organiza as informações e agenda; a orientação jurídica é do advogado." },
       { q: "A IA pode redigir peças?", a: "Pode gerar rascunhos a partir do acervo e de modelos, sempre revisados por um advogado, de preferência em ambiente de IA privada." },
-      { q: "Quanto custa?", a: "Agente de WhatsApp a partir de R$ 7.500, automação de documentos a partir de R$ 12.000 e IA privada a partir de R$ 20.000." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, conforme o escopo: agente de WhatsApp, automação de documentos ou IA privada." },
     ],
     related: [
       "/setores/escritorios-de-advocacia/",
@@ -558,7 +558,7 @@ export const guides: Article[] = [
     faq: [
       { q: "O agente sabe responder sobre cada imóvel?", a: "Sim, quando está conectado ao catálogo da imobiliária (site, CRM imobiliário ou planilha). Pergunta que foge do catálogo vai para o corretor." },
       { q: "Funciona com os leads dos portais?", a: "Sim, desde que o portal ou o CRM permitam encaminhar os leads por integração. Isso é avaliado no Diagnóstico." },
-      { q: "Quanto custa?", a: "Agente de IA para WhatsApp a partir de R$ 7.500, SDR com IA a partir de R$ 15.000 e CRM e pipeline a partir de R$ 5.000." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, conforme o escopo: Agente de IA para WhatsApp, SDR com IA ou CRM e pipeline." },
     ],
     related: [
       "/setores/imobiliarias/",
@@ -629,7 +629,7 @@ export const guides: Article[] = [
     faq: [
       { q: "A IA substitui o sistema contábil?", a: "Não. Ela trabalha em volta do sistema que o escritório já usa, por integração ou importação de arquivos." },
       { q: "O agente pode responder dúvidas tributárias dos clientes?", a: "Ele responde sobre prazos, documentos e status. Orientação tributária é papel do contador, e o agente transfere a conversa." },
-      { q: "Quanto custa?", a: "Automação de documentos a partir de R$ 12.000, agente de conhecimento a partir de R$ 10.000 e automação de processos a partir de R$ 4.000." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, conforme o escopo: automação de documentos, agente de conhecimento ou automação de processos." },
     ],
     related: [
       "/setores/contabilidade/",
@@ -706,7 +706,7 @@ export const guides: Article[] = [
     faq: [
       { q: "Funciona com a minha plataforma?", a: "Integramos com plataformas que oferecem API, como Shopify, WooCommerce, Nuvemshop e VTEX. Confirmamos a sua no Diagnóstico." },
       { q: "Posso mandar mensagem de carrinho abandonado para todos?", a: "Não. Só para quem consentiu em receber mensagens, sempre com opção de sair." },
-      { q: "Quanto custa?", a: "Agente de IA para WhatsApp a partir de R$ 7.500, funis automatizados a partir de R$ 4.000 e integração de sistemas a partir de R$ 4.000." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, conforme o escopo: Agente de IA para WhatsApp, funis automatizados ou integração de sistemas." },
     ],
     related: [
       "/setores/e-commerce/",
@@ -775,7 +775,7 @@ export const guides: Article[] = [
     faq: [
       { q: "O agente conversa com os alunos?", a: "Na educação básica, com pais e responsáveis. Em cursos livres e no ensino superior, pode atender o próprio aluno maior de idade." },
       { q: "Funciona com o sistema de gestão escolar?", a: "Se o sistema tem API, a integração é direta. Se não tem, dá para começar pelo atendimento de matrículas e pela cobrança com base em planilha." },
-      { q: "Quanto custa?", a: "Agente de IA para WhatsApp a partir de R$ 7.500, agendamento inteligente a partir de R$ 3.500 e automação de processos a partir de R$ 4.000." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, conforme o escopo: Agente de IA para WhatsApp, agendamento inteligente ou automação de processos." },
     ],
     related: [
       "/setores/educacao/",
@@ -790,9 +790,9 @@ export const guides: Article[] = [
     title: "Quanto custa um agente de IA para empresas",
     metaTitle: "Quanto Custa um Agente de IA: Implantação, Mensalidade e Custos de Uso",
     description:
-      "Do que é feito o custo de um agente de IA (implantação, sustentação mensal, consumo de IA e de WhatsApp), faixas de preço por tipo de projeto e como calcular se o investimento se paga.",
+      "Do que é feito o custo de um agente de IA (implantação, sustentação mensal, consumo de IA e de WhatsApp) e como calcular se o investimento se paga.",
     answer:
-      "O custo de um agente de IA tem três partes: a implantação, paga uma vez (na Soluna IA, a partir de R$ 7.500 para um agente de WhatsApp e a partir de R$ 15.000 para um SDR com IA); a sustentação mensal, que mantém o agente monitorado e atualizado; e o consumo, pago direto aos provedores (mensagens da Meta e uso do modelo de IA). O investimento se paga quando as horas liberadas e as vendas recuperadas superam esse total.",
+      "O custo de um agente de IA tem três partes: a implantação, paga uma vez (na Soluna IA, sob consulta, conforme o tipo de agente e o escopo); a sustentação mensal, que mantém o agente monitorado e atualizado; e o consumo, pago direto aos provedores (mensagens da Meta e uso do modelo de IA). O investimento se paga quando as horas liberadas e as vendas recuperadas superam esse total.",
     updatedAt: UPDATED,
     readingMinutes: 7,
     sections: [
@@ -812,18 +812,18 @@ export const guides: Article[] = [
       },
       {
         id: "faixas",
-        heading: "Faixas de implantação por tipo de agente",
+        heading: "Implantação por tipo de agente",
         blocks: [
-          { type: "table", head: ["Projeto", "Implantação a partir de", "Prazo típico"], rows: [
-            ["Assistente de IA para o site", "R$ 3.500", "1 a 2 semanas"],
-            ["Agendamento inteligente", "R$ 3.500", "1 a 2 semanas"],
-            ["Agente de IA para WhatsApp", "R$ 7.500", "2 a 3 semanas"],
-            ["Agente de conhecimento interno", "R$ 10.000", "3 a 5 semanas"],
-            ["Automação de documentos", "R$ 12.000", "3 a 6 semanas"],
-            ["SDR com IA", "R$ 15.000", "3 a 5 semanas"],
-            ["IA privada (nuvem privada)", "R$ 20.000", "Conforme o escopo"],
+          { type: "table", head: ["Projeto", "Investimento", "Prazo típico"], rows: [
+            ["Assistente de IA para o site", "Sob consulta", "1 a 2 semanas"],
+            ["Agendamento inteligente", "Sob consulta", "1 a 2 semanas"],
+            ["Agente de IA para WhatsApp", "Sob consulta", "2 a 3 semanas"],
+            ["Agente de conhecimento interno", "Sob consulta", "3 a 5 semanas"],
+            ["Automação de documentos", "Sob consulta", "3 a 6 semanas"],
+            ["SDR com IA", "Sob consulta", "3 a 5 semanas"],
+            ["IA privada (nuvem privada)", "Sob consulta", "Conforme o escopo"],
           ] },
-          { type: "callout", text: "Valores de entrada da Soluna IA. O preço final depende do número de integrações, do volume de conversas e das regras de negócio, e é fechado depois do Diagnóstico." },
+          { type: "callout", text: "O preço final depende do número de integrações, do volume de conversas e das regras de negócio, e é fechado depois do Diagnóstico." },
         ],
       },
       {
@@ -856,10 +856,10 @@ export const guides: Article[] = [
     faq: [
       { q: "Existe agente de IA com mensalidade fixa e sem implantação?", a: "Existem plataformas prontas com mensalidade, boas para casos simples. Quando o agente precisa agendar, consultar sistemas ou seguir regras próprias, o projeto sob medida costuma sair mais barato no custo total." },
       { q: "Quanto custa o uso do WhatsApp e da IA por mês?", a: "Depende do volume e do tipo de conversa. No Diagnóstico estimamos o consumo a partir do seu volume atual, e esses valores são pagos direto à Meta e ao provedor de IA." },
-      { q: "O Diagnóstico é cobrado?", a: "Sim, a partir de R$ 2.500, e o valor é 100% creditado no projeto se você seguir em até 30 dias." },
+      { q: "O Diagnóstico é cobrado?", a: "Sim, investimento sob consulta, e o valor é 100% creditado no projeto se você seguir em até 30 dias." },
     ],
     related: [
-      "/investimento/",
+      "/diagnostico/",
       "/ferramentas/calculadora-roi-atendimento/",
       "/solucoes/atendimento-inteligente/agente-ia-whatsapp/",
       "/conteudo/comparativos/agente-de-ia-vs-contratar-atendente/",
@@ -1079,7 +1079,7 @@ export const comparisons: Article[] = [
     ],
     faq: [
       { q: "Usar o ChatGPT gratuito na empresa é seguro?", a: "Para dados de clientes, não é recomendado. Planos gratuitos e individuais têm termos diferentes dos planos empresariais. Uma política de uso de IA define o que pode ser colado em cada ferramenta." },
-      { q: "Quanto custa a IA privada?", a: "Na Soluna IA, a partir de R$ 20.000 em nuvem privada e a partir de R$ 45.000 em infraestrutura dedicada, mais a infraestrutura quando necessária." },
+      { q: "Quanto custa a IA privada?", a: "Na Soluna IA, investimento sob consulta, tanto em nuvem privada quanto em infraestrutura dedicada, mais a infraestrutura quando necessária." },
     ],
     related: ["/solucoes/ia-corporativa/ia-privada/", "/solucoes/ia-corporativa/governanca-ia-lgpd/", "/conteudo/guias/ia-e-lgpd/", "/conteudo/glossario/ia-privada/"],
   },

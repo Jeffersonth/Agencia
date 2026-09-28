@@ -23,8 +23,8 @@ const inputCls =
 /** Diagnóstico sugerido: Completo quando há várias frentes, volume alto ou dados sensíveis. */
 function suggestedTier(a: Answers) {
   return a.dores.length >= 2 || HIGH_VOLUME.includes(a.volume) || a.dores.includes("dados")
-    ? { name: "Diagnóstico Completo", price: "a partir de R$ 5.000", why: "Há mais de uma frente para priorizar e o plano precisa de um roteiro por fases." }
-    : { name: "Diagnóstico Essencial", price: "a partir de R$ 2.500", why: "O foco está em uma frente, o caminho mais rápido para o primeiro resultado." };
+    ? { name: "Diagnóstico Completo", price: "Sob consulta", why: "Há mais de uma frente para priorizar e o plano precisa de um roteiro por fases." }
+    : { name: "Diagnóstico Essencial", price: "Sob consulta", why: "O foco está em uma frente, o caminho mais rápido para o primeiro resultado." };
 }
 
 function Choice({

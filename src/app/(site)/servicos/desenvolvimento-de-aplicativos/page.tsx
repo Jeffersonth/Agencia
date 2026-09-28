@@ -163,7 +163,7 @@ const faq = [
   { q: "O app pode usar câmera, GPS e biometria?", a: "Sim. Aplicativos podem utilizar recursos nativos como câmera, localização, mapas, biometria, arquivos, QR Code e outros, conforme os requisitos e permissões necessários." },
   { q: "Todo aplicativo precisa ter IA?", a: "Não. Utilizamos IA quando ela melhora a experiência, a operação ou a proposta de valor do produto. Não adicionamos IA apenas como recurso decorativo." },
   { q: "Vocês integram o app aos sistemas que a empresa já usa?", a: "Sim, desde que existam meios técnicos de integração. Podemos conectar APIs, CRMs, ERPs, gateways, sistemas internos e outros serviços." },
-  { q: "Quanto custa desenvolver um aplicativo?", a: "Depende de funcionalidades, backend, integrações, IA, pagamentos, perfis e painel administrativo. Projetos de app mobile partem de R$ 40.000 e projetos com app + sistema web partem de R$ 80.000, sujeitos à confirmação comercial e ao Discovery." },
+  { q: "Quanto custa desenvolver um aplicativo?", a: "Investimento sob consulta. Depende de funcionalidades, backend, integrações, IA, pagamentos, perfis e painel administrativo — o valor definitivo é definido após o Discovery." },
   { q: "Quanto tempo leva?", a: "Depende do escopo. Projetos menores podem ser divididos em fases mais curtas; produtos complexos exigem um roadmap maior. O cronograma é definido após o Discovery." },
   { q: "O código fica comigo?", a: "As condições de propriedade são definidas em contrato. Quando o modelo prevê propriedade pelo cliente, repositório e ativos podem ser estruturados sob controle da empresa contratante." },
   { q: "Vocês dão suporte após o lançamento?", a: "Sim. Podemos oferecer sustentação, monitoramento, correções e evolução contínua." },
@@ -179,7 +179,7 @@ export default function AplicativosPage() {
   ];
   return (
     <>
-      <JsonLd data={graph(serviceSchema({ name: "Desenvolvimento de Aplicativos", description: answer, path, price: 40000 }), faqSchema(faq), breadcrumbSchema(crumbs))} />
+      <JsonLd data={graph(serviceSchema({ name: "Desenvolvimento de Aplicativos", description: answer, path }), faqSchema(faq), breadcrumbSchema(crumbs))} />
 
       <PageHero
         crumbs={crumbs}
@@ -525,11 +525,11 @@ export default function AplicativosPage() {
             <Checklist items={entregaveis} className="mt-6 grid gap-x-8 sm:grid-cols-2 [&>li+li]:mt-0" />
           </div>
           <div className="flex flex-col gap-5">
-            <Card className="bg-navy text-white [&_h3]:text-white">
+            <div className="rounded-[var(--radius-card)] bg-navy p-6 text-white shadow-[var(--shadow-card)] md:p-8">
               <p className="mb-3 text-[0.8125rem] font-semibold uppercase tracking-[0.08em] text-sky">O produto é seu</p>
-              <h3 className="text-xl font-semibold">Propriedade e controle.</h3>
+              <h3 className="text-xl font-semibold text-white">Propriedade e controle.</h3>
               <p className="mt-3 text-white/75">Código, repositório, contas Apple e Google Play Console, backend, cloud, domínios, credenciais e condições de saída são definidos com transparência. Recomendamos que contas estratégicas de publicação e ativos críticos fiquem sob controle da empresa.</p>
-            </Card>
+            </div>
             <Card>
               <p className="eyebrow mb-3">App legado</p>
               <h3 className="text-xl font-semibold">Nem todo app precisa ser refeito do zero.</h3>
@@ -545,16 +545,16 @@ export default function AplicativosPage() {
           id="investimento"
           eyebrow="Referências para planejar"
           title="Clareza antes do desenvolvimento."
-          text="Cada aplicativo tem escopo próprio. O valor definitivo é definido após o Discovery."
+          text="Cada aplicativo tem escopo próprio. Investimento sob consulta, definido após o Discovery."
         />
         <div className="mt-12">
           <OfferCards
             columns={4}
             offers={[
-              { name: "Design & Protótipo", price: "Etapa independente", text: "Valide produto, fluxo e interface antes de construir. Escopo e valor definidos conforme o projeto." },
-              { name: "App Mobile", price: "a partir de R$ 40.000", text: "Aplicativo iOS e Android com base compartilhada e recursos definidos no projeto.", highlight: true, badge: "Mais pedido" },
-              { name: "App + Sistema Web", price: "a partir de R$ 80.000", text: "Aplicativo mobile e painel/sistema web integrados sobre a mesma base." },
-              { name: "Apps complexos / plataformas", price: "Após Discovery", text: "Múltiplos perfis, pagamentos, integrações avançadas, IA ou regras mais complexas." },
+              { name: "Design & Protótipo", price: "Sob consulta", text: "Valide produto, fluxo e interface antes de construir. Escopo e valor definidos conforme o projeto." },
+              { name: "App Mobile", price: "Sob consulta", text: "Aplicativo iOS e Android com base compartilhada e recursos definidos no projeto.", highlight: true, badge: "Mais pedido" },
+              { name: "App + Sistema Web", price: "Sob consulta", text: "Aplicativo mobile e painel/sistema web integrados sobre a mesma base." },
+              { name: "Apps complexos / plataformas", price: "Sob consulta", text: "Múltiplos perfis, pagamentos, integrações avançadas, IA ou regras mais complexas." },
             ]}
           />
         </div>

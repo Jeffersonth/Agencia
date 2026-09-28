@@ -84,7 +84,7 @@ export function AgentInAction() {
   }, []);
 
   return (
-    <section aria-labelledby="agente-acao" className="bg-liquid on-dark relative overflow-hidden py-20 text-white md:py-28">
+    <section aria-labelledby="agente-acao" className="bg-liquid on-dark relative overflow-hidden py-14 text-white md:py-20">
       <ParticleNetwork className="pointer-events-none absolute inset-0 h-full w-full opacity-70" />
       <Container className="relative">
         <div className="max-w-3xl">

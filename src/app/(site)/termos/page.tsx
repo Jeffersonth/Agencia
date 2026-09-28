@@ -19,8 +19,8 @@ export default function TermosPage() {
       </p>
       <h2>1. Conteúdo informativo</h2>
       <p>
-        Os conteúdos deste site têm caráter informativo. Faixas de investimento são valores de referência (“a partir de”); preços, prazos e escopo
-        definitivos constam apenas na proposta comercial.
+        Os conteúdos deste site têm caráter informativo. O investimento de cada projeto é sempre definido sob consulta, conforme o escopo; preços,
+        prazos e condições definitivos constam apenas na proposta comercial.
       </p>
       <h2>2. Projetos demonstrativos</h2>
       <p>
