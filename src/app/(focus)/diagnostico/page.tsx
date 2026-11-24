@@ -29,7 +29,6 @@ const painMap: { id: string; label: string; services: string[] }[] = [
   { id: "documentos", label: "Digitação e conferência de documentos", services: ["automacao-de-documentos"] },
   { id: "processos", label: "Tarefas repetitivas e sistemas que não conversam", services: ["automacao-de-processos", "integracao-de-sistemas"] },
   { id: "conhecimento", label: "Informação interna difícil de encontrar", services: ["agente-de-conhecimento"] },
-  { id: "dados", label: "Usar IA com dados sensíveis e dentro da LGPD", services: ["ia-privada", "governanca-ia-lgpd"] },
 ];
 
 const pains: WizardPain[] = painMap.map(({ services, ...p }) => ({

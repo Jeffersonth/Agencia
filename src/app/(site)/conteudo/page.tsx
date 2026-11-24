@@ -15,7 +15,7 @@ const path = "/conteudo/";
 export const metadata: Metadata = pageMetadata({
   title: "Conteúdo sobre IA, Agentes e Automação para Empresas",
   description:
-    "Guias, comparativos e glossário sobre agentes de IA, WhatsApp, LGPD, automação e GEO. Conteúdo prático, assinado e atualizado, para decidir com segurança.",
+    "Guias, comparativos e glossário sobre agentes de IA, WhatsApp, LGPD e automação. Conteúdo prático, assinado e atualizado, para decidir com segurança.",
   path,
 });
 
@@ -29,7 +29,7 @@ export default function ConteudoPage() {
         crumbs={crumbs}
         eyebrow="Central de conteúdo"
         title="IA para empresas, explicada sem jargão."
-        answer="Guias completos, comparativos e um glossário para entender agentes de IA, automação, WhatsApp, LGPD e GEO — e decidir com segurança. Todo conteúdo é assinado, datado e escrito a partir de projetos reais, não de teoria."
+        answer="Guias completos, comparativos e um glossário para entender agentes de IA, automação, WhatsApp e LGPD — e decidir com segurança. Todo conteúdo é assinado, datado e escrito a partir de projetos reais, não de teoria."
       />
 
       <Section id="guias" labelledBy="guias-titulo">

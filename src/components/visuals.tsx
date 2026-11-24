@@ -634,13 +634,13 @@ export function VaultMock() {
 export function CoreDiagram() {
   const satellites = [
     { t: "Sites Inteligentes", s: "já nascem com assistente de IA", pos: "left-1/2 top-0 -translate-x-1/2" },
-    { t: "Visibilidade em IA", s: "SEO e GEO que trazem o cliente", pos: "left-0 bottom-6" },
-    { t: "Produtos Digitais", s: "sistemas e apps com agentes", pos: "right-0 bottom-6" },
+    { t: "Atendimento & Vendas", s: "agentes que respondem e qualificam", pos: "left-0 bottom-6" },
+    { t: "Operações", s: "automações que rodam sozinhas", pos: "right-0 bottom-6" },
   ];
   return (
     <div
       role="img"
-      aria-label="Diagrama: núcleo de IA, Agentes e Automação ao centro, com Sites Inteligentes, Visibilidade em IA e Produtos Digitais ao redor."
+      aria-label="Diagrama: núcleo de IA, Agentes e Automação ao centro, com Sites Inteligentes, Atendimento & Vendas e Operações ao redor."
       className="relative mx-auto aspect-square w-full max-w-[32rem]"
     >
       <svg viewBox="0 0 400 400" className="absolute inset-0 size-full" aria-hidden>

@@ -14,7 +14,7 @@ const path = "/cases/";
 export const metadata: Metadata = pageMetadata({
   title: "Cases e Projetos",
   description:
-    "Soluções em Ação: cases reais, produtos próprios e projetos demonstrativos de agentes de IA, automação, SEO/GEO, sites, apps e SaaS. Tudo rotulado com transparência.",
+    "Soluções em Ação: projetos demonstrativos de agentes de IA, automação e sites. Tudo rotulado com transparência.",
   path,
 });
 
@@ -30,14 +30,15 @@ export default function CasesPage() {
         crumbs={crumbs}
         eyebrow="Soluções em Ação"
         title="O que já construímos, e o que a IA pode fazer pela sua empresa."
-        answer="Mais de 300 projetos entregues em sites, sistemas, aplicativos e automações. Aqui você encontra cases reais e produtos próprios, e projetos demonstrativos de IA rotulados como tal."
+        answer="Mais de 300 projetos digitais entregues. Aqui você encontra projetos demonstrativos de agentes de IA, automação e sites, rotulados como tal."
         actions={<DiagnosticActions secondary={{ href: "#demonstrativos", label: "Ver projetos demonstrativos" }} />}
       />
 
+      {real.length > 0 && (
       <Section labelledBy="reais">
         <SectionHeading
           id="reais"
-          eyebrow="Nível 1 · Cases reais"
+          eyebrow="Cases reais"
           title="Produtos que construímos, operamos e mantemos."
           text="Produto próprio prova que sabemos construir, operar e manter software — não só entregar projeto."
         />
@@ -47,11 +48,12 @@ export default function CasesPage() {
           ))}
         </div>
       </Section>
+      )}
 
       <Section tone="mist" labelledBy="demonstrativos">
         <SectionHeading
           id="demonstrativos"
-          eyebrow="Nível 2 · Projetos demonstrativos"
+          eyebrow="Projetos demonstrativos"
           title="Como aplicamos cada solução."
           text="Cenário, solução, como funciona, tecnologias, o que a solução muda e indicadores acompanhados — sem números apresentados como alcançados."
         />
@@ -65,7 +67,7 @@ export default function CasesPage() {
         <SectionHeading
           dark
           id="ao-vivo"
-          eyebrow="Nível 3 · Demonstrações ao vivo"
+          eyebrow="Demonstrações ao vivo"
           title="O que mais convence: testar."
           text="Converse com agentes de demonstração no WhatsApp. São empresas fictícias, com o mesmo método e a mesma arquitetura dos projetos reais."
         />

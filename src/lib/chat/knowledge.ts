@@ -16,9 +16,9 @@ function knowledge() {
 
   push(
     `# ${site.name}`,
-    `${site.name} é um estúdio de engenharia de IA que cria agentes de IA, automações e sistemas sob medida para empresas atenderem, venderem e operarem melhor. Atendimento 100% digital, para empresas de todo o Brasil (sem escritório físico para visitas). Fundador: ${site.founder.name} (${site.founder.jobTitle}).`,
+    `${site.name} é um estúdio de engenharia de IA que oferece três serviços: criação de agentes de IA, automação de processos e criação de sites. Não oferece SEO/GEO como serviço avulso, desenvolvimento de sistemas/SaaS nem de aplicativos. Atendimento 100% digital, para empresas de todo o Brasil (sem escritório físico para visitas). Fundador: ${site.founder.name} (${site.founder.jobTitle}).`,
     `Contato: WhatsApp ${site.contact.whatsappDisplay} (${whatsappLink()}), e-mail ${site.contact.email}, ${site.contact.hours}.`,
-    "Princípios: contas, números e dados sempre em nome do cliente; API oficial do WhatsApp; opção de IA privada; adequação à LGPD; código e automações com cláusula de saída; consumo de WhatsApp e IA pago direto aos provedores.",
+    "Princípios: contas, números e dados sempre em nome do cliente; API oficial do WhatsApp; adequação à LGPD; código e automações com cláusula de saída; consumo de WhatsApp e IA pago direto aos provedores.",
   );
 
   push(
@@ -52,11 +52,8 @@ function knowledge() {
   }
 
   push(
-    "## Serviços complementares",
+    "## Criação de Sites",
     "- Criação de Sites — /servicos/criacao-de-sites/: landing page, site institucional, e-commerce ou portal. Investimento sob consulta; manutenção mensal opcional (Site Gerenciado ou Site Pro).",
-    "- SEO e GEO — /servicos/seo-e-geo/: auditoria estratégica, implementação e planos mensais contínuos (mínimo 6 meses). Investimento sob consulta.",
-    "- Desenvolvimento de Sistemas — /servicos/desenvolvimento-de-sistemas/: Discovery, MVP/sistema inicial, SaaS ou sistema corporativo com IA. Investimento sob consulta, definido após o Discovery.",
-    "- Desenvolvimento de Aplicativos — /servicos/desenvolvimento-de-aplicativos/: app iOS e Android, com ou sem sistema web. Investimento sob consulta, definido após o Discovery.",
   );
 
   out.push("## Setores", "");
@@ -71,7 +68,7 @@ function knowledge() {
 
   push(
     "## Cases — /cases/",
-    "Há cases reais (AcertoCLT e Prospector CNPJ, produtos próprios) e projetos demonstrativos com empresas fictícias, sempre rotulados como demonstração. Não existem depoimentos nem números de clientes publicados.",
+    "Os cases publicados são projetos demonstrativos com empresas fictícias, sempre rotulados como demonstração. Não existem depoimentos nem números de clientes publicados.",
   );
 
   push(
@@ -79,7 +76,6 @@ function knowledge() {
     "- Calculadora de ROI de Atendimento — /ferramentas/calculadora-roi-atendimento/",
     "- Calculadora de Custo do Atendimento — /ferramentas/calculadora-custo-atendimento/",
     "- Raio-X do WhatsApp — /ferramentas/raio-x-whatsapp/",
-    "- Teste de Visibilidade em IA — /ferramentas/teste-visibilidade-ia/",
   );
 
   push(

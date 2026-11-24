@@ -27,7 +27,7 @@ export const glossary: Term[] = [
       "Em vez de depender só do que o modelo aprendeu no treinamento, o RAG consulta um índice com os documentos da empresa (manuais, contratos, políticas) e entrega ao modelo os trechos mais relevantes para cada pergunta.",
       "Isso reduz respostas inventadas, mantém o conhecimento atualizado sem retreinar o modelo e permite mostrar de qual documento veio cada resposta.",
     ],
-    related: ["/solucoes/operacoes/agente-de-conhecimento/", "/solucoes/ia-corporativa/ia-privada/"],
+    related: ["/solucoes/operacoes/agente-de-conhecimento/", "/conteudo/glossario/base-de-conhecimento/"],
   },
   {
     slug: "sdr-com-ia",
@@ -39,28 +39,6 @@ export const glossary: Term[] = [
       "Ele não substitui o vendedor: entrega leads qualificados para que o time comercial dedique tempo a quem tem perfil.",
     ],
     related: ["/solucoes/vendas-e-receita/sdr-com-ia/", "/conteudo/glossario/pipeline/"],
-  },
-  {
-    slug: "geo",
-    term: "GEO (Generative Engine Optimization)",
-    definition:
-      "Conjunto de práticas para que uma empresa seja encontrada e citada nas respostas de assistentes de IA, como ChatGPT, Gemini, Claude, Perplexity e Google AI Mode.",
-    body: [
-      "Também chamado de LLM SEO ou AI SEO, o GEO se apoia no SEO tradicional e acrescenta foco em conteúdo citável (respostas diretas, escopo e preços claros), dados estruturados e autoridade de marca fora do site.",
-      "Como as IAs variam as respostas, não existe citação garantida. A medição é feita por tendência, com um conjunto fixo de perguntas repetido mensalmente.",
-    ],
-    related: ["/conteudo/guias/geo-como-aparecer-nas-ias/", "/servicos/seo-e-geo/", "/conteudo/glossario/llms-txt/"],
-  },
-  {
-    slug: "llms-txt",
-    term: "llms.txt",
-    definition:
-      "Arquivo de texto publicado na raiz de um site com um resumo da empresa e links para as páginas principais, pensado para leitura por modelos de linguagem.",
-    body: [
-      "Proposto em 2024 como padrão comunitário, o llms.txt funciona como um índice legível por máquinas, em Markdown, que ajuda assistentes de IA a entender rapidamente do que trata o site.",
-      "É uma boa prática de baixo custo, mas os grandes provedores de IA não garantem que o utilizam para ranquear ou citar.",
-    ],
-    related: ["/conteudo/glossario/geo/", "/servicos/seo-e-geo/"],
   },
   {
     slug: "multiagentes",
@@ -107,17 +85,6 @@ export const glossary: Term[] = [
     related: ["/conteudo/comparativos/api-oficial-vs-nao-oficial-whatsapp/", "/conteudo/guias/ia-no-whatsapp/"],
   },
   {
-    slug: "ia-privada",
-    term: "IA privada",
-    definition:
-      "Uso de inteligência artificial em um ambiente controlado pela empresa, em que os dados não treinam modelos de terceiros nem saem do seu domínio.",
-    body: [
-      "Pode ser implantada em nuvem privada, com provedores corporativos e contrato de não retenção, ou em infraestrutura dedicada, com modelos abertos rodando em servidor próprio.",
-      "É o caminho recomendado para escritórios de advocacia, clínicas e empresas que lidam com dados sensíveis.",
-    ],
-    related: ["/solucoes/ia-corporativa/ia-privada/", "/conteudo/guias/ia-e-lgpd/"],
-  },
-  {
     slug: "alucinacao",
     term: "Alucinação (IA)",
     definition:
@@ -129,17 +96,6 @@ export const glossary: Term[] = [
     related: ["/conteudo/glossario/rag/", "/conteudo/guias/agentes-de-ia-para-empresas/"],
   },
   {
-    slug: "e-e-a-t",
-    term: "E-E-A-T",
-    definition:
-      "Sigla para Experiência, Especialidade, Autoridade e Confiabilidade: critérios que o Google usa para avaliar a qualidade e a credibilidade de um conteúdo.",
-    body: [
-      "Sinais de E-E-A-T incluem conteúdo assinado por quem tem experiência real, página “Sobre” com a trajetória do autor, dados de contato, cases verificáveis e menções da marca em outros sites.",
-      "Esses mesmos sinais ajudam assistentes de IA a entender quem é a empresa e se vale a pena citá-la.",
-    ],
-    related: ["/conteudo/glossario/geo/", "/servicos/seo-e-geo/", "/sobre/"],
-  },
-  {
     slug: "dados-estruturados",
     term: "Dados estruturados (Schema.org)",
     definition:
@@ -148,7 +104,7 @@ export const glossary: Term[] = [
       "O vocabulário mais usado é o Schema.org, geralmente em JSON-LD. Ele ajuda buscadores e modelos de linguagem a extrair informações sem ambiguidade.",
       "Nem toda marcação gera resultado visual no Google, mas todas contribuem para a compreensão da página.",
     ],
-    related: ["/conteudo/guias/geo-como-aparecer-nas-ias/", "/conteudo/glossario/geo/"],
+    related: ["/servicos/criacao-de-sites/"],
   },
   {
     slug: "janela-de-atendimento-24-horas",
@@ -191,7 +147,7 @@ export const glossary: Term[] = [
       "O tratamento de dados sensíveis tem bases legais mais restritas e exige cuidados extras de segurança, controle de acesso e transparência.",
       "Projetos de IA em clínicas e em muitas áreas do direito lidam com esse tipo de dado e costumam pedir IA privada.",
     ],
-    related: ["/conteudo/guias/ia-e-lgpd/", "/seguranca-e-lgpd/", "/solucoes/ia-corporativa/ia-privada/"],
+    related: ["/conteudo/guias/ia-e-lgpd/", "/seguranca-e-lgpd/"],
   },
   {
     slug: "llm",
@@ -290,7 +246,7 @@ export const glossary: Term[] = [
       "Incluem instruções no prompt, filtros de conteúdo, validação de dados antes de ações, limites de acesso a sistemas e regras de transbordo.",
       "Em setores regulados, os guardrails também traduzem regras da profissão, como não dar parecer jurídico ou orientação clínica.",
     ],
-    related: ["/conteudo/glossario/human-in-the-loop/", "/conteudo/glossario/transbordo/", "/solucoes/ia-corporativa/governanca-ia-lgpd/"],
+    related: ["/conteudo/glossario/human-in-the-loop/", "/conteudo/glossario/transbordo/"],
   },
   {
     slug: "human-in-the-loop",
@@ -400,7 +356,7 @@ export const glossary: Term[] = [
       "O encarregado orienta a equipe sobre boas práticas, recebe pedidos e reclamações dos titulares e responde à autoridade.",
       "Em projetos de IA, participa da definição das bases legais, da política de uso de IA e da avaliação de riscos.",
     ],
-    related: ["/conteudo/guias/ia-e-lgpd/", "/solucoes/ia-corporativa/governanca-ia-lgpd/", "/conteudo/glossario/base-legal/"],
+    related: ["/conteudo/guias/ia-e-lgpd/", "/seguranca-e-lgpd/", "/conteudo/glossario/base-legal/"],
   },
   {
     slug: "base-legal",
@@ -434,17 +390,6 @@ export const glossary: Term[] = [
       "Confirmação ativa, lembretes na véspera e oferta rápida da vaga para a lista de espera estão entre as formas mais simples de reduzir as faltas.",
     ],
     related: ["/solucoes/atendimento-inteligente/agendamento-inteligente/", "/conteudo/guias/ia-para-clinicas/"],
-  },
-  {
-    slug: "ai-overviews",
-    term: "AI Overviews e AI Mode",
-    definition:
-      "Recursos do Google que mostram respostas geradas por IA no topo ou no lugar dos resultados tradicionais, citando os sites usados como fonte.",
-    body: [
-      "Com eles, parte das buscas é resolvida sem clique. Ser uma das fontes citadas passa a ser tão importante quanto aparecer na lista de links.",
-      "Conteúdo com respostas diretas, dados estruturados e autoridade da marca aumenta a chance de citação, que é o foco do GEO.",
-    ],
-    related: ["/conteudo/glossario/geo/", "/conteudo/guias/geo-como-aparecer-nas-ias/", "/servicos/seo-e-geo/"],
   },
 ];
 

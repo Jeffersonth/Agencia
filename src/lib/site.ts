@@ -12,7 +12,7 @@ export const site = {
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://solunaia.com.br").replace(/\/$/, ""),
   tagline: "Agentes de IA e Automação para Empresas",
   description:
-    "Agentes de IA, automações e sistemas sob medida que fazem sua empresa atender, vender e operar 24/7. Diagnóstico com ROI. Atendemos todo o Brasil.",
+    "Agentes de IA, automações e sites que fazem sua empresa atender, vender e operar 24/7. Diagnóstico com ROI. Atendemos todo o Brasil.",
   locale: "pt_BR",
   foundingYear: 2022,
   stats: {
@@ -27,7 +27,7 @@ export const site = {
       "Agentes de IA",
       "Automação de processos",
       "Engenharia de software",
-      "SEO e GEO",
+      "Criação de sites",
       "LGPD aplicada a IA",
     ],
   },

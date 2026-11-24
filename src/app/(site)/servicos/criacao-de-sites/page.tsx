@@ -180,11 +180,10 @@ const entregaveis = [
 const seoGeoJornada = ["Pesquisa / IA", "Página relevante", "Conteúdo + autoridade", "UX/UI + prova", "CTA", "Lead", "CRM / WhatsApp"];
 
 const ecossistema = [
-  { title: "Site + SEO/GEO", text: "Presença, autoridade e novas superfícies de aquisição.", href: "/servicos/seo-e-geo/", cta: "Conhecer SEO e GEO" },
   { title: "Site + Agente de IA", text: "Transforme visitantes em conversas e oportunidades.", href: "/solucoes/atendimento-inteligente/assistente-ia-para-site/", cta: "Ver Agentes de IA" },
-  { title: "Site + SEO/GEO + IA", text: "Ser encontrado e oferecer uma experiência inteligente quando o visitante chega.", href: "/servicos/seo-e-geo/", cta: "Ver estratégia" },
+  { title: "Site + WhatsApp com IA", text: "O visitante continua a conversa no WhatsApp com um agente que atende 24/7.", href: "/solucoes/atendimento-inteligente/agente-ia-whatsapp/", cta: "Ver Agente de WhatsApp" },
   { title: "Site + CRM + Automação", text: "O lead segue automaticamente para o processo comercial.", href: "/solucoes/operacoes/automacao-de-processos/", cta: "Ver Automação" },
-  { title: "Site + Sistema", text: "Conecte a presença institucional a portais, áreas logadas e software sob medida.", href: "/servicos/desenvolvimento-de-sistemas/", cta: "Conhecer Sistemas" },
+  { title: "Site + SDR com IA", text: "Os leads do site são qualificados e agendados automaticamente.", href: "/solucoes/vendas-e-receita/sdr-com-ia/", cta: "Ver SDR com IA" },
 ];
 
 const faq = [
@@ -210,7 +209,6 @@ const faq = [
 
 export default function CriacaoDeSitesPage() {
   const crumbs = [
-    { name: "Serviços", path: "/servicos/" },
     { name: "Criação de Sites", path },
   ];
   return (
@@ -424,9 +422,6 @@ export default function CriacaoDeSitesPage() {
             </ul>
           </Card>
         </div>
-        <p className="mt-8">
-          <TextLink href="/servicos/seo-e-geo/">Conhecer SEO e GEO em detalhe</TextLink>
-        </p>
       </Section>
 
       {/* §10 + §11 + §43 — Visibilidade com valor comercial */}
@@ -651,7 +646,7 @@ export default function CriacaoDeSitesPage() {
           eyebrow="Além do site"
           title="Seu site pode ser o centro de uma operação digital maior."
         />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
           {ecossistema.map((e) => (
             <Link
               key={e.title}

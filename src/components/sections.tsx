@@ -334,7 +334,7 @@ export async function WhatsAppCard({ light }: { light?: boolean }) {
 const securityPoints = [
   { icon: WhatsAppGlyph, label: "API oficial do WhatsApp" },
   { icon: ShieldCheck, label: "Adequação à LGPD" },
-  { icon: Lock, label: "Opção de IA privada" },
+  { icon: Lock, label: "Provedores sem retenção de dados" },
   { icon: KeyRound, label: "Contas e dados em nome da sua empresa" },
   { icon: LogOut, label: "Código e automações com cláusula de saída" },
 ];

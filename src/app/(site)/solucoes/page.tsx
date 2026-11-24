@@ -9,7 +9,7 @@ import { CoreDiagram } from "@/components/visuals";
 
 const path = "/solucoes/";
 const description =
-  "Agentes de IA e automações para atendimento, vendas, operações e IA corporativa privada. Soluções integradas aos seus sistemas, com diagnóstico de ROI. Atendemos todo o Brasil.";
+  "Agentes de IA e automações para atendimento, vendas e operações. Soluções integradas aos seus sistemas, com diagnóstico de ROI. Atendemos todo o Brasil.";
 
 export const metadata: Metadata = pageMetadata({ title: "Soluções de IA, Agentes e Automação para Empresas", description, path });
 
@@ -22,7 +22,7 @@ export default function SolucoesPage() {
         crumbs={crumbs}
         eyebrow="IA, Agentes & Automação"
         title="Soluções de IA que trabalham dentro da sua operação."
-        answer="Construímos agentes de IA e automações em quatro frentes: atendimento, vendas, operações e IA corporativa privada. Cada solução é integrada aos sistemas que você já usa, começa por um Diagnóstico com estimativa de ROI e é acompanhada com indicadores todo mês."
+        answer="Construímos agentes de IA e automações em três frentes: atendimento, vendas e operações. Cada solução é integrada aos sistemas que você já usa, começa por um Diagnóstico com estimativa de ROI e é acompanhada com indicadores todo mês."
         actions={<DiagnosticActions secondary={{ href: "/contato/", label: "Falar com a gente" }} />}
       />
 
@@ -50,15 +50,15 @@ export default function SolucoesPage() {
           <SectionHeading
             dark
             id="servicos-complementares"
-            eyebrow="Capacidades complementares"
-            title="Sites, visibilidade em IA e software, a serviço do núcleo."
-            text="Todo projeto complementar sai com pelo menos um componente de IA: o site vem com assistente, o sistema com automação, o app com agente."
+            eyebrow="Criação de Sites"
+            title="Sites que já nascem com IA."
+            text="Além dos agentes e das automações, criamos sites institucionais, landing pages e e-commerces rápidos, com SEO técnico e um assistente de IA que atende o visitante na hora."
           />
           <CoreDiagram />
         </div>
         <div className="mt-6">
-          <TextLink href="/servicos/" className="!text-white">
-            Ver serviços complementares
+          <TextLink href="/servicos/criacao-de-sites/" className="!text-white">
+            Conhecer Criação de Sites
           </TextLink>
         </div>
       </Section>

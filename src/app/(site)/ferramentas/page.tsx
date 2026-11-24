@@ -8,7 +8,7 @@ const path = "/ferramentas/";
 
 export const metadata: Metadata = pageMetadata({
   title: "Ferramentas Gratuitas de IA para Empresas",
-  description: "Calculadora de ROI, Calculadora de Custo do Atendimento, Raio-X do WhatsApp e Teste de Visibilidade em IA: ferramentas gratuitas, sem cadastro para ver o resultado.",
+  description: "Calculadora de ROI, Calculadora de Custo do Atendimento, e Raio-X do WhatsApp: ferramentas gratuitas, sem cadastro para ver o resultado.",
   path,
 });
 
@@ -21,7 +21,7 @@ export default function FerramentasPage() {
         crumbs={crumbs}
         eyebrow="Ferramentas gratuitas"
         title="Números antes de qualquer conversa."
-        answer="Quatro ferramentas gratuitas para você medir o problema antes de falar com a gente: quanto a demora e o trabalho repetitivo custam no atendimento, como está o seu WhatsApp e quão preparado o seu site está para ser lido pelas IAs. O resultado aparece na hora, sem cadastro."
+        answer="Três ferramentas gratuitas para você medir o problema antes de falar com a gente: quanto a demora e o trabalho repetitivo custam no atendimento e como está o seu WhatsApp. O resultado aparece na hora, sem cadastro."
       />
       <Section>
         <div className="grid gap-5 md:grid-cols-2">
@@ -30,12 +30,6 @@ export default function FerramentasPage() {
             meta="Calculadora"
             title="Calculadora de ROI de Atendimento"
             text="Informe volume de leads, ticket médio e tempo de resposta e veja quanto a demora pode estar custando por mês."
-          />
-          <LinkCard
-            href="/ferramentas/teste-visibilidade-ia/"
-            meta="Mini-diagnóstico"
-            title="Teste de Visibilidade em IA"
-            text="Informe o site e receba um retrato técnico: robôs de IA liberados, dados estruturados, conteúdo no HTML, llms.txt e mais."
           />
           <LinkCard
             href="/ferramentas/calculadora-custo-atendimento/"

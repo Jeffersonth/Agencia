@@ -73,7 +73,7 @@ export default function ContatoPage() {
                 <LeadForm
                   origin="contato"
                   submitLabel="Enviar mensagem"
-                  options={["Quero um diagnóstico", "Quero a Auditoria de Visibilidade em IA", "Tenho uma dúvida", "Outro assunto"]}
+                  options={["Quero um diagnóstico", "Quero um site", "Tenho uma dúvida", "Outro assunto"]}
                 />
               </div>
               <p className="mt-4 text-center text-xs text-slate">Seus dados são tratados conforme a LGPD.</p>

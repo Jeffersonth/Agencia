@@ -55,7 +55,7 @@ export type VisualName =
   | "flow"
   | "vault";
 
-export type SolutionSlug = "atendimento-inteligente" | "vendas-e-receita" | "operacoes" | "ia-corporativa";
+export type SolutionSlug = "atendimento-inteligente" | "vendas-e-receita" | "operacoes";
 
 export type PriceTier = { name: string; note?: string };
 

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { BadgeCheck, FileKey, KeyRound, Lock, LogOut, Scale, ShieldCheck } from "lucide-react";
+import { BadgeCheck, KeyRound, Lock, LogOut, Scale, ShieldCheck } from "lucide-react";
 import { breadcrumbSchema, faqSchema, graph, pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Section, SectionHeading } from "@/components/ui";
@@ -13,7 +12,7 @@ const path = "/seguranca-e-lgpd/";
 export const metadata: Metadata = pageMetadata({
   title: "Segurança de Dados e LGPD",
   description:
-    "API oficial do WhatsApp, contas e dados em nome da sua empresa, adequação à LGPD, IA privada para dados sensíveis e cláusula de saída. Veja como tratamos seus dados.",
+    "API oficial do WhatsApp, contas e dados em nome da sua empresa, adequação à LGPD, provedores sem retenção de dados e cláusula de saída. Veja como tratamos seus dados.",
   path,
 });
 
@@ -35,15 +34,8 @@ const blocks = [
   },
   {
     icon: Lock,
-    title: "IA privada para dados sensíveis",
-    text: "Para documentos confidenciais e dados de saúde, usamos provedores com não retenção de dados ou modelos em ambiente dedicado.",
-    href: "/solucoes/ia-corporativa/ia-privada/",
-  },
-  {
-    icon: FileKey,
-    title: "Governança de IA",
-    text: "Política de uso, ferramentas aprovadas, registros e auditoria. Sua equipe sabe o que pode e o que não pode.",
-    href: "/solucoes/ia-corporativa/governanca-ia-lgpd/",
+    title: "Provedores sem retenção de dados",
+    text: "Para documentos confidenciais e dados de saúde, usamos provedores de IA com contrato de não retenção: seus dados não treinam modelos de terceiros.",
   },
   {
     icon: LogOut,
@@ -58,7 +50,7 @@ const blocks = [
 ];
 
 const faq = [
-  { q: "É seguro usar IA no atendimento de uma clínica ou de um escritório?", a: "Sim, com API oficial, dados em nome da empresa, controle de acesso, logs e, quando há dados sensíveis, IA privada. O agente cuida do administrativo e do acolhimento; a orientação clínica ou jurídica é sempre do profissional." },
+  { q: "É seguro usar IA no atendimento de uma clínica ou de um escritório?", a: "Sim, com API oficial, dados em nome da empresa, controle de acesso, logs e, quando há dados sensíveis, provedores com contrato de não retenção. O agente cuida do administrativo e do acolhimento; a orientação clínica ou jurídica é sempre do profissional." },
   { q: "Meus dados treinam o modelo de IA?", a: "Não. Usamos provedores corporativos com contrato de não retenção de dados ou modelos em ambiente privado. Seus dados não são usados para treinar modelos de terceiros." },
   { q: "E a LGPD?", a: "Cada projeto define a base legal dos tratamentos, coleta consentimento quando necessário, restringe acessos e registra o uso. Trabalhamos junto com o jurídico ou o DPO da sua empresa." },
   { q: "Fico preso ao fornecedor?", a: "Não. Contas, dados e código ficam em nome da sua empresa, e a saída — com exportação de tudo — está prevista em contrato." },
@@ -75,26 +67,21 @@ export default function SegurancaPage() {
         crumbs={crumbs}
         eyebrow="Segurança e LGPD"
         title="Seus dados continuam seus."
-        answer="Levamos a segurança de dados a sério em todos os projetos. Usamos a API oficial do WhatsApp, mantemos contas e dados em nome da sua empresa, seguimos a LGPD e oferecemos IA privada para informações sensíveis. Você mantém o controle e a portabilidade de tudo."
+        answer="Levamos a segurança de dados a sério em todos os projetos. Usamos a API oficial do WhatsApp, mantemos contas e dados em nome da sua empresa, seguimos a LGPD e usamos provedores sem retenção de dados para informações sensíveis. Você mantém o controle e a portabilidade de tudo."
         actions={<DiagnosticActions secondary={{ href: "#faq-titulo", label: "Perguntas frequentes" }} />}
         visual={<VaultMock />}
       />
 
       <Section labelledBy="principios">
-        <SectionHeading id="principios" eyebrow="Como tratamos seus dados" title="Sete compromissos, em todo projeto." />
+        <SectionHeading id="principios" eyebrow="Como tratamos seus dados" title="Seis compromissos, em todo projeto." />
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {blocks.map(({ icon: I, title, text, href }) => (
+          {blocks.map(({ icon: I, title, text }) => (
             <div key={title} className="flex flex-col rounded-[var(--radius-card)] bg-white ring-1 ring-line/60 p-7 shadow-[var(--shadow-card)]">
               <span className="inline-flex size-11 items-center justify-center rounded-xl bg-signal-50 text-signal">
                 <I className="size-5" aria-hidden />
               </span>
               <h3 className="mt-6 text-xl font-semibold">{title}</h3>
               <p className="mt-2 flex-1 text-slate">{text}</p>
-              {href && (
-                <Link href={href} className="mt-5 text-sm font-semibold text-signal hover:underline">
-                  Saiba mais →
-                </Link>
-              )}
             </div>
           ))}
           <div className="flex flex-col justify-center rounded-[var(--radius-card)] bg-navy p-7 text-white">

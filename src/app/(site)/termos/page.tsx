@@ -29,8 +29,7 @@ export default function TermosPage() {
       </p>
       <h2>3. Ferramentas gratuitas</h2>
       <p>
-        A Calculadora de ROI e o Teste de Visibilidade em IA fornecem estimativas e análises automatizadas, sem garantia de resultado. O Teste analisa
-        apenas páginas públicas do endereço informado pelo usuário, que declara ter legitimidade para solicitá-lo.
+        As calculadoras e o Raio-X do WhatsApp fornecem estimativas e análises automatizadas, sem garantia de resultado.
       </p>
       <h2>4. Propriedade intelectual</h2>
       <p>

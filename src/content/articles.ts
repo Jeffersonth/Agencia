@@ -261,87 +261,7 @@ export const guides: Article[] = [
       { q: "Posso usar IA com dados de saúde?", a: "Sim, com base legal adequada, controle de acesso, sigilo e, preferencialmente, IA privada." },
       { q: "Preciso avisar o cliente que ele fala com uma IA?", a: "É a prática recomendada, por transparência, e evita frustração. O cliente deve poder falar com um humano." },
     ],
-    related: ["/solucoes/ia-corporativa/ia-privada/", "/solucoes/ia-corporativa/governanca-ia-lgpd/", "/seguranca-e-lgpd/", "/setores/clinicas-e-saude/"],
-  },
-  {
-    slug: "geo-como-aparecer-nas-ias",
-    kind: "guia",
-    title: "GEO: como aparecer no ChatGPT, Gemini e Google AI Mode",
-    metaTitle: "GEO: Como Aparecer no ChatGPT, Gemini, Claude e Google AI Mode",
-    description:
-      "O que é GEO (Generative Engine Optimization), como as IAs escolhem quais empresas citar, o que fazer no site e fora dele, e como medir sem promessas vazias.",
-    answer:
-      "GEO (Generative Engine Optimization) é o conjunto de práticas para que uma empresa seja encontrada e citada nas respostas de assistentes de IA, como ChatGPT, Gemini, Claude, Perplexity e o Google AI Mode. Envolve conteúdo que responde diretamente às perguntas, base técnica impecável, dados estruturados e autoridade de marca fora do site. Não existe citação garantida — mas dá para medir e aumentar a presença.",
-    updatedAt: UPDATED,
-    readingMinutes: 9,
-    sections: [
-      {
-        id: "o-que-e",
-        heading: "O que é GEO e por que importa",
-        blocks: [
-          { type: "p", text: "Cada vez mais pessoas perguntam a um assistente de IA antes de pesquisar no Google: “qual a melhor clínica para…”, “quanto custa…”, “é seguro…”. Os assistentes montam uma resposta e citam algumas fontes. Quem é citado ganha a confiança e o clique; quem não é, não existe para aquela pergunta." },
-          { type: "p", text: "SEO continua sendo a base: boa parte dos assistentes consulta índices de busca (Google, Bing) para montar as respostas. GEO acrescenta a preocupação com ser extraído e citado." },
-        ],
-      },
-      {
-        id: "pilares",
-        heading: "Os cinco pilares",
-        blocks: [
-          { type: "ol", items: [
-            "Uma intenção por URL: cada página responde a uma pergunta real.",
-            "Resposta direta no topo: 40 a 60 palavras dizendo o que é, para quem e qual o resultado.",
-            "Conteúdo citável: escopo, prazos e condições de contratação claros.",
-            "Autoridade de entidade: quem é a empresa, quem é o fundador e onde mais a marca aparece.",
-            "Base técnica: HTML renderizado no servidor, performance e dados estruturados.",
-          ] },
-        ],
-      },
-      {
-        id: "tecnico",
-        heading: "O que fazer no site",
-        blocks: [
-          { type: "ul", items: [
-            "Liberar no robots.txt os robôs de busca das IAs (OAI-SearchBot, Claude-SearchBot, PerplexityBot), além de Googlebot e Bingbot.",
-            "Decidir conscientemente sobre os robôs de treinamento (GPTBot, ClaudeBot, Google-Extended).",
-            "Publicar dados estruturados (Organization, Service, FAQPage, Article, BreadcrumbList).",
-            "Publicar um llms.txt com o resumo da empresa e links principais — boa prática, sem garantia de efeito.",
-            "Garantir que o conteúdo esteja no HTML, sem depender de JavaScript para aparecer.",
-            "Enviar o sitemap ao Google Search Console e ao Bing Webmaster Tools, com IndexNow.",
-          ] },
-        ],
-      },
-      {
-        id: "fora-do-site",
-        heading: "O que fazer fora do site",
-        blocks: [
-          { type: "ul", items: [
-            "Google Business Profile completo, com avaliações reais de clientes.",
-            "Perfis da empresa e do fundador no LinkedIn, com publicações consistentes.",
-            "Presença em diretórios do setor com dados idênticos (nome, endereço, telefone).",
-            "Menções em artigos, podcasts e eventos do setor.",
-          ] },
-        ],
-      },
-      {
-        id: "medir",
-        heading: "Como medir (e o que nunca prometer)",
-        blocks: [
-          { type: "p", text: "As IAs variam as respostas, então ninguém pode garantir posição ou citação. O que se mede é tendência: um conjunto fixo de perguntas, repetido todo mês, com a porcentagem de respostas que citam a marca." },
-          { type: "ul", items: [
-            "Impressões e cliques orgânicos (Search Console).",
-            "Visitas vindas de assistentes de IA (GA4).",
-            "% de citações em um conjunto fixo de perguntas.",
-            "Leads orgânicos.",
-          ] },
-        ],
-      },
-    ],
-    faq: [
-      { q: "GEO substitui o SEO?", a: "Não. GEO se apoia no SEO. Sem uma base técnica e de conteúdo sólida, dificilmente a marca é citada." },
-      { q: "Em quanto tempo aparecem resultados?", a: "Os ajustes técnicos têm efeito em semanas; autoridade e conteúdo são trabalho de meses. Por isso os planos mensais têm contrato mínimo de 6 meses." },
-      { q: "O llms.txt garante citação?", a: "Não. É uma boa prática de baixo custo, mas os grandes provedores não garantem que o utilizam." },
-    ],
-    related: ["/servicos/seo-e-geo/", "/servicos/seo-e-geo/auditoria-visibilidade-ia/", "/ferramentas/teste-visibilidade-ia/", "/conteudo/glossario/geo/"],
+    related: ["/seguranca-e-lgpd/", "/setores/clinicas-e-saude/", "/conteudo/glossario/base-legal/"],
   },
   {
     slug: "ia-para-clinicas",
@@ -476,21 +396,20 @@ export const guides: Article[] = [
           { type: "ol", items: [
             "Triagem e agendamento: libera horas dos advogados já no primeiro mês.",
             "Documentos padrão: contratos e procurações gerados a partir de modelos.",
-            "Acervo: pesquisa com IA privada sobre peças e pareceres anteriores.",
+            "Acervo: agente de conhecimento que pesquisa peças e pareceres anteriores.",
           ] },
         ],
       },
     ],
     faq: [
       { q: "Um agente de IA pode responder dúvidas jurídicas?", a: "Não deve dar parecer. Ele acolhe, organiza as informações e agenda; a orientação jurídica é do advogado." },
-      { q: "A IA pode redigir peças?", a: "Pode gerar rascunhos a partir do acervo e de modelos, sempre revisados por um advogado, de preferência em ambiente de IA privada." },
-      { q: "Quanto custa?", a: "Investimento sob consulta, conforme o escopo: agente de WhatsApp, automação de documentos ou IA privada." },
+      { q: "A IA pode redigir peças?", a: "Pode gerar rascunhos a partir do acervo e de modelos, sempre revisados por um advogado, usando provedores com contrato de não retenção." },
+      { q: "Quanto custa?", a: "Investimento sob consulta, conforme o escopo: agente de WhatsApp, triagem com SDR ou automação de documentos." },
     ],
     related: [
       "/setores/escritorios-de-advocacia/",
       "/solucoes/vendas-e-receita/sdr-com-ia/",
       "/solucoes/operacoes/automacao-de-documentos/",
-      "/solucoes/ia-corporativa/ia-privada/",
     ],
   },
   {
@@ -821,7 +740,6 @@ export const guides: Article[] = [
             ["Agente de conhecimento interno", "Sob consulta", "3 a 5 semanas"],
             ["Automação de documentos", "Sob consulta", "3 a 6 semanas"],
             ["SDR com IA", "Sob consulta", "3 a 5 semanas"],
-            ["IA privada (nuvem privada)", "Sob consulta", "Conforme o escopo"],
           ] },
           { type: "callout", text: "O preço final depende do número de integrações, do volume de conversas e das regras de negócio, e é fechado depois do Diagnóstico." },
         ],
@@ -834,7 +752,7 @@ export const guides: Article[] = [
             "Integrações: cada sistema conectado (agenda, CRM, ERP) acrescenta trabalho; sistemas sem API custam mais.",
             "Base de conhecimento: informação organizada reduz o prazo; conteúdo espalhado exige curadoria.",
             "Regras e exceções: quanto mais caminhos o atendimento tem, mais testes são necessários.",
-            "Dados sensíveis: saúde, jurídico e financeiro podem exigir IA privada e governança extra.",
+            "Dados sensíveis: saúde, jurídico e financeiro exigem provedores com não retenção de dados e cuidados extras de LGPD.",
             "Volume: muitas conversas aumentam o consumo, mas também o retorno.",
           ] },
         ],
@@ -1034,54 +952,6 @@ export const comparisons: Article[] = [
       { q: "Em nome de quem fica a conta?", a: "Sempre da sua empresa, com cláusula de saída." },
     ],
     related: ["/solucoes/operacoes/automacao-de-processos/", "/solucoes/operacoes/integracao-de-sistemas/", "/conteudo/guias/agentes-de-ia-para-empresas/"],
-  },
-  {
-    slug: "chatgpt-enterprise-vs-ia-privada",
-    kind: "comparativo",
-    title: "ChatGPT Enterprise vs IA privada",
-    metaTitle: "ChatGPT Enterprise vs IA Privada: Qual Escolher para Dados Sensíveis",
-    description:
-      "Diferenças entre assinar um assistente corporativo pronto (ChatGPT Enterprise, Claude, Gemini) e implantar IA privada: dados, integrações, custo e quando cada opção faz sentido.",
-    answer:
-      "Assistentes corporativos prontos, como ChatGPT Enterprise, Claude e Gemini para empresas, entregam IA para a equipe em dias, com contrato que exclui o uso dos dados para treinamento. A IA privada roda em ambiente controlado pela empresa e se conecta aos seus sistemas e documentos com regras próprias de acesso. Para uso geral da equipe, o assistente pronto costuma bastar; para dados sensíveis integrados a processos, a IA privada dá mais controle.",
-    updatedAt: UPDATED,
-    readingMinutes: 5,
-    sections: [
-      {
-        id: "tabela",
-        heading: "Comparativo lado a lado",
-        blocks: [
-          { type: "table", head: ["Critério", "Assistente corporativo pronto", "IA privada"], rows: [
-            ["Tempo para começar", "Dias", "Semanas, conforme o escopo"],
-            ["Custo", "Licença por usuário", "Implantação + sustentação + infraestrutura"],
-            ["Uso dos dados para treinamento", "Excluído nos planos empresariais, conforme o contrato", "Não se aplica: o ambiente é da empresa"],
-            ["Onde os dados ficam", "Na infraestrutura do fornecedor", "Em nuvem privada ou servidor dedicado da empresa"],
-            ["Integração com sistemas", "Conectores oferecidos pelo fornecedor", "Com qualquer sistema, inclusive legados"],
-            ["Controle de acesso por documento", "Limitado aos recursos da plataforma", "Definido pela empresa, por área e perfil"],
-            ["Automação de processos", "Uso principalmente conversacional", "Pode agir em sistemas, com regras e revisão humana"],
-          ] },
-          { type: "callout", text: "Recursos, planos e termos dos fornecedores mudam com frequência. Confira sempre o contrato e a documentação oficial antes de decidir." },
-        ],
-      },
-      {
-        id: "quando",
-        heading: "Como decidir",
-        blocks: [
-          { type: "ul", items: [
-            "Produtividade geral da equipe (textos, resumos, análises): assistente corporativo pronto.",
-            "Pesquisa em documentos sensíveis com controle de acesso por área: IA privada.",
-            "IA que executa etapas de processos em sistemas internos: IA privada ou agente sob medida.",
-            "Setores com sigilo profissional ou dados sensíveis (saúde, jurídico, contábil): avalie a IA privada.",
-          ] },
-          { type: "p", text: "As duas opções não se excluem: muitas empresas usam um assistente pronto para o dia a dia e IA privada para os processos com dados críticos." },
-        ],
-      },
-    ],
-    faq: [
-      { q: "Usar o ChatGPT gratuito na empresa é seguro?", a: "Para dados de clientes, não é recomendado. Planos gratuitos e individuais têm termos diferentes dos planos empresariais. Uma política de uso de IA define o que pode ser colado em cada ferramenta." },
-      { q: "Quanto custa a IA privada?", a: "Na Soluna IA, investimento sob consulta, tanto em nuvem privada quanto em infraestrutura dedicada, mais a infraestrutura quando necessária." },
-    ],
-    related: ["/solucoes/ia-corporativa/ia-privada/", "/solucoes/ia-corporativa/governanca-ia-lgpd/", "/conteudo/guias/ia-e-lgpd/", "/conteudo/glossario/ia-privada/"],
   },
   {
     slug: "agente-de-ia-vs-contratar-atendente",

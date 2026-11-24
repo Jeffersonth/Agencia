@@ -52,10 +52,10 @@ export default function SobrePage() {
           <SectionHeading id="historia" eyebrow="História e propósito" title="Por que existimos." />
           <div className="space-y-5 text-lg text-slate">
             <p>
-              Em mais de 300 projetos de sites, sistemas e aplicativos, vimos o mesmo padrão se repetir: empresas com boa demanda perdendo clientes por falta de capacidade de resposta, e equipes qualificadas presas em trabalho repetitivo.
+              Em mais de 300 projetos digitais, vimos o mesmo padrão se repetir: empresas com boa demanda perdendo clientes por falta de capacidade de resposta, e equipes qualificadas presas em trabalho repetitivo.
             </p>
             <p>
-              A IA mudou o que é possível resolver. Por isso colocamos agentes de IA e automações no centro de tudo o que fazemos — e usamos sites, visibilidade em IA e software sob medida como capacidades que alimentam esse núcleo.
+              A IA mudou o que é possível resolver. Por isso colocamos agentes de IA e automações no centro de tudo o que fazemos — e criamos sites que já nascem prontos para alimentar esse núcleo.
             </p>
             <p className="font-medium text-ink">
               Nosso propósito: empresas que operam melhor porque a IA trabalha dentro da operação, não ao lado dela.

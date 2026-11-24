@@ -68,7 +68,7 @@ export function organizationSchema(full = false) {
     legalName: site.legalName,
     taxID: site.cnpj,
     foundingDate: String(site.foundingYear),
-    knowsAbout: ["Agentes de IA", "Automação de processos", "IA privada", "SEO e GEO", "Desenvolvimento de software"],
+    knowsAbout: ["Agentes de IA", "Automação de processos", "Criação de sites"],
   };
 }
 
