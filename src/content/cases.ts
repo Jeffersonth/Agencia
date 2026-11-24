@@ -10,15 +10,12 @@
  * de projeto (e o depoimento, se houver autorização do cliente).
  */
 
-export type CaseType = "ia" | "automacao" | "seo" | "sites" | "apps" | "saas";
+export type CaseType = "ia" | "automacao" | "sites";
 
 export const caseTypeLabels: Record<CaseType, string> = {
   ia: "IA & Agentes",
   automacao: "Automação",
-  seo: "SEO/GEO",
   sites: "Sites",
-  apps: "Apps",
-  saas: "SaaS",
 };
 
 export type CaseStudy = {
@@ -51,38 +48,6 @@ export type CaseStudy = {
 };
 
 export const cases: CaseStudy[] = [
-  // ───────────── Nível 1 — Cases reais e produtos próprios ─────────────
-  // TODO: completar com dados reais (tráfego, presença nas IAs, prints) antes de publicar.
-  {
-    slug: "acertoclt",
-    status: "real",
-    type: "seo",
-    title: "AcertoCLT: SEO e GEO em projeto próprio",
-    company: "AcertoCLT (produto próprio)",
-    sector: "Conteúdo e ferramentas trabalhistas",
-    summary: "Projeto próprio construído com SEO técnico e conteúdo citável desde o primeiro dia. É o nosso case de visibilidade verificável.",
-    scenario: "",
-    solution: "",
-    how: [],
-    tech: ["Next.js", "SEO técnico", "Dados estruturados", "Conteúdo citável"],
-    indicators: ["Tráfego orgânico", "Posições nos termos-alvo", "Citações em respostas de IA"],
-    noDetail: true,
-  },
-  {
-    slug: "prospector-cnpj",
-    status: "real",
-    type: "saas",
-    title: "Prospector CNPJ: SaaS próprio de prospecção",
-    company: "Prospector CNPJ (produto próprio)",
-    sector: "Vendas B2B",
-    summary: "Software próprio que construímos, operamos e mantemos. Prova de que entregamos produto, não só projeto.",
-    scenario: "",
-    solution: "",
-    how: [],
-    tech: ["SaaS", "Dados públicos de empresas", "Automação"],
-    indicators: [],
-    noDetail: true,
-  },
 
   // ───────────── Nível 2 — Projetos demonstrativos: IA & Agentes ─────────────
   {
@@ -197,7 +162,6 @@ export const cases: CaseStudy[] = [
       { before: "Dúvida recorrente nunca vira documentação.", after: "Perguntas sem resposta boa viram pauta para atualizar o manual." },
     ],
     service: "/solucoes/operacoes/agente-de-conhecimento/",
-    alsoFor: ["ia-corporativa"],
   },
   {
     slug: "vendas-ecommerce",
@@ -227,34 +191,6 @@ export const cases: CaseStudy[] = [
     ],
     service: "/solucoes/atendimento-inteligente/agente-ia-whatsapp/",
     alsoFor: ["vendas-e-receita"],
-  },
-  {
-    slug: "assistente-juridico-ia-privada",
-    status: "demo",
-    type: "ia",
-    title: "Assistente jurídico em IA privada",
-    company: "Escritório Demo Advocacia (fictício)",
-    sector: "Jurídico",
-    summary: "IA em nuvem privada conectada ao acervo de peças do escritório, sem expor dados de clientes.",
-    scenario:
-      "Escritório com anos de peças e pareceres que ninguém consegue reaproveitar. Os advogados querem usar IA em pesquisa e redação, mas não podem colar dados de clientes em ferramentas públicas.",
-    solution:
-      "IA em nuvem privada, com contrato de não retenção, conectada ao acervo do escritório. Controle de acesso por área e registro de uso para auditoria. Todo conteúdo gerado é revisado por um advogado.",
-    how: [
-      "Avaliação da sensibilidade do acervo.",
-      "Ambiente privado com acesso por área de atuação.",
-      "Indexação das peças e pareceres.",
-      "Advogado pesquisa e gera rascunhos a partir do acervo.",
-      "Logs de uso e revisão humana obrigatória.",
-    ],
-    tech: ["Nuvem privada com não retenção", "RAG", "SSO", "Logs de auditoria"],
-    indicators: ["Tempo de pesquisa por demanda", "Reaproveitamento do acervo", "Adesão da equipe"],
-    expectedOutcome: [
-      { before: "Anos de peças e pareceres parados, ninguém consegue reaproveitar.", after: "Advogado pesquisa o acervo e gera rascunho a partir do que já existe." },
-      { before: "Time evita usar IA por não poder expor dados de clientes.", after: "IA roda em ambiente privado, com contrato de não retenção." },
-      { before: "Nenhum controle sobre quem acessou o quê.", after: "Acesso por área de atuação, com log de uso para auditoria." },
-    ],
-    service: "/solucoes/ia-corporativa/ia-privada/",
   },
 
   // ───────────── Nível 2 — Projetos demonstrativos: Automação ─────────────
@@ -457,91 +393,6 @@ export const cases: CaseStudy[] = [
     service: "/solucoes/operacoes/automacao-de-processos/",
   },
 
-  // ───────────── Nível 2 — Projetos demonstrativos: SEO/GEO ─────────────
-  {
-    slug: "geo-clinica-estetica",
-    status: "demo",
-    type: "seo",
-    title: "SEO e GEO para clínica de estética",
-    company: "Clínica Estética Demo (fictícia)",
-    sector: "Saúde e estética",
-    summary: "Site técnico, conteúdo citável por procedimento e perfil local para aparecer no Google e nas IAs.",
-    scenario:
-      "Clínica com site bonito e lento, sem páginas por procedimento, que não aparece quando pacientes perguntam ao Google ou ao ChatGPT por clínicas na cidade.",
-    solution:
-      "Reestruturação do site com uma página por procedimento, resposta direta no topo, dados estruturados, perfil no Google Business Profile e assistente de IA para converter o tráfego.",
-    how: [
-      "Auditoria de visibilidade no Google e nas IAs.",
-      "Uma URL por procedimento, com resposta direta.",
-      "Schema, performance e llms.txt.",
-      "Google Business Profile e avaliações reais.",
-      "Assistente de IA no site para converter.",
-    ],
-    tech: ["Next.js", "Schema.org", "Google Business Profile", "Search Console", "Assistente de IA"],
-    indicators: ["Impressões e cliques orgânicos", "% de citações em perguntas-alvo nas IAs", "Leads orgânicos"],
-    expectedOutcome: [
-      { before: "Site bonito, mas sem uma página específica por procedimento.", after: "Cada procedimento tem sua página, com resposta direta no topo." },
-      { before: "Paciente não encontra a clínica ao perguntar ao Google ou ao ChatGPT.", after: "Estrutura técnica e dados estruturados dão base para aparecer nos dois." },
-      { before: "Tráfego chega ao site e não converte em contato.", after: "Assistente de IA no site conduz o visitante até o agendamento." },
-    ],
-    service: "/servicos/seo-e-geo/",
-  },
-  {
-    slug: "geo-advocacia-previdenciaria",
-    status: "demo",
-    type: "seo",
-    title: "SEO e GEO para advocacia previdenciária",
-    company: "Escritório Previdenciário Demo (fictício)",
-    sector: "Jurídico",
-    summary: "Conteúdo educativo e citável sobre benefícios, dentro das regras de publicidade da OAB.",
-    scenario:
-      "Escritório que depende de indicação e não aparece nas buscas nem nas respostas das IAs sobre aposentadoria e benefícios.",
-    solution:
-      "Guias educativos sobre benefícios previdenciários, com linguagem clara, autoria do advogado, dados estruturados e sem promessa de resultado — conforme as regras de publicidade da OAB.",
-    how: [
-      "Mapeamento das perguntas que as pessoas fazem.",
-      "Guias assinados pelo advogado responsável.",
-      "Resposta direta e FAQ em cada guia.",
-      "Revisão de conformidade com a OAB.",
-      "Monitoramento de citações nas IAs.",
-    ],
-    tech: ["Next.js", "Schema Article + Person", "Search Console", "Monitoramento de citações"],
-    indicators: ["Tráfego orgânico por guia", "Citações nas IAs", "Contatos qualificados"],
-    expectedOutcome: [
-      { before: "Escritório depende só de indicação para chegar a novos clientes.", after: "Guias educativos passam a atrair quem pesquisa sobre o benefício." },
-      { before: "Nenhuma presença quando alguém pergunta a uma IA sobre aposentadoria.", after: "Conteúdo estruturado e assinado pelo advogado vira fonte citável." },
-      { before: "Risco de linguagem promissora e fora das regras da OAB.", after: "Conteúdo revisado para publicidade responsável, sem promessa de resultado." },
-    ],
-    service: "/servicos/seo-e-geo/",
-  },
-  {
-    slug: "geo-software-b2b",
-    status: "demo",
-    type: "seo",
-    title: "GEO para software B2B em comparativos",
-    company: "SaaS Demo (fictício)",
-    sector: "Software B2B",
-    summary: "Páginas de comparação e de preço que fazem o produto aparecer quando o comprador pergunta às IAs.",
-    scenario:
-      "Software B2B que não é citado quando compradores pedem às IAs “as melhores ferramentas para…”, enquanto concorrentes aparecem.",
-    solution:
-      "Páginas de comparativo honestas, página de preços clara, glossário e presença em diretórios B2B com dados idênticos, reforçando a entidade da marca.",
-    how: [
-      "Levantamento das perguntas de decisão.",
-      "Comparativos e página de preços citáveis.",
-      "Glossário com termos do mercado.",
-      "Consistência da entidade em diretórios.",
-      "Medição mensal de citações.",
-    ],
-    tech: ["Schema.org", "llms.txt", "Diretórios B2B", "Search Console", "Bing Webmaster Tools"],
-    indicators: ["% de citações em perguntas de decisão", "Tráfego de assistentes de IA", "Demonstrações solicitadas"],
-    expectedOutcome: [
-      { before: "Concorrente aparece quando o comprador pergunta “as melhores ferramentas para…”.", after: "Comparativos honestos e página de preços dão material citável." },
-      { before: "Entidade da marca inconsistente entre site, diretórios e redes.", after: "Dados idênticos em todos os canais reforçam a mesma entidade." },
-      { before: "Glossário do mercado não existe no site.", after: "Termos do setor ganham página própria, ligada aos comparativos." },
-    ],
-    service: "/servicos/seo-e-geo/",
-  },
 
   // ───────────── Nível 2 — Projetos demonstrativos: Sites ─────────────
   {
@@ -601,125 +452,7 @@ export const cases: CaseStudy[] = [
     service: "/servicos/criacao-de-sites/",
   },
 
-  // ───────────── Nível 2 — Projetos demonstrativos: Aplicativos ─────────────
-  {
-    slug: "app-agendamento-rede-clinicas",
-    status: "demo",
-    type: "apps",
-    title: "Aplicativo de agendamento para rede de clínicas",
-    company: "Rede de Clínicas Demo (fictícia)",
-    sector: "Saúde",
-    summary: "App para o paciente marcar consulta, enviar documentos e receber lembretes, com painel web para a equipe administrar tudo.",
-    scenario:
-      "Rede com quatro unidades em que o paciente só consegue marcar por telefone, exames chegam por e-mail espalhado e cada unidade organiza sua agenda de um jeito diferente.",
-    solution:
-      "Aplicativo iOS e Android em que o paciente marca consulta na unidade e especialidade certas, envia documentos pela câmera, recebe lembretes por notificação push e acompanha o histórico. Um sistema web dá à equipe administrativa uma visão única das quatro unidades.",
-    how: [
-      "Discovery com a equipe administrativa das quatro unidades.",
-      "Protótipo navegável validado com pacientes e recepção.",
-      "Desenvolvimento do app (React Native) e do backend com painel web.",
-      "Notificações push para lembrete e confirmação de consulta.",
-      "Testes em dispositivos reais e publicação nas lojas.",
-    ],
-    tech: ["React Native", "Expo", "Backend próprio", "Notificações push", "Painel web administrativo"],
-    indicators: ["Agendamentos feitos pelo app", "Taxa de faltas", "Documentos enviados sem retrabalho", "Tempo de resposta da recepção"],
-    expectedOutcome: [
-      { before: "Paciente só marca consulta ligando em horário comercial.", after: "Agendamento fica disponível no app a qualquer hora." },
-      { before: "Cada unidade organiza a agenda de um jeito diferente.", after: "Painel web único mostra as quatro unidades com o mesmo padrão." },
-      { before: "Exame chega por e-mail e se perde entre as unidades.", after: "Documento enviado pela câmera já entra vinculado ao paciente certo." },
-    ],
-    service: "/servicos/desenvolvimento-de-aplicativos/",
-    alsoFor: ["atendimento-inteligente"],
-  },
-  {
-    slug: "app-campo-tecnicos-manutencao",
-    status: "demo",
-    type: "apps",
-    title: "Aplicativo de campo para técnicos de manutenção",
-    company: "Manutenção Industrial Demo (fictícia)",
-    sector: "Indústria e manutenção",
-    summary: "App que leva a ordem de serviço, o checklist e o registro fotográfico para o celular do técnico em campo, mesmo sem sinal.",
-    scenario:
-      "Equipe de técnicos que preenche checklist em papel, tira foto no celular pessoal e só atualiza o status da ordem de serviço quando volta ao escritório — a gestão não sabe o que está acontecendo em campo em tempo real.",
-    solution:
-      "Aplicativo para o técnico ver a ordem de serviço do dia, preencher checklist digital, registrar fotos e assinatura do responsável no local, funcionando mesmo offline e sincronizando quando a conexão volta. Painel web mostra o status de cada ordem em tempo real.",
-    how: [
-      "Mapeamento do fluxo de ordens de serviço e dos checklists atuais.",
-      "Protótipo do app validado com os próprios técnicos de campo.",
-      "Desenvolvimento com armazenamento offline e fila de sincronização.",
-      "Captura de fotos, geolocalização e assinatura digital no local.",
-      "Painel web para a gestão acompanhar o status de cada ordem.",
-    ],
-    tech: ["React Native", "Armazenamento offline", "Geolocalização", "Assinatura digital", "Painel web em tempo real"],
-    indicators: ["Ordens de serviço concluídas no prazo", "Tempo entre execução e atualização do status", "Checklists completos"],
-    expectedOutcome: [
-      { before: "Status da ordem de serviço só é atualizado quando o técnico volta ao escritório.", after: "Gestão acompanha em tempo real, direto do painel web." },
-      { before: "Checklist em papel se perde ou fica incompleto.", after: "Checklist digital não avança sem os campos obrigatórios preenchidos." },
-      { before: "Sem sinal em campo, o app pararia de funcionar.", after: "Registro funciona offline e sincroniza assim que a conexão volta." },
-    ],
-    service: "/servicos/desenvolvimento-de-aplicativos/",
-    alsoFor: ["operacoes"],
-  },
 
-  // ───────────── Nível 2 — Projetos demonstrativos: Sistemas e SaaS ─────────────
-  {
-    slug: "sistema-gestao-clinicas-multiunidade",
-    status: "demo",
-    type: "saas",
-    title: "Sistema de gestão para rede de clínicas multiunidade",
-    company: "Rede de Clínicas Demo (fictícia)",
-    sector: "Saúde",
-    summary: "Sistema sob medida que unifica agenda, prontuário simplificado e faturamento das quatro unidades em um único painel.",
-    scenario:
-      "Rede que cresceu de uma para quatro unidades usando planilhas e um sistema genérico que não separa direito os dados de cada unidade. A diretoria não tem uma visão consolidada de ocupação, faturamento e produtividade por profissional.",
-    solution:
-      "Sistema sob medida com arquitetura multi-tenant por unidade, agenda unificada, prontuário simplificado, controle de faturamento por convênio e painel executivo para a diretoria acompanhar todas as unidades em um só lugar.",
-    how: [
-      "Discovery com a diretoria e a equipe de cada unidade.",
-      "Arquitetura multi-tenant: dados isolados por unidade, visão consolidada para a diretoria.",
-      "Desenvolvimento por fases: agenda, prontuário simplificado e faturamento.",
-      "Migração dos dados das planilhas e do sistema anterior.",
-      "Painel executivo com indicadores de ocupação, faturamento e produtividade.",
-    ],
-    tech: ["Arquitetura multi-tenant", "Autenticação e permissões por unidade", "Painel administrativo", "Integração com convênios"],
-    indicators: ["Ocupação por unidade e profissional", "Tempo de fechamento do faturamento", "Divergências entre unidades"],
-    expectedOutcome: [
-      { before: "Cada unidade tem sua própria planilha, sem visão consolidada.", after: "Painel único mostra as quatro unidades com o mesmo padrão de dado." },
-      { before: "Fechamento de faturamento por convênio é feito manualmente, unidade por unidade.", after: "Faturamento consolidado, com regras por convênio configuradas uma vez." },
-      { before: "Diretoria só sabe como uma unidade está indo perguntando ao gestor local.", after: "Indicadores de ocupação e produtividade ficam visíveis em tempo real." },
-    ],
-    service: "/servicos/desenvolvimento-de-sistemas/",
-    alsoFor: ["operacoes"],
-  },
-  {
-    slug: "portal-fornecedores-industria",
-    status: "demo",
-    type: "saas",
-    title: "Portal de fornecedores para indústria",
-    company: "Indústria Demo (fictícia)",
-    sector: "Indústria",
-    summary: "Área logada onde fornecedores acompanham pedidos, enviam notas fiscais e recebem status de pagamento, sem passar pelo e-mail.",
-    scenario:
-      "Indústria que troca pedidos de compra, notas fiscais e comprovantes de entrega por e-mail com dezenas de fornecedores. Informação se perde em caixas de entrada, e o time de compras gasta boa parte do dia respondendo “onde está meu pagamento”.",
-    solution:
-      "Portal do fornecedor com login próprio, onde cada fornecedor vê seus pedidos, envia nota fiscal e documentos de entrega, e acompanha o status do pagamento. Integrado ao ERP da indústria, sem digitação dupla.",
-    how: [
-      "Mapeamento do fluxo atual de pedidos, notas e pagamentos por e-mail.",
-      "Desenho do portal: pedidos, upload de documentos e status de pagamento.",
-      "Desenvolvimento da área logada e da integração com o ERP.",
-      "Cadastro e treinamento dos primeiros fornecedores no portal.",
-      "Acompanhamento e ajustes com o time de compras.",
-    ],
-    tech: ["Autenticação por fornecedor", "Upload de documentos", "Integração com ERP via API", "Painel administrativo"],
-    indicators: ["E-mails de status recebidos pelo time de compras", "Tempo entre entrega e confirmação de pagamento", "Notas fiscais pendentes"],
-    expectedOutcome: [
-      { before: "Fornecedor manda e-mail para saber se a nota foi recebida.", after: "Fornecedor acompanha o status de cada nota direto no portal." },
-      { before: "Comprovante de entrega se perde entre caixas de e-mail.", after: "Documento fica anexado ao pedido certo, dentro do portal." },
-      { before: "Time de compras responde “onde está meu pagamento” várias vezes por dia.", after: "Status de pagamento fica visível para o fornecedor, sem precisar perguntar." },
-    ],
-    service: "/servicos/desenvolvimento-de-sistemas/",
-    alsoFor: ["operacoes"],
-  },
 ];
 
 export const getCase = (slug: string) => cases.find((c) => c.slug === slug);

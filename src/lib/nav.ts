@@ -15,9 +15,6 @@ export type NavGroup = {
 
 export const complementaryServices: NavItem[] = [
   { label: "Criação de Sites", href: "/servicos/criacao-de-sites/", description: "Sites rápidos que já nascem com IA.", icon: "layout" },
-  { label: "SEO e GEO", href: "/servicos/seo-e-geo/", description: "Apareça no Google e nas respostas das IAs.", icon: "search" },
-  { label: "Desenvolvimento de Sistemas", href: "/servicos/desenvolvimento-de-sistemas/", description: "Sistemas e SaaS sob medida, com IA no núcleo.", icon: "code" },
-  { label: "Desenvolvimento de Aplicativos", href: "/servicos/desenvolvimento-de-aplicativos/", description: "Apps iOS e Android com uma base de código.", icon: "smartphone" },
 ];
 
 export const mainNav: NavGroup[] = [
@@ -35,24 +32,7 @@ export const mainNav: NavGroup[] = [
     },
     items: hubs.map((h) => ({ label: h.name, href: `/solucoes/${h.slug}/`, description: h.menuDescription, icon: h.icon })),
   },
-  {
-    label: "Serviços",
-    href: "/servicos/",
-    align: "left",
-    featured: {
-      eyebrow: "Grátis, sem cadastro",
-      title: "Ferramentas para medir antes de decidir",
-      text: "Calculadora de ROI, custo do atendimento e Raio-X do seu WhatsApp.",
-      cta: "Ver ferramentas",
-      href: "/ferramentas/",
-    },
-    items: complementaryServices.map(({ label, href, description, icon }) => ({
-      label: label.replace("Desenvolvimento de ", ""),
-      href,
-      description,
-      icon,
-    })),
-  },
+  { label: "Criação de Sites", href: "/servicos/criacao-de-sites/" },
   {
     label: "Setores",
     href: "/setores/",

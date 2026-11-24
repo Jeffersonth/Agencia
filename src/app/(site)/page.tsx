@@ -37,93 +37,13 @@ function PlanetMark({ className }: { className?: string }) {
   );
 }
 
-// Ilustração "esfera marmorizada" (dados e previsões / IA corporativa)
+// Ilustração "esfera marmorizada" (criação de sites)
 function SwirlMark({ className }: { className?: string }) {
   return (
     <span className={`relative inline-block overflow-hidden rounded-full ${className ?? ""}`} style={{ background: "conic-gradient(from 205deg at 52% 46%, #3d5cff, #7c4dff, #ff7a45, #ffb547, #ff5e8a, #3d5cff)" }}>
       <span className="absolute inset-0 rounded-full" style={{ boxShadow: "inset -8px -10px 22px rgba(6,8,40,0.5), inset 9px 11px 22px rgba(255,255,255,0.45)" }} />
       <span className="absolute left-[26%] top-[22%] size-3 rounded-full bg-white/50 blur-[2px]" />
     </span>
-  );
-}
-
-// Capas ilustradas (mockups) para os serviços complementares
-type CoverVariant = "sites" | "saas" | "apps" | "seo";
-const coverBg: Record<CoverVariant, string> = {
-  sites: "linear-gradient(140deg,#6a5cff,#3f7bff)",
-  saas: "linear-gradient(140deg,#7c4dff,#b04dff)",
-  apps: "linear-gradient(140deg,#2bd0a8,#3f7bff)",
-  seo: "linear-gradient(140deg,#3f7bff,#8a5cff)",
-};
-
-function ServiceCover({ variant }: { variant: CoverVariant }) {
-  return (
-    <div className="relative h-44 overflow-hidden" style={{ background: coverBg[variant] }}>
-      <span aria-hidden className="pointer-events-none absolute -right-8 -top-10 size-40 rounded-full bg-white/15 blur-md" />
-      <span aria-hidden className="pointer-events-none absolute -bottom-12 -left-8 size-36 rounded-full bg-black/10 blur-md" />
-      {variant === "sites" && (
-        <div className="absolute inset-x-6 top-6 rounded-t-xl bg-white shadow-[0_18px_40px_-18px_rgba(8,10,45,0.6)] ring-1 ring-black/5">
-          <div className="flex items-center gap-1.5 border-b border-line/60 px-3 py-2">
-            <span className="size-2 rounded-full bg-[#ff5f57]" /><span className="size-2 rounded-full bg-[#febc2e]" /><span className="size-2 rounded-full bg-[#28c840]" />
-            <span className="ml-2 h-3 flex-1 rounded-full bg-mist" />
-          </div>
-          <div className="flex gap-3 p-3.5">
-            <div className="flex-1 space-y-2">
-              <span className="block h-3 w-4/5 rounded bg-ink/80" />
-              <span className="block h-2 w-full rounded bg-line" />
-              <span className="block h-2 w-2/3 rounded bg-line" />
-              <span className="mt-1 block h-5 w-24 rounded-full bg-[linear-gradient(90deg,#7c4dff,#4d7cff)]" />
-            </div>
-            <span className="size-16 shrink-0 rounded-lg bg-[linear-gradient(135deg,#8ab4ff,#c9b6ff)]" />
-          </div>
-        </div>
-      )}
-      {variant === "saas" && (
-        <div className="absolute inset-x-6 top-6 flex gap-2 rounded-xl bg-white p-2.5 shadow-[0_18px_40px_-18px_rgba(8,10,45,0.6)] ring-1 ring-black/5">
-          <div className="w-10 shrink-0 space-y-1.5 border-r border-line/60 pr-2">
-            {[0, 1, 2, 3].map((i) => <span key={i} className={`block h-2 rounded ${i === 0 ? "bg-violet-400" : "bg-line"}`} />)}
-          </div>
-          <div className="flex-1">
-            <div className="flex gap-2">
-              <span className="h-8 flex-1 rounded-md bg-violet-50 ring-1 ring-violet-100" />
-              <span className="h-8 flex-1 rounded-md bg-signal-50 ring-1 ring-signal-100" />
-            </div>
-            <div className="mt-2 flex items-end gap-1.5">
-              {[10, 18, 12, 24, 16, 28].map((h, i) => <span key={i} className="w-full rounded-t bg-[linear-gradient(180deg,#7c4dff,#4d7cff)]" style={{ height: `${h}px` }} />)}
-            </div>
-          </div>
-        </div>
-      )}
-      {variant === "apps" && (
-        <div className="absolute left-1/2 top-6 w-28 -translate-x-1/2 rounded-[1.1rem] bg-white p-2 shadow-[0_18px_40px_-18px_rgba(8,10,45,0.6)] ring-1 ring-black/5">
-          <span className="mx-auto mb-2 block h-1 w-8 rounded-full bg-line" />
-          <span className="block h-10 rounded-lg bg-[linear-gradient(135deg,#2bd0a8,#4d7cff)]" />
-          <div className="mt-1.5 space-y-1">
-            <span className="block h-2 w-full rounded bg-mist" /><span className="block h-2 w-2/3 rounded bg-mist" />
-          </div>
-          <div className="mt-2 flex justify-around border-t border-line/60 pt-1.5">
-            {[0, 1, 2].map((i) => <span key={i} className={`size-1.5 rounded-full ${i === 0 ? "bg-violet-400" : "bg-line"}`} />)}
-          </div>
-        </div>
-      )}
-      {variant === "seo" && (
-        <div className="absolute inset-x-6 top-7 rounded-xl bg-white p-3 shadow-[0_18px_40px_-18px_rgba(8,10,45,0.6)] ring-1 ring-black/5">
-          <div className="flex items-center gap-2 rounded-full bg-mist px-3 py-1.5 ring-1 ring-line/60">
-            <span className="size-2.5 rounded-full border-2 border-slate" />
-            <span className="h-2 flex-1 rounded bg-line" />
-          </div>
-          <ul className="mt-2.5 space-y-1.5">
-            {[0, 1, 2].map((i) => (
-              <li key={i} className="flex items-center gap-2">
-                <span className={`size-4 shrink-0 rounded ${i === 0 ? "bg-[linear-gradient(135deg,#7c4dff,#4d7cff)]" : "bg-mist ring-1 ring-line/60"}`} />
-                <span className={`block h-2 rounded ${i === 0 ? "w-3/4 bg-ink/70" : "w-1/2 bg-line"}`} />
-                {i === 0 && <ArrowUpRight aria-hidden className="ml-auto size-4 text-accent-strong" />}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
   );
 }
 
@@ -163,42 +83,11 @@ function ArchDiagram({ className }: { className?: string }) {
   );
 }
 
-const buildServices: { variant: CoverVariant; title: string; href: string; description: string; features: string[] }[] = [
-  {
-    variant: "sites",
-    title: "Sites de Alta Performance",
-    href: "/servicos/criacao-de-sites/",
-    description: "Sites institucionais, landing pages e plataformas construídos para performance, conversão, SEO e integração com IA.",
-    features: ["Núcleo rápido, com Core Web Vitals", "SEO técnico desde a base", "Pronto para agentes de IA"],
-  },
-  {
-    variant: "saas",
-    title: "Sistemas e SaaS",
-    href: "/servicos/desenvolvimento-de-sistemas/",
-    description: "Software sob medida para processos que não deveriam depender de dezenas de planilhas e ferramentas desconectadas.",
-    features: ["Painéis e fluxos sob medida", "Integração com os seus sistemas", "Escalável, seguro e documentado"],
-  },
-  {
-    variant: "apps",
-    title: "Aplicativos",
-    href: "/servicos/desenvolvimento-de-aplicativos/",
-    description: "Aplicativos web e mobile integrados ao ecossistema digital da empresa, com uma única base de código.",
-    features: ["iOS, Android e web", "Conectado à sua operação", "Da publicação à evolução"],
-  },
-  {
-    variant: "seo",
-    title: "SEO, GEO e LLM Visibility",
-    href: "/servicos/seo-e-geo/",
-    description: "Estratégia para aumentar a presença da empresa nos mecanismos de busca e nas respostas produzidas por sistemas de IA.",
-    features: ["SEO técnico + conteúdo", "Otimização para IAs generativas (GEO)", "Autoridade de entidade"],
-  },
-];
-
 export const metadata: Metadata = pageMetadata({
   title: `${site.name} | Agentes de IA e Automação para Empresas`,
   absoluteTitle: true,
   description:
-    "Agência de IA e automação para empresas em todo o Brasil. Criamos agentes de IA, integrações e sistemas inteligentes para atendimento, vendas e operações.",
+    "Agência de IA e automação para empresas em todo o Brasil. Criamos agentes de IA, automações e sites para atendimento, vendas e operações.",
   path: "/",
 });
 
@@ -228,7 +117,7 @@ const techLayers: { icon: IconName; title: string; text: string }[] = [
   { icon: "zap", title: "Automação", text: "Fluxos que executam tarefas automaticamente, do início ao fim." },
   { icon: "plug", title: "Integrações", text: "Conexões com CRM, ERP, WhatsApp, APIs e ferramentas internas." },
   { icon: "database", title: "Dados", text: "Bases de conhecimento e informações da própria empresa." },
-  { icon: "code", title: "Software", text: "Interfaces e sistemas desenvolvidos quando a operação exige algo específico." },
+  { icon: "layout", title: "Sites", text: "Sites e páginas que levam o visitante direto para os agentes e as automações." },
 ];
 
 const diagnosticoInclui = [
@@ -243,14 +132,6 @@ const diagnosticoInclui = [
 ];
 
 const arquiteturaFatores = ["Qualidade", "Segurança", "Privacidade", "Latência", "Volume", "Custo", "Capacidade de integração", "Manutenção", "Escalabilidade"];
-
-const seoGeoEntende = [
-  "quem é sua empresa",
-  "o que ela oferece",
-  "para quem ela oferece",
-  "em quais assuntos possui experiência",
-  "quais informações sustentam sua autoridade",
-];
 
 const solutionPillars: { title: string; href: string; icon: IconName; text: string; apps: string[]; cta: string }[] = [
   {
@@ -270,12 +151,12 @@ const solutionPillars: { title: string; href: string; icon: IconName; text: stri
     cta: "Conhecer Automação com IA",
   },
   {
-    title: "IA Corporativa",
-    href: "/solucoes/ia-corporativa/",
-    icon: "lock",
-    text: "Uma camada de inteligência sobre os dados e o conhecimento da própria empresa — consultando documentos, bases de conhecimento e sistemas internos, respeitando permissões, governança e requisitos de segurança.",
-    apps: ["Assistentes internos", "Busca inteligente corporativa", "RAG e bases de conhecimento", "Copilotos para equipes", "IA privada", "Governança de acesso"],
-    cta: "Conhecer IA Corporativa",
+    title: "Criação de Sites",
+    href: "/servicos/criacao-de-sites/",
+    icon: "layout",
+    text: "Sites institucionais, landing pages e e-commerces rápidos, com estratégia, UX/UI e SEO técnico desde a base — e prontos para receber um agente de IA que atende o visitante na hora.",
+    apps: ["Site institucional", "Landing page", "E-commerce", "WordPress ou Next.js", "SEO técnico", "Assistente de IA no site"],
+    cta: "Conhecer Criação de Sites",
   },
 ];
 
@@ -291,13 +172,13 @@ const porqueSoluna: { title: string; text: string; icon: IconName }[] = [
 const homeFaq = [
   { q: "O que é um agente de IA?", a: "Um agente de IA é um sistema que interpreta informações, mantém contexto, decide dentro de regras definidas e executa tarefas usando os sistemas conectados. Diferente de um chatbot, ele pode consultar dados, atualizar sistemas e encaminhar casos para pessoas quando necessário." },
   { q: "Qual a diferença entre um chatbot e um agente de IA?", a: "Um chatbot normalmente responde perguntas seguindo fluxos ou uma base de conhecimento. Um agente de IA, além de conversar, consulta sistemas, interpreta informações, decide dentro de limites definidos e executa ações." },
-  { q: "O que a Soluna IA faz?", a: "A Soluna IA é uma agência brasileira especializada em agentes de inteligência artificial e automação para empresas. Desenvolvemos soluções para atendimento, vendas, suporte e processos internos, além de sistemas, sites, aplicativos e projetos de SEO e GEO." },
+  { q: "O que a Soluna IA faz?", a: "A Soluna IA é uma agência brasileira especializada em agentes de inteligência artificial e automação para empresas. Desenvolvemos agentes de IA e automações para atendimento, vendas, suporte e processos internos, e criamos sites de alta performance." },
   { q: "Vocês integram a IA aos sistemas que eu já uso?", a: "Sim. Projetamos integrações com CRMs, ERPs, WhatsApp, agendas, bancos de dados, APIs, planilhas e sistemas internos. A viabilidade e a arquitetura são analisadas no Diagnóstico." },
   { q: "Agentes de IA funcionam no WhatsApp?", a: "Sim. Integramos agentes de IA ao WhatsApp para atendimento, qualificação de leads, vendas, suporte e agendamentos, usando a API oficial e as integrações adequadas ao projeto." },
   { q: "A Soluna atende empresas de todo o Brasil?", a: "Sim. O atendimento é online, o que permite projetos para empresas de pequeno, médio e grande porte em qualquer região do Brasil." },
   { q: "Quanto tempo leva para implementar um agente de IA?", a: "Depende do número de processos, integrações e regras. Projetos mais simples podem entrar no ar em poucas semanas; operações mais complexas são divididas em fases, com entregas a cada etapa." },
   { q: "A IA vai substituir o meu time?", a: "Não. A IA assume o repetitivo — responder, qualificar, digitar, agendar — e transfere para uma pessoa quando o caso exige negociação, julgamento ou decisão sensível." },
-  { q: "Meus dados ficam seguros?", a: "Sim. API oficial do WhatsApp, contas e dados em nome da sua empresa, adequação à LGPD e opção de IA privada para dados sensíveis." },
+  { q: "Meus dados ficam seguros?", a: "Sim. API oficial do WhatsApp, contas e dados em nome da sua empresa, adequação à LGPD e controle de acesso aos dados." },
 ];
 
 export default function HomePage() {
@@ -337,7 +218,7 @@ export default function HomePage() {
             Agentes de IA e automação para empresas que querem <span className="text-gradient">operar em outro nível.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75 md:text-[1.18rem]">
-            Projetamos e implementamos agentes de IA, automações e sistemas inteligentes para atendimento, vendas e operações — integrados ao WhatsApp, CRM, ERP e às ferramentas que sua empresa já utiliza.
+            Projetamos e implementamos agentes de IA e automações para atendimento, vendas e operações, e criamos sites que já nascem com IA — integrados ao WhatsApp, CRM, ERP e às ferramentas que sua empresa já utiliza.
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
             <ButtonLink href="/diagnostico/" size="lg">
@@ -376,7 +257,7 @@ export default function HomePage() {
             <p className="eyebrow">Sobre a {site.name}</p>
             <h2 className="mt-4 text-[1.5rem] md:text-[2.125rem]">Uma agência brasileira especializada em IA e automação para empresas.</h2>
             <p data-answer className="mt-5 text-[1.05rem] leading-relaxed text-slate">
-              A {site.name} é uma AI Solutions Agency que desenvolve e implementa agentes de IA, automações e soluções digitais sob medida para empresas de pequeno, médio e grande porte em todo o Brasil. Nossa especialidade é colocar inteligência artificial para trabalhar dentro da operação: atendendo clientes, qualificando oportunidades, executando tarefas, consultando informações e automatizando processos que hoje consomem o tempo da equipe. Quando o projeto exige mais, também desenvolvemos sistemas, SaaS, aplicativos, sites e estratégias de SEO e GEO.
+              A {site.name} é uma AI Solutions Agency que desenvolve e implementa agentes de IA, automações e soluções digitais sob medida para empresas de pequeno, médio e grande porte em todo o Brasil. Nossa especialidade é colocar inteligência artificial para trabalhar dentro da operação: atendendo clientes, qualificando oportunidades, executando tarefas, consultando informações e automatizando processos que hoje consomem o tempo da equipe. Também criamos sites de alta performance, que já nascem prontos para receber agentes de IA.
             </p>
             <dl className="mt-8 flex gap-10">
               <div>
@@ -506,15 +387,15 @@ export default function HomePage() {
             </span>
           </Link>
 
-          {/* Card 3 — IA Corporativa Privada */}
+          {/* Card 3 — Criação de Sites */}
           <Link
-            href="/solucoes/ia-corporativa/"
+            href="/servicos/criacao-de-sites/"
             className="group flex h-full flex-col rounded-[1.5rem] bg-[linear-gradient(180deg,#ffffff,#f2f0ff)] p-8 ring-1 ring-line/60 transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
           >
             <SwirlMark className="size-20 animate-icon-spin-slow" />
-            <h3 className="mt-6 text-[1.3rem] font-bold leading-snug">IA privada, com os dados sob controle</h3>
+            <h3 className="mt-6 text-[1.3rem] font-bold leading-snug">Sites que já nascem com IA</h3>
             <ul className="mt-5 space-y-3 text-[0.95rem] text-slate">
-              {["Inteligência sobre os seus dados", "Adequação à LGPD e governança", "Controle total de acessos"].map((t) => (
+              {["Institucional, landing page e e-commerce", "SEO técnico e performance desde a base", "Assistente de IA integrado"].map((t) => (
                 <li key={t} className="flex items-start gap-2.5">
                   <Sparkle aria-hidden className="mt-0.5 size-4 shrink-0 text-violet-400" fill="currentColor" />
                   {t}
@@ -523,7 +404,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-auto pt-7">
               <p className="text-gradient font-[family-name:var(--font-display)] text-5xl font-extrabold leading-none">{site.stats.projects}</p>
-              <p className="mt-1 text-sm text-slate">projetos entregues com IA</p>
+              <p className="mt-1 text-sm text-slate">projetos digitais entregues</p>
             </div>
           </Link>
         </div>
@@ -726,7 +607,7 @@ export default function HomePage() {
           <TextLink href="/setores/">Ver soluções por setor</TextLink>
         </div>
         <div className="mt-8">
-          <SecurityStrip text="API oficial do WhatsApp, adequação à LGPD, opção de IA privada, contas e dados em nome da sua empresa, e código e automações com cláusula de saída." />
+          <SecurityStrip text="API oficial do WhatsApp, adequação à LGPD, provedores sem retenção de dados, contas e dados em nome da sua empresa, e código e automações com cláusula de saída." />
         </div>
       </Section>
 
@@ -808,78 +689,6 @@ export default function HomePage() {
             Sempre que tecnicamente possível, estruturamos projetos para que contas, dados, integrações e ativos sejam controlados pela empresa contratante — o que facilita governança, continuidade e evolução ao longo do tempo. Arquitetura, propriedade de código, credenciais, documentação e condições de saída são definidas com clareza no escopo e no contrato de cada projeto.
           </p>
           <p className="mt-6 text-[1.15rem] font-semibold text-ink">Porque parceria tecnológica saudável também significa liberdade.</p>
-        </div>
-      </Section>
-
-      {/* 7.5 — Serviços complementares (secundário) */}
-      <Section tone="mist" labelledBy="complementares">
-        <SectionHeading
-          id="complementares"
-          eyebrow="Tecnologia completa"
-          title="Quando o projeto precisa de mais do que IA, nós construímos."
-          text="Nossa especialidade é IA e automação. Mas algumas transformações exigem uma estrutura digital maior — e a Soluna também desenvolve os ativos que sustentam a estratégia."
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {buildServices.map((s) => (
-            <Link
-              key={s.href}
-              href={s.href}
-              className="group flex flex-col overflow-hidden rounded-[1.4rem] bg-white shadow-[var(--shadow-card)] ring-1 ring-line/60 transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] hover:ring-violet-400/40"
-            >
-              <div className="relative overflow-hidden">
-                <ServiceCover variant={s.variant} />
-                <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1 text-[0.72rem] font-bold text-ink shadow-sm backdrop-blur-sm">
-                  Conhecer
-                  <ArrowUpRight aria-hidden className="size-3.5 text-violet-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col p-7 md:p-8">
-                <h3 className="text-[1.3rem] font-bold leading-snug">{s.title}</h3>
-                <p className="mt-2.5 text-[0.95rem] leading-relaxed text-slate">{s.description}</p>
-                <ul className="mt-5 space-y-2.5 border-t border-line/60 pt-5">
-                  {s.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-[0.9rem] text-ink">
-                      <Icon name="check" className="mt-0.5 size-4 shrink-0 text-accent-strong" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-signal">
-                  Conhecer {s.title} <ArrowRight aria-hidden className="size-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      {/* 7.6 — SEO + GEO */}
-      <Section tone="white" labelledBy="seo-geo">
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
-          <div>
-            <SectionHeading
-              id="seo-geo"
-              eyebrow="A nova busca"
-              title="Sua empresa precisa ser encontrada pelo Google — e compreendida pelas IAs."
-              text="Além dos buscadores tradicionais, as pessoas também usam ferramentas de IA para pesquisar soluções, fornecedores, produtos e serviços. Nosso trabalho de SEO e GEO estrutura o site para que buscadores e sistemas de IA entendam com clareza:"
-            />
-            <ButtonLink href="/servicos/seo-e-geo/" className="mt-7">
-              Conhecer SEO e GEO
-            </ButtonLink>
-          </div>
-          <div className="rounded-[1.4rem] bg-mist p-8 ring-1 ring-line/60 md:p-10">
-            <ul className="space-y-3">
-              {seoGeoEntende.map((s) => (
-                <li key={s} className="flex items-start gap-3 text-[1.02rem] text-ink">
-                  <Icon name="check" className="mt-0.5 size-5 shrink-0 text-accent-strong" />
-                  {s}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 border-t border-line/70 pt-5 text-[0.95rem] text-slate">
-              Combinamos SEO técnico, arquitetura de conteúdo, dados estruturados, conteúdo especializado, autoridade de entidade e mensuração contínua.
-            </p>
-          </div>
         </div>
       </Section>
 

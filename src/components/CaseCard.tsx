@@ -6,19 +6,13 @@ import type { OrbTone } from "@/components/Orb";
 export const caseTone: Record<CaseType, OrbTone> = {
   ia: "blue",
   automacao: "violet",
-  seo: "teal",
   sites: "orange",
-  apps: "cyan",
-  saas: "cyan",
 };
 
 const caseDeco: Record<CaseType, "chat" | "flow" | "shield" | "window" | "device" | "layers"> = {
   ia: "chat",
   automacao: "flow",
-  seo: "shield",
   sites: "window",
-  apps: "device",
-  saas: "layers",
 };
 
 export function CaseStatusBadge({ status }: { status: CaseStudy["status"] }) {

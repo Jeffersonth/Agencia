@@ -11,7 +11,7 @@ const path = "/conteudo/glossario/";
 
 export const metadata: Metadata = pageMetadata({
   title: "Glossário de IA para Empresas",
-  description: "Definições curtas e precisas de agente de IA, RAG, SDR com IA, GEO, llms.txt, transbordo, IA privada e outros termos.",
+  description: "Definições curtas e precisas de agente de IA, RAG, SDR com IA, transbordo, OCR, LGPD e outros termos.",
   path,
 });
 
@@ -38,7 +38,7 @@ export default function GlossarioPage() {
         crumbs={crumbs}
         eyebrow="Glossário"
         title="Glossário de IA para empresas."
-        answer="Definições curtas e precisas dos termos que aparecem em projetos de IA, automação e visibilidade nas IAs. Cada termo tem uma página própria, com explicação e links para aprofundar."
+        answer="Definições curtas e precisas dos termos que aparecem em projetos de agentes de IA e automação. Cada termo tem uma página própria, com explicação e links para aprofundar."
       />
       <Section>
         <dl className="grid gap-5 md:grid-cols-2">

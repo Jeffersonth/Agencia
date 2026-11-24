@@ -20,7 +20,7 @@ export default function PrivacidadePage() {
       <h2>1. Dados que coletamos</h2>
       <ul>
         <li>Dados informados por você em formulários: nome, empresa, WhatsApp, e-mail e a descrição do seu desafio.</li>
-        <li>Dados informados nas ferramentas (como o endereço de um site no Teste de Visibilidade em IA ou números nas calculadoras) e mensagens enviadas ao chat de IA do site.</li>
+        <li>Dados informados nas ferramentas (como números nas calculadoras) e mensagens enviadas ao chat de IA do site.</li>
         <li>Dados de navegação coletados por ferramentas de mensuração, como páginas visitadas e origem do acesso.</li>
         <li>Conversas pelo WhatsApp.</li>
       </ul>

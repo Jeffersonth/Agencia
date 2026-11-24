@@ -96,7 +96,7 @@ export function Header() {
               <li key={group.label} className="group relative">
                 <Link
                   href={group.href}
-                  className="inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.92rem] font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white group-hover:bg-white/10 group-hover:text-white"
+                  className="inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3.5 py-2 text-[0.92rem] font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white group-hover:bg-white/10 group-hover:text-white"
                 >
                   {group.label}
                   {group.items && (
